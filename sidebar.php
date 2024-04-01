@@ -87,7 +87,7 @@ require_once("includes/connect.php");
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="contacts-list-archived.php">
+                    <a class="nav-link" href="404.html">
                         <i class="fas fa-fw fa-tools"></i>
                         <span>Maintenance</span></a>
                 </li>

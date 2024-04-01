@@ -93,7 +93,7 @@
 
         <div class="mb-3">
             <label for="formGroupExampleInput" class="form-label">Company Name</label>
-            <input type="text" required class="form-control" id="formGroupExampleInput" placeholder="">
+            <input type="text" name="comp_name" required class="form-control" id="formGroupExampleInput" placeholder="">
                 <div class="invalid-feedback">
                     Please provide a valid Company name.
                 </div>
@@ -102,7 +102,7 @@
 
         <div class="mb-3">
             <label for="formGroupExampleInput" class="form-label">Item Deals</label>
-            <input type="text" required class="form-control" id="formGroupExampleInput" placeholder="">
+            <input type="text" name="item_deal" required class="form-control" id="formGroupExampleInput" placeholder="">
                 <div class="invalid-feedback">
                     Please provide a valid deals.
                 </div>
@@ -110,7 +110,7 @@
 
         <div class="mb-3">
             <label for="formGroupExampleInput" class="form-label">Status</label>
-            <input type="text" required class="form-control" id="formGroupExampleInput" placeholder="">
+            <input type="text" name="status" required class="form-control" id="formGroupExampleInput" placeholder="">
                 <div class="invalid-feedback">
                     Please provide a valid status.
                 </div>
@@ -118,7 +118,7 @@
 
         <div class="mb-3">
             <label for="formGroupExampleInput" class="form-label">Remarks</label>
-            <input type="text" required class="form-control" id="formGroupExampleInput" placeholder="">
+            <input type="text" name="remark" required class="form-control" id="formGroupExampleInput" placeholder="">
                 <!-- <div class="invalid-feedback">
                     Please provide a valid name.
                 </div> -->
@@ -126,7 +126,7 @@
 
         <div class="mb-3">
             <label for="formGroupExampleInput" class="form-label">PDF Link</label>
-            <input type="text" required class="form-control" id="formGroupExampleInput" placeholder="">
+            <input type="text" name="pdf" required class="form-control" id="formGroupExampleInput" placeholder="">
                 <div class="invalid-feedback">
                     Please provide a valid PDF.
                 </div>
