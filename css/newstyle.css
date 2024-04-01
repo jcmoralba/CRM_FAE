@@ -1,0 +1,61 @@
+.custom-dropdown {
+  position: relative;
+}
+
+.custom-dropdown .dropdown-input {
+  width: calc(100% - 105px); /* Adjust according to your padding and icon width */
+}
+
+.custom-dropdown .dropdown-list {
+  position: absolute;
+  top: calc(100% + 5px); /* Adjust according to your layout */
+  left: 0;
+  width: calc(100% - 2px); /* Adjust to match the width of the input field */
+  z-index: 1;
+  display: none;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  border: 1px solid #ced4da; /* Match Bootstrap's default input border color */
+  border-top: none;
+  list-style-type: none;
+}
+
+.custom-dropdown .dropdown-list li {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.custom-dropdown .dropdown-list li:hover {
+  background-color: #f8f9fa; /* Match Bootstrap's default hover color */
+}
+
+.drop-icon {
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 2rem; /* Increased spacing between form groups */
+  }
+  .form-control {
+    border-radius: 0; /* Remove border radius */
+    border: 2px solid #ced4da; /* Add border with custom color */
+    padding: 0.75rem 1rem; /* Add padding */
+  }
+  .form-control:focus {
+    border-color: #80bdff; /* Change border color on focus */
+    box-shadow: none; /* Remove box shadow on focus */
+  }
+  .form-control::placeholder {
+    color: #6c757d; /* Change placeholder color */
+  }
+  .input-group-text {
+    background-color: #f8f9fa; /* Add background color to input group text */
+    border: 2px solid #ced4da; /* Add border with custom color */
+    border-radius: 0; /* Remove border radius */
+    padding: 0.75rem 1rem; /* Add padding */
+  }
+  .input-group-text i {
+    color: #6c757d; /* Change icon color */
+  }
+  
