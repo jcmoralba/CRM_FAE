@@ -19,8 +19,9 @@ require_once("includes/connect.php");
 <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
 <div class="h-full px-3 py-4 overflow-y-auto" style="background-image: linear-gradient(to bottom, rgb(161, 5, 5), rgb(0, 0, 0));">
       <a href="index.php" class="flex items-center ps-2.5 mb-5">
-         <img src="img/hytecpower1.png" class="h-11 me-1 sm:h-7" alt="Hytec Logo" />
-         <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Hytec Power Inc</span>
+         <img src="img/hytecpower1.png" width="150" height="150"  alt="Hytec Logo" />
+       
+       
       </a>
         <ul class="space-y-2 font-medium">
             <li>

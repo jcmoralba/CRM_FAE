@@ -55,7 +55,7 @@
 
         <div class="mb-3">
             <label for="formGroupExampleInput" class="form-label">Remarks</label>
-            <input type="text" name="remark" value="<?php echo  $row['remark']; ?>" required class="form-control" id="formGroupExampleInput" placeholder="">
+            <input type="text" name="remark" value="<?php echo  $row['remark']; ?>" class="form-control" id="formGroupExampleInput" placeholder="">
                 <!-- <div class="invalid-feedback">
                     Please provide a valid name.
                 </div> -->
@@ -107,4 +107,37 @@
     </div>
   </div>
 </div>
+
+
+
+<script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<script>
+
+// for form validation
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(() => {
+'use strict'
+
+// Fetch all the forms we want to apply custom Bootstrap validation styles to
+const forms = document.querySelectorAll('.needs-validation')
+
+// Loop over them and prevent submission
+Array.from(forms).forEach(form => {
+form.addEventListener('submit', event => {
+  if (!form.checkValidity()) {
+    event.preventDefault()
+    event.stopPropagation()
+  }
+
+  form.classList.add('was-validated')
+}, false)
+})
+})()
+// end of form validation
+
+
+</script>
      

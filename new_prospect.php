@@ -34,8 +34,10 @@
         <h2 style="margin-left: 2%;" >New Prospect</h2>
                 <table class="table table-bordered container square-box justify-content-center">
       <thead>
-      <button style="margin-left: 85%; margin-bottom: 1% ;" type="button" class="btn btn-success  justify-content-center" data-bs-toggle="modal" data-bs-target="#addNewProspect">Add Record</button>
+      <button style="margin-left: 85%; margin-bottom: 1%;" type="button" class="btn btn-success  justify-content-center" data-bs-toggle="modal" data-bs-target="#addNewProspect">Add Record</button>
 
+    
+  
     <tr>
       <th>COMPANY NAME</th>
       <th>ITEM DEALS</th>
