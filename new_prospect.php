@@ -34,7 +34,7 @@
         <h2 style="margin-left: 2%;" >New Prospect</h2>
                 <table class="table table-bordered container square-box justify-content-center">
       <thead>
-      <button style="margin-left: 6.5%; margin-bottom: 1% ;" type="button" class="btn btn-success  justify-content-center" data-bs-toggle="modal" data-bs-target="#addNewProspect">Add Record</button>
+      <button style="margin-left: 85%; margin-bottom: 1% ;" type="button" class="btn btn-success  justify-content-center" data-bs-toggle="modal" data-bs-target="#addNewProspect">Add Record</button>
 
     <tr>
       <th>COMPANY NAME</th>
@@ -61,7 +61,7 @@
           <td><?php echo  $row['remark']; ?></td>
           <td><?php echo  $row['pdf']; ?></td>
           <td>
-            <button class="btn btn-warning" data-bs-toggle="modal" type="button" data-bs-target="#update_prospect<?php echo  $row['prospect_id']; ?>"><span class="glyphicon glyphicon-edit"></span> Update</button>
+            <button class="btn btn-warning" data-bs-toggle="modal" type="button" data-bs-target="#update_prospect<?php echo  $row['prospect_id']; ?>"><span class="glyphicon glyphicon-edit"></span> Edit</button>
             <button class="btn btn-danger"  data-bs-toggle="modal" type="button" data-bs-target="#delete_prospect<?php echo  $row['prospect_id']; ?>"><span class="glyphicon glyphicon-edit"></span> Delete</button>
           </td>
       
@@ -110,15 +110,14 @@
 
         <div class="mb-3">
             <label for="formGroupExampleInput" class="form-label">Status</label>
-        <select class="form-select form-select-lg form-control" aria-label="Large select example">
-        <option selected>Select Status</option>
-        <option value="1">Prospecting</option>
-        <option value="2">Make contact</option>
-        <option value="3">Qualify your prospect</option>
-        <option value="4">Nurture your prospect</option>
-        <option value="5">Present your offer</option>
-        <option value="6">Overcome objections</option>
-        <option value="7">Close the sales</option>
+        <select name="status" class="form-select form-select-lg form-control" aria-label="Large select example">
+        <option >Prospecting</option>
+        <option >Make contact</option>
+        <option >Qualify your prospect</option>
+        <option >Nurture your prospect</option>
+        <option >Present your offer</option>
+        <option >Overcome objections</option>
+        <option >Close the sales</option>
         </select>
         </div>
 

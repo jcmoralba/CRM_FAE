@@ -30,27 +30,27 @@
                 </div>
         </div>
 
-        <div class="mb-3">
+        <!-- <div class="mb-3">
             <label for="formGroupExampleInput" class="form-label">Item Deals</label>
             <input type="text" name="status" value="<?php echo  $row['status']; ?>" required class="form-control" id="formGroupExampleInput" placeholder="">
                 <div class="invalid-feedback">
                     Please provide a valid deals.
                 </div>
-        </div>
-
-        <!-- <div class="mb-3">
-            <label for="formGroupExampleInput" class="form-label">Status</label>
-        <select class="form-select form-select-lg form-control" aria-label="Large select example">
-        <option name="status" selected value="test" >Select Status</option>
-        <option value="1">Prospecting</option>
-        <option value="2">Make contact</option>
-        <option value="3">Qualify your prospect</option>
-        <option value="4">Nurture your prospect</option>
-        <option value="5">Present your offer</option>
-        <option value="6">Overcome objections</option>
-        <option value="7">Close the sales</option>
-        </select>
         </div> -->
+
+        <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label">Status</label>
+        <select name="status" class="form-select form-select-lg form-control" aria-label="Large select example">
+        <option selected><?php echo  $row['status']; ?></option>
+        <option >Prospecting</option>
+        <option >Make contact</option>
+        <option >Qualify your prospect</option>
+        <option >Nurture your prospect</option>
+        <option >Present your offer</option>
+        <option >Overcome objections</option>
+        <option >Close the sales</option>
+        </select>
+        </div>
 
 
         <div class="mb-3">
@@ -72,7 +72,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button type="submit" class="btn btn-primary" name="updatedata">Submit</button>
+        <button type="submit" class="btn btn-primary" name="updatedata">Update</button>
       </div>
       </form>
     </div>
@@ -101,7 +101,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button type="submit" class="btn btn-primary" name="deletedata">Submit</button>
+        <button type="submit" class="btn btn-primary" name="deletedata">Delete</button>
       </div>
       </form>
     </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2024 at 02:49 AM
+-- Generation Time: Apr 02, 2024 at 05:22 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.1.25
 
@@ -115,7 +115,9 @@ CREATE TABLE `client_list` (
 --
 
 INSERT INTO `client_list` (`client_id`, `company_name`, `pdf`, `last_contacted`, `remark`, `total_sales`) VALUES
-(1, 'zzz Company', '002_PDF', '11/2/2020', 'remarks2', '50,000');
+(1, 'zzz Company', '002_PDF', '11/2/2020', 'remarks2', '50,000'),
+(2, '1235646', '1324345', '', '246576', ''),
+(3, 'asdasd', 'asdasd', 'asdasd', 'asdsad', 'asdsadas');
 
 -- --------------------------------------------------------
 
@@ -246,8 +248,10 @@ CREATE TABLE `new_prospect` (
 --
 
 INSERT INTO `new_prospect` (`prospect_id`, `company_name`, `item_deals`, `status`, `remark`, `pdf`) VALUES
-(0, 'ABC Company', 'deals1', 'status001', 'remarks1', '001_PDF'),
-(1, 'ABC Company', 'test', 'qweq', 'qweqw', 'qweqw');
+(1, 'ABC Company', 'test', '', 'qweqw', 'qweqw111'),
+(2, 'ZZZ Company', 'deals2', '', 'Remarks3', 'PDF1'),
+(3, 'ZZZ Company', 'deals2', '', 'Remarks3', 'PDF1'),
+(4, 'ZZZ Company', 'deals2', '', 'Remarks3', 'PDF1');
 
 --
 -- Indexes for dumped tables
@@ -297,6 +301,12 @@ ALTER TABLE `events`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `new_prospect`
+--
+ALTER TABLE `new_prospect`
+  ADD PRIMARY KEY (`prospect_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -322,7 +332,7 @@ ALTER TABLE `clients`
 -- AUTO_INCREMENT for table `client_list`
 --
 ALTER TABLE `client_list`
-  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `contacts`
@@ -341,6 +351,12 @@ ALTER TABLE `deals`
 --
 ALTER TABLE `events`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `new_prospect`
+--
+ALTER TABLE `new_prospect`
+  MODIFY `prospect_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

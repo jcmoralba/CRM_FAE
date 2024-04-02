@@ -34,7 +34,7 @@
                
                 <table class="table table-bordered container square-box justify-content-center">
       <thead>
-      <button style="margin-left: 6.5%; margin-bottom: 1% ;" type="button" class="btn btn-success  justify-content-center" data-bs-toggle="modal" data-bs-target="#addNewProspect">Add Record</button>
+      <button style="margin-left: 85%; margin-bottom: 1% ;" type="button" class="btn btn-success  justify-content-center" data-bs-toggle="modal" data-bs-target="#addNewClient">Add Record</button>
 
     <tr>
       <th>COMPANY NAME</th>
@@ -60,13 +60,13 @@
           <td><?php echo  $row['remark']; ?></td>
           <td><?php echo  $row['total_sales']; ?></td>    
           <td>
-            <button class="btn btn-warning" data-bs-toggle="modal" type="button" data-bs-target="#update_prospect<?php echo  $row['client_id']; ?>"><span class="glyphicon glyphicon-edit"></span> Update</button>
-            <button class="btn btn-danger"  data-bs-toggle="modal" type="button" data-bs-target="#delete_modal<?php echo  $row['client_id']; ?>"><span class="glyphicon glyphicon-edit"> Delete</button>
+            <button class="btn btn-warning" data-bs-toggle="modal" type="button" data-bs-target="#update_client<?php echo  $row['client_id']; ?>"><span class="glyphicon glyphicon-edit"></span> Edit</button>
+            <button class="btn btn-danger"  data-bs-toggle="modal" type="button" data-bs-target="#delete_client<?php echo  $row['client_id']; ?>"><span class="glyphicon glyphicon-edit"> Delete</button>
           </td>
       
         </tr>
         <?php
-        include 'new_prospect_update.php';
+        include 'client_list_update.php';
   }
         ?>
     
@@ -79,7 +79,7 @@
 
     <!-- ADD NEW DATA -->
    <!-- Modal -->
-   <div class="modal fade" id="addNewProspect" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal fade" id="addNewClient" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -87,12 +87,12 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="new_prospect_process.php" method="POST" class="needs-validation" novalidate id="forms">
+        <form action="client_list_process.php" method="POST" class="needs-validation" novalidate id="forms">
         <!-- input data -->
 
         <div class="mb-3">
             <label for="formGroupExampleInput" class="form-label">Company Name</label>
-            <input type="text" required class="form-control" id="formGroupExampleInput" placeholder="">
+            <input type="text" name ="comp_name" required class="form-control" id="formGroupExampleInput" placeholder="">
                 <div class="invalid-feedback">
                     Please provide a valid Company name.
                 </div>
@@ -100,36 +100,40 @@
 
 
         <div class="mb-3">
-            <label for="formGroupExampleInput" class="form-label">Item Deals</label>
-            <input type="text" required class="form-control" id="formGroupExampleInput" placeholder="">
+            <label for="formGroupExampleInput" class="form-label">PDF Link</label>
+            <input type="text"  name ="pdf" required class="form-control" id="formGroupExampleInput" placeholder="">
+                <div class="invalid-feedback">
+                    Please provide a valid PDF.
+                </div>
+        </div>
+
+
+        <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label">Last Contacted</label>
+            <input type="text" name ="last_contacted"  required class="form-control" id="formGroupExampleInput" placeholder="">
                 <div class="invalid-feedback">
                     Please provide a valid deals.
                 </div>
         </div>
 
-        <div class="mb-3">
-            <label for="formGroupExampleInput" class="form-label">Status</label>
-            <input type="text" required class="form-control" id="formGroupExampleInput" placeholder="">
-                <div class="invalid-feedback">
-                    Please provide a valid status.
-                </div>
-        </div>
 
         <div class="mb-3">
             <label for="formGroupExampleInput" class="form-label">Remarks</label>
-            <input type="text" required class="form-control" id="formGroupExampleInput" placeholder="">
+            <input type="text" name ="remark" required class="form-control" id="formGroupExampleInput" placeholder="">
                 <!-- <div class="invalid-feedback">
                     Please provide a valid name.
                 </div> -->
         </div>
 
+
         <div class="mb-3">
-            <label for="formGroupExampleInput" class="form-label">PDF Link</label>
-            <input type="text" required class="form-control" id="formGroupExampleInput" placeholder="">
+            <label for="formGroupExampleInput" class="form-label">Total Sales</label>
+            <input type="text"  name ="total_sale" required class="form-control" id="formGroupExampleInput" placeholder="">
                 <div class="invalid-feedback">
-                    Please provide a valid PDF.
+                    Please provide a valid status.
                 </div>
         </div>
+
 
       </div>
       <div class="modal-footer">
