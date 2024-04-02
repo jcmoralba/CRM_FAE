@@ -35,3 +35,13 @@ if (isset($_POST['updatedata'])) {
       
            header("Location: new_prospect.php");
 }
+
+if (isset($_POST["deletedata"])) {
+    $prospect_id= $_POST['prospect_id'];
+
+    $sql = "DELETE FROM `new_prospect` WHERE `prospect_id`='$prospect_id'"; 
+    $stmt=$con->prepare($sql);
+    $stmt->execute();
+  
+       header("Location: new_prospect.php");
+}
