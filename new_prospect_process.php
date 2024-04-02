@@ -20,3 +20,18 @@ if (isset($_POST['savedata'])) {
            header("Location: new_prospect.php");
     
 }
+
+if (isset($_POST['updatedata'])) {
+    $prospect_id = $_POST['prospect_id'];
+    $comp_name = $_POST['comp_name'];
+    $item_deal = $_POST['item_deal'];
+    $status = $_POST['status'];
+    $remark = $_POST['remark'];
+    $pdf = $_POST['pdf'];
+    
+        $sql = "UPDATE `new_prospect` SET `company_name`='$comp_name', `item_deals`='$item_deal', `status`='$status', `remark`='$remark', `pdf`='$pdf' WHERE `prospect_id`='$prospect_id'"; 
+        $stmt=$con->prepare($sql);
+        $stmt->execute();
+      
+           header("Location: new_prospect.php");
+}

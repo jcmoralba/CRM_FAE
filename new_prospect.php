@@ -110,11 +110,20 @@
 
         <div class="mb-3">
             <label for="formGroupExampleInput" class="form-label">Status</label>
-            <input type="text" name="status" required class="form-control" id="formGroupExampleInput" placeholder="">
-                <div class="invalid-feedback">
-                    Please provide a valid status.
-                </div>
+        <select class="form-select form-select-lg form-control" aria-label="Large select example">
+        <option selected>Select Status</option>
+        <option value="1">Prospecting</option>
+        <option value="2">Make contact</option>
+        <option value="3">Qualify your prospect</option>
+        <option value="4">Nurture your prospect</option>
+        <option value="5">Present your offer</option>
+        <option value="6">Overcome objections</option>
+        <option value="7">Close the sales</option>
+        </select>
         </div>
+
+
+      
 
         <div class="mb-3">
             <label for="formGroupExampleInput" class="form-label">Remarks</label>
