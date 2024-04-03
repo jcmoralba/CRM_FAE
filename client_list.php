@@ -8,15 +8,15 @@
   <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>New Prospect</title>
+      <title>Client</title>
       <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.0.6/dist/tailwind.min.css" rel="stylesheet">
       <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
   </head>
 
-<body class="bg-gray-100 font-sans antialiased">
+<body class="bg-gray-100">
   <div class="ml-64">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <h2 class="text-2xl font-bold mb-4">Client List</h2>
+          <p class="text-2xl font-bold mb-4">Client List</p>
           <table id="clientTable" class="table-auto w-full border-collapse border border-gray-200">
               <thead>
                   <tr>
