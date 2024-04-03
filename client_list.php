@@ -34,7 +34,7 @@
                
                 <table class="table table-bordered container square-box justify-content-center">
       <thead>
-      <button style="margin-left: 85%; margin-bottom: 1% ;" type="button" class="btn btn-success  justify-content-center" data-bs-toggle="modal" data-bs-target="#addNewClient">Add Record</button>
+      <!-- <button style="margin-left: 85%; margin-bottom: 1% ;" type="button" class="btn btn-success  justify-content-center" data-bs-toggle="modal" data-bs-target="#addNewClient">Add Record</button> -->
 
     <tr>
       <th>COMPANY NAME</th>
@@ -42,12 +42,12 @@
       <th>LAST CONTACTED</th>
       <th>REMARKS</th>
       <th>TOTAL SALES</th>
-      <th>ACTION</th>
+      <!-- <th>ACTION</th> -->
     </tr>
     </thead>
     <tbody>
       <?php
-      $sql="SELECT * FROM client_list";
+      $sql="SELECT `client_id`,`company_name`, `pdf`, `last_contacted`, `remark`,  CONCAT('₱',FORMAT(`total_sales`,2,'en_US')) AS `total_sales` FROM client_list";
       $stmt=$con->prepare($sql);
       $stmt->execute();
       while($row=$stmt->fetch()){
@@ -59,10 +59,12 @@
           <td><?php echo  $row['last_contacted']; ?></td>
           <td><?php echo  $row['remark']; ?></td>
           <td><?php echo  $row['total_sales']; ?></td>    
-          <td>
+
+
+          <!-- <td>
             <button class="btn btn-warning" data-bs-toggle="modal" type="button" data-bs-target="#update_client<?php echo  $row['client_id']; ?>"><span class="glyphicon glyphicon-edit"></span> Edit</button>
             <button class="btn btn-danger"  data-bs-toggle="modal" type="button" data-bs-target="#delete_client<?php echo  $row['client_id']; ?>"><span class="glyphicon glyphicon-edit"> Delete</button>
-          </td>
+          </td> -->
       
         </tr>
         <?php
