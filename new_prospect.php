@@ -31,7 +31,7 @@
                 <!-- End of Topbar -->
 
                
-        <h2 style="margin-left: 2%;" >New Prospect</h2>
+                <h2 style="margin-left: 2%;" >New Prospect</h2>
                 <table class="table table-bordered container square-box justify-content-center">
       <thead>
       <button style="margin-left: 85%; margin-bottom: 1%;" type="button" class="btn btn-success  justify-content-center" data-bs-toggle="modal" data-bs-target="#addNewProspect">Add Record</button>
@@ -74,6 +74,7 @@
         ?>
     
       
+
  
  
   </tbody>
@@ -134,13 +135,20 @@
                 </div> -->
         </div>
 
-        <div class="mb-3">
+        <!-- <div class="mb-3">
             <label for="formGroupExampleInput" class="form-label">PDF Link</label>
             <input type="text" name="pdf" required class="form-control" id="formGroupExampleInput" placeholder="">
                 <div class="invalid-feedback">
                     Please provide a valid PDF.
                 </div>
+        </div> -->
+
+
+        <div class="mb-3">
+        <label for="formFile" class="form-label">Input PDF File</label>
+        <input class="form-control" name="pdf" type="file" id="formFile">
         </div>
+
 
       </div>
       <div class="modal-footer">
@@ -197,6 +205,8 @@
         </div>
     </div>
 
+
+
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -214,6 +224,8 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
+
+
     <script>
 
 // for form validation

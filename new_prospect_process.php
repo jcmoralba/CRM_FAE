@@ -27,7 +27,7 @@ if (isset($_POST['updatedata'])) {
     $item_deal = $_POST['item_deal'];
     $status = $_POST['status'];
     $remark = $_POST['remark'];
-    $pdf = $_POST['pdf'];
+    $pdf = $_POST['pdf_file'];
     
         $sql = "UPDATE `new_prospect` SET `company_name`='$comp_name', `item_deals`='$item_deal', `status`='$status', `remark`='$remark', `pdf`='$pdf' WHERE `prospect_id`='$prospect_id'"; 
         $stmt=$con->prepare($sql);
