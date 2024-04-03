@@ -30,7 +30,6 @@
               </thead>
               <tbody>
                   <?php
-                  // Assuming $con is your database connection
                   $sql = "SELECT * FROM client_list";
                   $stmt = $con->prepare($sql);
                   $stmt->execute();
