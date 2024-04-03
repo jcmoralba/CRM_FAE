@@ -1,3 +1,8 @@
+<?php
+  include "sidebar.php";
+  include "navbar-TEST.php"
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,12 +16,7 @@
 
     <!-- Page Wrapper -->
     <div id="wrapper">
-        <?php
-        include "sidebar.php";
-        ?>
-        <!-- Sidebar -->
-
-        <!-- End of Sidebar -->
+      
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -24,11 +24,7 @@
             <!-- Main Content -->
             <div id="content">
 
-                <!-- Topbar -->
-               <?php
-                    include "navbar.php";
-               ?>
-                <!-- End of Topbar -->
+               
 
                
                 <h2 style="margin-left: 2%;" >New Prospect</h2>
