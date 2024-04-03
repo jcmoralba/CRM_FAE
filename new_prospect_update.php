@@ -61,12 +61,18 @@
                 </div> -->
         </div>
 
-        <div class="mb-3">
+        <!-- <div class="mb-3">
             <label for="formGroupExampleInput" class="form-label">PDF Link</label>
             <input type="text" name="pdf" value="<?php echo  $row['pdf']; ?>" required class="form-control" id="formGroupExampleInput" placeholder="">
                 <div class="invalid-feedback">
                     Please provide a valid PDF.
                 </div>
+        </div> -->
+
+
+        <div class="mb-3">
+        <label for="formFile" class="form-label">Input PDF File</label>
+        <input class="form-control" name="pdf_file" type="file" id="formFile">
         </div>
 
       </div>
@@ -109,6 +115,7 @@
 </div>
 
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
