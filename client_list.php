@@ -41,7 +41,7 @@
                           <td class="px-4 py-2"><?php echo $row['pdf']; ?></td>
                           <td class="px-4 py-2"><?php echo $row['last_contacted']; ?></td>
                           <td class="px-4 py-2"><?php echo $row['remark']; ?></td>
-                          <td class="px-4 py-2"><?php echo $row['total_sales']; ?></td>
+                          <td class="px-4 py-2 text-right"><?php echo $row['total_sales']; ?></td>
                           <!-- <td class="px-4 py-2">
                               <button class="btn btn-warning" data-bs-toggle="modal"
                                   data-bs-target="#update_client<?php echo $row['client_id']; ?>"><span
