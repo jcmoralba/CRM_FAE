@@ -11,7 +11,7 @@
 <?php 
 
 
-  $created = $_GET['register'] ?? null ;
+  $created = $_GET['login'] ;
   
 if ($created == 'success') {
   echo 'Account created successfully';
