@@ -16,6 +16,9 @@ include "navbar-TEST.php";
 
 <body class="bg-gray-100">
 
+<?php
+// include "new_prospect_update.php";
+?>
   <div class="ml-64">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <p class="text-2xl font-bold mb-4">New Prospect</p>
