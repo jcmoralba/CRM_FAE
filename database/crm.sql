@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 04, 2024 at 05:25 AM
+-- Generation Time: Apr 04, 2024 at 08:54 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.1.25
 
@@ -20,6 +20,36 @@ SET time_zone = "+00:00";
 --
 -- Database: `crm`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `account`
+--
+
+CREATE TABLE `account` (
+  `account_id` int(11) NOT NULL,
+  `user_type` varchar(255) NOT NULL,
+  `user` varchar(255) NOT NULL,
+  `pass` varchar(255) NOT NULL,
+  `fname` varchar(255) NOT NULL,
+  `lname` varchar(255) NOT NULL,
+  `mname` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `department` varchar(255) NOT NULL,
+  `number` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `account`
+--
+
+INSERT INTO `account` (`account_id`, `user_type`, `user`, `pass`, `fname`, `lname`, `mname`, `email`, `department`, `number`) VALUES
+(1, 'FAE', 'jc', 'moralba', '', '', '', 'jcmoralba@gmail.com', '', 0),
+(4, '', '', 'junmar', 'junmmma', 'rrriosa', '', 'junmarpogi@gmail.com', 'FAE', 91232312),
+(5, '', '', '1234', 'dwqeqw', 'wadadaw', '', 'test@gmail.com', 'FAE', 9823423),
+(6, '', '', '123', 'asd', 'asd', '', 'qwecqwe2@yahoo.com', 'FAE', 3123123),
+(7, '', '', '123123', 'qwe', '123', '', 'qwecqwe2@yahoo.com', 'qwe', 12123123);
 
 -- --------------------------------------------------------
 
@@ -251,9 +281,9 @@ INSERT INTO `new_prospect` (`prospect_id`, `company_name`, `item_deals`, `status
 (1, 'ABC Company', 'test', '', 'qweqw', 'qweqw111'),
 (2, 'ZZZ Company', 'deals2', '', 'Remarks3', 'PDF1'),
 (3, 'ZZZ Company', 'deals2', '', 'Remarks3', 'PDF1'),
-(4, 'ZZZ Company', 'deals2', '', 'Remarks3', 'PDF1'),
+(4, 'ZZZ Company', 'deals2', 'Contacted', 'Remarks3', ''),
 (6, 'ZZZ Company', 'deals2', 'Meeting', 'Remarks3', ''),
-(7, 'ZZZ Company', '3123123', '', 'Remarks3', ''),
+(7, 'ZZZ Company', '3123123', 'In Negotiation', 'Remarks3', ''),
 (8, 'ZZZ Company', 'deals2', 'Contacted', 'Remarks4', ''),
 (9, '123 Company', 'deals2', 'Contacted', '12312', '');
 
@@ -282,6 +312,12 @@ INSERT INTO `status` (`status_id`, `status_name`) VALUES
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `account`
+--
+ALTER TABLE `account`
+  ADD PRIMARY KEY (`account_id`);
 
 --
 -- Indexes for table `activity`
@@ -341,6 +377,12 @@ ALTER TABLE `status`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `account`
+--
+ALTER TABLE `account`
+  MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `activity`
