@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2024 at 05:22 AM
+-- Generation Time: Apr 04, 2024 at 05:25 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.1.25
 
@@ -251,7 +251,33 @@ INSERT INTO `new_prospect` (`prospect_id`, `company_name`, `item_deals`, `status
 (1, 'ABC Company', 'test', '', 'qweqw', 'qweqw111'),
 (2, 'ZZZ Company', 'deals2', '', 'Remarks3', 'PDF1'),
 (3, 'ZZZ Company', 'deals2', '', 'Remarks3', 'PDF1'),
-(4, 'ZZZ Company', 'deals2', '', 'Remarks3', 'PDF1');
+(4, 'ZZZ Company', 'deals2', '', 'Remarks3', 'PDF1'),
+(6, 'ZZZ Company', 'deals2', 'Meeting', 'Remarks3', ''),
+(7, 'ZZZ Company', '3123123', '', 'Remarks3', ''),
+(8, 'ZZZ Company', 'deals2', 'Contacted', 'Remarks4', ''),
+(9, '123 Company', 'deals2', 'Contacted', '12312', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `status`
+--
+
+CREATE TABLE `status` (
+  `status_id` int(11) NOT NULL,
+  `status_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `status`
+--
+
+INSERT INTO `status` (`status_id`, `status_name`) VALUES
+(1, 'Contacted'),
+(2, 'Meeting'),
+(3, 'Sent Quotations'),
+(5, 'In Negotiation'),
+(6, 'Close Deals');
 
 --
 -- Indexes for dumped tables
@@ -307,6 +333,12 @@ ALTER TABLE `new_prospect`
   ADD PRIMARY KEY (`prospect_id`);
 
 --
+-- Indexes for table `status`
+--
+ALTER TABLE `status`
+  ADD PRIMARY KEY (`status_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -356,7 +388,13 @@ ALTER TABLE `events`
 -- AUTO_INCREMENT for table `new_prospect`
 --
 ALTER TABLE `new_prospect`
-  MODIFY `prospect_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `prospect_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `status`
+--
+ALTER TABLE `status`
+  MODIFY `status_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
