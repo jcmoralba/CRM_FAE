@@ -1,252 +1,157 @@
 <?php
   include "sidebar.php";
-  include "navbar-TEST.php"
+  include "navbar-TEST.php";
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Prospect</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTDNEpUTHQoQUJMHLrErGJyHg89uy71MyuH5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Prospect</title> 
+  <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
 <body class="bg-gray-100">
 
-    <!-- Page Wrapper -->
-    <div id="wrapper">
-      
+<div class="ml-64">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <p class="text-2xl font-bold mb-4">New Prospect</p>
+  </div>
 
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
+    <button data-modal-target="static-modal" data-modal-toggle="static-modal" class="ml-3 block text-white bg-blue-700 hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+     Add client
+    </button>
 
-            <!-- Main Content -->
-            <div id="content">
 
-               
 
-               
-                <h2 style="margin-left: 2%;" >New Prospect</h2>
-                <table class="table table-bordered container square-box justify-content-center">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <table id="example" class="table-auto w-full">
       <thead>
-      <button style="margin-left: 85%; margin-bottom: 1%;" type="button" class="btn btn-success  justify-content-center" data-bs-toggle="modal" data-bs-target="#addNewProspect">Add Record</button>
-
-    
-  
-    <tr>
-      <th>COMPANY NAME</th>
-      <th>ITEM DEALS</th>
-      <th>STATUS</th>
-      <th>REMARKS</th>
-      <th>PDF LINK</th>
-      <th>ACTION</th>
-    </tr>
-    </thead>
-    <tbody>
-      <?php
-      $sql="SELECT * FROM new_prospect";
-      $stmt=$con->prepare($sql);
-      $stmt->execute();
-      $strTable="";
-      while($row=$stmt->fetch()){
+        <tr>
+          <th class="px-4 py-2">COMPANY NAME</th>
+          <th class="px-4 py-2">ITEM DEALS</th>
+          <th class="px-4 py-2">STATUS</th>
+          <th class="px-4 py-2">REMARKS</th>
+          <th class="px-4 py-2">PDF LINK</th>
+          <th class="px-4 py-2">ACTION</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+        $sql="SELECT * FROM new_prospect";
+        $stmt=$con->prepare($sql);
+        $stmt->execute();
+        while($row=$stmt->fetch()){
         ?>
         <tr>
-          <td style="display:none;" ><?php echo  $row['prospect_id']; ?></td>
-          <td><?php echo  $row['company_name']; ?></td>
-          <td><?php echo  $row['item_deals']; ?></td>
-          <td><?php echo  $row['status']; ?></td>
-          <td><?php echo  $row['remark']; ?></td>
-          <td><?php echo  $row['pdf']; ?></td>
-          <td>
-            <button class="btn btn-warning" data-bs-toggle="modal" type="button" data-bs-target="#update_prospect<?php echo  $row['prospect_id']; ?>"><span class="glyphicon glyphicon-edit"></span> Edit</button>
-            <button class="btn btn-danger"  data-bs-toggle="modal" type="button" data-bs-target="#delete_prospect<?php echo  $row['prospect_id']; ?>"><span class="glyphicon glyphicon-edit"></span> Delete</button>
+          <td class="border px-4 py-2"><?php echo $row['company_name']; ?></td>
+          <td class="border px-4 py-2"><?php echo $row['item_deals']; ?></td>
+          <td class="border px-4 py-2"><?php echo $row['status']; ?></td>
+          <td class="border px-4 py-2"><?php echo $row['remark']; ?></td>
+          <td class="border px-4 py-2"><?php echo $row['pdf']; ?></td>
+          <td class="border px-4 py-2">
+            <button class="btn btn-warning" data-bs-toggle="modal" type="button" data-bs-target="#update_prospect<?php echo $row['prospect_id']; ?>"><span class="glyphicon glyphicon-edit"></span> Edit</button>
+            <button class="btn btn-danger" data-bs-toggle="modal" type="button" data-bs-target="#delete_prospect<?php echo $row['prospect_id']; ?>"><span class="glyphicon glyphicon-edit"></span> Delete</button>
           </td>
-      
         </tr>
         <?php
         include 'new_prospect_update.php';
-  }
+        }
         ?>
-    
-      
-
- 
- 
-  </tbody>
+      </tbody>
     </table>
+  </div>
+</div>
 
-
-    <!-- ADD NEW DATA -->
-   <!-- Modal -->
-   <div class="modal fade" id="addNewProspect" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Record</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+<!-- Main modal -->
+<div id="static-modal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+  <div class="relative p-4 w-full max-w-2xl max-h-full">
+    <!-- Modal content -->
+    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+      <!-- Modal header -->
+      <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+          Static modal
+        </h3>
+        <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="static-modal">
+          <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+          </svg>
+          <span class="sr-only">Add new Record</span>
+        </button>
       </div>
-      <div class="modal-body">
-        <form action="new_prospect_process.php" method="POST" class="needs-validation" novalidate id="forms">
-        <!-- input data -->
-
-        <div class="mb-3">
-            <label for="formGroupExampleInput" class="form-label">Company Name</label>
-            <input type="text" name="comp_name" required class="form-control" id="formGroupExampleInput" placeholder="">
-                <div class="invalid-feedback">
-                    Please provide a valid Company name.
-                </div>
-        </div>
-
-
-        <div class="mb-3">
-            <label for="formGroupExampleInput" class="form-label">Item Deals</label>
-            <input type="text" name="item_deal" required class="form-control" id="formGroupExampleInput" placeholder="">
-                <div class="invalid-feedback">
-                    Please provide a valid deals.
-                </div>
-        </div>
-
-        <div class="mb-3">
-            <label for="formGroupExampleInput" class="form-label">Status</label>
-        <select name="status" class="form-select form-select-lg form-control" aria-label="Large select example">
-        <option >Prospecting</option>
-        <option >Make contact</option>
-        <option >Qualify your prospect</option>
-        <option >Nurture your prospect</option>
-        <option >Present your offer</option>
-        <option >Overcome objections</option>
-        <option >Close the sales</option>
-        </select>
-        </div>
-
-
-      
-
-        <div class="mb-3">
-            <label for="formGroupExampleInput" class="form-label">Remarks</label>
-            <input type="text" name="remark" required class="form-control" id="formGroupExampleInput" placeholder="">
-                <!-- <div class="invalid-feedback">
-                    Please provide a valid name.
-                </div> -->
-        </div>
-
-        <!-- <div class="mb-3">
-            <label for="formGroupExampleInput" class="form-label">PDF Link</label>
-            <input type="text" name="pdf" required class="form-control" id="formGroupExampleInput" placeholder="">
-                <div class="invalid-feedback">
-                    Please provide a valid PDF.
-                </div>
-        </div> -->
-
-
-        <div class="mb-3">
-        <label for="formFile" class="form-label">Input PDF File</label>
-        <input class="form-control" name="pdf" type="file" id="formFile">
-        </div>
-
-
+      <!-- Modal body -->
+      <div class="p-4 md:p-5 space-y-4">
+        <form action="new_prospect_process.php" method="POST">
+            <div class="mb-6">
+              <label for="comp_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Company Name</label>
+              <input type="text" id="comp_name" name="comp_name" class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Company Name" required />
+            </div>
+            <div class="mb-6">
+              <label for="item_deal" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Item Deals</label>
+              <input type="text" id="item_deal" name="item_deal" class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Item Deals" required />
+            </div>
+            <div class="mb-6">
+              <label for="status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an status</label>
+              <select id="status" name="status" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <option selected>Choose a status</option>
+                <option value="Prospecting">Prospecting</option>
+                <option value="Make contact">Make contact</option>
+                <option value="Qualify your prospect">Qualify your prospect</option>
+                <option value="Nurture your prospect">Nurture your prospect</option>
+                <option value="Present your offer">Present your offer</option>
+                <option value="Overcome objections">Overcome objections</option>
+                <option value="Close the sales">Close the sales</option>
+              </select>
+            </div>
+            <div class="mb-6">
+              <label for="remark" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Remarks</label>
+              <input type="text" id="remark" name="remark" class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Remarks" required />
+            </div>
+            <div class="mb-6">
+              <div class="flex items-center justify-center w-full">
+                <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-white dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                  <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                    <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
+                    </svg>
+                    <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                    <p id="selected-file" class="hidden mb-2 text-sm text-gray-500 dark:text-gray-400">Selected file: <span id="file-name"></span></p>
+                  </div>
+                  <input id="dropzone-file" type="file" name="pdf" class="hidden" onchange="displayFileName(this)" />
+                </label>
+              </div>
+            </div>
+          <!-- More form fields -->
+          <button type="submit" name="savedata" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+        </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button type="submit" class="btn btn-primary" name="savedata">Submit</button>
-      </div>
-      </form>
     </div>
   </div>
 </div>
-  <!-- END OF ADD NEW DATA -->
 
 
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 
+<script>
+  $(document).ready(function() {
+    $('#example').DataTable({
+      // Add any customization options here
+    });
+  });
 
-
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
-
-        </div>
-        <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="logout.php">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
-
-
-    <script>
-
-// for form validation
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-(() => {
-'use strict'
-
-// Fetch all the forms we want to apply custom Bootstrap validation styles to
-const forms = document.querySelectorAll('.needs-validation')
-
-// Loop over them and prevent submission
-Array.from(forms).forEach(form => {
-form.addEventListener('submit', event => {
-  if (!form.checkValidity()) {
-    event.preventDefault()
-    event.stopPropagation()
-  }
-
-  form.classList.add('was-validated')
-}, false)
-})
-})()
-// end of form validation
-
-
+  // show the selected file
+  const displayFileName = (input) => {
+    if (input.files && input.files[0]) {
+      const fileName = input.files[0].name;
+      document.getElementById('selected-file').classList.remove('hidden');
+      document.getElementById('file-name').innerText = fileName;
+    }
+  };
 </script>
 
 </body>
