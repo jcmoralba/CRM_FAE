@@ -74,7 +74,6 @@
 <!-- End popup dialog box -->
 
 <br>
-<center>Developed by <a href="https://shinerweb.com/">Shinerweb</a></center>
 </body>
 <script src="js/schedule.js"></script>
 </html> 
