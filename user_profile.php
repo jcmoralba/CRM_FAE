@@ -7,7 +7,7 @@
 </head>
 <body>
     
-<div class="mt-10 ml-64">
+<div class=" ml-64">
 <?php 
 include("sidebar.php");
 ?>
