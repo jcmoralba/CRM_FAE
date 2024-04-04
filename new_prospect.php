@@ -12,6 +12,14 @@ include "navbar-TEST.php";
   <title>New Prospect</title>
   <script src="https://cdn.tailwindcss.com"></script>
 
+  <style>
+    /* Adjust the position of the search bar */
+    .dataTables_filter {
+      float: right; /* Align to the right */
+      margin-bottom: px; /* Optional: Add some space below the search bar */
+    }
+  </style>
+
 </head>
 
 <body class="bg-gray-100">
@@ -25,16 +33,11 @@ include "navbar-TEST.php";
     </div>
     <!-- Pin to top right corner -->
     <div class="relative h-32 w-32 ...">
-
-
-
       <button data-modal-target="static-modal" data-modal-toggle="static-modal"
         class="ml-30 block text-white bg-blue-700 hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         type="button">
         Add client
       </button>
-
-
     </div>
 
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
