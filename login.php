@@ -15,12 +15,12 @@
           <form class="max-w-xl w-full p-6 mx-auto bg-white rounded-lg shadow-inner border-2 dark:border-black">
             <div class="mb-12">
               <h3 class="text-4xl font-extrabold">Sign in</h3>
-              <p class="text-sm mt-6">Don't have an account <a href="javascript:void(0);" class="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Register here</a></p>
+              <p class="text-sm mt-6">Don't have an account <a href="register.php" class="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Register here</a></p>
             </div>
             <div>
-              <label class="text-sm block mb-2">Username</label>
+              <label class="text-sm block mb-2">Email</label>
               <div class="relative flex items-center">
-                <input name="email" type="text" required class="w-full text-sm border-b border-gray-300 focus:border-[#333] px-2 py-3 outline-none" placeholder="Enter username" />
+                <input name="email" type="text" required class="w-full text-sm border-b border-gray-300 focus:border-[#333] px-2 py-3 outline-none" placeholder="Enter email" />
                 <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" class="w-[18px] h-[18px] absolute right-2" viewBox="0 0 682.667 682.667">
                   <defs>
                     <clipPath id="a" clipPathUnits="userSpaceOnUse">
@@ -45,12 +45,7 @@
               </div>
             </div>
             <div class="flex items-center justify-between gap-2 mt-5">
-              <div class="flex items-center">
-                <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 shrink-0 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" />
-                <label for="remember-me" class="ml-3 block text-sm">
-                  Remember me
-                </label>
-              </div>
+             
               <div>
                 <a href="jajvascript:void(0);" class="text-blue-600 text-sm hover:underline">
                   Forgot Password?
