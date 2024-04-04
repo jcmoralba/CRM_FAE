@@ -22,7 +22,7 @@ if (isset($_POST["register"])) {
         $stmt = $con->prepare($sql);
         $stmt->execute();
 
-        header("Location: login.php");
+        header("Location: login.php?login=sucess");
 
     } else {
         echo "password dont match!";

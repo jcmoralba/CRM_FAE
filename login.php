@@ -7,6 +7,14 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
+
+<?php 
+$created = $_GET['register'] ;
+if ($created == 'sucess') {
+  echo 'Account created successfully';
+  
+}
+?>
 <div class="font-[sans-serif] text-[#333]" style="background-image: linear-gradient(to bottom, rgb(161, 5, 5), rgb(0, 0, 0));">
       <div class="ml-5 grid lg:grid-cols-2 md:grid-cols-2 items-center gap-4">
         <div class="max-md:order-1 h-screen min-h-full">
