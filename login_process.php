@@ -24,10 +24,5 @@ if (isset($_POST["login"])) {
         echo "invalid email or password!";
        
     }
-
-
 }
-
-
-
 ?>
