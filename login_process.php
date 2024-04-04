@@ -18,7 +18,7 @@ if (isset($_POST["login"])) {
     }
 
     if ($password == $pass_check) {
-        header("location: new_prospect.php");
+        header("location: index.php");
     } 
     else {
         echo "invalid email or password!";
