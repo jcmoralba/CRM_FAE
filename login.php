@@ -12,7 +12,7 @@
         <div class="max-md:order-1 h-screen min-h-full">
           <img src="img/hytec_logo.png" class="w-full h-full object-contain" alt="login-image" />
         </div>
-          <form class="max-w-xl w-full p-6 mx-auto bg-white rounded-lg shadow-inner border-2 dark:border-black">
+          <form action="login_process.php" method="post" class="max-w-xl w-full p-6 mx-auto bg-white rounded-lg shadow-inner border-2 dark:border-black">
             <div class="mb-12">
               <h3 class="text-4xl font-extrabold">Sign in</h3>
               <p class="text-sm mt-6">Don't have an account <a href="register.php" class="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Register here</a></p>
@@ -53,7 +53,7 @@
               </div>
             </div>
             <div class="mt-12">
-              <button type="button" class="w-full shadow-xl py-2.5 px-4 text-sm font-semibold rounded-full text-white bg-black hover:bg-red-800 focus:outline-none">
+              <button type="submit" name="login" class="w-full shadow-xl py-2.5 px-4 text-sm font-semibold rounded-full text-white bg-black hover:bg-red-800 focus:outline-none">
                 Sign in
               </button>
             </div>
