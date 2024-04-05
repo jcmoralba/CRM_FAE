@@ -11,18 +11,40 @@ include "navbar.php";
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>New Prospect</title>
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* Adjust the position of the search bar */
+    .dataTables_filter {
+      float: right;
+      /* Align to the right */
+      margin-bottom: px;
+      /* Optional: Add some space below the search bar */
+    }
+  </style>
+
 </head>
 
 <body class="bg-gray-100">
+
+<form id="form_id" action="index.php" method="POST">
+
+</form>
+  <?php
+  // include "new_prospect_update.php";
+  ?>
   <div class="ml-64">
+
+  <button id="button1" onclick="showAlert()">test</button>
+
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <p class="text-2xl font-bold mb-4">New Prospect</p>
     </div>
+    <div class="relative h-32 w-32 ...">
 
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <button data-modal-target="static-modal" data-modal-toggle="static-modal"
-        class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        type="button">Add client
+        class="ml-30 block text-white bg-blue-700 hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        type="button">
+        Add client
       </button>
     </div>
 
@@ -67,9 +89,14 @@ include "navbar.php";
                     class="glyphicon glyphicon-edit"></span> View</button>
 
                 <button class="btn btn-warning" data-bs-toggle="modal" type="button"
+<<<<<<< HEAD
                 data-bs-target="#update_prospect<?php echo $row['prospect_id']; ?>"><span
                     class="glyphicon glyphicon-edit"></span> Edit</button>
                     
+=======
+                  data-bs-target="#update_prospect<?php echo $row['prospect_id']; ?>"><span
+                    class="glyphicon glyphicon-edit"></span> Edit</button>
+>>>>>>> parent of 1e5bb6d (Update new_prospect.php)
                 <button class="btn btn-danger" data-bs-toggle="modal" type="button"
                   data-bs-target="#delete_prospect<?php echo $row['prospect_id']; ?>"><span
                     class="glyphicon glyphicon-edit"></span> Delete</button>
@@ -123,6 +150,23 @@ include "navbar.php";
                 class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Item Deals" required />
             </div>
+            <!-- <div class="mb-6">
+              <label for="status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an
+                status</label>
+              <select id="status" name="status"
+                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <option selected>Choose a status</option>
+                <option value="Prospecting">Prospecting</option>
+                <option value="Make contact">Make contact</option>
+                <option value="Qualify your prospect">Qualify your prospect</option>
+                <option value="Nurture your prospect">Nurture your prospect</option>
+                <option value="Present your offer">Present your offer</option>
+                <option value="Overcome objections">Overcome objections</option>
+                <option value="Close the sales">Close the sales</option>
+              </select>
+            </div> -->
+
+
             <?php
             $sql1 = "SELECT * FROM status";
             $stmt1 = $con->prepare($sql1);
@@ -209,25 +253,6 @@ include "navbar.php";
         document.getElementById('file-name').innerText = fileName;
       }
     };
-
-    // JavaScript to hide the modal when the page loads
-    document.addEventListener("DOMContentLoaded", function () {
-        // Get a reference to the modal
-        var modal = document.getElementById("modal<?php echo $row['prospect_id']; ?>");
-
-        // Hide the modal
-        modal.classList.add("hidden");
-    });
-
-    // Add event listener to the Edit button to show the modal when clicked
-    document.querySelector('[data-modal-toggle="static-modal<?php echo $row['prospect_id']; ?>"]').addEventListener("click", function () {
-        // Get a reference to the modal
-        var modal = document.getElementById("modal<?php echo $row['prospect_id']; ?>");
-
-        // Show the modal
-        modal.classList.remove("hidden");
-    });
-
   </script>
 
 </body>
