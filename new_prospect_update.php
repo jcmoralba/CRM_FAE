@@ -57,8 +57,13 @@
             </select>
           </div>
 
-
-
+          <div class="mb-6">
+            <label for="total_sales" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Total
+              Sales</label>
+            <input type="text" id="total_sales" name="total_sales" value="<?php echo $row['total_sales']; ?>"
+              class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Total Sales" required >
+          </div>
 
 
           <div class="mb-3">

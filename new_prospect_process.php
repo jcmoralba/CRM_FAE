@@ -10,9 +10,11 @@ if (isset($_POST['savedata'])) {
     $status = $_POST['status'];
     $remark = $_POST['remark'];
     $pdf = $_POST['pdf'];
+    $total_sale = $_POST['total_sales'];
+    $date_now =  date("Y-m-d H:i:s");
 
 
-    $sql = "INSERT INTO `new_prospect`(`company_name`, `item_deals`, `status`, `remark`, `pdf`) VALUES ('$comp_name','$item_deal','$status','$remark','$pdf')";
+    $sql = "INSERT INTO `new_prospect`(`company_name`, `item_deals`, `status`, `remark`, `pdf`, `total_sales`, `last_contacted`) VALUES ('$comp_name','$item_deal','$status','$remark','$pdf','$total_sale','$date_now')";
     // $data=array($name,$address,$number);
     $stmt = $con->prepare($sql);
     $stmt->execute();
@@ -28,12 +30,12 @@ if (isset($_POST['updatedata'])) {
     $status = $_POST['status'];
     $remark = $_POST['remark'];
     $pdf = $_POST['pdf_file'];
-    $total_sale = $_POST['total_sale'];
-    $date_now = date_create()->format('Y-m-d H:i:s');
+    $total_sale = $_POST['total_sales'];
+    $date_now =  date("Y-m-d H:i:s");
 
 
 
-    $sql = "UPDATE `new_prospect` SET `company_name`='$comp_name', `item_deals`='$item_deal', `status`='$status', `remark`='$remark', `pdf`='$pdf', `total_sales='$total_sale', `last_contacted`='$date_now' WHERE `prospect_id`='$prospect_id'";
+    $sql = "UPDATE `new_prospect` SET `company_name`='$comp_name', `item_deals`='$item_deal', `status`='$status', `remark`='$remark', `pdf`='$pdf', `total_sales`='$total_sale', `last_contacted`='$date_now' WHERE `prospect_id`='$prospect_id'";
     $stmt = $con->prepare($sql);
     $stmt->execute();
 

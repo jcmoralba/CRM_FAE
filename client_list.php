@@ -30,7 +30,7 @@
               </thead>
               <tbody>
                   <?php
-                  $sql = "SELECT * FROM client_list";
+                  $sql = "SELECT * FROM new_prospect WHERE `status`='Close Deals'";
                   $stmt = $con->prepare($sql);
                   $stmt->execute();
                   while ($row = $stmt->fetch()) {
