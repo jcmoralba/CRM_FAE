@@ -1,7 +1,6 @@
 <?php
 include "sidebar.php";
-include "navbar-TEST.php";
-
+include "navbar.php";
 ?>
 
 
@@ -50,15 +49,26 @@ include "navbar-TEST.php";
 </head>
 
 <body class="bg-gray-100">
+
+<form id="form_id" action="index.php" method="POST">
+
+</form>
+  <?php
+  // include "new_prospect_update.php";
+  ?>
   <div class="ml-64">
+
+  <button id="button1" onclick="showAlert()">test</button>
+
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <p class="text-2xl font-bold mb-4">New Prospect</p>
     </div>
+    <div class="relative h-32 w-32 ...">
 
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <button data-modal-target="static-modal" data-modal-toggle="static-modal"
-        class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        type="button">Add client
+        class="ml-30 block text-white bg-blue-700 hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        type="button">
+        Add client
       </button>
     </div>
 
@@ -98,6 +108,7 @@ include "navbar-TEST.php";
                 <?php echo $row['pdf']; ?>
               </td>
               <td class="border px-4 py-2">
+<<<<<<< HEAD
                 <button class="btn btn-info" data-bs-toggle="modal" type="button"
                   data-bs-target="#view_prospect<?php echo $row['prospect_id']; ?>"><span
                     class="glyphicon glyphicon-edit"></span> View</button>
@@ -107,6 +118,15 @@ include "navbar-TEST.php";
 
 
 
+=======
+              <button class="btn btn-info" data-bs-toggle="modal" type="button"
+                  data-bs-target="#delete_prospect<?php echo $row['prospect_id']; ?>"><span
+                    class="glyphicon glyphicon-edit"></span> View</button>
+
+                <button class="btn btn-warning" data-bs-toggle="modal" type="button"
+                  data-bs-target="#update_prospect<?php echo $row['prospect_id']; ?>"><span
+                    class="glyphicon glyphicon-edit"></span> Edit</button>
+>>>>>>> e44c6dedc7e5c9f45665019d6c8bc28b972e175d
                 <button class="btn btn-danger" data-bs-toggle="modal" type="button"
                   data-bs-target="#delete_prospect<?php echo $row['prospect_id']; ?>"><span
                     class="glyphicon glyphicon-edit"></span> Delete</button>
@@ -160,6 +180,23 @@ include "navbar-TEST.php";
                 class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Item Deals" required />
             </div>
+            <!-- <div class="mb-6">
+              <label for="status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an
+                status</label>
+              <select id="status" name="status"
+                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <option selected>Choose a status</option>
+                <option value="Prospecting">Prospecting</option>
+                <option value="Make contact">Make contact</option>
+                <option value="Qualify your prospect">Qualify your prospect</option>
+                <option value="Nurture your prospect">Nurture your prospect</option>
+                <option value="Present your offer">Present your offer</option>
+                <option value="Overcome objections">Overcome objections</option>
+                <option value="Close the sales">Close the sales</option>
+              </select>
+            </div> -->
+
+
             <?php
             $sql1 = "SELECT * FROM status";
             $stmt1 = $con->prepare($sql1);
