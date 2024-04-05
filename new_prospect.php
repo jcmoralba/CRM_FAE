@@ -89,14 +89,8 @@ include "navbar.php";
                     class="glyphicon glyphicon-edit"></span> View</button>
 
                 <button class="btn btn-warning" data-bs-toggle="modal" type="button"
-<<<<<<< HEAD
-                data-bs-target="#update_prospect<?php echo $row['prospect_id']; ?>"><span
-                    class="glyphicon glyphicon-edit"></span> Edit</button>
-                    
-=======
                   data-bs-target="#update_prospect<?php echo $row['prospect_id']; ?>"><span
                     class="glyphicon glyphicon-edit"></span> Edit</button>
->>>>>>> parent of 1e5bb6d (Update new_prospect.php)
                 <button class="btn btn-danger" data-bs-toggle="modal" type="button"
                   data-bs-target="#delete_prospect<?php echo $row['prospect_id']; ?>"><span
                     class="glyphicon glyphicon-edit"></span> Delete</button>
