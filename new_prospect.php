@@ -37,7 +37,6 @@ include "navbar-TEST.php";
     <div class="relative h-32 w-32 ...">
 
       <button data-modal-target="static-modal" data-modal-toggle="Add Prospect"
->>>>>>> f534ba5d61a11a97b9fb2aafcfa9d1db84a9de6e
         class="ml-30 block text-white bg-blue-700 hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         type="button">
         Add client
