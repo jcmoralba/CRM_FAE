@@ -141,19 +141,19 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Record</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">View Record</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form action="new_prospect_process.php" method="POST" class="needs-validation" novalidate id="forms">
           <!-- input data -->
           <input type="hidden" name="prospect_id" value="<?php echo $row['prospect_id']; ?>">
-          <h3>Are you sure you want to DELETE?</h3>
+
 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button type="submit" class="btn btn-primary" name="deletedata">Delete</button>
+        <!-- <button type="submit" class="btn btn-primary" name="deletedata">Delete</button> -->
       </div>
       </form>
     </div>
