@@ -124,6 +124,33 @@
 </div>
 
 
+<!-- view MODAL -->
+
+<!-- Modal -->
+<div class="modal fade" id="view_prospect<?php echo $row['prospect_id']; ?>" tabindex="-1"
+  aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Record</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="new_prospect_process.php" method="POST" class="needs-validation" novalidate id="forms">
+          <!-- input data -->
+          <input type="hidden" name="prospect_id" value="<?php echo $row['prospect_id']; ?>">
+          <h3>Are you sure you want to DELETE?</h3>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-primary" name="deletedata">Delete</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script src="vendor/jquery/jquery.min.js"></script>

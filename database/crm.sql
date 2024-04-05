@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 04, 2024 at 08:54 AM
+-- Generation Time: Apr 05, 2024 at 10:37 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.1.25
 
@@ -49,7 +49,9 @@ INSERT INTO `account` (`account_id`, `user_type`, `user`, `pass`, `fname`, `lnam
 (4, '', '', 'junmar', 'junmmma', 'rrriosa', '', 'junmarpogi@gmail.com', 'FAE', 91232312),
 (5, '', '', '1234', 'dwqeqw', 'wadadaw', '', 'test@gmail.com', 'FAE', 9823423),
 (6, '', '', '123', 'asd', 'asd', '', 'qwecqwe2@yahoo.com', 'FAE', 3123123),
-(7, '', '', '123123', 'qwe', '123', '', 'qwecqwe2@yahoo.com', 'qwe', 12123123);
+(7, '', '', '123123', 'qwe', '123', '', 'qwecqwe2@yahoo.com', 'qwe', 12123123),
+(8, '', '', '1234', 'junmar', 'Rosario', '', 'qwe@yahoo.com', 'FAE', 9823423),
+(9, '', '', '1234', 'junmar', 'Rosario', '', 'qwe@yahoo.com', 'FAE', 9823423);
 
 -- --------------------------------------------------------
 
@@ -101,6 +103,26 @@ INSERT INTO `admin` (`admin_id`, `email`, `password_hash`, `fName`, `lName`, `de
 (22, 'ryanquibol05@gmail.com', '$2y$10$BS8R.ZDNe8tMOAgI9zVIb.1j8e7pPO0Fidk/SOuqXN4irwEqp1xiS', 'Sir', 'John', 1),
 (23, 'zxc@gmail.com', '$2y$10$iZEuXA1DUmpxACgFPaCCy.5pJJNaGdt742EWfeOZbz691tVXWjqpe', 'try', 'asd', 0),
 (24, 'qweqwe@gmail.com', '$2y$10$qK.BC28KWa0psg4zzUVwuebItAdXHutun3uYUFNhEZvmeR.3GPXE2', 'a', 'a', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `calendar_event_master`
+--
+
+CREATE TABLE `calendar_event_master` (
+  `event_id` int(11) NOT NULL,
+  `event_name` varchar(255) DEFAULT NULL,
+  `event_start_date` date DEFAULT NULL,
+  `event_end_date` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `calendar_event_master`
+--
+
+INSERT INTO `calendar_event_master` (`event_id`, `event_name`, `event_start_date`, `event_end_date`) VALUES
+(1, 'party', '2024-03-31', '2024-04-01');
 
 -- --------------------------------------------------------
 
@@ -270,22 +292,19 @@ CREATE TABLE `new_prospect` (
   `item_deals` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL,
   `remark` varchar(255) NOT NULL,
-  `pdf` varchar(255) NOT NULL
+  `pdf` varchar(255) NOT NULL,
+  `total_sales` varchar(255) NOT NULL,
+  `last_contacted` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `new_prospect`
 --
 
-INSERT INTO `new_prospect` (`prospect_id`, `company_name`, `item_deals`, `status`, `remark`, `pdf`) VALUES
-(1, 'ABC Company', 'test', '', 'qweqw', 'qweqw111'),
-(2, 'ZZZ Company', 'deals2', '', 'Remarks3', 'PDF1'),
-(3, 'ZZZ Company', 'deals2', '', 'Remarks3', 'PDF1'),
-(4, 'ZZZ Company', 'deals2', 'Contacted', 'Remarks3', ''),
-(6, 'ZZZ Company', 'deals2', 'Meeting', 'Remarks3', ''),
-(7, 'ZZZ Company', '3123123', 'In Negotiation', 'Remarks3', ''),
-(8, 'ZZZ Company', 'deals2', 'Contacted', 'Remarks4', ''),
-(9, '123 Company', 'deals2', 'Contacted', '12312', '');
+INSERT INTO `new_prospect` (`prospect_id`, `company_name`, `item_deals`, `status`, `remark`, `pdf`, `total_sales`, `last_contacted`) VALUES
+(4, 'ZZZ Company', 'deals2', 'Close Deals', 'Remarks3', '', '40000', '2024-04-05 07:11:58'),
+(11, 'ZZZ Company', 'deals2', 'Contacted', 'Remarks3', '', '20000', '2024-04-05 14:59:33'),
+(12, 'ibm', 'wrench', 'Sent Quotations', 'pogi', '', '10000', '2024-04-05 15:25:56');
 
 -- --------------------------------------------------------
 
@@ -330,6 +349,12 @@ ALTER TABLE `activity`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`admin_id`);
+
+--
+-- Indexes for table `calendar_event_master`
+--
+ALTER TABLE `calendar_event_master`
+  ADD PRIMARY KEY (`event_id`);
 
 --
 -- Indexes for table `clients`
@@ -382,7 +407,7 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `activity`
@@ -395,6 +420,12 @@ ALTER TABLE `activity`
 --
 ALTER TABLE `admin`
   MODIFY `admin_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT for table `calendar_event_master`
+--
+ALTER TABLE `calendar_event_master`
+  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `clients`
@@ -430,7 +461,7 @@ ALTER TABLE `events`
 -- AUTO_INCREMENT for table `new_prospect`
 --
 ALTER TABLE `new_prospect`
-  MODIFY `prospect_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `prospect_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `status`
