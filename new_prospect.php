@@ -13,9 +13,85 @@ include "navbar.php";
   <title>New Prospect</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+      <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
     import Swal from 'sweetalert2'
   </script>
+  <script>
+      function formatNumber(n) {
+        // format number 1000000 to 1,234,567
+        return n.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      }
 
+      function formatCurrency(input, currency, blur) {
+        // appends $ to value, validates decimal side
+        // and puts cursor back in right position.
+        // get input value
+        var input_val = input.value;
+        // don't validate empty input
+        if (input_val === "") {
+          return;
+        }
+
+        // original length
+        var original_len = input_val.length;
+
+        // initial caret position
+        var caret_pos = input.selectionStart;
+
+        // check for decimal
+        if (input_val.indexOf(".") >= 0) {
+          // get position of first decimal
+          // this prevents multiple decimals from
+          // being entered
+          var decimal_pos = input_val.indexOf(".");
+
+          // split number by decimal point
+          var left_side = input_val.substring(0, decimal_pos);
+          var right_side = input_val.substring(decimal_pos);
+
+          // add commas to left side of number
+          left_side = formatNumber(left_side);
+
+          // validate right side
+          right_side = formatNumber(right_side);
+
+          // On blur make sure 2 numbers after decimal
+          if (blur === "blur") {
+            right_side += "00";
+          }
+
+          // Limit decimal to only 2 digits
+          right_side = right_side.substring(0, 2);
+
+          // join number by .
+          input_val = currency + left_side + "." + right_side;
+        } else {
+          // no decimal entered
+          // add commas to number
+          // remove all non-digits
+          input_val = formatNumber(input_val);
+          input_val = currency + input_val;
+
+          // final formatting
+          if (blur === "blur") {
+            input_val += ".00";
+          }
+        }
+
+        // send updated string to input
+        input.value = input_val;
+
+        // put caret back in the right position
+        var updated_len = input_val.length;
+        caret_pos = updated_len - original_len + caret_pos;
+        input.setSelectionRange(caret_pos, caret_pos);
+      }
+    </script>
   <?php
   $updated = $_GET['updated'] ?? null;
   $added = $_GET['added'] ?? null;
@@ -210,9 +286,10 @@ include "navbar.php";
             <div class="mb-6">
               <label for="total_sales" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Total
                 Sales</label>
-              <input type="text" id="total_sales" name="total_sales"
+              <input type="text" id="total_sales" name="total_sales"  onBlur="formatCurrency(this, '₱ ', 'blur');"
+            onkeyup="formatCurrency(this, '₱ ');"
                 class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Total Sales" required />
+                placeholder="₱ #,###.00" required />
             </div>
 
             <div class="mb-6">
@@ -291,7 +368,11 @@ const displayFileName = (input) => {
 };
 
   </script>
-
+ <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
 
 
 </body>

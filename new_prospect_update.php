@@ -61,8 +61,9 @@
             <label for="total_sales" class="form-label">Total
               Sales</label>
             <input type="text" id="total_sales" name="total_sales" value="<?php echo $row['total_sales']; ?>"
-            class="form-control"
-              placeholder="Total Sales" required >
+            class="form-control"  onBlur="formatCurrency(this, '₱ ', 'blur');"
+            onkeyup="formatCurrency(this, '₱ ');"
+              placeholder="₱ #,###.00" required >
           </div>
 
           <!-- <div class="mb-3">
@@ -190,6 +191,4 @@
     })
   })()
   // end of form validation
-
-
 </script>

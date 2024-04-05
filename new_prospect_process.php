@@ -11,6 +11,7 @@ if (isset($_POST['savedata'])) {
     $remark = $_POST['remark'];
     $pdf = $_POST['pdf'];
     $total_sale = $_POST['total_sales'];
+    $total_sale= preg_replace('/[^0-9]/', '', $total_sale);
     $date_now =  date("Y-m-d H:i:s");
 
 
@@ -31,6 +32,7 @@ if (isset($_POST['updatedata'])) {
     $remark = $_POST['remark'];
     $pdf = $_POST['pdf_file'];
     $total_sale = $_POST['total_sales'];
+    $total_sale= preg_replace('/[^0-9]/', '', $total_sale);
     $date_now =  date("Y-m-d H:i:s");
 
 
