@@ -28,10 +28,10 @@ include "navbar-TEST.php";
 // include "new_prospect_update.php";
 ?>
   <div class="ml-64">
+
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <p class="text-2xl font-bold mb-4">New Prospect</p>
     </div>
-    <!-- Pin to top right corner -->
     <div class="relative h-32 w-32 ...">
       <button data-modal-target="static-modal" data-modal-toggle="static-modal"
         class="ml-30 block text-white bg-blue-700 hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
@@ -210,6 +210,9 @@ include "navbar-TEST.php";
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+
+  <script src="vendors/sweetalert2/dist/sweetalert2.min.js"></script>
+  <script src="js/sweetalert.js"></script>
 
   <script>
     $(document).ready(function () {
