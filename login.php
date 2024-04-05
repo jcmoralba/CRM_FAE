@@ -27,9 +27,9 @@ if ($created == 'success') {
           <form action="login_process.php" method="post" class="max-w-xl w-full p-6 mx-auto bg-white rounded-lg shadow-inner border-2 dark:border-black">
             <div class="mb-12">
               <h3 class="text-4xl font-extrabold">Sign in</h3>
-              <p class="text-sm mt-6">Don't have an account <a href="register.php" class="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Register here</a></p>
+              <p class="text-sm mt-6">Don't have an account? <a href="register.php" class="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Register here</a></p>
             </div>
-            <div>
+            <!-- <div>
               <label class="text-sm block mb-2">Email</label>
               <div class="relative flex items-center">
                 <input name="email" type="text" required class="w-full text-sm border-b border-gray-300 focus:border-[#333] px-2 py-3 outline-none" placeholder="Enter email" />
@@ -45,9 +45,18 @@ if ($created == 'success') {
                   </g>
                 </svg>
               </div>
+            </div> -->
+
+            <div class="relative z-0 w-full mb-5 group">
+              <input type="text" name="email" id="email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-black focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" " required />
+              <label for="email" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-black peer-focus:dark:text-black peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Enter Email</label>
+            </div>
+            <div class="relative z-0 w-full mb-5 group">
+              <input type="password" name="password" id="password" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-black focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" " required />
+              <label for="password" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-black peer-focus:dark:text-black peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Enter Password</label>
             </div>
             
-            <div class="mt-8">
+            <!-- <div class="mt-8">
               <label class="text-sm block mb-2">Password</label>
               <div class="relative flex items-center">
                 <input name="password" type="password" required class="w-full text-sm border-b border-gray-300 focus:border-[#333] px-2 py-3 outline-none" placeholder="Enter password" />
@@ -55,7 +64,7 @@ if ($created == 'success') {
                   <path d="M64 104C22.127 104 1.367 67.496.504 65.943a4 4 0 0 1 0-3.887C1.367 60.504 22.127 24 64 24s62.633 36.504 63.496 38.057a4 4 0 0 1 0 3.887C126.633 67.496 105.873 104 64 104zM8.707 63.994C13.465 71.205 32.146 96 64 96c31.955 0 50.553-24.775 55.293-31.994C114.535 56.795 95.854 32 64 32 32.045 32 13.447 56.775 8.707 63.994zM64 88c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm0-40c-8.822 0-16 7.178-16 16s7.178 16 16 16 16-7.178 16-16-7.178-16-16-16z" data-original="#000000"></path>
                 </svg>
               </div>
-            </div>
+            </div> -->
             <div class="flex items-center justify-between gap-2 mt-5">
              
               <div>
