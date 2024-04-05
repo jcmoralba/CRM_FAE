@@ -1,7 +1,9 @@
 <?php
 include "sidebar.php";
 include "navbar-TEST.php";
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,6 +13,40 @@ include "navbar-TEST.php";
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>New Prospect</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+    import Swal from 'sweetalert2'
+  </script>
+
+  <?php
+  $updated = $_GET['updated'] ?? null;
+  $added = $_GET['added'] ?? null;
+  if ($updated == 'success') {
+    ?>
+    <script>
+      Swal.fire({
+        title: "Good job!",
+        text: "You successfully updated the data",
+        icon: "success"
+      }).then((result) => {
+        window.location = "new_prospect.php";
+      });
+    </script>
+    <?php
+  }
+  if ($added == 'success') {
+    ?>
+    <script>
+      Swal.fire({
+        title: "Good job!",
+        text: "You successfully added new prospect",
+        icon: "success"
+      }).then((result) => {
+        window.location = "new_prospect.php";
+      });
+    </script>
+    <?php
+  }
+  ?>
 </head>
 
 <body class="bg-gray-100">
@@ -62,22 +98,19 @@ include "navbar-TEST.php";
                 <?php echo $row['pdf']; ?>
               </td>
               <td class="border px-4 py-2">
-              <button class="btn btn-info" data-bs-toggle="modal" type="button"
+                <button class="btn btn-info" data-bs-toggle="modal" type="button"
                   data-bs-target="#view_prospect<?php echo $row['prospect_id']; ?>"><span
                     class="glyphicon glyphicon-edit"></span> View</button>
 
-                <button class="btn btn-warning" data-modal-target="static-modal" type="button"
-                data-modal-toggle="static-modal<?php echo $row['prospect_id']; ?>"><span
-                    class="glyphicon glyphicon-edit"></span> Edit</button>
+                <button class="btn btn-warning" data-bs-target="#update_prospect<?php echo $row['prospect_id']; ?>"
+                  type="button" data-bs-toggle="modal"><span class="glyphicon glyphicon-edit"></span> Edit</button>
 
-                    <button class="btn btn-warning" data-modal-target="static-modal" type="button"
-                        data-modal-toggle="static-modal<?php echo $row['prospect_id']; ?>"><span
-                            class="glyphicon glyphicon-edit"></span> Edit</button>
-                    
+
+
                 <button class="btn btn-danger" data-bs-toggle="modal" type="button"
                   data-bs-target="#delete_prospect<?php echo $row['prospect_id']; ?>"><span
                     class="glyphicon glyphicon-edit"></span> Delete</button>
-                    
+
               </td>
             </tr>
             <?php
@@ -148,7 +181,8 @@ include "navbar-TEST.php";
             </div>
 
             <div class="mb-6">
-              <label for="total_sales" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Total Sales</label>
+              <label for="total_sales" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Total
+                Sales</label>
               <input type="text" id="total_sales" name="total_sales"
                 class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Total Sales" required />
@@ -216,23 +250,25 @@ include "navbar-TEST.php";
 
     // JavaScript to hide the modal when the page loads
     document.addEventListener("DOMContentLoaded", function () {
-        // Get a reference to the modal
-        var modal = document.getElementById("modal<?php echo $row['prospect_id']; ?>");
+      // Get a reference to the modal
+      var modal = document.getElementById("modal<?php echo $row['prospect_id']; ?>");
 
-        // Hide the modal
-        modal.classList.add("hidden");
+      // Hide the modal
+      modal.classList.add("hidden");
     });
 
     // Add event listener to the Edit button to show the modal when clicked
     document.querySelector('[data-modal-toggle="static-modal<?php echo $row['prospect_id']; ?>"]').addEventListener("click", function () {
-        // Get a reference to the modal
-        var modal = document.getElementById("modal<?php echo $row['prospect_id']; ?>");
+      // Get a reference to the modal
+      var modal = document.getElementById("modal<?php echo $row['prospect_id']; ?>");
 
-        // Show the modal
-        modal.classList.remove("hidden");
+      // Show the modal
+      modal.classList.remove("hidden");
     });
 
   </script>
+
+
 
 </body>
 

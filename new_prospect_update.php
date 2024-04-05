@@ -46,7 +46,7 @@
               status</label>
             <select id="status" name="status"
               class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500">
-              <option selected value="">
+              <option selected value="<?php echo $row['status']; ?>">
                 <?php echo $row['status']; ?>
               </option>
               <?php foreach ($data1 as $row1) { ?>
@@ -58,12 +58,21 @@
           </div>
 <!-- /dad -->
           <div class="mb-6">
-            <label for="total_sales" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Total
+            <label for="total_sales" class="form-label">Total
               Sales</label>
             <input type="text" id="total_sales" name="total_sales" value="<?php echo $row['total_sales']; ?>"
-              class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            class="form-control"
               placeholder="Total Sales" required >
           </div>
+
+          <!-- <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label">Total Sales</label>
+            <input type="text" name="total_sales" value="<?php echo $row['total_sales']; ?>" class="form-control"
+              id="formGroupExampleInput" placeholder="">
+            <div class="invalid-feedback">
+                    Please provide a valid name.
+                </div>
+          </div> -->
 
 
           <div class="mb-3">

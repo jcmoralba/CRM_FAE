@@ -21,7 +21,7 @@ if (isset($_POST["login"])) {
         header("location: index.php");
     } 
     else {
-        echo "invalid email or password!";
+        header("location: login.php?invalid=true");
        
     }
 }

@@ -19,7 +19,7 @@ if (isset($_POST['savedata'])) {
     $stmt = $con->prepare($sql);
     $stmt->execute();
 
-    header("Location: new_prospect.php");
+    header("Location: new_prospect.php?added=success");
 
 }
 
@@ -39,7 +39,7 @@ if (isset($_POST['updatedata'])) {
     $stmt = $con->prepare($sql);
     $stmt->execute();
 
-    header("Location: new_prospect.php");
+    header("Location: new_prospect.php?updated=success");
 }
 
 if (isset($_POST["deletedata"])) {
