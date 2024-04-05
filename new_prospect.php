@@ -260,38 +260,35 @@ include "navbar.php";
   <script src="js/sweetalert.js"></script>
 
   <script>
-    $(document).ready(function () {
-      $('#example').DataTable({
+   $(document).ready(function () {
+    $('#example').DataTable({
         // Add any customization options here
-      });
     });
 
-    // show the selected file
-    const displayFileName = (input) => {
-      if (input.files && input.files[0]) {
+    // JavaScript to hide all modals when the page loads
+    document.querySelectorAll('[id^="modal"]').forEach(function(modal) {
+        modal.classList.add("hidden");
+    });
+
+    // Add event listener to all modal toggle buttons to show the respective modal when clicked
+    document.addEventListener("click", function (event) {
+        if (event.target.matches('[data-modal-toggle]')) {
+            var targetModalId = event.target.getAttribute("data-modal-toggle");
+            var modal = document.getElementById(targetModalId);
+            if (modal) {
+                modal.classList.remove("hidden");
+            }
+        }
+    });
+});
+
+const displayFileName = (input) => {
+    if (input.files && input.files[0]) {
         const fileName = input.files[0].name;
         document.getElementById('selected-file').classList.remove('hidden');
         document.getElementById('file-name').innerText = fileName;
-      }
-    };
-
-    // JavaScript to hide the modal when the page loads
-    document.addEventListener("DOMContentLoaded", function () {
-      // Get a reference to the modal
-      var modal = document.getElementById("modal<?php echo $row['prospect_id']; ?>");
-
-      // Hide the modal
-      modal.classList.add("hidden");
-    });
-
-    // Add event listener to the Edit button to show the modal when clicked
-    document.querySelector('[data-modal-toggle="static-modal<?php echo $row['prospect_id']; ?>"]').addEventListener("click", function () {
-      // Get a reference to the modal
-      var modal = document.getElementById("modal<?php echo $row['prospect_id']; ?>");
-
-      // Show the modal
-      modal.classList.remove("hidden");
-    });
+    }
+};
 
   </script>
 
