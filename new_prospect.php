@@ -63,7 +63,7 @@ include "navbar.php";
               </td>
               <td class="border px-4 py-2">
               <button class="btn btn-info" data-bs-toggle="modal" type="button"
-                  data-bs-target="#view_prospect<?php echo $row['prospect_id']; ?>"><span
+                  data-bs-target="#delete_prospect<?php echo $row['prospect_id']; ?>"><span
                     class="glyphicon glyphicon-edit"></span> View</button>
 
                 <button class="btn btn-warning" data-modal-target="static-modal" type="button"
