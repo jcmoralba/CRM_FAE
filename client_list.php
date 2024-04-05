@@ -30,7 +30,7 @@
               </thead>
               <tbody>
                   <?php
-                  $sql = "SELECT * FROM new_prospect WHERE `status`='Close Deals'";
+                  $sql = "SELECT `company_name`, `pdf`, `last_contacted`, `remark`, CONCAT('₱',FORMAT(`total_sales`,2,'en_US')) AS `total_sales` FROM new_prospect WHERE `status`='Close Deals'";
                   $stmt = $con->prepare($sql);
                   $stmt->execute();
                   while ($row = $stmt->fetch()) {

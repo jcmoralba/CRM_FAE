@@ -14,7 +14,10 @@
   $created = $_GET['login'] ?? null ;
   
 if ($created == 'success') {
+
   echo 'Account created successfully';
+
+
 
   
 }

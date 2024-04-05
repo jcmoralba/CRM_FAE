@@ -26,6 +26,9 @@ include "navbar-TEST.php";
 
 <body class="bg-gray-100">
 
+<form id="form_id" action="index.php" method="POST">
+
+</form>
   <?php
   // include "new_prospect_update.php";
   ?>
