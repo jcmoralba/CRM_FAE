@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+
     </head>
     <body>
     
@@ -111,7 +112,7 @@
                     </ul>
                     <ul class="py-1 text-gray-500 dark:text-gray-400" aria-labelledby="dropdown">
                         <li>
-                            <a href="login.php" class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
+                            <a href="#" id="button1" onclick="showAlert()" class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
                         </li>
                     </ul>
                 </div>
@@ -120,7 +121,8 @@
     </nav>
     </header> 
 
-
+    <script src="js/sweetalert.js"></script>
+    <script src="vendors/sweetalert2/dist/sweetalert2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 
     </body>

@@ -31,6 +31,8 @@ include "navbar-TEST.php";
   ?>
   <div class="ml-64">
 
+  <button id="button1" onclick="showAlert()">test</button>
+
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <p class="text-2xl font-bold mb-4">New Prospect</p>
     </div>
