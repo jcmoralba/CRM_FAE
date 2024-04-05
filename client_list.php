@@ -1,6 +1,6 @@
 <?php
     include "sidebar.php";
-    include "navbar-TEST.php";
+    include "navbar.php";
 ?>
   <!DOCTYPE html>
   <html lang="en">
