@@ -108,7 +108,6 @@ include "navbar.php";
                 <?php echo $row['pdf']; ?>
               </td>
               <td class="border px-4 py-2">
-<<<<<<< HEAD
                 <button class="btn btn-info" data-bs-toggle="modal" type="button"
                   data-bs-target="#view_prospect<?php echo $row['prospect_id']; ?>"><span
                     class="glyphicon glyphicon-edit"></span> View</button>
@@ -118,15 +117,6 @@ include "navbar.php";
 
 
 
-=======
-              <button class="btn btn-info" data-bs-toggle="modal" type="button"
-                  data-bs-target="#delete_prospect<?php echo $row['prospect_id']; ?>"><span
-                    class="glyphicon glyphicon-edit"></span> View</button>
-
-                <button class="btn btn-warning" data-bs-toggle="modal" type="button"
-                  data-bs-target="#update_prospect<?php echo $row['prospect_id']; ?>"><span
-                    class="glyphicon glyphicon-edit"></span> Edit</button>
->>>>>>> e44c6dedc7e5c9f45665019d6c8bc28b972e175d
                 <button class="btn btn-danger" data-bs-toggle="modal" type="button"
                   data-bs-target="#delete_prospect<?php echo $row['prospect_id']; ?>"><span
                     class="glyphicon glyphicon-edit"></span> Delete</button>
