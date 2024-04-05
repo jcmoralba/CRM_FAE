@@ -15,7 +15,7 @@
 
           <div class="mb-3">
             <label for="formGroupExampleInput" class="form-label">Company Name</label>
-            <input type="text" name="prospect_id" value="<?php echo $row['prospect_id']; ?>">
+            <input type="hidden" name="prospect_id" value="<?php echo $row['prospect_id']; ?>">
             <input type="text" name="comp_name" value="<?php echo $row['company_name']; ?>" required
               class="form-control" id="formGroupExampleInput" placeholder="">
             <div class="invalid-feedback">
