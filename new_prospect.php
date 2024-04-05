@@ -66,13 +66,9 @@ include "navbar.php";
                   data-bs-target="#delete_prospect<?php echo $row['prospect_id']; ?>"><span
                     class="glyphicon glyphicon-edit"></span> View</button>
 
-                <button class="btn btn-warning" data-modal-target="static-modal" type="button"
-                data-modal-toggle="static-modal<?php echo $row['prospect_id']; ?>"><span
+                <button class="btn btn-warning" data-bs-toggle="modal" type="button"
+                data-bs-target="#update_prospect<?php echo $row['prospect_id']; ?>"><span
                     class="glyphicon glyphicon-edit"></span> Edit</button>
-
-                    <button class="btn btn-warning" data-modal-target="static-modal" type="button"
-                        data-modal-toggle="static-modal<?php echo $row['prospect_id']; ?>"><span
-                            class="glyphicon glyphicon-edit"></span> Edit</button>
                     
                 <button class="btn btn-danger" data-bs-toggle="modal" type="button"
                   data-bs-target="#delete_prospect<?php echo $row['prospect_id']; ?>"><span
