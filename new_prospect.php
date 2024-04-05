@@ -15,8 +15,10 @@ include "navbar-TEST.php";
   <style>
     /* Adjust the position of the search bar */
     .dataTables_filter {
-      float: right; /* Align to the right */
-      margin-bottom: px; /* Optional: Add some space below the search bar */
+      float: right;
+      /* Align to the right */
+      margin-bottom: px;
+      /* Optional: Add some space below the search bar */
     }
   </style>
 
@@ -24,9 +26,9 @@ include "navbar-TEST.php";
 
 <body class="bg-gray-100">
 
-<?php
-// include "new_prospect_update.php";
-?>
+  <?php
+  // include "new_prospect_update.php";
+  ?>
   <div class="ml-64">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <p class="text-2xl font-bold mb-4">New Prospect</p>
@@ -168,7 +170,12 @@ include "navbar-TEST.php";
               </select>
             </div>
 
-
+            <div class="mb-6">
+              <label for="total_sale" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Total Sales</label>
+              <input type="text" id="remark" name="total_sale"
+                class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Total Sales" required />
+            </div>
 
             <div class="mb-6">
               <label for="remark" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Remarks</label>
