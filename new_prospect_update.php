@@ -1,8 +1,8 @@
 <!-- Update DATA -->
 <!-- Modal -->
-<div class="modal fade" id="update_prospect<?php echo $row['prospect_id']; ?>" tabindex="-1"
+<div class="modal fade" id="update_prospect<?php echo $row['prospect_id']; ?>" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
   aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">Update Record</h1>
@@ -42,7 +42,7 @@
           $data1 = $stmt1->fetchAll();
           ?>
           <div class="mb-6">
-            <label for="status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an
+            <label for="status" class="form-label">Select an
               status</label>
             <select id="status" name="status"
               class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500">
@@ -126,7 +126,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button type="submit" class="btn btn-primary" name="deletedata">Delete</button>
+        <button type="submit" class="btn btn-danger" name="deletedata">Delete</button>
       </div>
       </form>
     </div>
