@@ -11,6 +11,14 @@ include "navbar.php";
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>New Prospect</title>
+
+  <style>
+    .dataTables_wrapper .dataTables_filter,
+    .dataTables_wrapper .dataTables_length {
+        margin-bottom: 10px;
+    }
+</style>
+
   <style>
 
   </style>
@@ -129,37 +137,46 @@ include "navbar.php";
   ?>
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-gray-100 ">
 
-<form id="form_id" action="index.php" method="POST">
+  <form id="form_id" action="index.php" method="POST">
 
-</form>
+  </form>
   <?php
   // include "new_prospect_update.php";
   ?>
   <div class="ml-64">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <p class="text-2xl font-bold mb-4">New Prospect</p>
-    </div>
-    <div class="relative h-32 w-32 ...">
 
-      <button data-modal-target="static-modal" data-modal-toggle="static-modal"
-        class="ml-30 block text-white bg-blue-700 hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        type="button">
-        Add client
-      </button>
+    <div class=" mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <p class="text-2xl font-bold text-black">Prospect</p>
     </div>
 
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 bg-white">
+        <div class="flex justify-between items-center mb-4">
+          <p class="text-xl text-gray-600">List of Prospect</p>
+        <div class="flex space-x-4">
+          <button data-modal-target="static-modal" data-modal-toggle="static-modal"
+            class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            type="button">
+            Add client
+          </button>
+          <button
+            class="px-4 py-2 font-sans text-xs font-bold text-center text-gray-900 uppercase align-middle transition-all rounded-lg select-none hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none border border-gray-900"
+            type="button">
+            Print
+          </button>
+        </div>
+      </div>
+
       <table id="example" class="table-auto w-full">
         <thead>
           <tr>
-            <th class="px-4 py-2">COMPANY NAME</th>
-            <th class="px-4 py-2">ITEM DEALS</th>
-            <th class="px-4 py-2">STATUS</th>
-            <th class="px-4 py-2">REMARKS</th>
-            <th class="px-4 py-2">PDF LINK</th>
-            <th class="px-4 py-2">ACTION</th>
+            <th class="px-4 py-2 bg-slate-900 text-white">COMPANY NAME</th>
+            <th class="px-4 py-2 bg-slate-900 text-white">ITEM DEALS</th>
+            <th class="px-4 py-2 bg-slate-900 text-white">STATUS</th>
+            <th class="px-4 py-2 bg-slate-900 text-white">REMARKS</th>
+            <th class="px-4 py-2 bg-slate-900 text-white">PDF LINK</th>
+            <th class="px-4 py-2 bg-slate-900 text-white">ACTION</th>
           </tr>
         </thead>
         <tbody>
@@ -195,13 +212,22 @@ include "navbar.php";
               ?>
               </td>
               <td class="border px-4 py-2">
+
+              
+              <button data-modal-target="edit-modal" data-modal-toggle="edit-modal<?php echo $row['prospect_id']; ?>"  class="select-none rounded-lg bg-amber-500 py-2 px-4 text-center font-sans text-xs font-bold uppercase text-black shadow-md shadow-amber-500/20 transition-all hover:shadow-lg hover:shadow-amber-500/40 focus:opacity-85 focus:shadow-none active:opacity-85 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                      type="button"
+              >
+                  Edit
+              </button>
+
+
+
                 <button class="btn btn-info" data-bs-toggle="modal" type="button"
                   data-bs-target="#view_prospect<?php echo $row['prospect_id']; ?>"><span
                     class="glyphicon glyphicon-edit"></span> View</button>
 
-                <button class="btn btn-warning" data-bs-target="#update_prospect<?php echo $row['prospect_id']; ?>"
-                  type="button" data-bs-toggle="modal"><span class="glyphicon glyphicon-edit"></span> Edit</button>
-
+                <!-- <button class="btn btn-warning" data-bs-target="#update_prospect<?php echo $row['prospect_id']; ?>"
+                  type="button" data-bs-toggle="modal"><span class="glyphicon glyphicon-edit"></span> Edit</button> -->
 
 
                 <button class="btn btn-danger" data-bs-toggle="modal" type="button"

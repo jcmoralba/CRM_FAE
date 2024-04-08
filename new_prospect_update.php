@@ -1,6 +1,6 @@
 <!-- Update DATA -->
 <!-- Modal -->
-<div class="modal fade" id="update_prospect<?php echo $row['prospect_id']; ?>" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+<!-- <div class="modal fade" id="update_prospect<?php echo $row['prospect_id']; ?>" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
   aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
@@ -9,11 +9,11 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="new_prospect_process.php" method="POST" class="needs-validation" novalidate id="update_new_prospect" name="update">
+        <form action="new_prospect_process.php" method="POST" class="needs-validation" novalidate id="update_new_prospect" name="update"> -->
           <!-- input data -->
 
 
-          <div class="mb-3">
+          <!-- <div class="mb-3">
             <label for="formGroupExampleInput" class="form-label">Company Name</label>
             <input type="hidden" name="prospect_id" value="<?php echo $row['prospect_id']; ?>">
             <input type="text" name="comp_name" value="<?php echo $row['company_name']; ?>" required
@@ -55,16 +55,16 @@
                 </option>
               <?php } ?>
             </select>
-          </div>
+          </div> -->
 <!-- /dad -->
-          <div class="mb-6">
+          <!-- <div class="mb-6">
             <label for="total_sales" class="form-label">Total
               Sales</label>
             <input type="text" id="total_sales" name="total_sales" value="<?php echo $row['total_sales']; ?>"
             class="form-control"  onBlur="formatCurrency(this, '₱ ', 'blur');"
             onkeyup="formatCurrency(this, '₱ ');"
               placeholder="₱ #,###.00" required >
-          </div>
+          </div> -->
 
           <!-- <div class="mb-3">
             <label for="formGroupExampleInput" class="form-label">Total Sales</label>
@@ -76,14 +76,14 @@
           </div> -->
 
 
-          <div class="mb-3">
+          <!-- <div class="mb-3">
             <label for="formGroupExampleInput" class="form-label">Remarks</label>
             <input type="text" name="remark" value="<?php echo $row['remark']; ?>" class="form-control"
-              id="formGroupExampleInput" placeholder="">
+              id="formGroupExampleInput" placeholder=""> -->
             <!-- <div class="invalid-feedback">
                     Please provide a valid name.
                 </div> -->
-          </div>
+          <!-- </div>
           <div class="mb-3">
             <label for="formGroupExampleInput" class="form-label">PDF Link</label>
             <input type="url" name="pdf" value="<?php echo $row['pdf']; ?>" class="form-control"
@@ -105,7 +105,7 @@
       </form>
     </div>
   </div>
-</div>
+</div> -->
 <!-- END OF UPDATE DATA -->
 
 <!-- test -->
@@ -172,6 +172,96 @@
     </div>
   </div>
 </div>
+
+
+<div id="edit-modal<?php echo $row['prospect_id']; ?>" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
+    class="hidden fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full h-screen overflow-y-auto bg-gray-900 bg-opacity-50">
+    <div class="relative p-4 w-full max-w-2xl">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow-lg">
+            <!-- Modal header -->
+            <div class="flex items-center justify-between p-4 border-b">
+                <h3 class="text-xl font-semibold text-gray-900">
+                    Static modal
+                </h3>
+                <button type="button"
+                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg w-8 h-8 inline-flex justify-center items-center"
+                    data-modal-hide="static-modal">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+            </div>
+            <!-- Modal body -->
+            <div class="p-4 space-y-4">
+                <form action="new_prospect_process.php" method="POST">
+                    <div class="mb-6">
+                        <label for="comp_name" class="block mb-2 text-sm font-medium text-gray-900">Company Name</label>
+                        <input type="text" id="comp_name" name="comp_name" value="<?php echo $row['company_name']; ?>"
+                            class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                            placeholder="Company Name" required />
+                        <input type="hidden" name="prospect_id" value="<?php echo $row['prospect_id']; ?>">
+                    </div>
+                    <div class="mb-6">
+                        <label for="item_deal" class="block mb-2 text-sm font-medium text-gray-900">Item Deals</label>
+                        <input type="text" id="item_deal" name="item_deal" value="<?php echo $row['item_deals']; ?>"
+                            class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                            placeholder="Item Deals" required />
+                    </div>
+
+                    <?php
+                    $sql1 = "SELECT * FROM status";
+                    $stmt1 = $con->prepare($sql1);
+                    $stmt1->execute();
+                    $data1 = $stmt1->fetchAll();
+                    ?>
+                    <div class="mb-6">
+                        <label for="status" class="block mb-2 text-sm font-medium text-gray-900">Select a status</label>
+                        <select id="status" name="status"
+                            class="bg-white border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                            <option selected value="<?php echo $row['status']; ?>">
+                                <?php echo $row['status']; ?>
+                            </option>
+                            <?php foreach ($data1 as $row1) { ?>
+                                <option value="<?= htmlspecialchars($row1['status_name']) ?>">
+                                    <?= htmlspecialchars($row1['status_name']) ?>
+                                </option>
+                            <?php } ?>
+                        </select>
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="total_sales" class="block mb-2 text-sm font-medium text-gray-900">Total Sales</label>
+                        <input type="text" id="total_sales" name="total_sales" value="<?php echo $row['total_sales']; ?>"
+                            class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                            placeholder="₱ #,###.00" required />
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="remark" class="block mb-2 text-sm font-medium text-gray-900">Remarks</label>
+                        <input type="text" id="remark" name="remark" value="<?php echo $row['remark']; ?>"
+                            class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                            placeholder="Remarks" required />
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="pdf_link" class="block mb-2 text-sm font-medium text-gray-900">PDF Link</label>
+                        <input type="text" id="pdf_link" name="pdf_link" value="<?php echo $row['pdf']; ?>"
+                            class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                            placeholder="PDF Link" required />
+                    </div>
+
+                    <button type="submit" name="updatedata"
+                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5">Update</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
