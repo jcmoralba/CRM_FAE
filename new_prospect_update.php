@@ -84,7 +84,11 @@
                     Please provide a valid name.
                 </div> -->
           </div>
-
+          <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label">PDF Link</label>
+            <input type="url" name="pdf" value="<?php echo $row['pdf']; ?>" class="form-control"
+              id="formGroupExampleInput" placeholder="">      
+          </div>
 
 
           <div class="mb-3">
@@ -139,7 +143,7 @@
 <!-- Modal -->
 <div class="modal fade" id="view_prospect<?php echo $row['prospect_id']; ?>" tabindex="-1"
   aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">View Record</h1>
@@ -149,6 +153,14 @@
         <form action="new_prospect_process.php" method="POST" class="needs-validation" novalidate id="forms">
           <!-- input data -->
           <input type="hidden" name="prospect_id" value="<?php echo $row['prospect_id']; ?>">
+          <p>Company Name:</p>
+          <p><?php echo $row['company_name']; ?></p>
+          <p>Item Deals:</p>
+          <p><?php echo $row['item_deals']; ?></p>
+          <p>Status:</p>
+          <p><?php echo $row['status']; ?></p>
+          <p>Total Sales:</p>
+          <p><?php echo $row['total_sales']; ?></p>
 
 
       </div>

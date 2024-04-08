@@ -1,5 +1,5 @@
 <?php
-include "sidebar.php";
+include("sidebar.php");
 include "navbar.php";
 ?>
 
@@ -11,6 +11,9 @@ include "navbar.php";
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>New Prospect</title>
+  <style>
+
+  </style>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11">
@@ -135,9 +138,6 @@ include "navbar.php";
   // include "new_prospect_update.php";
   ?>
   <div class="ml-64">
-
-  <button id="button1" onclick="showAlert()">test</button>
-
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <p class="text-2xl font-bold mb-4">New Prospect</p>
     </div>
@@ -183,7 +183,16 @@ include "navbar.php";
                 <?php echo $row['remark']; ?>
               </td>
               <td class="border px-4 py-2">
-                <?php echo $row['pdf']; ?>
+              <?php
+               
+              if (strlen($row['pdf']) == 0) {
+              echo " ";
+
+              }
+              else{
+                echo " <a href='{$row['pdf']}>' target='_blank'>LINK</a>";
+              }
+              ?>
               </td>
               <td class="border px-4 py-2">
                 <button class="btn btn-info" data-bs-toggle="modal" type="button"

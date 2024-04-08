@@ -30,7 +30,7 @@ if (isset($_POST['updatedata'])) {
     $item_deal = $_POST['item_deal'];
     $status = $_POST['status'];
     $remark = $_POST['remark'];
-    $pdf = $_POST['pdf_file'];
+    $pdf = $_POST['pdf'];
     $total_sale = $_POST['total_sales'];
     $total_sale= preg_replace('/[^0-9.]/', '', $total_sale);
     $date_now =  date("Y-m-d H:i:s");
