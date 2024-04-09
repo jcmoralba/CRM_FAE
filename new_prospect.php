@@ -13,53 +13,15 @@ include "navbar.php";
   <title>New Prospect</title>
   
   <link rel="stylesheet" href="css/datatable.css">
+  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.min.css" rel="stylesheet">
+  
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"rel="stylesheet"integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> // bootstrap link
-  
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11">
-    
-      <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    import Swal from 'sweetalert2'
-  </script>
 
-  <?php
-  $updated = $_GET['updated'] ?? null;
-  $added = $_GET['added'] ?? null;
-  if ($updated == 'success') {
-    ?>
-    <script>
-      Swal.fire({
-        title: "Good job!",
-        text: "You successfully updated the data",
-        icon: "success"
-      }).then((result) => {
-        window.location = "new_prospect.php";
-      });
-    </script>
-    <?php
-  }
-  if ($added == 'success') {
-    ?>
-    <script>
-      Swal.fire({
-        title: "Good job!",
-        text: "You successfully added new prospect",
-        icon: "success"
-      }).then((result) => {
-        window.location = "new_prospect.php";
-      });
-    </script>
-    <?php
-  }
-  ?>
+  <!-- SA LINK NA TO NASISIRA YUNG SIDEBAR, COMMENT KO MUNA, BALI YUNG VIEW BUTTON WALA PANG DESIGN -->
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"rel="stylesheet"integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">  -->
+
 </head>
-
 <body class="bg-gray-100 ">
 
   <form id="form_id" action="index.php" method="POST">
@@ -69,7 +31,6 @@ include "navbar.php";
   // include "new_prospect_update.php";
   ?>
   <div class="ml-64">
-
     <div class=" mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <p class="text-2xl font-bold text-black">Prospect</p>
     </div>
@@ -83,7 +44,7 @@ include "navbar.php";
             type="button">
             Add client
           </button>
-          <button id="printTableButton" class="px-4 py-2 font-sans text-xs font-bold text-center text-gray-900 uppercase align-middle transition-all rounded-lg select-none hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none border border-gray-900" type="button">
+          <button id="printTableButton" class="px-4 py-2 font-sans text-xs font-bold text-center text-gray-900 uppercase align-middle transition-all rounded-lg select-none hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none border-gray-900" type="button">
             Print
           </button>
         </div>
@@ -159,14 +120,14 @@ include "navbar.php";
     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative p-4 w-full max-w-2xl max-h-full">
       <!-- Modal content -->
-      <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+      <div class="relative bg-white rounded-lg shadow ">
         <!-- Modal header -->
-        <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-          <h3 class="text-xl font-semibold text-gray-900 dark:text-white text-black">
+        <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+          <h3 class="text-xl font-semibold text-gray-900 text-black">
             New prospect
           </h3>
           <button type="button"
-            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-black"
+            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
             data-modal-hide="static-modal">
             <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -179,17 +140,17 @@ include "navbar.php";
         <div class="p-4 md:p-5 space-y-4">
           <form action="new_prospect_process.php" method="POST">
             <div class="mb-6">
-              <label for="comp_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Company
+              <label for="comp_name" class="block mb-2 text-sm font-medium text-gray-900 ">Company
                 Name</label>
               <input type="text" id="comp_name" name="comp_name"
-                class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder="Company Name" required />
             </div>
             <div class="mb-6">
-              <label for="item_deal" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Item
+              <label for="item_deal" class="block mb-2 text-sm font-medium text-gray-900 ">Item
                 Deals</label>
               <input type="text" id="item_deal" name="item_deal"
-                class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder="Item Deals" required />
             </div>
             <?php
@@ -199,10 +160,10 @@ include "navbar.php";
               $data1 = $stmt1->fetchAll();
             ?>
             <div class="mb-6">
-              <label for="status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an
+              <label for="status" class="block mb-2 text-sm font-medium text-gray-900">Select an
                 status</label>
               <select id="status" name="status"
-                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  ">
                 <option value=""></option>
                 <?php foreach ($data1 as $row1) { ?>
                   <option value="<?= htmlspecialchars($row1['status_name']) ?>">
@@ -212,28 +173,28 @@ include "navbar.php";
               </select>
             </div>
             <div class="mb-6">
-              <label for="total_sales" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Total
+              <label for="total_sales" class="block mb-2 text-sm font-medium text-gray-900 ">Total
                 Sales</label>
               <input type="text" id="total_sales" name="total_sales"  onBlur="formatCurrency(this, '₱ ', 'blur');"
             onkeyup="formatCurrency(this, '₱ ');"
-                class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                 placeholder="₱ #,###.00" required />
             </div>
-
             <div class="mb-6">
-              <label for="remark" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Remarks</label>
+              <label for="remark" class="block mb-2 text-sm font-medium text-gray-900 ">Remarks</label>
               <input type="text" id="remark" name="remark"
-                class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder="Remarks" required />
             </div>
             <div class="mb-6">
-              <label for="remark" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">PDF Link</label>
+              <label for="remark" class="block mb-2 text-sm font-medium text-gray-900 ">PDF Link</label>
               <input type="text" id="remark" name="remark"
-                class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder="PDF" required />
             </div>
             <button type="submit" name="savedata"
-              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center ">Submit
+            </button>
           </form>
         </div>
       </div>
@@ -244,14 +205,16 @@ include "navbar.php";
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  <script src="js/print-table.js"></script> //print js | walang desing
-  <script src="js/new_prospect.js"></script>
-  <script src="vendors/sweetalert2/dist/sweetalert2.min.js"></script>
-  <script src="js/sweetalert.js"></script>
 
-  <script>
-   $(document).ready(function () {
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> -->
+  
+  <script src="js/print-table.js"></script> <!-- print js | walang desiGN -->
+  <script src="js/new_prospect.js"></script> <!-- yung format nandito na yung sa peso -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  
+<script>
+  $(document).ready(function () {
     $('#example').DataTable({
         // Add any customization options here
     });
@@ -271,18 +234,36 @@ include "navbar.php";
             }
         }
     });
-});
+  });
+</script>
 
-const displayFileName = (input) => {
-    if (input.files && input.files[0]) {
-        const fileName = input.files[0].name;
-        document.getElementById('selected-file').classList.remove('hidden');
-        document.getElementById('file-name').innerText = fileName;
-    }
-};
 
+
+<!-- SWEETALERT ADD AND EDIT -->
+<?php
+// Check if 'added' parameter is set and has the value 'success' after adding new data
+// Check if 'updated' parameter is set and has the value 'success' after updating data
+if ((isset($_GET['added']) && $_GET['added'] === 'success') || (isset($_GET['updated']) && $_GET['updated'] === 'success')) {
+?>
+  <script>
+    // Show SweetAlert2 alert based on the parameter present in the URL
+    Swal.fire({
+      title: "Success!",
+      text: <?php echo (isset($_GET['added']) && $_GET['added'] === 'success') ? '"You successfully added a new prospect"' : '"You successfully updated the prospect"'; ?>,
+      icon: "success",
+      confirmButtonText: "OK"
+    });
+
+    // Remove the parameter from the URL
+    window.onload = function() {
+      if (window.location.search.includes('added=success') || window.location.search.includes('updated=success')) {
+        history.replaceState({}, document.title, window.location.pathname);
+      }
+    };
   </script>
-
+<?php
+}
+?>
 </body>
 
 </html>

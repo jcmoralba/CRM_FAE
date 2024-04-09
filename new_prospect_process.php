@@ -21,6 +21,7 @@ if (isset($_POST['savedata'])) {
     $stmt->execute();
 
     header("Location: new_prospect.php?added=success");
+    exit();
 
 }
 
@@ -42,6 +43,7 @@ if (isset($_POST['updatedata'])) {
     $stmt->execute();
 
     header("Location: new_prospect.php?updated=success");
+    exit();
 }
 
 if (isset($_POST["deletedata"])) {
@@ -52,4 +54,5 @@ if (isset($_POST["deletedata"])) {
     $stmt->execute();
 
     header("Location: new_prospect.php");
+    exit();
 }

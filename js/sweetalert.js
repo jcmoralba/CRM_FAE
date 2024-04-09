@@ -1,33 +1,17 @@
-const showAlert = () => {
+function showSuccessAlert() {
+  // Show SweetAlert2 alert
   Swal.fire({
-    title: "Custom width, padding, color, background.",
-    width: 600,
-    padding: "3em",
-    color: "#716add",
-    background: "#fff url(/images/trees.png)",
-    backdrop: `
-      rgba(0,0,123,0.4)
-      url("/images/nyan-cat.gif")
-      left top
-      no-repeat
-    `
-  
+    title: "Success!",
+    text: "You successfully added a new prospect",
+    icon: "success",
+    confirmButtonText: "OK"
   }).then((result) => {
-    /* Read more about isConfirmed, isDenied below */
+    // Check if the "OK" button is clicked
     if (result.isConfirmed) {
-      document.getElementById("update_button1").click();
-;}
-else {
-  document.getElementById("update_button1").click();
-}
-    });
-} 
-const tryAlert = () => {
-  Swal.fire("SweetAlert2 is working!");
-
-
+      // Remove the 'added=success' parameter from the URL
+      history.replaceState({}, document.title, window.location.pathname);
+    }
+  });
 }
 
-//sweetalert for new prospect
-document.getElementById('update_button').addEventListener('click', showAlert);
-document.getElementById('update_button1').addEventListener('click', tryAlert);
+// PHP logic for checking 'added=success' parameter and calling showSuccessAlert
