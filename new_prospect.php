@@ -11,13 +11,8 @@ include "navbar.php";
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>New Prospect</title>
-
-  <style>
-    .dataTables_wrapper .dataTables_filter,
-    .dataTables_wrapper .dataTables_length {
-        margin-bottom: 10px;
-    }
-</style>
+  
+  <link rel="stylesheet" href="css/datatable.css">
 
   <style>
 
@@ -187,53 +182,41 @@ include "navbar.php";
           while ($row = $stmt->fetch()) {
             ?>
             <tr>
-              <td class="border px-4 py-2">
+              <td class="border border-black px-4 py-2">
                 <?php echo $row['company_name']; ?>
               </td>
-              <td class="border px-4 py-2">
+              <td class="border border-black py-2">
                 <?php echo $row['item_deals']; ?>
               </td>
-              <td class="border px-4 py-2">
+              <td class="border border-black px-4 py-2">
                 <?php echo $row['status']; ?>
               </td>
-              <td class="border px-4 py-2">
+              <td class="border border-black px-4 py-2">
                 <?php echo $row['remark']; ?>
               </td>
-              <td class="border px-4 py-2">
-              <?php
-               
-              if (strlen($row['pdf']) == 0) {
-              echo " ";
-
-              }
-              else{
-                echo " <a href='{$row['pdf']}>' target='_blank'>LINK</a>";
-              }
-              ?>
+              <td class="border border-black px-4 py-2">
+                <?php
+                  if (strlen($row['pdf']) == 0) {
+                  echo " ";
+                  }
+                  else{
+                    echo " <a href='{$row['pdf']}>' target='_blank'>LINK</a>";
+                  }
+                ?>
               </td>
-              <td class="border px-4 py-2">
-
-              
-              <button data-modal-target="edit-modal" data-modal-toggle="edit-modal<?php echo $row['prospect_id']; ?>"  class="select-none rounded-lg bg-amber-500 py-2 px-4 text-center font-sans text-xs font-bold uppercase text-black shadow-md shadow-amber-500/20 transition-all hover:shadow-lg hover:shadow-amber-500/40 focus:opacity-85 focus:shadow-none active:opacity-85 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                      type="button"
-              >
-                  Edit
-              </button>
-
-
-
-                <button class="btn btn-info" data-bs-toggle="modal" type="button"
-                  data-bs-target="#view_prospect<?php echo $row['prospect_id']; ?>"><span
-                    class="glyphicon glyphicon-edit"></span> View</button>
-
-                <!-- <button class="btn btn-warning" data-bs-target="#update_prospect<?php echo $row['prospect_id']; ?>"
-                  type="button" data-bs-toggle="modal"><span class="glyphicon glyphicon-edit"></span> Edit</button> -->
-
-
-                <button class="btn btn-danger" data-bs-toggle="modal" type="button"
-                  data-bs-target="#delete_prospect<?php echo $row['prospect_id']; ?>"><span
-                    class="glyphicon glyphicon-edit"></span> Delete</button>
-
+              <td class="border border-black px-4 py-2">
+                <button data-bs-target="#view_prospect<?php echo $row['prospect_id']; ?>" 
+                  class="btn btn-info" data-bs-toggle="modal" type="button">
+                    <span class="glyphicon glyphicon-edit"></span> View
+                </button>
+                <button data-modal-target="edit-modal" data-modal-toggle="edit-modal<?php echo $row['prospect_id']; ?>"  
+                  class="select-none rounded-lg bg-amber-500 text-black py-2 px-4 text-xs font-bold uppercase shadow-md transition-all hover:shadow-lg hover:bg-amber-700 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-lg text-sm dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="button">
+                    Edit
+                </button>
+                <button data-modal-target="delete-modal" data-modal-toggle="delete-modal<?php echo $row['prospect_id']; ?>" 
+                  class="select-none rounded-lg bg-red-500 text-black py-2 px-4 text-xs font-bold uppercase shadow-md transition-all hover:shadow-lg hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="button">
+                    Delete
+                </button>
               </td>
             </tr>
             <?php
@@ -246,7 +229,7 @@ include "navbar.php";
   </div>
 
   <!-- Main modal -->
-  <div id="static-modal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
+  <div id="static-modal" tabindex="-1" aria-hidden="true"
     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative p-4 w-full max-w-2xl max-h-full">
       <!-- Modal content -->
@@ -283,28 +266,11 @@ include "navbar.php";
                 class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Item Deals" required />
             </div>
-            <!-- <div class="mb-6">
-              <label for="status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an
-                status</label>
-              <select id="status" name="status"
-                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <option selected>Choose a status</option>
-                <option value="Prospecting">Prospecting</option>
-                <option value="Make contact">Make contact</option>
-                <option value="Qualify your prospect">Qualify your prospect</option>
-                <option value="Nurture your prospect">Nurture your prospect</option>
-                <option value="Present your offer">Present your offer</option>
-                <option value="Overcome objections">Overcome objections</option>
-                <option value="Close the sales">Close the sales</option>
-              </select>
-            </div> -->
-
-
             <?php
-            $sql1 = "SELECT * FROM status";
-            $stmt1 = $con->prepare($sql1);
-            $stmt1->execute();
-            $data1 = $stmt1->fetchAll();
+              $sql1 = "SELECT * FROM status";
+              $stmt1 = $con->prepare($sql1);
+              $stmt1->execute();
+              $data1 = $stmt1->fetchAll();
             ?>
             <div class="mb-6">
               <label for="status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an
@@ -319,7 +285,6 @@ include "navbar.php";
                 <?php } ?>
               </select>
             </div>
-
             <div class="mb-6">
               <label for="total_sales" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Total
                 Sales</label>
@@ -336,27 +301,11 @@ include "navbar.php";
                 placeholder="Remarks" required />
             </div>
             <div class="mb-6">
-              <div class="flex items-center justify-center w-full">
-                <label for="dropzone-file"
-                  class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-white dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
-                  <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                    <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
-                    </svg>
-                    <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to
-                        upload</span> or drag and drop</p>
-                    <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
-                    <p id="selected-file" class="hidden mb-2 text-sm text-gray-500 dark:text-gray-400">Selected file:
-                      <span id="file-name"></span>
-                    </p>
-                  </div>
-                  <input id="dropzone-file" type="file" name="pdf" class="hidden" onchange="displayFileName(this)" />
-                </label>
-              </div>
+              <label for="remark" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">PDF Link</label>
+              <input type="text" id="remark" name="remark"
+                class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:white dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="PDF" required />
             </div>
-            <!-- More form fields -->
             <button type="submit" name="savedata"
               class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
           </form>

@@ -1,3 +1,4 @@
+
 <!-- Update DATA -->
 <!-- Modal -->
 <!-- <div class="modal fade" id="update_prospect<?php echo $row['prospect_id']; ?>" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
@@ -173,29 +174,51 @@
   </div>
 </div>
 
+<!-- FOR DELETE MODAL -->
+<div id="delete-modal<?php echo $row['prospect_id']; ?>" class="hidden fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full h-screen overflow-y-auto bg-gray-900 bg-opacity-50">
+    <div class="relative p-4 w-full max-w-md h-full md:h-auto">
+        <!-- Modal content -->
+        <div class="relative p-4 text-center bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
+            <button type="button" class="text-gray-400 absolute top-2.5 right-2.5 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="delete-modal<?php echo $row['prospect_id']; ?>">
+                <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                <span class="sr-only">Close modal</span>
+            </button>
+            <svg class="text-gray-400 dark:text-gray-500 w-11 h-11 mb-3.5 mx-auto" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+            <p class="mb-4 text-black dark:text-gray-300">Are you sure you want to delete this item?</p>
+            <form action="new_prospect_process.php" method="POST">
+                <input type="hidden" name="prospect_id" value="<?php echo $row['prospect_id']; ?>">
+                <div class="flex justify-center items-center space-x-4">
+                    <button data-modal-hide="delete-modal<?php echo $row['prospect_id']; ?>" type="button" class="py-2 px-3 text-sm font-medium text-black bg-white rounded-lg border border-gray-200 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-primary-300 hover:text-gray-900 focus:z-10 ">
+                        No, cancel
+                    </button>
+                    <button type="submit" class="py-2 px-3 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-500 dark:hover:bg-red-600 dark:focus:ring-red-900" name="deletedata">
+                        Yes, I'm sure
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- FOR DELETE MODAL -->
 
-<div id="edit-modal<?php echo $row['prospect_id']; ?>" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
+
+
+<!-- FOR EDIT MODAL -->
+<div id="edit-modal<?php echo $row['prospect_id']; ?>" tabindex="-1" aria-hidden="true"
     class="hidden fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full h-screen overflow-y-auto bg-gray-900 bg-opacity-50">
     <div class="relative p-4 w-full max-w-2xl">
-        <!-- Modal content -->
         <div class="relative bg-white rounded-lg shadow-lg">
-            <!-- Modal header -->
             <div class="flex items-center justify-between p-4 border-b">
                 <h3 class="text-xl font-semibold text-gray-900">
-                    Static modal
+                    Edit Modal
                 </h3>
-                <button type="button"
-                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg w-8 h-8 inline-flex justify-center items-center"
-                    data-modal-hide="static-modal">
-                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                        viewBox="0 0 14 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg w-8 h-8 inline-flex justify-center items-center" data-modal-hide="edit-modal">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
                     </svg>
                     <span class="sr-only">Close modal</span>
                 </button>
             </div>
-            <!-- Modal body -->
             <div class="p-4 space-y-4">
                 <form action="new_prospect_process.php" method="POST">
                     <div class="mb-6">
@@ -211,7 +234,6 @@
                             class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                             placeholder="Item Deals" required />
                     </div>
-
                     <?php
                     $sql1 = "SELECT * FROM status";
                     $stmt1 = $con->prepare($sql1);
@@ -232,28 +254,24 @@
                             <?php } ?>
                         </select>
                     </div>
-
                     <div class="mb-6">
                         <label for="total_sales" class="block mb-2 text-sm font-medium text-gray-900">Total Sales</label>
                         <input type="text" id="total_sales" name="total_sales" value="<?php echo $row['total_sales']; ?>"
                             class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                             placeholder="₱ #,###.00" required />
                     </div>
-
                     <div class="mb-6">
                         <label for="remark" class="block mb-2 text-sm font-medium text-gray-900">Remarks</label>
                         <input type="text" id="remark" name="remark" value="<?php echo $row['remark']; ?>"
                             class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                             placeholder="Remarks" required />
                     </div>
-
                     <div class="mb-6">
                         <label for="pdf_link" class="block mb-2 text-sm font-medium text-gray-900">PDF Link</label>
                         <input type="text" id="pdf_link" name="pdf_link" value="<?php echo $row['pdf']; ?>"
                             class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                             placeholder="PDF Link" required />
                     </div>
-
                     <button type="submit" name="updatedata"
                         class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5">Update</button>
                 </form>
@@ -261,6 +279,7 @@
         </div>
     </div>
 </div>
+<!-- FOR EDIT MODAL -->
 
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -293,4 +312,26 @@
     })
   })()
   // end of form validation
+
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var modal = document.getElementById("delete-modal<?php echo $row['prospect_id']; ?>");
+    var overlay = document.querySelector('.modal-overlay');
+
+    // Show modal and overlay
+    modal.addEventListener('focus', function() {
+        overlay.classList.remove('hidden');
+    });
+
+    // Hide modal and overlay
+    modal.addEventListener('blur', function() {
+        overlay.classList.add('hidden');
+    });
+
+    // Close modal and overlay when clicking on overlay
+    overlay.addEventListener('click', function() {
+        modal.classList.add('hidden');
+        overlay.classList.add('hidden');
+    });
+});
 </script>
