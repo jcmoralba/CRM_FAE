@@ -1,8 +1,6 @@
 <?php
 session_start();
 include ("sidebar.php");
-include "navbar.php";
-
 ?>
 
 
@@ -36,7 +34,7 @@ include "navbar.php";
   <?php
   // include "new_prospect_update.php";
   ?>
-  <div class="ml-64">
+  
     <div class=" mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <p class="text-2xl font-bold text-black">Prospect</p>
     </div>
@@ -192,7 +190,6 @@ include "navbar.php";
         </div>
       </div>
     </div>
-  </div>
 
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

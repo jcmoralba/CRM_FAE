@@ -1,6 +1,5 @@
 <?php
 include("sidebar.php");
-include "navbar.php";
 ?>
 
 
@@ -17,6 +16,8 @@ include "navbar.php";
   
   <script src="https://cdn.tailwindcss.com"></script>
 
+  <link rel="stylesheet" href="css/style_index_1.css">
+
 
   <!-- SA LINK NA TO NASISIRA YUNG SIDEBAR, COMMENT KO MUNA, BALI YUNG VIEW BUTTON WALA PANG DESIGN -->
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"rel="stylesheet"integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">  -->
@@ -30,7 +31,7 @@ include "navbar.php";
   <?php
   // include "new_prospect_update.php";
   ?>
-  <div class="ml-64">
+ 
     <div class=" mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <p class="text-2xl font-bold text-black">Prospect</p>
     </div>
@@ -216,7 +217,14 @@ include "navbar.php";
         </div>
       </div>
     </div>
-  </div>
+  <!-- </div> -->
+
+
+  <script src="js/main.js"></script>
+
+<!-- ====== ionicons ======= -->
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
