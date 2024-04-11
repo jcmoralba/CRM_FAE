@@ -39,14 +39,20 @@ include "navbar.php";
         <div class="flex justify-between items-center mb-4">
           <p class="text-xl text-gray-600">List of Prospect</p>
         <div class="flex space-x-4">
-          <button data-modal-target="static-modal" data-modal-toggle="static-modal"
-            class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            type="button">
-            Add client
-          </button>
-          <button id="printTableButton" class="px-4 py-2 font-sans text-xs font-bold text-center text-gray-900 uppercase align-middle transition-all rounded-lg select-none hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none border-gray-900" type="button">
-            Print
-          </button>
+        <button data-modal-target="static-modal" data-modal-toggle="static-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 inline-block align-text-top">
+                <path d="M8.5 4.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0ZM10 13c.552 0 1.01-.452.9-.994a5.002 5.002 0 0 0-9.802 0c-.109.542.35.994.902.994h8ZM12.5 3.5a.75.75 0 0 1 .75.75v1h1a.75.75 0 0 1 0 1.5h-1v1a.75.75 0 0 1-1.5 0v-1h-1a.75.75 0 0 1 0-1.5h1v-1a.75.75 0 0 1 .75-.75Z" />
+            </svg>
+            <span class="ml-2">Add client</span>
+        </button>
+
+        <button id="printTableButton" class="px-4 py-2 font-sans text-xs font-bold text-center text-gray-900 uppercase align-middle transition-all rounded-lg select-none hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none border-gray-900" type="button">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 inline-block align-text-top">
+                <path fill-rule="evenodd" d="M4 5a2 2 0 0 0-2 2v3a2 2 0 0 0 1.51 1.94l-.315 1.896A1 1 0 0 0 4.18 15h7.639a1 1 0 0 0 .986-1.164l-.316-1.897A2 2 0 0 0 14 10V7a2 2 0 0 0-2-2V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v3Zm1.5 0V2.5h5V5h-5Zm5.23 5.5H5.27l-.5 3h6.459l-.5-3Z" clip-rule="evenodd" />
+            </svg>
+            <span class="ml-2">Print</span>
+        </button>
+
         </div>
       </div>
 
@@ -86,23 +92,34 @@ include "navbar.php";
                   if (strlen($row['pdf']) == 0) {
                   echo " ";
                   }
-                  else{
-                    echo "<u> <a href='{$row['pdf']}>' target='_blank'>LINK</a> </u>";
-                  }
+                  else {
+                    echo "<u><a href='{$row['pdf']}' target='_blank' class='text-blue-500 underline'>LINK</a></u>";
+                }
+                
                 ?>
               </td>
               <td class="border border-black px-4 py-2">
-                <button data-bs-target="#view_prospect<?php echo $row['prospect_id']; ?>" 
-                  class="btn btn-info" data-bs-toggle="modal" type="button">
-                    <span class="glyphicon glyphicon-edit"></span> View
+              <button data-modal-target="view_prospect<?php echo $row['prospect_id']; ?>" data-modal-toggle="view_prospect<?php echo $row['prospect_id']; ?>" class="select-none rounded-lg bg-green-500 text-black py-2 px-4 text-xs font-bold uppercase shadow-md transition-all hover:shadow-lg hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 inline-block align-text-top">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z" />
+                        <path fill-rule="evenodd" d="M1.38 8.28a.87.87 0 0 1 0-.566 7.003 7.003 0 0 1 13.238.006.87.87 0 0 1 0 .566A7.003 7.003 0 0 1 1.379 8.28ZM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="ml-2">View</span>
+                </button>   
+                
+                <button data-modal-target="edit-modal<?php echo $row['prospect_id']; ?>" data-modal-toggle="edit-modal<?php echo $row['prospect_id']; ?>" class="select-none bg-amber-500 text-black py-2 px-4 text-xs font-bold uppercase shadow-md transition-all hover:shadow-lg hover:bg-amber-700 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-lg text-sm dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 inline-block align-text-top">
+                        <path d="M13.488 2.513a1.75 1.75 0 0 0-2.475 0L6.75 6.774a2.75 2.75 0 0 0-.596.892l-.848 2.047a.75.75 0 0 0 .98.98l2.047-.848a2.75 2.75 0 0 0 .892-.596l4.261-4.262a1.75 1.75 0 0 0 0-2.474Z" />
+                        <path d="M4.75 3.5c-.69 0-1.25.56-1.25 1.25v6.5c0 .69.56 1.25 1.25 1.25h6.5c.69 0 1.25-.56 1.25-1.25V9A.75.75 0 0 1 14 9v2.25A2.75 2.75 0 0 1 11.25 14h-6.5A2.75 2.75 0 0 1 2 11.25v-6.5A2.75 2.75 0 0 1 4.75 2H7a.75.75 0 0 1 0 1.5H4.75Z" />
+                    </svg>
+                    <span class="ml-2">Edit</span>
                 </button>
-                <button data-modal-target="edit-modal<?php echo $row['prospect_id']; ?>" data-modal-toggle="edit-modal<?php echo $row['prospect_id']; ?>"  
-                  class="select-none rounded-lg bg-amber-500 text-black py-2 px-4 text-xs font-bold uppercase shadow-md transition-all hover:shadow-lg hover:bg-amber-700 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-lg text-sm dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="button">
-                    Edit
-                </button>
-                <button data-modal-target="delete-modal<?php echo $row['prospect_id']; ?>" data-modal-toggle="delete-modal<?php echo $row['prospect_id']; ?>" 
-                  class="select-none rounded-lg bg-red-500 text-black py-2 px-4 text-xs font-bold uppercase shadow-md transition-all hover:shadow-lg hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="button">
-                    Delete
+
+                <button data-modal-target="delete-modal<?php echo $row['prospect_id']; ?>" data-modal-toggle="delete-modal<?php echo $row['prospect_id']; ?>" class="select-none rounded-lg bg-red-500 text-black py-2 px-4 text-xs font-bold uppercase shadow-md transition-all hover:shadow-lg hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 inline-block align-text-top">
+                        <path fill-rule="evenodd" d="M5 3.25V4H2.75a.75.75 0 0 0 0 1.5h.3l.815 8.15A1.5 1.5 0 0 0 5.357 15h5.285a1.5 1.5 0 0 0 1.493-1.35l.815-8.15h.3a.75.75 0 0 0 0-1.5H11v-.75A2.25 2.25 0 0 0 8.75 1h-1.5A2.25 2.25 0 0 0 5 3.25Zm2.25-.75a.75.75 0 0 0-.75.75V4h3v-.75a.75.75 0 0 0-.75-.75h-1.5ZM6.05 6a.75.75 0 0 1 .787.713l.275 5.5a.75.75 0 0 1-1.498.075l-.275-5.5A.75.75 0 0 1 6.05 6Zm3.9 0a.75.75 0 0 1 .712.787l-.275 5.5a.75.75 0 0 1-1.498-.075l.275-5.5a.75.75 0 0 1 .786-.711Z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="ml-2">Delete</span>
                 </button>
               </td>
             </tr>
@@ -243,20 +260,21 @@ include "navbar.php";
 <?php
 // Check if 'added' parameter is set and has the value 'success' after adding new data
 // Check if 'updated' parameter is set and has the value 'success' after updating data
-if ((isset($_GET['added']) && $_GET['added'] === 'success') || (isset($_GET['updated']) && $_GET['updated'] === 'success')) {
+// Check if 'deleted' parameter is set and has the value 'success' after deleting data
+if ((isset($_GET['added']) && $_GET['added'] === 'success') || (isset($_GET['updated']) && $_GET['updated'] === 'success') || (isset($_GET['deleted']) && $_GET['deleted'] === 'success'))  {
 ?>
   <script>
     // Show SweetAlert2 alert based on the parameter present in the URL
     Swal.fire({
       title: "Success!",
-      text: <?php echo (isset($_GET['added']) && $_GET['added'] === 'success') ? '"You successfully added a new prospect"' : '"You successfully updated the prospect"'; ?>,
+      text: <?php echo (isset($_GET['added']) && $_GET['added'] === 'success') ? '"You successfully added a new prospect"' : ((isset($_GET['updated']) && $_GET['updated'] === 'success') ? '"You successfully updated the prospect"' : '"You successfully deleted the prospect"'); ?>,
       icon: "success",
       confirmButtonText: "OK"
     });
 
     // Remove the parameter from the URL
     window.onload = function() {
-      if (window.location.search.includes('added=success') || window.location.search.includes('updated=success')) {
+      if (window.location.search.includes('added=success') || window.location.search.includes('updated=success') || window.location.search.includes('deleted=success')) {
         history.replaceState({}, document.title, window.location.pathname);
       }
     };
@@ -264,6 +282,7 @@ if ((isset($_GET['added']) && $_GET['added'] === 'success') || (isset($_GET['upd
 <?php
 }
 ?>
+
 </body>
 
 </html>

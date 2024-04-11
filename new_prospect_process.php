@@ -53,6 +53,6 @@ if (isset($_POST["deletedata"])) {
     $stmt = $con->prepare($sql);
     $stmt->execute();
 
-    header("Location: new_prospect.php");
+    header("Location: new_prospect.php?deleted=success");
     exit();
 }
