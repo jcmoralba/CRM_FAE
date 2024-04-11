@@ -139,7 +139,7 @@ include "navbar.php";
         <!-- Modal header -->
         <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
           <h3 class="text-xl font-semibold text-gray-900 text-black">
-            New prospect
+            New prospect 
           </h3>
           <button type="button"
             class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
@@ -202,8 +202,8 @@ include "navbar.php";
                 placeholder="Remarks" required />
             </div>
             <div class="mb-6">
-              <label for="remark" class="block mb-2 text-sm font-medium text-gray-900 ">PDF Link</label>
-              <input type="text" id="remark" name="remark"
+              <label for="pdf" class="block mb-2 text-sm font-medium text-gray-900 ">PDF Link</label>
+              <input type="text" id="pdf" name="pdf"
                 class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder="PDF" required />
             </div>
