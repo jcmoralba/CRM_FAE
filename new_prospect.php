@@ -99,10 +99,14 @@ include "navbar.php";
                 ?>
               </td>
               <td class="border border-black px-4 py-2">
-                <button data-modal-target="view_prospect<?php echo $row['prospect_id']; ?>" data-modal-toggle="view_prospect<?php echo $row['prospect_id']; ?>"  
-                  class="select-none rounded-lg bg-green-500 text-black py-2 px-4 text-xs font-bold uppercase shadow-md transition-all hover:shadow-lg hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="button">
-                    View
-                </button>
+              <button data-modal-target="view_prospect<?php echo $row['prospect_id']; ?>" data-modal-toggle="view_prospect<?php echo $row['prospect_id']; ?>" class="select-none rounded-lg bg-green-500 text-black py-2 px-4 text-xs font-bold uppercase shadow-md transition-all hover:shadow-lg hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 inline-block align-text-top">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z" />
+                        <path fill-rule="evenodd" d="M1.38 8.28a.87.87 0 0 1 0-.566 7.003 7.003 0 0 1 13.238.006.87.87 0 0 1 0 .566A7.003 7.003 0 0 1 1.379 8.28ZM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="ml-2">View</span>
+                </button>   
+                
                 <button data-modal-target="edit-modal<?php echo $row['prospect_id']; ?>" data-modal-toggle="edit-modal<?php echo $row['prospect_id']; ?>" class="select-none bg-amber-500 text-black py-2 px-4 text-xs font-bold uppercase shadow-md transition-all hover:shadow-lg hover:bg-amber-700 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-lg text-sm dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="button">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 inline-block align-text-top">
                         <path d="M13.488 2.513a1.75 1.75 0 0 0-2.475 0L6.75 6.774a2.75 2.75 0 0 0-.596.892l-.848 2.047a.75.75 0 0 0 .98.98l2.047-.848a2.75 2.75 0 0 0 .892-.596l4.261-4.262a1.75 1.75 0 0 0 0-2.474Z" />
@@ -110,7 +114,6 @@ include "navbar.php";
                     </svg>
                     <span class="ml-2">Edit</span>
                 </button>
-
 
                 <button data-modal-target="delete-modal<?php echo $row['prospect_id']; ?>" data-modal-toggle="delete-modal<?php echo $row['prospect_id']; ?>" class="select-none rounded-lg bg-red-500 text-black py-2 px-4 text-xs font-bold uppercase shadow-md transition-all hover:shadow-lg hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="button">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 inline-block align-text-top">
