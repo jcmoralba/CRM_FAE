@@ -92,15 +92,16 @@ include "navbar.php";
                   if (strlen($row['pdf']) == 0) {
                   echo " ";
                   }
-                  else{
-                    echo "<u> <a href='{$row['pdf']}>' target='_blank'>LINK</a> </u>";
-                  }
+                  else {
+                    echo "<u><a href='{$row['pdf']}' target='_blank' class='text-blue-500 underline'>LINK</a></u>";
+                }
+                
                 ?>
               </td>
               <td class="border border-black px-4 py-2">
-                <button data-bs-target="#view_prospect<?php echo $row['prospect_id']; ?>" 
-                  class="btn btn-info" data-bs-toggle="modal" type="button">
-                    <span class="glyphicon glyphicon-edit"></span> View
+                <button data-modal-target="view_prospect<?php echo $row['prospect_id']; ?>" data-modal-toggle="view_prospect<?php echo $row['prospect_id']; ?>"  
+                  class="select-none rounded-lg bg-green-500 text-black py-2 px-4 text-xs font-bold uppercase shadow-md transition-all hover:shadow-lg hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="button">
+                    View
                 </button>
                 <button data-modal-target="edit-modal<?php echo $row['prospect_id']; ?>" data-modal-toggle="edit-modal<?php echo $row['prospect_id']; ?>" class="select-none bg-amber-500 text-black py-2 px-4 text-xs font-bold uppercase shadow-md transition-all hover:shadow-lg hover:bg-amber-700 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-lg text-sm dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="button">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 inline-block align-text-top">
