@@ -1,6 +1,7 @@
 <?php
+session_start();
 include "sidebar.php";
-include "navbar.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,20 +12,20 @@ include "navbar.php";
     <title>Client</title>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
 
 <body class="bg-gray-100">
 
-    <div class="ml-64">
+    <div>
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <p class="text-2xl font-bold mb-4">Client List</p>
         </div>
 
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
             <table class="table">
                 <thead>
                     <tr>
@@ -39,15 +40,18 @@ include "navbar.php";
                 </thead>
                 <tbody>
                     <?php
-                    $sql = "SELECT * FROM new_prospect WHERE `status` != 'Close Deals'";
+                    $sql = "SELECT * FROM new_prospect WHERE `status` = 'Close Deals'";
 
                     $sql1 = "SELECT `prospect_id`, `company_name`, `pdf`, `last_contacted`, `remark`, CONCAT('₱',FORMAT(`total_sales`,2,'en_US')) AS `total_sales` FROM `new_prospect` WHERE `status`= 'Close Deals'";
                     $stmt = $con->prepare($sql);
                     $stmt->execute();
                     while ($row = $stmt->fetch()) {
-                        ?>
+                    ?>
                         <tr>
-                            <td>
+                            <!-- <td name="prospect_id">
+                                <?php echo $row['prospect_id']; ?>
+                            </td> -->
+                            <td name="company_name">
                                 <?php echo $row['company_name']; ?>
                             </td>
                             <td>
@@ -63,25 +67,27 @@ include "navbar.php";
                                 <?php echo $row['total_sales']; ?>
                             </td>
                             <td>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal">
-                                    View
-                                </button>
-                            <input type="hidden" id="company_name" value="<?php echo $row['company_name']; ?>">
+                                <a href="client_list_view.php?data=<?php echo $row['company_name']; ?>">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-userid="<?php echo $row['prospect_id']; ?>">
+                                        View
+                                    </button>
+                                </a>
 
                             </td>
 
                         </tr>
-                        <?php
 
-
+                    <?php
+                        // include 'client_list_update.php';
 
                     }
 
                     ?>
+
                 </tbody>
             </table>
-            <?php include 'client_list_update.php'; ?>
+
+            <?php  ?>
         </div>
     </div>
 
@@ -93,15 +99,11 @@ include "navbar.php";
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-    <!-- <script>
-          $(document).ready(function () {
-              $('#clientTable').DataTable();
-          });
-      </script> -->
+    <script>
+
+    </script>
 
 </body>
 
