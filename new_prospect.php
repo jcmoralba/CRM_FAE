@@ -121,8 +121,6 @@ include "navbar.php";
                     </svg>
                     <span class="ml-2">Delete</span>
                 </button>
-
-
               </td>
             </tr>
             <?php
@@ -262,20 +260,21 @@ include "navbar.php";
 <?php
 // Check if 'added' parameter is set and has the value 'success' after adding new data
 // Check if 'updated' parameter is set and has the value 'success' after updating data
-if ((isset($_GET['added']) && $_GET['added'] === 'success') || (isset($_GET['updated']) && $_GET['updated'] === 'success')) {
+// Check if 'deleted' parameter is set and has the value 'success' after deleting data
+if ((isset($_GET['added']) && $_GET['added'] === 'success') || (isset($_GET['updated']) && $_GET['updated'] === 'success') || (isset($_GET['deleted']) && $_GET['deleted'] === 'success'))  {
 ?>
   <script>
     // Show SweetAlert2 alert based on the parameter present in the URL
     Swal.fire({
       title: "Success!",
-      text: <?php echo (isset($_GET['added']) && $_GET['added'] === 'success') ? '"You successfully added a new prospect"' : '"You successfully updated the prospect"'; ?>,
+      text: <?php echo (isset($_GET['added']) && $_GET['added'] === 'success') ? '"You successfully added a new prospect"' : ((isset($_GET['updated']) && $_GET['updated'] === 'success') ? '"You successfully updated the prospect"' : '"You successfully deleted the prospect"'); ?>,
       icon: "success",
       confirmButtonText: "OK"
     });
 
     // Remove the parameter from the URL
     window.onload = function() {
-      if (window.location.search.includes('added=success') || window.location.search.includes('updated=success')) {
+      if (window.location.search.includes('added=success') || window.location.search.includes('updated=success') || window.location.search.includes('deleted=success')) {
         history.replaceState({}, document.title, window.location.pathname);
       }
     };
@@ -283,6 +282,7 @@ if ((isset($_GET['added']) && $_GET['added'] === 'success') || (isset($_GET['upd
 <?php
 }
 ?>
+
 </body>
 
 </html>
