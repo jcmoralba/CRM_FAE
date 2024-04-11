@@ -57,6 +57,7 @@
               <button type="submit" name="register" class="w-full shadow-xl py-2.5 px-4 text-sm font-semibold rounded-full text-white bg-black hover:bg-red-800 focus:outline-none">
                 Create Account
               </button>  
+              
             </div>
             <div class="mt-12">
               <p class="text-sm mt-6">
