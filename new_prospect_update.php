@@ -281,7 +281,7 @@
                     </div>
                     <div class="mb-6">
                         <label for="pdf_link" class="block mb-2 text-sm font-medium text-gray-900">PDF Link</label>
-                        <input type="text" id="pdf_link" name="pdf_link" value="<?php echo $row['pdf']; ?>"
+                        <input type="text" id="pdf_link" name="pdf" value="<?php echo $row['pdf']; ?>"
                             class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                             placeholder="PDF Link" required />
                     </div>

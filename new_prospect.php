@@ -87,7 +87,7 @@ include "navbar.php";
                   echo " ";
                   }
                   else{
-                    echo " <a href='{$row['pdf']}>' target='_blank'>LINK</a>";
+                    echo "<u> <a href='{$row['pdf']}>' target='_blank'>LINK</a> </u>";
                   }
                 ?>
               </td>
