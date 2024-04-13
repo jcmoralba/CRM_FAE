@@ -1,7 +1,7 @@
 <?php
 include 'sidebar.php';
+include 'new_prospect_process.php';
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,44 +11,55 @@ include 'sidebar.php';
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>New Prospect</title>
 
-  <link rel="stylesheet" href="css/datatable.css">
-  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.min.css" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
+
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.bootstrap5.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.0.1/css/buttons.bootstrap5.css">
+
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+
+  <!-- MDB -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="css/style_index_1.css">
+  <link rel="stylesheet" href="css/datatable.css">
+
+
+  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.min.css" rel="stylesheet">
+
+
 </head>
 
-<body>
+<body class="">
 
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 bg-white">
-    <div class="flex justify-between items-center mb-4">
-      <p class="text-2xl font-bold text-black0">List of Prospect</p>
-      <div class="flex space-x-4">
-        <button data-modal-target="static-modal" data-modal-toggle="static-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 inline-block align-text-top">
-            <path d="M8.5 4.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0ZM10 13c.552 0 1.01-.452.9-.994a5.002 5.002 0 0 0-9.802 0c-.109.542.35.994.902.994h8ZM12.5 3.5a.75.75 0 0 1 .75.75v1h1a.75.75 0 0 1 0 1.5h-1v1a.75.75 0 0 1-1.5 0v-1h-1a.75.75 0 0 1 0-1.5h1v-1a.75.75 0 0 1 .75-.75Z" />
-          </svg>
-          <span class="ml-2">Add client</span>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-6">
+        <p class="h2">List of new Prospect</p>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <button type="button" class="btn btn-primary" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#staticBackdrop">
+          <i class="fas fa-user-plus me-2"></i>
+          Add Prospect
         </button>
-
-        <button id="printTableButton" class="px-4 py-2 font-sans text-xs font-bold text-center text-gray-900 uppercase align-middle transition-all rounded-lg select-none hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none border-gray-900" type="button">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 inline-block align-text-top">
-            <path fill-rule="evenodd" d="M4 5a2 2 0 0 0-2 2v3a2 2 0 0 0 1.51 1.94l-.315 1.896A1 1 0 0 0 4.18 15h7.639a1 1 0 0 0 .986-1.164l-.316-1.897A2 2 0 0 0 14 10V7a2 2 0 0 0-2-2V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v3Zm1.5 0V2.5h5V5h-5Zm5.23 5.5H5.27l-.5 3h6.459l-.5-3Z" clip-rule="evenodd" />
-          </svg>
-          <span class="ml-2">Print</span>
-        </button>
-
       </div>
     </div>
 
-    <table id="example" class="table-auto w-full">
+    <table id="example" class="table table-striped table-bordered border-dark " style="width:100%">
       <thead>
-        <tr>
-          <th class="px-4 py-2 bg-slate-900 text-white">COMPANY NAME</th>
-          <th class="px-4 py-2 bg-slate-900 text-white">ITEM DEALS</th>
-          <th class="px-4 py-2 bg-slate-900 text-white">STATUS</th>
-          <th class="px-4 py-2 bg-slate-900 text-white">REMARKS</th>
-          <th class="px-4 py-2 bg-slate-900 text-white">PDF LINK</th>
-          <th class="px-4 py-2 bg-slate-900 text-white">ACTION</th>
+        <tr class="bg-dark table-bordered border-dark">
+          <th class="text-white">COMPANY NAME</th>
+          <th class="text-white">ITEM DEALS</th>
+          <th class="text-white">STATUS</th>
+          <th class="text-white">REMARKS</th>
+          <th class="text-white">PDF LINK</th>
+          <th class="text-white">ACTION</th>
         </tr>
       </thead>
       <tbody>
@@ -59,50 +70,41 @@ include 'sidebar.php';
         while ($row = $stmt->fetch()) {
         ?>
           <tr>
-            <td class="border border-black px-4 py-2">
+            <td>
               <?php echo $row['company_name']; ?>
             </td>
-            <td class="border border-black py-2">
+            <td>
               <?php echo $row['item_deals']; ?>
             </td>
-            <td class="border border-black px-4 py-2">
+            <td>
               <?php echo $row['status']; ?>
             </td>
-            <td class="border border-black px-4 py-2">
+            <td>
               <?php echo $row['remark']; ?>
             </td>
-            <td class="border border-black px-4 py-2">
+            <td>
               <?php
               if (strlen($row['pdf']) == 0) {
                 echo " ";
               } else {
-                echo "<u><a href='{$row['pdf']}' target='_blank' class='text-blue-500 underline'>LINK</a></u>";
+                echo "<u><a href='{$row['pdf']}' target='_blank'>LINK</a></u>";
               }
 
               ?>
             </td>
-            <td class="border border-black px-4 py-2">
-              <button data-modal-target="view_prospect<?php echo $row['prospect_id']; ?>" data-modal-toggle="view_prospect<?php echo $row['prospect_id']; ?>" class="select-none rounded-lg bg-green-500 text-black py-2 px-4 text-xs font-bold uppercase shadow-md transition-all hover:shadow-lg hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="button">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 inline-block align-text-top">
-                  <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z" />
-                  <path fill-rule="evenodd" d="M1.38 8.28a.87.87 0 0 1 0-.566 7.003 7.003 0 0 1 13.238.006.87.87 0 0 1 0 .566A7.003 7.003 0 0 1 1.379 8.28ZM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" clip-rule="evenodd" />
-                </svg>
-                <span class="ml-2">View</span>
+            <td>
+              <button type="button" class="btn btn-info btn-rounded" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#view_prospect<?php echo $row['prospect_id']; ?>">
+                <i class="fas fa-eye me-2"></i>
+                View
               </button>
 
-              <button data-modal-target="edit-modal<?php echo $row['prospect_id']; ?>" data-modal-toggle="edit-modal<?php echo $row['prospect_id']; ?>" class="select-none bg-amber-500 text-black py-2 px-4 text-xs font-bold uppercase shadow-md transition-all hover:shadow-lg hover:bg-amber-700 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-lg text-sm dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="button">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 inline-block align-text-top">
-                  <path d="M13.488 2.513a1.75 1.75 0 0 0-2.475 0L6.75 6.774a2.75 2.75 0 0 0-.596.892l-.848 2.047a.75.75 0 0 0 .98.98l2.047-.848a2.75 2.75 0 0 0 .892-.596l4.261-4.262a1.75 1.75 0 0 0 0-2.474Z" />
-                  <path d="M4.75 3.5c-.69 0-1.25.56-1.25 1.25v6.5c0 .69.56 1.25 1.25 1.25h6.5c.69 0 1.25-.56 1.25-1.25V9A.75.75 0 0 1 14 9v2.25A2.75 2.75 0 0 1 11.25 14h-6.5A2.75 2.75 0 0 1 2 11.25v-6.5A2.75 2.75 0 0 1 4.75 2H7a.75.75 0 0 1 0 1.5H4.75Z" />
-                </svg>
-                <span class="ml-2">Edit</span>
+              <button type="button" class="btn btn-warning btn-rounded" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#edit-prospect<?php echo $row['prospect_id']; ?>">
+                <i class="fas fa-pen me-2"></i>
+                Edit
               </button>
-
-              <button data-modal-target="delete-modal<?php echo $row['prospect_id']; ?>" data-modal-toggle="delete-modal<?php echo $row['prospect_id']; ?>" class="select-none rounded-lg bg-red-500 text-black py-2 px-4 text-xs font-bold uppercase shadow-md transition-all hover:shadow-lg hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="button">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 inline-block align-text-top">
-                  <path fill-rule="evenodd" d="M5 3.25V4H2.75a.75.75 0 0 0 0 1.5h.3l.815 8.15A1.5 1.5 0 0 0 5.357 15h5.285a1.5 1.5 0 0 0 1.493-1.35l.815-8.15h.3a.75.75 0 0 0 0-1.5H11v-.75A2.25 2.25 0 0 0 8.75 1h-1.5A2.25 2.25 0 0 0 5 3.25Zm2.25-.75a.75.75 0 0 0-.75.75V4h3v-.75a.75.75 0 0 0-.75-.75h-1.5ZM6.05 6a.75.75 0 0 1 .787.713l.275 5.5a.75.75 0 0 1-1.498.075l-.275-5.5A.75.75 0 0 1 6.05 6Zm3.9 0a.75.75 0 0 1 .712.787l-.275 5.5a.75.75 0 0 1-1.498-.075l.275-5.5a.75.75 0 0 1 .786-.711Z" clip-rule="evenodd" />
-                </svg>
-                <span class="ml-2">Delete</span>
+              <button type="button" class="btn btn-danger btn-rounded" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#delete-modal<?php echo $row['prospect_id']; ?>">
+                <i class="fas fa-trash-can me-2"></i>
+                Delete
               </button>
             </td>
           </tr>
@@ -113,37 +115,29 @@ include 'sidebar.php';
       </tbody>
     </table>
   </div>
-  </div>
 
-  <!-- Main modal -->
-  <div id="static-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-    <div class="relative p-4 w-full max-w-2xl max-h-full">
-      <!-- Modal content -->
-      <div class="relative bg-white rounded-lg shadow ">
-        <!-- Modal header -->
-        <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
-          <h3 class="text-xl font-semibold text-gray-900 text-black">
-            New prospect
-          </h3>
-          <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="static-modal">
-            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-            </svg>
-            <span class="sr-only text-black">Add new Record</span>
-          </button>
+
+
+
+
+
+  <div class="modal fade" id="staticBackdrop" data-mdb-backdrop="static" data-mdb-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Add new prospect</h5>
+          <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
         </div>
-        <!-- Modal body -->
-        <div class="p-4 md:p-5 space-y-4">
-          <form action="new_prospect_process.php" method="POST">
-            <div class="mb-6">
-              <label for="comp_name" class="block mb-2 text-sm font-medium text-gray-900 ">Company
-                Name</label>
-              <input type="text" id="comp_name" name="comp_name" class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Company Name" required />
+        <div class="modal-body">
+          <form style="width: 26rem;" action="new_prospect_process.php" method="POST">
+            <!-- Name input -->
+            <div class="form-floating mb-3">
+              <input type="input" class="form-control" id="comp_name" name="comp_name" placeholder="Company name">
+              <label for="comp_name">Company Name</label>
             </div>
-            <div class="mb-6">
-              <label for="item_deal" class="block mb-2 text-sm font-medium text-gray-900 ">Item
-                Deals</label>
-              <input type="text" id="item_deal" name="item_deal" class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Item Deals" required />
+            <div class="form-floating mb-3">
+              <input type="number" class="form-control" id="item_deal" name="item_deal" placeholder="Item Deal">
+              <label for="item_deal">Item Deal</label>
             </div>
             <?php
             $sql1 = "SELECT * FROM status";
@@ -151,108 +145,108 @@ include 'sidebar.php';
             $stmt1->execute();
             $data1 = $stmt1->fetchAll();
             ?>
-            <div class="mb-6">
-              <label for="status" class="block mb-2 text-sm font-medium text-gray-900">Select an
-                status</label>
-              <select id="status" name="status" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  ">
-                <option value=""></option>
-                <?php foreach ($data1 as $row1) { ?>
-                  <option value="<?= htmlspecialchars($row1['status_name']) ?>">
-                    <?= htmlspecialchars($row1['status_name']) ?>
-                  </option>
-                <?php } ?>
-              </select>
+            <div class="form-floating mb-3">
+              <div class="col-md">
+                <div class="form-floating">
+                  <select class="form-select" id="status" name="status" aria-label="Floating label select example">
+                    <option selected>Select Status</option>
+                    <?php foreach ($data1 as $row1) { ?>
+                      <option value="<?= htmlspecialchars($row1['status_name']) ?>"><?= htmlspecialchars($row1['status_name']) ?></option>
+                    <?php } ?>
+                  </select>
+                  <label for="status">Sale Cycle</label>
+                </div>
+              </div>
             </div>
-            <div class="mb-6">
-              <label for="total_sales" class="block mb-2 text-sm font-medium text-gray-900 ">Total
-                Sales</label>
-              <input type="text" id="total_sales" name="total_sales" onBlur="formatCurrency(this, '₱ ', 'blur');" onkeyup="formatCurrency(this, '₱ ');" class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="₱ #,###.00" required />
+            <div class="form-floating mb-3">
+              <input type="number" class="form-control" id="total_sales" name="total_sales" placeholder="Total Sale">
+              <label for="total_sales">Total Sale</label>
             </div>
-            <div class="mb-6">
-              <label for="remark" class="block mb-2 text-sm font-medium text-gray-900 ">Remarks</label>
-              <input type="text" id="remark" name="remark" class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Remarks" required />
+            <div class="form-floating mb-3">
+              <input type="input" class="form-control" id="remark" name="remark" placeholder="Remarks">
+              <label for="form-control">Remarks</label>
             </div>
-            <div class="mb-6">
-              <label for="pdf" class="block mb-2 text-sm font-medium text-gray-900 ">PDF Link</label>
-              <input type="text" id="pdf" name="pdf" class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="PDF" required />
+            <div class="form-floating mb-3">
+              <input type="input" class="form-control" id="pdf" name="pdf" placeholder="Remarks">
+              <label for="pdf">PDF Link</label>
             </div>
-            <button type="submit" name="savedata" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center ">Submit
-            </button>
-          </form>
         </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
+          <button type="submit" name="savedata" class="btn btn-primary" data-mdb-ripple-init>Save Prospect</button>
+        </div>
+        </form>
       </div>
     </div>
-    <!-- </div> -->
+  </div>
 
 
-    <script src="js/main.js"></script>
 
-    <!-- ====== ionicons ======= -->
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <!-- MDB -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"></script>
 
 
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+  <script src="js/main.js"></script>
 
-    <script src="js/print-table.js"></script> <!-- print js | walang desiGN -->
-    <script src="js/new_prospect.js"></script> <!-- yung format nandito na yung sa peso -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- ====== ionicons ======= -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
+  <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.js"></script>
+  <script src="https://cdn.datatables.net/buttons/3.0.1/js/dataTables.buttons.js"></script>
+  <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.bootstrap5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+  <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.html5.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.print.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.colVis.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js"></script>
+
+  <script>
+    new DataTable('#example', {
+      layout: {
+        topStart: {
+          buttons: ['copy', 'excel', 'pdf', 'colvis']
+        }
+      }
+
+    });
+  </script>
+
+
+
+  <!-- SWEETALERT ADD AND EDIT -->
+  <?php
+  // Check if 'added' parameter is set and has the value 'success' after adding new data
+  // Check if 'updated' parameter is set and has the value 'success' after updating data
+  // Check if 'deleted' parameter is set and has the value 'success' after deleting data
+  if ((isset($_GET['added']) && $_GET['added'] === 'success') || (isset($_GET['updated']) && $_GET['updated'] === 'success') || (isset($_GET['deleted']) && $_GET['deleted'] === 'success')) {
+  ?>
     <script>
-      $(document).ready(function() {
-        $('#example').DataTable({
-          // Add any customization options here
-        });
-
-        // JavaScript to hide all modals when the page loads
-        document.querySelectorAll('[id^="modal"]').forEach(function(modal) {
-          modal.classList.add("hidden");
-        });
-
-        // Add event listener to all modal toggle buttons to show the respective modal when clicked
-        document.addEventListener("click", function(event) {
-          if (event.target.matches('[data-modal-toggle]')) {
-            var targetModalId = event.target.getAttribute("data-modal-toggle");
-            var modal = document.getElementById(targetModalId);
-            if (modal) {
-              modal.classList.remove("hidden");
-            }
-          }
-        });
+      // Show SweetAlert2 alert based on the parameter present in the URL
+      Swal.fire({
+        title: "Success!",
+        text: <?php echo (isset($_GET['added']) && $_GET['added'] === 'success') ? '"You successfully added a new prospect"' : ((isset($_GET['updated']) && $_GET['updated'] === 'success') ? '"You successfully updated the prospect"' : '"You successfully deleted the prospect"'); ?>,
+        icon: "success",
+        confirmButtonText: "OK"
       });
+
+      // Remove the parameter from the URL
+      window.onload = function() {
+        if (window.location.search.includes('added=success') || window.location.search.includes('updated=success') || window.location.search.includes('deleted=success')) {
+          history.replaceState({}, document.title, window.location.pathname);
+        }
+      };
     </script>
-
-
-
-    <!-- SWEETALERT ADD AND EDIT -->
-    <?php
-    // Check if 'added' parameter is set and has the value 'success' after adding new data
-    // Check if 'updated' parameter is set and has the value 'success' after updating data
-    // Check if 'deleted' parameter is set and has the value 'success' after deleting data
-    if ((isset($_GET['added']) && $_GET['added'] === 'success') || (isset($_GET['updated']) && $_GET['updated'] === 'success') || (isset($_GET['deleted']) && $_GET['deleted'] === 'success')) {
-    ?>
-      <script>
-        // Show SweetAlert2 alert based on the parameter present in the URL
-        Swal.fire({
-          title: "Success!",
-          text: <?php echo (isset($_GET['added']) && $_GET['added'] === 'success') ? '"You successfully added a new prospect"' : ((isset($_GET['updated']) && $_GET['updated'] === 'success') ? '"You successfully updated the prospect"' : '"You successfully deleted the prospect"'); ?>,
-          icon: "success",
-          confirmButtonText: "OK"
-        });
-
-        // Remove the parameter from the URL
-        window.onload = function() {
-          if (window.location.search.includes('added=success') || window.location.search.includes('updated=success') || window.location.search.includes('deleted=success')) {
-            history.replaceState({}, document.title, window.location.pathname);
-          }
-        };
-      </script>
-    <?php
-    }
-    ?>
+  <?php
+  }
+  ?>
 
 </body>
 
