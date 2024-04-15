@@ -53,7 +53,7 @@ require_once("includes/connect.php");
       </li>
 
       <li>
-        <a href="#">
+        <a href="schedule.php">
           <span class="icon">
             <ion-icon name="help-outline"></ion-icon>
           </span>

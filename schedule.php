@@ -1,6 +1,5 @@
 <?php
     include "sidebar.php";
-    include "navbar.php";
 ?>
 <!DOCTYPE html>
 <html>

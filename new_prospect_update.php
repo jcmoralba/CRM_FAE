@@ -96,7 +96,7 @@
   </div>
 
   <div class="modal fade" id="view_prospect<?php echo $row['prospect_id']; ?>" tabindex="-1">
-    <<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">View Prospect</h5>
@@ -110,6 +110,8 @@
               <p>Item Deals: <?php echo $row['item_deals']; ?></p>
               <p>Status: <?php echo $row['status']; ?></p>
               <p>Total Sales: <?php echo $row['total_sales']; ?></p>
+              <p>PDF Link: <?php echo "<u><a href='{$row['pdf']}' target='_blank'>LINK</a></u>"; ?></p>
+              
             </div>
         </div>
         <div class="modal-footer">
