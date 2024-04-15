@@ -17,6 +17,11 @@ include 'new_prospect_process.php';
   <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.0.1/css/buttons.bootstrap5.css">
 
 
+
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.0.1/css/buttons.dataTables.css">
+
+
   <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
   <!-- Google Fonts -->
@@ -48,6 +53,28 @@ include 'new_prospect_process.php';
         </button>
       </div>
     </div>
+
+    <?php
+    $sql1 = "SELECT * FROM status";
+    $stmt1 = $con->prepare($sql1);
+    $stmt1->execute();
+    $data1 = $stmt1->fetchAll();
+    ?>
+    <div class="mb-3">
+      <label for="statusFilter" class="form-label">Filter by Status:</label>
+      <div class="input-group">
+        <select id="statusFilter" class="form-select">
+          <option value="" selected>Filter Status</option>
+          <?php foreach ($data1 as $row1) { ?>
+            <option value="<?= htmlspecialchars($row1['status_name']) ?>"><?= htmlspecialchars($row1['status_name']) ?></option>
+          <?php } ?>
+        </select>
+        <button id="clearFilterBtn" class="btn btn-outline-secondary" type="button">
+          <i class="bi bi-x"></i>
+        </button>
+      </div>
+    </div>
+
 
     <table id="example" class="table table-striped table-bordered border-dark " style="width:100%">
       <thead>
@@ -140,26 +167,27 @@ include 'new_prospect_process.php';
             <!-- item deals -->
             <table id="TextBoxesGroup" class="table">
               <tr class="type">
-              
+
               </tr>
               <tr class="name">
                 <td>
                   <label>Item Deals</label>
                 </td>
                 <td>
-                  <input type="input" name="name[]"  class="form-control"/>
+                  <input type="input" name="name[]" class="form-control" />
                 </td>
               </tr>
-          
+
             </table>
             <table>
               <tr>
                 <td>
-              
-                  <button type="button" id="addButton" class="btn btn-success"><i class="fas fa-circle-plus"></i> </button> </td>
+
+                  <button type="button" id="addButton" class="btn btn-success"><i class="fas fa-circle-plus"></i> </button>
+                </td>
                 </td>
                 <td>
-                  <input type="button" id="removeButton" value="Remove" class="btn btn-danger"/>
+                  <input type="button" id="removeButton" value="Remove" class="btn btn-danger" />
                 </td>
                 <td>
                   <input type="button" id="resetButton" value="Reset" class="btn btn-warning" />
@@ -225,7 +253,7 @@ include 'new_prospect_process.php';
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 
-  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
   <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.js"></script>
@@ -236,18 +264,89 @@ include 'new_prospect_process.php';
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
   <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.html5.min.js"></script>
   <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.print.min.js"></script>
-  <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.colVis.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.colVis.min.js"></script> -->
+
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
+  <script src="https://cdn.datatables.net/buttons/3.0.1/js/dataTables.buttons.js"></script>
+  <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.dataTables.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+  <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.html5.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.print.min.js"></script>
+
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js"></script>
 
-  <script>
-    new DataTable('#example', {
-      layout: {
-        topStart: {
-          buttons: ['copy', 'excel', 'pdf', 'colvis']
-        }
-      }
 
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    $(document).ready(function() {
+      // Initialize DataTable
+      var table = $('#example').DataTable({
+        buttons: [{
+            extend: 'copy',
+            exportOptions: {
+              columns: ':not(:last-child)' // Excludes the last column (Action column)
+            }
+          },
+          {
+            extend: 'csv',
+            exportOptions: {
+              columns: ':not(:last-child)' // Excludes the last column (Action column)
+            }
+          },
+          {
+            extend: 'excel',
+            exportOptions: {
+              columns: ':not(:last-child)' // Excludes the last column (Action column)
+            }
+          },
+          {
+            extend: 'pdf',
+            exportOptions: {
+              columns: ':not(:last-child)' // Excludes the last column (Action column)
+            }
+          },
+          {
+            extend: 'print',
+            exportOptions: {
+              columns: ':not(:last-child)' // Excludes the last column (Action column)
+            }
+          }
+        ],
+        layout: {
+          topStart: 'buttons'
+        }
+      });
+
+      // Handle status filter
+      $('#statusFilter').on('change', function() {
+        var status = $(this).val();
+        if (status === "") {
+          table.column(2).search("").draw(); // Clear the search if "Filter Status" is chosen
+        } else {
+          table.column(2).search(status).draw(); // Filter based on selected status
+        }
+      });
+
+      // Handle clear filter button
+      $('#clearFilterBtn').on('click', function() {
+        $('#statusFilter').val(''); // Clear the selected value in the dropdown
+        table.column(2).search("").draw(); // Clear the search filter
+        $('#statusFilter option[value=""]').prop('selected', true); // Select "Filter Status" option
+      });
     });
   </script>
 
@@ -298,18 +397,18 @@ include 'new_prospect_process.php';
         });
       });
     </script>
-  
+
   <?php
   }
   ?>
 
-<script>
-  $(function () { // Short way for document ready.
-    $("#addButton").on("click", function () {
+  <script>
+    $(function() { // Short way for document ready.
+      $("#addButton").on("click", function() {
         if ($(".type").length > 10) { // Number of boxes.
-            alert("Only 5 textboxes allow");
+          alert("Only 5 textboxes allow");
 
-            return false;
+          return false;
         }
 
         var newType = $(".type").first().clone().addClass("newAdded"); // Clone the group and add a new class.
@@ -317,24 +416,24 @@ include 'new_prospect_process.php';
 
         newType.appendTo("#TextBoxesGroup"); // Append the new group.
         newName.appendTo("#TextBoxesGroup"); // Append the new group.
-    });
+      });
 
-    $("#removeButton").on("click", function () {
+      $("#removeButton").on("click", function() {
         if ($(".type").length == 1) { // Number of boxes.
-            alert("No more textbox to remove");
+          alert("No more textbox to remove");
 
-            return false;
+          return false;
         }
 
         $(".type").last().remove(); // Remove the last group.
         $(".name").last().remove(); // Remove the last group.
-    });
+      });
 
-    $("#resetButton").on("click", function () {
+      $("#resetButton").on("click", function() {
         $(".newAdded").remove(); // Remove all newly added groups.
+      });
     });
-});
-</script>
+  </script>
 </body>
 
 </html>
