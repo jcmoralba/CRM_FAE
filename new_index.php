@@ -10,6 +10,8 @@
   <title>Admin Dashboard</title>
   <!-- ======= Styles ====== -->
   <link rel="stylesheet" href="css/style_index_1.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
 </head>
 
 <body>
@@ -66,166 +68,85 @@
   </div>
 
   <!-- ================ Order Details List ================= -->
-  <div class="details">
-    <div class="recentOrders">
-      <div class="cardHeader">
-        <h2>Recent Orders</h2>
-        <a href="#" class="btn">View All</a>
-      </div>
+  <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
 
-      <table>
-        <thead>
-          <tr>
-            <td>Name</td>
-            <td>Price</td>
-            <td>Payment</td>
-            <td>Status</td>
-          </tr>
-        </thead>
+  <script>
+const xValues = [100,200,300,400,500,600,700,800,900,1000];
 
-        <tbody>
-          <tr>
-            <td>Star Refrigerator</td>
-            <td>$1200</td>
-            <td>Paid</td>
-            <td><span class="status delivered">Delivered</span></td>
-          </tr>
-
-          <tr>
-            <td>Dell Laptop</td>
-            <td>$110</td>
-            <td>Due</td>
-            <td><span class="status pending">Pending</span></td>
-          </tr>
-
-          <tr>
-            <td>Apple Watch</td>
-            <td>$1200</td>
-            <td>Paid</td>
-            <td><span class="status return">Return</span></td>
-          </tr>
-
-          <tr>
-            <td>Addidas Shoes</td>
-            <td>$620</td>
-            <td>Due</td>
-            <td><span class="status inProgress">In Progress</span></td>
-          </tr>
-
-          <tr>
-            <td>Star Refrigerator</td>
-            <td>$1200</td>
-            <td>Paid</td>
-            <td><span class="status delivered">Delivered</span></td>
-          </tr>
-
-          <tr>
-            <td>Dell Laptop</td>
-            <td>$110</td>
-            <td>Due</td>
-            <td><span class="status pending">Pending</span></td>
-          </tr>
-
-          <tr>
-            <td>Apple Watch</td>
-            <td>$1200</td>
-            <td>Paid</td>
-            <td><span class="status return">Return</span></td>
-          </tr>
-
-          <tr>
-            <td>Addidas Shoes</td>
-            <td>$620</td>
-            <td>Due</td>
-            <td><span class="status inProgress">In Progress</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+new Chart("myChart", {
+  type: "line",
+  data: {
+    labels: xValues,
+    datasets: [{ 
+      data: [860,1140,1060,1060,1070,1110,1330,2210,7830,2478],
+      borderColor: "red",
+      fill: false
+    }, { 
+      data: [1600,1700,1700,1900,2000,2700,4000,5000,6000,7000],
+      borderColor: "green",
+      fill: false
+    }, { 
+      data: [300,700,2000,5000,6000,4000,2000,1000,200,100],
+      borderColor: "blue",
+      fill: false
+    }]
+  },
+  options: {
+    legend: {display: false}
+  }
+});
+</script>
 
     <!-- ================= New Customers ================ -->
-    <div class="recentCustomers">
-      <div class="cardHeader">
-        <h2>Recent Customers</h2>
-      </div>
+    <canvas id="myChart1" style="width:100%;max-width:600px; margin-left:300px;"></canvas>
+  <script>
+    const xValues1 = [50,60,70,80,90,100,110,120,130,140,150];
+const yValues = [7,8,8,9,9,9,10,11,14,14,15];
 
-      <table>
-        <tr>
-          <td width="60px">
-            <div class="imgBx"><img src="imgs/customer02.jpg" alt=""></div>
-          </td>
-          <td>
-            <h4>David <br> <span>Italy</span></h4>
-          </td>
-        </tr>
+new Chart("myChart1", {
+  type: "line",
+  data: {
+    labels: xValues1,
+    datasets: [{
+      backgroundColor:"rgba(0,0,255,1.0)",
+      borderColor: "rgba(0,0,255,0.1)",
+      data: yValues
+    }]
+  },
+ 
+});
+  </script>
 
-        <tr>
-          <td width="60px">
-            <div class="imgBx"><img src="imgs/customer01.jpg" alt=""></div>
-          </td>
-          <td>
-            <h4>Amit <br> <span>India</span></h4>
-          </td>
-        </tr>
+<canvas id="myChart2" style="width:100%;max-width:600px; margin-left: 600px; margin-top:800px;"></canvas>
 
-        <tr>
-          <td width="60px">
-            <div class="imgBx"><img src="imgs/customer02.jpg" alt=""></div>
-          </td>
-          <td>
-            <h4>David <br> <span>Italy</span></h4>
-          </td>
-        </tr>
+<script>
+var xValues2 = ["Italy", "France", "Spain", "USA", "Argentina"];
+var yValues2 = [55, 49, 44, 24, 15];
+var barColors = [
+  "#b91d47",
+  "#00aba9",
+  "#2b5797",
+  "#e8c3b9",
+  "#1e7145"
+];
 
-        <tr>
-          <td width="60px">
-            <div class="imgBx"><img src="imgs/customer01.jpg" alt=""></div>
-          </td>
-          <td>
-            <h4>Amit <br> <span>India</span></h4>
-          </td>
-        </tr>
-
-        <tr>
-          <td width="60px">
-            <div class="imgBx"><img src="imgs/customer02.jpg" alt=""></div>
-          </td>
-          <td>
-            <h4>David <br> <span>Italy</span></h4>
-          </td>
-        </tr>
-
-        <tr>
-          <td width="60px">
-            <div class="imgBx"><img src="imgs/customer01.jpg" alt=""></div>
-          </td>
-          <td>
-            <h4>Amit <br> <span>India</span></h4>
-          </td>
-        </tr>
-
-        <tr>
-          <td width="60px">
-            <div class="imgBx"><img src="imgs/customer01.jpg" alt=""></div>
-          </td>
-          <td>
-            <h4>David <br> <span>Italy</span></h4>
-          </td>
-        </tr>
-
-        <tr>
-          <td width="60px">
-            <div class="imgBx"><img src="imgs/customer02.jpg" alt=""></div>
-          </td>
-          <td>
-            <h4>Amit <br> <span>India</span></h4>
-          </td>
-        </tr>
-      </table>
-    </div>
-  </div>
-  </div>
-  </div> -->
+new Chart("myChart2", {
+  type: "pie",
+  data: {
+    labels: xValues2,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues2
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "World Wide Wine Production 2018"
+    }
+  }
+});
+</script>
 
   <!-- =========== Scripts =========  -->
   <script src="js/main.js"></script>
