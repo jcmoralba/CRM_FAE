@@ -16,13 +16,12 @@ require_once("includes/connect.php");
 <body>
   <div class="navigation">
     <ul>
-      <li>
-        <a href="">
-          <span class="icon">
-            <ion-icon name="logo-apple"></ion-icon>
-          </span>
-          <span class="title">Hytec Power Inc</span>
-        </a>
+    <li>
+          <a class="navbar-brand" href="">
+          <img src="imgs/logo-new.png" width="80px" height="auto" class="d-inline-block" alt="">
+            <span class="title">Hytec Power Inc</span>
+          </a>
+        </li>
       </li>
 
       <li>
