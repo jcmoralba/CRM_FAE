@@ -38,7 +38,7 @@ include 'new_prospect_process.php';
 <body class="">
 
 
-  <div class="container mt-5">
+  <div class=" mt-5">
     <div class="row">
       <div class="col-md-6">
         <p class="h2">List of new Prospect</p>

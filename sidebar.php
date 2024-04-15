@@ -52,9 +52,10 @@ require_once("includes/connect.php");
       </li>
 
       <li>
-        <a href="schedule.php">
+        <a href="event-calendar.php">
           <span class="icon">
-            <ion-icon name="help-outline"></ion-icon>
+          <ion-icon name="document-text-outline"></ion-icon>
+
           </span>
           <span class="title">Itenerary</span>
         </a>
