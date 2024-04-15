@@ -12,8 +12,6 @@ include 'new_prospect_process.php';
   <title>New Prospect</title>
 
 
-
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.bootstrap5.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.0.1/css/buttons.bootstrap5.css">
@@ -136,9 +134,43 @@ include 'new_prospect_process.php';
               <label for="comp_name">Company Name</label>
             </div>
             <div class="form-floating mb-3">
-              <input type="number" class="form-control" id="item_deal" name="item_deal" placeholder="Item Deal">
+              <input type="text" class="form-control" id="item_deal" name="item_deal" placeholder="Item Deal">
               <label for="item_deal">Item Deal</label>
             </div>
+            <!-- item deals -->
+            <table id="TextBoxesGroup" class="table">
+              <tr class="type">
+              
+              </tr>
+              <tr class="name">
+                <td>
+                  <label>Item Deals</label>
+                </td>
+                <td>
+                  <input type="input" name="name[]"  class="form-control"/>
+                </td>
+              </tr>
+          
+            </table>
+            <table>
+              <tr>
+                <td>
+              
+                  <button type="button" id="addButton" class="btn btn-success"><i class="fas fa-circle-plus"></i> </button> </td>
+                </td>
+                <td>
+                  <input type="button" id="removeButton" value="Remove" class="btn btn-danger"/>
+                </td>
+                <td>
+                  <input type="button" id="resetButton" value="Reset" class="btn btn-warning" />
+                </td>
+              </tr>
+              <tr>
+                <!-- <td>
+                  <input type="submit" value="submit" />
+                </td> -->
+              </tr>
+            </table>
             <?php
             $sql1 = "SELECT * FROM status";
             $stmt1 = $con->prepare($sql1);
@@ -228,7 +260,7 @@ include 'new_prospect_process.php';
   // Check if 'deleted' parameter is set and has the value 'success' after deleting data
   if ((isset($_GET['added']) && $_GET['added'] === 'success') || (isset($_GET['updated']) && $_GET['updated'] === 'success') || (isset($_GET['deleted']) && $_GET['deleted'] === 'success')) {
   ?>
-    <script>
+    <!-- <script>
       // Show SweetAlert2 alert based on the parameter present in the URL
       Swal.fire({
         title: "Success!",
@@ -243,11 +275,66 @@ include 'new_prospect_process.php';
           history.replaceState({}, document.title, window.location.pathname);
         }
       };
+    </script> -->
+    <script>
+      $(function() {
+        $(document).on('click', '.btn-add', function(e) {
+          e.preventDefault();
+
+          var controlForm = $('.controls form:first'),
+            currentEntry = $(this).parents('.entry:first'),
+            newEntry = $(currentEntry.clone()).appendTo(controlForm);
+
+          newEntry.find('input').val('');
+          controlForm.find('.entry:not(:last) .btn-add')
+            .removeClass('btn-add').addClass('btn-remove')
+            .removeClass('btn-success').addClass('btn-danger')
+            .html('<span class="glyphicon glyphicon-minus"></span>');
+        }).on('click', '.btn-remove', function(e) {
+          $(this).parents('.entry:first').remove();
+
+          e.preventDefault();
+          return false;
+        });
+      });
     </script>
+  
   <?php
   }
   ?>
 
+<script>
+  $(function () { // Short way for document ready.
+    $("#addButton").on("click", function () {
+        if ($(".type").length > 10) { // Number of boxes.
+            alert("Only 5 textboxes allow");
+
+            return false;
+        }
+
+        var newType = $(".type").first().clone().addClass("newAdded"); // Clone the group and add a new class.
+        var newName = $(".name").first().clone().addClass("newAdded"); // Clone the group and add a new class.
+
+        newType.appendTo("#TextBoxesGroup"); // Append the new group.
+        newName.appendTo("#TextBoxesGroup"); // Append the new group.
+    });
+
+    $("#removeButton").on("click", function () {
+        if ($(".type").length == 1) { // Number of boxes.
+            alert("No more textbox to remove");
+
+            return false;
+        }
+
+        $(".type").last().remove(); // Remove the last group.
+        $(".name").last().remove(); // Remove the last group.
+    });
+
+    $("#resetButton").on("click", function () {
+        $(".newAdded").remove(); // Remove all newly added groups.
+    });
+});
+</script>
 </body>
 
 </html>
