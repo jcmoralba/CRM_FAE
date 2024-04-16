@@ -94,7 +94,7 @@
   ?>
 
   <!-- ================ Order Details List ================= -->
-  <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+  <!-- <canvas id="myChart" style="width:100%;max-width:600px"></canvas> -->
 
   <script>
     //setup block
@@ -175,7 +175,7 @@ chart.render();
 
       
     </script>
-  <canvas id="myChart2" style="width:100%;max-width:600px; margin-left: 600px; margin-top:800px;"></canvas>
+  <canvas id="myChart2" style="width:100%;max-width:600px; "></canvas>
 
   <script>
     var xValues2 = ["Italy", "France", "Spain", "USA", "Argentina"];
