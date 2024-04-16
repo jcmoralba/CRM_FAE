@@ -11,7 +11,7 @@
 
 <body>
   <div class="main">
-    <div class="topbar">
+    <div class="topbar" style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
       <div class="toggle">
         <ion-icon name="menu-outline"></ion-icon>
       </div>
