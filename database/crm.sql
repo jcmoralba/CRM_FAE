@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 05, 2024 at 10:37 AM
+-- Generation Time: Apr 16, 2024 at 10:10 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.1.25
 
@@ -45,7 +45,7 @@ CREATE TABLE `account` (
 --
 
 INSERT INTO `account` (`account_id`, `user_type`, `user`, `pass`, `fname`, `lname`, `mname`, `email`, `department`, `number`) VALUES
-(1, 'FAE', 'jc', 'moralba', '', '', '', 'jcmoralba@gmail.com', '', 0),
+(1, 'FAE', 'jc', 'moralba', 'claude', '', '', 'jcmoralba@gmail.com', '', 0),
 (4, '', '', 'junmar', 'junmmma', 'rrriosa', '', 'junmarpogi@gmail.com', 'FAE', 91232312),
 (5, '', '', '1234', 'dwqeqw', 'wadadaw', '', 'test@gmail.com', 'FAE', 9823423),
 (6, '', '', '123', 'asd', 'asd', '', 'qwecqwe2@yahoo.com', 'FAE', 3123123),
@@ -303,8 +303,32 @@ CREATE TABLE `new_prospect` (
 
 INSERT INTO `new_prospect` (`prospect_id`, `company_name`, `item_deals`, `status`, `remark`, `pdf`, `total_sales`, `last_contacted`) VALUES
 (4, 'ZZZ Company', 'deals2', 'Close Deals', 'Remarks3', '', '40000', '2024-04-05 07:11:58'),
-(11, 'ZZZ Company', 'deals2', 'Contacted', 'Remarks3', '', '20000', '2024-04-05 14:59:33'),
-(12, 'ibm', 'wrench', 'Sent Quotations', 'pogi', '', '10000', '2024-04-05 15:25:56');
+(11, 'ZZZ Company', 'deals2', 'Contacted', 'Remarks3', 'https://drive.google.com/file/d/16dQEoLq9xlDK3BmSmCcADOI7juvQ1sVB/view?usp=drive_link', '20000', '2024-04-11 08:25:28'),
+(12, 'ibm', 'wrench', 'Close Deals', 'pogi', 'https://drive.google.com/file/d/117UwoJwfzBspWtHJZU7tr5e4LbQBEsVo/preview?usp=sharing', '10000', '2024-04-11 09:55:38'),
+(13, 'ZZZ Company', 'deals4', 'Contacted', 'zzzzzzz', 'https://drive.google.com/file/d/1KMnY_7Q75ZXJQrZKc4KmJSvF9W5sTdtS/view?usp=drive_link', '20000.00', '2024-04-11 09:56:54'),
+(14, '123 Company', 'deals2', 'Close Deals', 'Remarks333', 'https://drive.google.com/file/d/1pAYURf65qhWDDSg0_2dhCltJwMDU0ASF/view?usp=drive_link', '20000.00', '2024-04-11 10:30:51'),
+(15, 'ZZZ Company', ' tesat1,test2,  ', 'Meeting', '12312', '0012_PDF', '20000', '2024-04-16 09:08:47');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `schedule_list`
+--
+
+CREATE TABLE `schedule_list` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `start_datetime` datetime NOT NULL,
+  `end_datetime` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `schedule_list`
+--
+
+INSERT INTO `schedule_list` (`id`, `title`, `description`, `start_datetime`, `end_datetime`) VALUES
+(2, 'party', 'at my house', '2024-04-01 15:24:00', '2024-04-10 05:26:00');
 
 -- --------------------------------------------------------
 
@@ -394,6 +418,12 @@ ALTER TABLE `new_prospect`
   ADD PRIMARY KEY (`prospect_id`);
 
 --
+-- Indexes for table `schedule_list`
+--
+ALTER TABLE `schedule_list`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `status`
 --
 ALTER TABLE `status`
@@ -461,7 +491,13 @@ ALTER TABLE `events`
 -- AUTO_INCREMENT for table `new_prospect`
 --
 ALTER TABLE `new_prospect`
-  MODIFY `prospect_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `prospect_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `schedule_list`
+--
+ALTER TABLE `schedule_list`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `status`
