@@ -21,7 +21,7 @@ if (isset($_POST["login"])) {
     }
 
     if ($password == $pass_check) {
-        $_SESSION["user"] = $fname; 
+        $_SESSION["user"] = $fname ?? 'no account' ; 
         header("location: new_index.php?user=$fname");
       
     } 
