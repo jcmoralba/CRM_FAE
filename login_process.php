@@ -1,4 +1,6 @@
+<?php session_start() ?>
 <?php
+
 include ("includes/connect.php");
 
 ?>
@@ -15,10 +17,13 @@ if (isset($_POST["login"])) {
     while ($row = $stmt->fetch()) {
         $email_check = $row["email"];
         $pass_check = $row["pass"];
+        $fname =  $row["fname"];
     }
 
     if ($password == $pass_check) {
-        header("location: index.php");
+        $_SESSION["user"] = $fname; 
+        header("location: new_index.php?user=$fname");
+      
     } 
     else {
         header("location: login.php?invalid=true");

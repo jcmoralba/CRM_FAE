@@ -85,7 +85,7 @@
       </thead>
       <tbody>
         <?php
-        $sql = "SELECT * FROM new_prospect WHERE `status` != 'Close Deals'";
+        $sql = "SELECT * FROM new_prospect WHERE `status` != 'Close Dels'";
         $stmt = $con->prepare($sql);
         $stmt->execute();
         while ($row = $stmt->fetch()) {
@@ -119,7 +119,7 @@
                 View
               </button>
 
-              <button type="button" class="btn btn-warning btn-rounded" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#edit-prospect<?php echo $row['prospect_id']; ?>">
+              <button type="button" class="btn btn-warning btn-rounded" data-mdb-riple-init data-mdb-modal-init data-mdb-target="#edit-prospect<?php echo $row['prospect_id']; ?>">
                 <i class="fas fa-pen me-2"></i>
                 Edit
               </button>

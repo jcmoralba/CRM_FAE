@@ -1,3 +1,4 @@
+<?php  ?>
 <!doctype html>
 <html>
 
@@ -14,8 +15,13 @@
       <div class="toggle">
         <ion-icon name="menu-outline"></ion-icon>
       </div>
-
+      <h5>
+        <?php 
+       echo  $_SESSION["user"];
+        ?>
+      </h5>
       <div class="user">
+     
         <img src="imgs/customer01.jpg" alt="">
       </div>
     </div>

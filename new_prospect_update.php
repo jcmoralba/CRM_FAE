@@ -24,8 +24,12 @@
               <input type="input" class="form-control" id="comp_name" name="comp_name" placeholder="Company name" value="<?php echo $row['company_name']; ?>">
               <label for="comp_name">Company Name</label>
             </div>
+            <!-- <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="item_deal" name="item_deal" placeholder="Item Deal" value="<?php echo $row['item_deals']; ?>">
+              <label for="item_deal">Item Deal</label>
+            </div> -->
             <div class="form-floating mb-3">
-              <input type="number" class="form-control" id="item_deal" name="item_deal" placeholder="Item Deal" value="<?php echo $row['item_deals']; ?>">
+              <textarea type="text" class="form-control" id="textInput" name="item_deal" placeholder="Item Deal"  onkeypress="handleKeyPress(event)" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'>  <?php echo $row['item_deals']; ?></textarea>
               <label for="item_deal">Item Deal</label>
             </div>
             <?php
@@ -47,8 +51,12 @@
                 </div>
               </div>
             </div>
-            <div class="form-floating mb-3">
+            <!-- <div class="form-floating mb-3">
               <input type="number" class="form-control" id="total_sales" name="total_sales" placeholder="Total Sale" value="<?php echo $row['total_sales']; ?>">
+              <label for="total_sales">Total Sale</label>
+            </div> -->
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="total_sales" name="total_sales" placeholder="Total Sale" id="currency-field" pattern="^\₱\d{1,3}(,\d{3})*(\.\d+)?₱" value="<?php echo $row['total_sales']; ?>" data-type="currency" >
               <label for="total_sales">Total Sale</label>
             </div>
             <div class="form-floating mb-3">
