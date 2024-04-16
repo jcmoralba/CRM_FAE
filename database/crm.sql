@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 16, 2024 at 10:10 AM
+-- Generation Time: Apr 16, 2024 at 10:26 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.1.25
 
@@ -294,20 +294,21 @@ CREATE TABLE `new_prospect` (
   `remark` varchar(255) NOT NULL,
   `pdf` varchar(255) NOT NULL,
   `total_sales` varchar(255) NOT NULL,
-  `last_contacted` datetime NOT NULL DEFAULT current_timestamp()
+  `last_contacted` datetime NOT NULL DEFAULT current_timestamp(),
+  `account_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `new_prospect`
 --
 
-INSERT INTO `new_prospect` (`prospect_id`, `company_name`, `item_deals`, `status`, `remark`, `pdf`, `total_sales`, `last_contacted`) VALUES
-(4, 'ZZZ Company', 'deals2', 'Close Deals', 'Remarks3', '', '40000', '2024-04-05 07:11:58'),
-(11, 'ZZZ Company', 'deals2', 'Contacted', 'Remarks3', 'https://drive.google.com/file/d/16dQEoLq9xlDK3BmSmCcADOI7juvQ1sVB/view?usp=drive_link', '20000', '2024-04-11 08:25:28'),
-(12, 'ibm', 'wrench', 'Close Deals', 'pogi', 'https://drive.google.com/file/d/117UwoJwfzBspWtHJZU7tr5e4LbQBEsVo/preview?usp=sharing', '10000', '2024-04-11 09:55:38'),
-(13, 'ZZZ Company', 'deals4', 'Contacted', 'zzzzzzz', 'https://drive.google.com/file/d/1KMnY_7Q75ZXJQrZKc4KmJSvF9W5sTdtS/view?usp=drive_link', '20000.00', '2024-04-11 09:56:54'),
-(14, '123 Company', 'deals2', 'Close Deals', 'Remarks333', 'https://drive.google.com/file/d/1pAYURf65qhWDDSg0_2dhCltJwMDU0ASF/view?usp=drive_link', '20000.00', '2024-04-11 10:30:51'),
-(15, 'ZZZ Company', ' tesat1,test2,  ', 'Meeting', '12312', '0012_PDF', '20000', '2024-04-16 09:08:47');
+INSERT INTO `new_prospect` (`prospect_id`, `company_name`, `item_deals`, `status`, `remark`, `pdf`, `total_sales`, `last_contacted`, `account_id`) VALUES
+(4, 'ZZZ Company', 'deals2', 'Close Deals', 'Remarks3', '', '40000', '2024-04-05 07:11:58', 1),
+(11, 'ZZZ Company', 'deals2', 'Contacted', 'Remarks3', 'https://drive.google.com/file/d/16dQEoLq9xlDK3BmSmCcADOI7juvQ1sVB/view?usp=drive_link', '20000', '2024-04-11 08:25:28', 1),
+(12, 'ibm', 'wrench', 'Close Deals', 'pogi', 'https://drive.google.com/file/d/117UwoJwfzBspWtHJZU7tr5e4LbQBEsVo/preview?usp=sharing', '10000', '2024-04-11 09:55:38', 1),
+(13, 'ZZZ Company', 'deals4', 'Contacted', 'zzzzzzz', 'https://drive.google.com/file/d/1KMnY_7Q75ZXJQrZKc4KmJSvF9W5sTdtS/view?usp=drive_link', '20000.00', '2024-04-11 09:56:54', 1),
+(14, '123 Company', 'deals2', 'Close Deals', 'Remarks333', 'https://drive.google.com/file/d/1pAYURf65qhWDDSg0_2dhCltJwMDU0ASF/view?usp=drive_link', '20000.00', '2024-04-11 10:30:51', 1),
+(15, 'ZZZ Company', ' tesat1,test2,  ', 'Meeting', '12312', '0012_PDF', '20000', '2024-04-16 09:08:47', 1);
 
 -- --------------------------------------------------------
 
