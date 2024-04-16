@@ -24,6 +24,8 @@ include 'sidebar.php';
     <script src="./js/jquery-3.6.0.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
     <script src="./fullcalendar/lib/main.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.min.css" rel="stylesheet">
     <style>
         :root {
             --bs-success-rgb: 71, 222, 152 !important;
@@ -108,7 +110,7 @@ include 'sidebar.php';
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="editEventModalLabel">Edit Event</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
       <form action="event-calendar-save.php" method="post" id="editEventForm">
@@ -130,7 +132,7 @@ include 'sidebar.php';
             <input type="datetime-local" class="form-control" id="editEventEndDateTime" name="end_datetime">
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
             <button type="submit" class="btn btn-primary">Save Changes</button>
           </div>
         </form>
@@ -146,13 +148,13 @@ include 'sidebar.php';
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="confirmationModalLabel">Confirm Deletion</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         Are you sure to delete this scheduled event?
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+      <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
         <button type="button" class="btn btn-danger" id="confirmDelete">Delete</button>
       </div>
     </div>
@@ -187,6 +189,7 @@ include 'sidebar.php';
                             <dd id="start" class=""></dd>
                             <dt class="text-muted">End</dt>
                             <dd id="end" class=""></dd>
+                            <button>Mark as done</button>
                         </dl>
                     </div>
                 </div>
@@ -201,6 +204,14 @@ include 'sidebar.php';
         </div>
     </div>
     <!-- Event Details Modal -->
+
+
+    
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js"></script>
+
+
 
     <!-- MDB -->
 <script

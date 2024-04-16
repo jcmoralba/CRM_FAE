@@ -42,7 +42,7 @@
             eventDidMount: function(info) {
                 // Do Something after events mounted
             },
-            editable: true
+            editable: false
         });
 
         calendar.render();
