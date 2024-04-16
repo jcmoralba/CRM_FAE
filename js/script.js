@@ -47,6 +47,8 @@
 
         calendar.render();
 
+        
+
         // Form reset listener
         $('#schedule-form').on('reset', function() {
             $(this).find('input:hidden').val('')
@@ -54,35 +56,66 @@
         })
 
         // Edit Button
+        // $('#edit').click(function() {
+        //     var id = $(this).attr('data-id')
+        //     if (!!scheds[id]) {
+        //         var _form = $('#schedule-form')
+        //         console.log(String(scheds[id].start_datetime), String(scheds[id].start_datetime).replace(" ", "\\t"))
+        //         _form.find('[name="id"]').val(id)
+        //         _form.find('[name="title"]').val(scheds[id].title)
+        //         _form.find('[name="description"]').val(scheds[id].description)
+        //         _form.find('[name="start_datetime"]').val(String(scheds[id].start_datetime).replace(" ", "T"))
+        //         _form.find('[name="end_datetime"]').val(String(scheds[id].end_datetime).replace(" ", "T"))
+        //         $('#event-details-modal').modal('hide')
+        //         _form.find('[name="title"]').focus()
+        //     } else {
+        //         alert("Event is undefined");
+        //     }
+        // })
+
         $('#edit').click(function() {
-            var id = $(this).attr('data-id')
+            var id = $(this).attr('data-id');
             if (!!scheds[id]) {
-                var _form = $('#schedule-form')
-                console.log(String(scheds[id].start_datetime), String(scheds[id].start_datetime).replace(" ", "\\t"))
-                _form.find('[name="id"]').val(id)
-                _form.find('[name="title"]').val(scheds[id].title)
-                _form.find('[name="description"]').val(scheds[id].description)
-                _form.find('[name="start_datetime"]').val(String(scheds[id].start_datetime).replace(" ", "T"))
-                _form.find('[name="end_datetime"]').val(String(scheds[id].end_datetime).replace(" ", "T"))
+                var event = scheds[id];
                 $('#event-details-modal').modal('hide')
-                _form.find('[name="title"]').focus()
+                $('#editEventId').val(id);
+                $('#editEventTitle').val(event.title);
+                $('#editEventDescription').val(event.description);
+                $('#editEventStartDateTime').val(event.start_datetime);
+                $('#editEventEndDateTime').val(event.end_datetime);
+                $('#editEventModal').modal('show');
             } else {
                 alert("Event is undefined");
             }
-        })
+        });
+        
+        
 
         // Delete Button / Deleting an Event
+        // $('#delete').click(function() {
+        //     var id = $(this).attr('data-id')
+        //     if (!!scheds[id]) {
+        //         var _conf = confirm("Are you sure to delete this scheduled event?");
+        //         if (_conf === true) {
+        //             location.href = "./event-calendar-delete.php?id=" + id;
+        //         }
+        //     } else {
+        //         alert("Event is undefined");
+        //     }
+        // })
         $('#delete').click(function() {
-            var id = $(this).attr('data-id')
+            var id = $(this).attr('data-id');
             if (!!scheds[id]) {
-                var _conf = confirm("Are you sure to delete this scheduled event?");
-                if (_conf === true) {
+                $('#event-details-modal').modal('hide')
+                $('#confirmationModal').modal('show');
+                $('#confirmDelete').click(function() {
                     location.href = "./event-calendar-delete.php?id=" + id;
-                }
+                });
             } else {
                 alert("Event is undefined");
             }
-        })
+        });
+        
     })
 
     
