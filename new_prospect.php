@@ -1,8 +1,3 @@
-<?php
-include 'sidebar.php';
-include 'new_prospect_process.php';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +5,9 @@ include 'new_prospect_process.php';
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>New Prospect</title>
-
+  <?php
+  include 'sidebar.php';
+  ?>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.bootstrap5.css">
@@ -24,12 +21,11 @@ include 'new_prospect_process.php';
 
   <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+
 
   <!-- MDB -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style_index_1.css">
+  <!-- <link rel="stylesheet" href="css/style_index_1.css"> -->
   <link rel="stylesheet" href="css/datatable.css">
 
 
@@ -161,11 +157,11 @@ include 'new_prospect_process.php';
               <label for="comp_name">Company Name</label>
             </div>
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="item_deal" name="item_deal" placeholder="Item Deal">
+              <textarea type="text" class="form-control" id="textInput" name="item_deal" placeholder="Item Deal" onkeypress="handleKeyPress(event)" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'> </textarea>
               <label for="item_deal">Item Deal</label>
             </div>
             <!-- item deals -->
-            <table id="TextBoxesGroup" class="table">
+            <!-- <table id="TextBoxesGroup" class="table">
               <tr class="type">
 
               </tr>
@@ -193,11 +189,11 @@ include 'new_prospect_process.php';
                   <input type="button" id="resetButton" value="Reset" class="btn btn-warning" />
                 </td>
               </tr>
-              <tr>
-                <!-- <td>
+              <tr> -->
+            <!-- <td>
                   <input type="submit" value="submit" />
                 </td> -->
-              </tr>
+            </tr>
             </table>
             <?php
             $sql1 = "SELECT * FROM status";
@@ -219,7 +215,7 @@ include 'new_prospect_process.php';
               </div>
             </div>
             <div class="form-floating mb-3">
-              <input type="number" class="form-control" id="total_sales" name="total_sales" placeholder="Total Sale">
+              <input type="text" class="form-control" id="total_sales" name="total_sales" placeholder="Total Sale" id="currency-field" pattern="^\₱\d{1,3}(,\d{3})*(\.\d+)?₱" value="" data-type="currency" >
               <label for="total_sales">Total Sale</label>
             </div>
             <div class="form-floating mb-3">
@@ -245,8 +241,8 @@ include 'new_prospect_process.php';
   <!-- MDB -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"></script>
 
-
-  <script src="js/main.js"></script>
+<!-- 
+  <script src="js/main.js"></script> -->
 
   <!-- ====== ionicons ======= -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
@@ -359,7 +355,7 @@ include 'new_prospect_process.php';
   // Check if 'deleted' parameter is set and has the value 'success' after deleting data
   if ((isset($_GET['added']) && $_GET['added'] === 'success') || (isset($_GET['updated']) && $_GET['updated'] === 'success') || (isset($_GET['deleted']) && $_GET['deleted'] === 'success')) {
   ?>
-    <!-- <script>
+    <script>
       // Show SweetAlert2 alert based on the parameter present in the URL
       Swal.fire({
         title: "Success!",
@@ -374,7 +370,7 @@ include 'new_prospect_process.php';
           history.replaceState({}, document.title, window.location.pathname);
         }
       };
-    </script> -->
+    </script>
     <script>
       $(function() {
         $(document).on('click', '.btn-add', function(e) {
@@ -433,6 +429,118 @@ include 'new_prospect_process.php';
         $(".newAdded").remove(); // Remove all newly added groups.
       });
     });
+  </script>
+
+  <script>
+    // for input item deals
+    function handleKeyPress(event) {
+      // Check if the key pressed is Enter (key code 13)
+      if (event.keyCode === 13) {
+        event.preventDefault(); // Prevent the default behavior of Enter key (form submission)
+
+        var input = document.getElementById("textInput");
+        var cursorPosition = input.selectionStart; // Get the cursor position
+
+        // Get the input value and insert a comma at the cursor position
+        var textBeforeCursor = input.value.slice(0, cursorPosition);
+        var textAfterCursor = input.value.slice(cursorPosition);
+        input.value = textBeforeCursor + ", " + textAfterCursor;
+
+        // Move the cursor after the inserted comma
+        input.selectionStart = input.selectionEnd = cursorPosition + 1;
+      }
+    }
+  </script>
+  <script> //for total sales
+// Jquery Dependency
+ // Jquery Dependency
+
+ $("input[data-type='currency']").on({
+    keyup: function() {
+      formatCurrency($(this));
+    },
+    blur: function() { 
+      formatCurrency($(this), "blur");
+    }
+});
+
+
+function formatNumber(n) {
+  // format number 1000000 to 1,234,567
+  return n.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+}
+
+
+function formatCurrency(input, blur) {
+  // appends $ to value, validates decimal side
+  // and puts cursor back in right position.
+  
+  // get input value
+  var input_val = input.val();
+  
+  // don't validate empty input
+  if (input_val === "") { return; }
+  
+  // original length
+  var original_len = input_val.length;
+
+  // initial caret position 
+  var caret_pos = input.prop("selectionStart");
+    
+  // check for decimal
+  if (input_val.indexOf(".") >= 0) {
+
+    // get position of first decimal
+    // this prevents multiple decimals from
+    // being entered
+    var decimal_pos = input_val.indexOf(".");
+
+    // split number by decimal point
+    var left_side = input_val.substring(0, decimal_pos);
+    var right_side = input_val.substring(decimal_pos);
+
+    // add commas to left side of number
+    left_side = formatNumber(left_side);
+
+    // validate right side
+    right_side = formatNumber(right_side);
+    
+    // On blur make sure 2 numbers after decimal
+    if (blur === "blur") {
+      right_side += "00";
+    }
+    
+    // Limit decimal to only 2 digits
+    right_side = right_side.substring(0, 2);
+
+    // join number by .
+    input_val = "$" + left_side + "." + right_side;
+
+  } else {
+    // no decimal entered
+    // add commas to number
+    // remove all non-digits
+    input_val = formatNumber(input_val);
+    input_val = "₱" + input_val;
+    
+    // final formatting
+    if (blur === "blur") {
+      input_val += ".00";
+    }
+  }
+  
+  // send updated string to input
+  input.val(input_val);
+
+  // put caret back in the right position
+  var updated_len = input_val.length;
+  caret_pos = updated_len - original_len + caret_pos;
+  input[0].setSelectionRange(caret_pos, caret_pos);
+}
+
+
+
+
   </script>
 </body>
 

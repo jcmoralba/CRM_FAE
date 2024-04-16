@@ -70,9 +70,9 @@ echo $company_name;
     </thead>
     <tbody>
         <?php
-        $sql = "SELECT * FROM new_prospect WHERE `status` = 'Close Deals' AND `company_name`='$company_name'";
+        $sql1 = "SELECT * FROM new_prospect WHERE `status` = 'Close Deals' AND `company_name`='$company_name'";
 
-        $sql1 = "SELECT `prospect_id`, `company_name`, `pdf`, `last_contacted`, `remark`, CONCAT('₱',FORMAT(`total_sales`,2,'en_US')) AS `total_sales` FROM `new_prospect` WHERE `status`= 'Close Deals'";
+        $sql = "SELECT `prospect_id`, `company_name`, `pdf`, `last_contacted`, `remark`, CONCAT('₱',FORMAT(`total_sales`,2,'en_US')) AS `total_sales` FROM `new_prospect` WHERE `status`= 'Close Deals'  AND `company_name`='$company_name'";
         $stmt = $con->prepare($sql);
         $stmt->execute();
         while ($row = $stmt->fetch()) {
