@@ -38,9 +38,7 @@ echo $company_name;
 
 <body>
 
-</body>
 
-</html>
 
 <div class="container mt-5">
     <div class="row">
@@ -127,12 +125,44 @@ echo $company_name;
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js"></script>
 
   <script>
-    new DataTable('#example', {
-      layout: {
-        topStart: {
-          buttons: ['copy', 'excel', 'pdf', 'colvis']
+    $(document).ready(function() {
+      // Initialize DataTable
+      var table = $('#example').DataTable({
+        buttons: [{
+            extend: 'copy',
+            exportOptions: {
+              columns: ':not(:last-child)' 
+            }
+          },
+          {
+            extend: 'csv',
+            exportOptions: {
+              columns: ':not(:last-child)' 
+            }
+          },
+          {
+            extend: 'excel',
+            exportOptions: {
+              columns: ':not(:last-child)'
+            }
+          },
+          {
+            extend: 'pdf',
+            exportOptions: {
+              columns: ':not(:last-child)' 
+            }
+          },
+          {
+            extend: 'print',
+            exportOptions: {
+              columns: ':not(:last-child)'
+            }
+          }
+        ],
+        layout: {
+          topStart: 'buttons'
         }
-      }
+      });
 
     });
   </script>

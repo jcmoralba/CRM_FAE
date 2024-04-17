@@ -24,6 +24,7 @@ include 'sidebar.php';
     <script src="./js/jquery-3.6.0.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
     <script src="./fullcalendar/lib/main.min.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.min.css" rel="stylesheet">
     <style>
@@ -96,8 +97,8 @@ include 'sidebar.php';
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary" form="schedule-form">Save</button>
+        <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal"><i class='bx bxs-x-circle me-2' ></i>Close</button>
+        <button type="submit" class="btn btn-primary" form="schedule-form"><i class='bx bxs-save me-2'></i>Save</button>
       </div>
     </div>
   </div>
@@ -132,8 +133,8 @@ include 'sidebar.php';
             <input type="datetime-local" class="form-control" id="editEventEndDateTime" name="end_datetime">
           </div>
           <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Save Changes</button>
+          <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal"> <i class='bx bxs-x-circle me-2'></i>Close</button>
+            <button type="submit" class="btn btn-primary"> <i class='bx bxs-save me-2' ></i>Save Changes</button>
           </div>
         </form>
       </div>
@@ -154,8 +155,8 @@ include 'sidebar.php';
         Are you sure to delete this scheduled event?
       </div>
       <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-danger" id="confirmDelete">Delete</button>
+      <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal"> <i class='bx bxs-x-circle me-2'></i>Close</button>
+        <button type="button" class="btn btn-danger" id="confirmDelete"> <i class='bx bxs-trash me-2'></i>Delete</button>
       </div>
     </div>
   </div>
@@ -195,9 +196,9 @@ include 'sidebar.php';
                 </div>
                 <div class="modal-footer rounded-0">
                     <div class="text-end">
-                        <button type="button" class="btn btn-primary btn-sm rounded-0" id="edit" data-id="">Edit</button>
-                        <button type="button" class="btn btn-danger btn-sm rounded-0" id="delete" data-id="">Delete</button>
-                        <button type="button" class="btn btn-secondary btn-sm rounded-0" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary btn-sm rounded-0" id="edit" data-id=""> <i class='bx bxs-pencil me-2'></i>Edit</button>
+                        <button type="button" class="btn btn-danger btn-sm rounded-0" id="delete" data-id=""> <i class='bx bxs-trash me-2'></i>Delete</button>
+                        <button type="button" class="btn btn-secondary btn-sm rounded-0" data-bs-dismiss="modal"> <i class='bx bxs-x-circle me-2'></i>Close</button>
                     </div>
                 </div>
             </div>
