@@ -9,14 +9,9 @@
   include 'sidebar.php';
   ?>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.bootstrap5.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.0.1/css/buttons.bootstrap5.css">
-
-
-
-  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.css">
-  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.0.1/css/buttons.dataTables.css">
 
 
   <!-- Font Awesome -->
@@ -34,31 +29,23 @@
 
 </head>
 
-<body class="">
+<body>
 
+<div class="container mt-5">
 
-  <div class=" mt-5">
-    <div class="row">
-      <div class="col-md-6">
-        <p class="h2">List of new Prospect</p>
-      </div>
-      <div class="col-md-6 text-md-end">
-        <button type="button" class="btn btn-primary" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#staticBackdrop">
-          <i class="fas fa-user-plus me-2"></i>
-          Add Prospect
-        </button>
-      </div>
-    </div>
+<p class="h2 mt-5">List of new Prospect</p>
 
-    <?php
+<?php
     $sql1 = "SELECT * FROM status";
     $stmt1 = $con->prepare($sql1);
     $stmt1->execute();
     $data1 = $stmt1->fetchAll();
     ?>
-    <div class="mb-3">
-      <label for="statusFilter" class="form-label">Filter by Status:</label>
-      <div class="input-group">
+  <div class=" mt-5">
+    <div class="row">
+      <div class="col-md-6">
+       
+        <div class="input-group">
         <select id="statusFilter" class="form-select">
           <option value="" selected>Filter Status</option>
           <?php foreach ($data1 as $row1) { ?>
@@ -69,8 +56,15 @@
           <i class="bi bi-x"></i>
         </button>
       </div>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <button type="button" class="btn btn-primary" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#staticBackdrop">
+          <i class="fas fa-user-plus me-2"></i>
+          Add Prospect
+        </button>
+      </div>
     </div>
-
+   
 
     <table id="example" class="table table-striped table-bordered border-dark " style="width:100%">
       <thead>
@@ -235,6 +229,7 @@
       </div>
     </div>
   </div>
+  </div>
 
 
 
@@ -249,7 +244,7 @@
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 
-  <!-- <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
   <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.js"></script>
@@ -260,17 +255,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
   <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.html5.min.js"></script>
   <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.print.min.js"></script>
-  <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.colVis.min.js"></script> -->
-
-  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-  <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
-  <script src="https://cdn.datatables.net/buttons/3.0.1/js/dataTables.buttons.js"></script>
-  <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.dataTables.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
-  <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.html5.min.js"></script>
-  <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.print.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.colVis.min.js"></script>
 
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js"></script>
@@ -294,31 +279,31 @@
         buttons: [{
             extend: 'copy',
             exportOptions: {
-              columns: ':not(:last-child)' // Excludes the last column (Action column)
+              columns: ':not(:last-child)' 
             }
           },
           {
             extend: 'csv',
             exportOptions: {
-              columns: ':not(:last-child)' // Excludes the last column (Action column)
+              columns: ':not(:last-child)' 
             }
           },
           {
             extend: 'excel',
             exportOptions: {
-              columns: ':not(:last-child)' // Excludes the last column (Action column)
+              columns: ':not(:last-child)'
             }
           },
           {
             extend: 'pdf',
             exportOptions: {
-              columns: ':not(:last-child)' // Excludes the last column (Action column)
+              columns: ':not(:last-child)' 
             }
           },
           {
             extend: 'print',
             exportOptions: {
-              columns: ':not(:last-child)' // Excludes the last column (Action column)
+              columns: ':not(:last-child)'
             }
           }
         ],
