@@ -18,10 +18,12 @@ if (isset($_POST["login"])) {
         $email_check = $row["email"];
         $pass_check = $row["pass"];
         $fname =  $row["fname"];
+        $user_id =  $row["account_id"];
     }
 
     if ($password == $pass_check) {
         $_SESSION["user"] = $fname ?? 'no account' ; 
+        $_SESSION["user_id"] = $user_id ?? '0' ; 
         header("location: new_index.php?user=$fname");
       
     } 

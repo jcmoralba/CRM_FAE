@@ -13,13 +13,14 @@ if (isset($_POST['savedata'])) {
     $total_sale = $_POST['total_sales'];
     $total_sale= preg_replace('/[^0-9.]/', '', $total_sale);
     $date_now =  date("Y-m-d H:i:s");
+    $user_id =   $_POST["user_id"] ?? '0' ;
 
     // foreach($_POST['name'] as $key){
     //     // echo $value;
     //     echo $_POST['name'][$key];
         
     // }
-    $sql = "INSERT INTO `new_prospect`(`company_name`, `item_deals`, `status`, `remark`, `pdf`, `total_sales`, `last_contacted`) VALUES ('$comp_name','$item_deal','$status','$remark','$pdf','$total_sale','$date_now')";
+    $sql = "INSERT INTO `new_prospect`(`company_name`, `item_deals`, `status`, `remark`, `pdf`, `total_sales`, `last_contacted`, `account_id`) VALUES ('$comp_name','$item_deal','$status','$remark','$pdf','$total_sale','$date_now', '$user_id')";
     // $data=array($name,$address,$number);
     $stmt = $con->prepare($sql);
     $stmt->execute();

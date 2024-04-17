@@ -8,7 +8,7 @@
 </head>
 
 <body>
-
+<!-- update modal -->
   <div class="modal fade" id="edit-prospect<?php echo $row['prospect_id']; ?>" data-mdb-backdrop=" static" data-mdb-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -19,6 +19,7 @@
         <div class="modal-body">
           <form style="width: 26rem;" action="new_prospect_process.php" method="POST">
             <!-- Name input -->
+            <input type="hidden" name="user_id" value="  <?php echo  $_SESSION["user_id"] ?>" >
             <input type="hidden" class="form-control" id="prospect_id" name="prospect_id" value="<?php echo $row['prospect_id']; ?>">
             <div class="form-floating mb-3">
               <input type="input" class="form-control" id="comp_name" name="comp_name" placeholder="Company name" value="<?php echo $row['company_name']; ?>">
@@ -77,6 +78,9 @@
     </div>
   </div>
 
+
+
+  <!-- delete modal -->
   <div class="modal fade" id="delete-modal<?php echo $row['prospect_id']; ?>" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered  ">
       <div class="modal-content">
@@ -103,6 +107,8 @@
     </div>
   </div>
 
+
+  <!-- view modal -->
   <div class="modal fade" id="view_prospect<?php echo $row['prospect_id']; ?>" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">

@@ -152,6 +152,9 @@
         <div class="modal-body">
           <form style="width: 26rem;" action="new_prospect_process.php" method="POST">
             <!-- Name input -->
+
+            <input type="hidden" name="user_id" value="  <?php echo  $_SESSION["user_id"] ?>" >
+
             <div class="form-floating mb-3">
               <input type="input" class="form-control" id="comp_name" name="comp_name" placeholder="Company name">
               <label for="comp_name">Company Name</label>

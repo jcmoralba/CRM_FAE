@@ -17,7 +17,8 @@
       </div>
       <h5>
         <?php 
-       echo  $_SESSION["user"];
+       echo  $_SESSION["user"] ?? 'noname';
+        echo " id:" . $_SESSION["user_id"];
         ?>
       </h5>
       <div class="user">
