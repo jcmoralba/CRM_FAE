@@ -61,6 +61,15 @@ require_once("includes/connect.php");
           <span class="title">Itenerary</span>
         </a>
       </li>
+      <li>
+        <a href="#" onclick="logout();">
+          <span class="icon">
+          <ion-icon name="document-text-outline"></ion-icon>
+
+          </span>
+          <span class="title">logout</span>
+        </a>
+      </li>
     </ul>
   </div>
   <?php include 'navbar.php'; ?>
@@ -68,7 +77,24 @@ require_once("includes/connect.php");
 
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script>
+  function logout(){
+    Swal.fire({
+  title: "Are you sure?",
+  text: "You won't be able to revert this!",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Yes, delete it!"
+}).then((result) => {
+  if (result.isConfirmed) {
+    window.location = "login_process.php";
+  }
+});
 
+  }
+</script>
 </body>
 
 </html>

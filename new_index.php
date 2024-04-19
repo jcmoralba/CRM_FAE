@@ -77,7 +77,7 @@
     </div>
   </div>
 
-  <div id="chart" ></div>
+  <div id="chart" ></div> 
 
   <?php
   $sql = "SELECT prospect_id, company_name, item_deals, `status`, remark, pdf, total_sales , last_contacted  FROM new_prospect";
@@ -143,7 +143,7 @@
     <script> // apex chart
         var options = {
   chart: {
-    height: 280,
+    height: 380,
     type: "area"
   },
   dataLabels: {

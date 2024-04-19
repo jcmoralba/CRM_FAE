@@ -32,4 +32,9 @@ if (isset($_POST["login"])) {
        
     }
 }
+else{
+    session_destroy();
+    header("location: login.php");
+
+}
 ?>
