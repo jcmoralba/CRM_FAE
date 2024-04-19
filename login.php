@@ -22,8 +22,8 @@ if ($invalid == 'true') {
   ?>
   <script>
     Swal.fire({
-      title: "Invalid!",
-      text: "Email or password wrong",
+      title: "Wrong Credentials!",
+      text: "Invalid Email or password",
       icon: "warning"
     }).then((result) => {
       window.location = "login.php";

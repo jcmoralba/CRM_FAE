@@ -13,7 +13,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
-  
+
   <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
 
@@ -77,7 +77,7 @@
     </div>
   </div>
 
-  <div id="chart" ></div> 
+  <div id="chart"></div>
 
   <?php
   $sql = "SELECT prospect_id, company_name, item_deals, `status`, remark, pdf, total_sales , last_contacted  FROM new_prospect";
@@ -85,7 +85,7 @@
   if ($result->rowCount() > 0) {
     $sales = array();
     while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-      $sales[] = $row["total_sales"]; 
+      $sales[] = $row["total_sales"];
       $company[] = $row["company_name"];
     }
   }
@@ -139,42 +139,42 @@
   </script>
 
   <!-- ================= New Customers ================ -->
- 
-    <script> // apex chart
-        var options = {
-  chart: {
-    height: 380,
-    type: "area"
-  },
-  dataLabels: {
-    enabled: false
-  },
-  series: [
-    {
-      name: "Series 1",
-      data: sales
-    }
-  ],
-  fill: {
-    type: "gradient",
-    gradient: {
-      shadeIntensity: 1,
-      opacityFrom: 0.7,
-      opacityTo: 0.9,
-      stops: [0, 90, 100]
-    }
-  },
-  xaxis: {
-    categories: company
-  }
-};
 
-var chart = new ApexCharts(document.querySelector("#chart"), options);
+  <script>
+    // apex chart
+    var options = {
+      chart: {
+        height: 380,
+        type: "area"
+      },
+      dataLabels: {
+        enabled: false
+      },
+      // stroke: {
+      //   curve: 'straight'
+      // },
+      series: [{
+        name: "Series 1",
+        data: sales
+      }],
+      fill: {
+        type: "gradient",
+        gradient: {
+          shadeIntensity: 1,
+          opacityFrom: 0.7,
+          opacityTo: 0.9,
+          stops: [0, 90, 100]
+        }
+      },
+      xaxis: {
+        categories: company
+      }
+    };
 
-chart.render();
+    var chart = new ApexCharts(document.querySelector("#chart"), options);
 
-      
-    </script>
+    chart.render();
+  </script>
   <canvas id="myChart2" style="width:100%;max-width:600px; margin-left: 600px; margin-top:800px;"></canvas>
 
   <script>
