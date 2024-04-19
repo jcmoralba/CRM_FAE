@@ -18,15 +18,13 @@
         <ion-icon name="menu-outline"></ion-icon>
       </div>
 
-      <h5 id="user1">
+      <h5 >
         <?php 
        echo  $_SESSION["user"] ?? "noname";
         // echo " id:" . $_SESSION["user_id"] ?? '0';
-
-
-       
         ?>
       </h5>
+      <input id="user1" type="hidden" value="<?php echo  $_SESSION["user"] ?? "noname"; ?>">
       <div class="user">
      
         <img src="imgs/customer01.jpg" alt="">
@@ -42,9 +40,9 @@
       function login(){
 
       }
-let user = document.getElementById("user1").innerHTML;
+let user = document.getElementById("user1").value;
 
-    if (user = "noname") {
+    if (user == "noname") {
       document.body.innerHTML = ``
       Swal.fire({
   icon: "error",
