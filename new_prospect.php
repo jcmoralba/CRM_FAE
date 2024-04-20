@@ -157,6 +157,8 @@
               <textarea type="text" class="form-control" id="textInput" name="item_deal" placeholder="Item Deal" onkeypress="handleKeyPress(event)" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'> </textarea>
               <label for="item_deal">Item Deal</label>
             </div>
+
+            <?php include 'deals.php'; ?>
             <!-- item deals -->
             <!-- <table id="TextBoxesGroup" class="table">
               <tr class="type">
@@ -190,8 +192,8 @@
             <!-- <td>
                   <input type="submit" value="submit" />
                 </td> -->
-            </tr>
-            </table>
+            <!-- </tr>
+            </table> -->
             <?php
             $sql1 = "SELECT * FROM status";
             $stmt1 = $con->prepare($sql1);
