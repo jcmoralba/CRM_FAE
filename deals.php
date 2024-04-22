@@ -2,7 +2,7 @@
 
             <div class="email-container" style="margin-bottom: 20px;">
                 <div class="form-group">
-                    <label for="inputEmail">Enter Deals:</label>
+                    <label for="inputEmail">Item Deals:</label>
                     <div class="input-group">
                         
                         <input type="text" class="form-control" id="inputEmail" placeholder="Enter deals here" aria-label="Enter deals here" aria-describedby="btnAdd">
