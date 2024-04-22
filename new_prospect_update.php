@@ -5,12 +5,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
+
 </head>
 
 <body>
   <!-- update modal -->
   <div class="modal fade" id="edit-prospect<?php echo $row['prospect_id']; ?>" data-mdb-backdrop=" static" data-mdb-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="staticBackdropLabel">Edit prospect</h5>
@@ -28,31 +34,72 @@
 
 
 
-       
+
             <form action="" method="post">
               <div style="border: 1px solid grey;">
-              <p>Item Deals:</p>
-                <?php
+                <input class="form-check-input" type="checkbox" value="" id="myCheck" onclick="checks()">
+                <label class="form-check-label" for="myCheck">
+                  Edit mode
+                </label>
+                <p>Item Deals:</p>
+                <div id="view_deals">
+                  <?php
 
-                $prospect_id = $row['prospect_id'];
-                $sql3 = "SELECT * FROM item_deals WHERE `prospect_id` = ' $prospect_id'";
-                $stmt3 = $con->prepare($sql3);
-                $stmt3->execute();
-                while ($row3 = $stmt3->fetch()) {
-                ?>
+                  $prospect_id = $row['prospect_id'];
+                  $sql3 = "SELECT * FROM item_deals WHERE `prospect_id` = ' $prospect_id'";
+                  $stmt3 = $con->prepare($sql3);
+                  $stmt3->execute();
+                  while ($row3 = $stmt3->fetch()) {
+                  ?>
 
-                  <span class="badge bg-secondary" style="margin: 5px;"> <?php echo $prospect_id ?> </span>
+                    <span class="badge bg-secondary" style="margin: 5px;"> <?php echo $row3['name'] ?> </span>
 
-                <?php } ?>
-                <button type="button" name="updatedeals" class="btn btn-primary" >Edit</button>
+                  <?php } ?>
+                </div>
               </div>
-              
+
 
             </form>
 
 
-            <div style="border: 1px solid grey;">
+            <div id="edit_deals" style="border: 1px solid grey;">
+              <?php
+
+              $prospect_id = $row['prospect_id'];
+              $sql3 = "SELECT * FROM item_deals WHERE `prospect_id` = ' $prospect_id'";
+              $stmt3 = $con->prepare($sql3);
+              $stmt3->execute();
+              while ($row3 = $stmt3->fetch()) {
+              ?>
+
+                <div class="form-floating mb-3" style="margin: 5px;">
+                  <input type="text" class="form-control" id="" name="" placeholder="" value=" <?php echo $row3['name'] ?>">
+                </div>
+
+              <?php } ?>
             </div>
+
+            <script>
+              // for checkbox
+              function checks() {
+                // Get the checkbox
+                var checkBox = document.getElementById("myCheck");
+                // Get the output text
+                var text = document.getElementById("edit_deals");
+                var vwdeals = document.getElementById("view_deals");
+
+                // If the checkbox is checked, display the output text
+                if (checkBox.checked == true) {
+                  text.style.display = "block";
+                  vwdeals.style.display = "none";
+                } else {
+                  text.style.display = "none";
+                  vwdeals.style.display = "block";
+                }
+              }
+            </script>
+
+
 
 
 
