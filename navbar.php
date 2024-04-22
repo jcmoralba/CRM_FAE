@@ -25,9 +25,37 @@
         ?>
       </h5>
       <input id="user1" type="hidden" value="<?php echo  $_SESSION["user"] ?? "noname"; ?>">
+      
+      
       <div class="user">
-     
         <img src="imgs/customer01.jpg" alt="">
+        
+
+        <div class="dropdown">
+  <a
+    class="btn btn-primary dropdown-toggle"
+    href="#"
+    role="button"
+    id="dropdownMenuLink"
+    data-mdb-dropdown-init
+    data-mdb-ripple-init
+    aria-expanded="false"
+  >
+    Dropdown link
+  </a>
+
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <li><a class="dropdown-item" href="#">Action</a></li>
+    <li><a class="dropdown-item" href="#">Another action</a></li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li>
+  </ul>
+</div>
+        
+
+
+
+
+
       </div>
     </div>
 
