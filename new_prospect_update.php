@@ -80,6 +80,9 @@
             </div>
 
             <script>
+            document.getElementById("myCheck").click();
+            document.getElementById("myCheck").click();
+            
               // for checkbox
               function checks() {
                 // Get the checkbox
