@@ -16,7 +16,7 @@ if (isset($_POST["emails"]) && !empty($_POST["emails"])) {
      $servername = "localhost";
      $username = "root";
      $password = "";
-     $dbname = "testing";
+     $dbname = "crm";
  
      // Create connection
      $conn = new mysqli($servername, $username, $password, $dbname);
@@ -27,19 +27,26 @@ if (isset($_POST["emails"]) && !empty($_POST["emails"])) {
      }
  
      // Prepare and execute SQL statement to insert data into the database
-     $sql = "INSERT INTO tbl_name (name) VALUES (?)";
+     $number = 3;
+     $user_id = 1;
+     $sql = "INSERT INTO deal_list (prospect_id, deal_name, account_id) VALUES (  $number, ?, $user_id)";
      $stmt = $conn->prepare($sql);
      $stmt->bind_param("s", $emails);
+
+  
+  
  
      foreach ($emails as $emails) {
          $stmt->execute();
      }
  
+
      // Close statement and connection
      $stmt->close();
      $conn->close();
  
      echo "Emails saved successfully!";
+ 
 
 } else {
     // If emails variable is not set or empty, display an error message

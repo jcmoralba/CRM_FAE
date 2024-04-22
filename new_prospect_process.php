@@ -25,6 +25,20 @@ if (isset($_POST['savedata'])) {
     $stmt = $con->prepare($sql);
     $stmt->execute();
 
+
+        // for deals
+        $max_prospect_id =0;
+    $sql1 = "SELECT MAX(prospect_id) AS maxProspect FROM new_prospect WHERE `account_id`='$user_id';";
+    $stmt1 = $con->prepare($sql1);
+    $stmt1->execute();
+    while ($row1 = $stmt1->fetch()) {
+        $max_prospect_id = $row1['maxProspect'];
+    }
+    $_SESSION['max_prospect'] = $max_prospect_id;
+
+    // require_once('test3_process.php');
+
+
     header("Location: new_prospect.php?added=success");
     exit();
 

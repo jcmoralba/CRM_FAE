@@ -79,7 +79,7 @@
       </thead>
       <tbody>
         <?php
-        $sql = "SELECT * FROM new_prospect WHERE `status` != 'Close Dels'";
+        $sql = "SELECT * FROM new_prospect WHERE `status` != 'Close Deals'";
         $stmt = $con->prepare($sql);
         $stmt->execute();
         while ($row = $stmt->fetch()) {
@@ -228,7 +228,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal"> <i class='bx bxs-x-circle me-2'></i>Close</button>
-          <button type="submit" name="savedata" class="btn btn-primary" data-mdb-ripple-init> <i class='bx bxs-save me-2' ></i>Save Prospect</button>
+          <button type="submit" name="savedata" id="savedata" onclick="add_deals();" class="btn btn-primary" data-mdb-ripple-init> <i class='bx bxs-save me-2' ></i>Save Prospect</button>
         </div>
         </form> 
       </div>
@@ -265,7 +265,18 @@
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js"></script>
 
+  <script> // to click add deals when save data
+// Get references to the buttons
+var button1 = document.getElementById("savedata");
+var button2 = document.getElementById("btnSave");
 
+// Add click event listener to button1
+button1.addEventListener("click", function() {
+    // Simulate a click on button2
+    button2.click();
+});
+
+  </script>
 
 
 
@@ -531,6 +542,17 @@ function formatCurrency(input, blur) {
 
 
 
+
+  </script>
+
+  <script>// add deals
+function add_deals(){
+  // Assuming you have a button with id "myButton"
+var button11 = document.getElementById("btnSave");
+
+// Simulate a click on the button
+button11.click();
+}
 
   </script>
 </body>

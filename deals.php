@@ -1,6 +1,6 @@
 
 
-            <div class="email-container">
+            <div class="email-container" style="margin-bottom: 20px;">
                 <div class="form-group">
                     <label for="inputEmail">Enter Deals:</label>
                     <div class="input-group">
@@ -11,7 +11,7 @@
                     </div>
                 </div>
                 <div id="emailList"></div>
-                <button type="button" class="btn btn-success" id="btnSave">Save Deals</button>
+                <button type="button" hidden class="btn btn-success" id="btnSave" style="margin-top: 10px;">Save Deals</button>
             </div>
      
 
@@ -25,7 +25,7 @@ $(document).ready(function() {
             var isValid = validateEmail(emailInput);
             var isValid = true;
             if (isValid) {
-                var emailTag = '<span class="badge bg-secondary">' + emailInput + '<button type="button" class="btn-close" aria-label="Remove"></button></span>';
+                var emailTag = '<span class="badge bg-secondary" style="margin: 5px;">' + emailInput + '<button type="button" class="btn-close" aria-label="Remove"></button></span>';
                 $("#emailList").append(emailTag);
                 $("#inputEmail").val(""); // Clear input after adding
             } else {
