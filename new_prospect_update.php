@@ -8,7 +8,7 @@
 </head>
 
 <body>
-<!-- update modal -->
+  <!-- update modal -->
   <div class="modal fade" id="edit-prospect<?php echo $row['prospect_id']; ?>" data-mdb-backdrop=" static" data-mdb-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -19,18 +19,57 @@
         <div class="modal-body">
           <form style="width: 26rem;" action="new_prospect_process.php" method="POST">
             <!-- Name input -->
-            <input type="hidden" name="user_id" value="  <?php echo  $_SESSION["user_id"] ?>" >
+            <input type="hidden" name="user_id" value="  <?php echo  $_SESSION["user_id"] ?>">
             <input type="hidden" class="form-control" id="prospect_id" name="prospect_id" value="<?php echo $row['prospect_id']; ?>">
             <div class="form-floating mb-3">
               <input type="input" class="form-control" id="comp_name" name="comp_name" placeholder="Company name" value="<?php echo $row['company_name']; ?>">
               <label for="comp_name">Company Name</label>
             </div>
+
+
+
+       
+            <form action="" method="post">
+              <div style="border: 1px solid grey;">
+              <p>Item Deals:</p>
+                <?php
+
+                $prospect_id = $row['prospect_id'];
+                $sql3 = "SELECT * FROM item_deals WHERE `prospect_id` = ' $prospect_id'";
+                $stmt3 = $con->prepare($sql3);
+                $stmt3->execute();
+                while ($row3 = $stmt3->fetch()) {
+                ?>
+
+                  <span class="badge bg-secondary" style="margin: 5px;"> <?php echo $prospect_id ?> </span>
+
+                <?php } ?>
+                <button type="button" name="updatedeals" class="btn btn-primary" >Edit</button>
+              </div>
+              
+
+            </form>
+
+
+            <div style="border: 1px solid grey;">
+            </div>
+
+
+
+
+
+
+            <div class="form-floating mb-3">
+              <textarea type="text" class="form-control" id="textInput" name="item_deal" placeholder="Item Deal">  <?php echo $row['item_deals']; ?></textarea>
+              <label for="item_deal">Item Deal</label>
+            </div>
+
             <!-- <div class="form-floating mb-3">
               <input type="text" class="form-control" id="item_deal" name="item_deal" placeholder="Item Deal" value="<?php echo $row['item_deals']; ?>">
               <label for="item_deal">Item Deal</label>
             </div> -->
             <div class="form-floating mb-3">
-              <textarea type="text" class="form-control" id="textInput" name="item_deal" placeholder="Item Deal"  onkeypress="handleKeyPress(event)" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'>  <?php echo $row['item_deals']; ?></textarea>
+              <textarea type="text" class="form-control" id="textInput" name="item_deal" placeholder="Item Deal" onkeypress="handleKeyPress(event)" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'>  <?php echo $row['item_deals']; ?></textarea>
               <label for="item_deal">Item Deal</label>
             </div>
             <?php
@@ -57,7 +96,7 @@
               <label for="total_sales">Total Sale</label>
             </div> -->
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="total_sales" name="total_sales" placeholder="Total Sale" id="currency-field" pattern="^\₱\d{1,3}(,\d{3})*(\.\d+)?₱" value="<?php echo $row['total_sales']; ?>" data-type="currency" >
+              <input type="text" class="form-control" id="total_sales" name="total_sales" placeholder="Total Sale" id="currency-field" pattern="^\₱\d{1,3}(,\d{3})*(\.\d+)?₱" value="<?php echo $row['total_sales']; ?>" data-type="currency">
               <label for="total_sales">Total Sale</label>
             </div>
             <div class="form-floating mb-3">
@@ -125,14 +164,14 @@
               <p>Status: <?php echo $row['status']; ?></p>
               <p>Total Sales: <?php echo $row['total_sales']; ?></p>
               <p>PDF Link: <?php echo "<u><a href='{$row['pdf']}' target='_blank'>LINK</a></u>"; ?></p>
-              
+
             </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
         </div>
       </div>
-  </div>
+    </div>
   </div>
 
 
