@@ -145,44 +145,12 @@ include "sidebar.php";
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js"></script>
 
   <script>
-    $(document).ready(function() {
-      // Initialize DataTable
-      var table = $('#example').DataTable({
-        buttons: [{
-            extend: 'copy',
-            exportOptions: {
-              columns: ':not(:last-child)' 
-            }
-          },
-          {
-            extend: 'csv',
-            exportOptions: {
-              columns: ':not(:last-child)' 
-            }
-          },
-          {
-            extend: 'excel',
-            exportOptions: {
-              columns: ':not(:last-child)'
-            }
-          },
-          {
-            extend: 'pdf',
-            exportOptions: {
-              columns: ':not(:last-child)' 
-            }
-          },
-          {
-            extend: 'print',
-            exportOptions: {
-              columns: ':not(:last-child)'
-            }
-          }
-        ],
-        layout: {
-          topStart: 'buttons'
+    new DataTable('#example', {
+      layout: {
+        topStart: {
+          buttons: ['copy', 'excel', 'pdf', 'colvis']
         }
-      });
+      }
 
     });
   </script>
