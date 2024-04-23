@@ -4,7 +4,7 @@ require_once("includes/connect.php");
 ?>
 
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -65,6 +65,7 @@ require_once("includes/connect.php");
         <a href="#" onclick="logout();">
           <span class="icon">
           <ion-icon name="log-out-outline"></ion-icon>
+
           </span>
           <span class="title">logout</span>
         </a>
@@ -79,13 +80,13 @@ require_once("includes/connect.php");
 <script>
   function logout(){
     Swal.fire({
-  title: "Are you sure you want to logout?",
-  text: "",
-  icon: "question",
+  title: "Are you sure?",
+  text: "You won't be able to revert this!",
+  icon: "warning",
   showCancelButton: true,
   confirmButtonColor: "#3085d6",
   cancelButtonColor: "#d33",
-  confirmButtonText: "Yes"
+  confirmButtonText: "Yes, delete it!"
 }).then((result) => {
   if (result.isConfirmed) {
     window.location = "login_process.php";
