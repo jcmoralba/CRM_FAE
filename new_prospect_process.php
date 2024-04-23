@@ -1,5 +1,5 @@
 <?php
-require_once ("includes/connect.php");
+require_once("includes/connect.php");
 ?>
 
 <?php
@@ -11,14 +11,14 @@ if (isset($_POST['savedata'])) {
     $remark = $_POST['remark'];
     $pdf = $_POST['pdf'];
     $total_sale = $_POST['total_sales'];
-    $total_sale= preg_replace('/[^0-9.]/', '', $total_sale);
+    $total_sale = preg_replace('/[^0-9.]/', '', $total_sale);
     $date_now =  date("Y-m-d H:i:s");
-    $user_id =   $_POST["user_id"] ?? '0' ;
+    $user_id =   $_POST["user_id"] ?? '0';
 
     // foreach($_POST['name'] as $key){
     //     // echo $value;
     //     echo $_POST['name'][$key];
-        
+
     // }
     $sql = "INSERT INTO `new_prospect`(`company_name`, `item_deals`, `status`, `remark`, `pdf`, `total_sales`, `last_contacted`, `account_id`) VALUES ('$comp_name','$item_deal','$status','$remark','$pdf','$total_sale','$date_now', '$user_id')";
     // $data=array($name,$address,$number);
@@ -26,8 +26,8 @@ if (isset($_POST['savedata'])) {
     $stmt->execute();
 
 
-        // for deals
-        $max_prospect_id =0;
+    // for deals
+    $max_prospect_id = 0;
     $sql1 = "SELECT MAX(prospect_id) AS maxProspect FROM new_prospect WHERE `account_id`='$user_id';";
     $stmt1 = $con->prepare($sql1);
     $stmt1->execute();
@@ -41,7 +41,6 @@ if (isset($_POST['savedata'])) {
 
     header("Location: new_prospect.php?added=success");
     exit();
-
 }
 
 if (isset($_POST['updatedata'])) {
@@ -52,14 +51,21 @@ if (isset($_POST['updatedata'])) {
     $remark = $_POST['remark'];
     $pdf = $_POST['pdf'];
     $total_sale = $_POST['total_sales'];
-    $total_sale= preg_replace('/[^0-9.]/', '', $total_sale);
+    $total_sale = preg_replace('/[^0-9.]/', '', $total_sale);
     $date_now =  date("Y-m-d H:i:s");
 
-
+    if (!$_POST['myCheck']) {
+       echo "not checked";
+    }else{
+        // if checked do something
+        echo " checked";
+    }
 
     $sql = "UPDATE `new_prospect` SET `company_name`='$comp_name', `item_deals`='$item_deal', `status`='$status', `remark`='$remark', `pdf`='$pdf', `total_sales`='$total_sale', `last_contacted`='$date_now' WHERE `prospect_id`='$prospect_id'";
     $stmt = $con->prepare($sql);
     $stmt->execute();
+
+  
 
     header("Location: new_prospect.php?updated=success");
     exit();
