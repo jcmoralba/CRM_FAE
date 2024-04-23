@@ -228,19 +228,20 @@ CREATE TABLE `new_prospect` (
   `pdf` varchar(255) NOT NULL,
   `total_sales` varchar(255) NOT NULL,
   `last_contacted` datetime NOT NULL DEFAULT current_timestamp(),
+  `date_added` date DEFAULT NULL,
   `account_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`prospect_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `new_prospect` */
 
-insert  into `new_prospect`(`prospect_id`,`company_name`,`item_deals`,`status`,`remark`,`pdf`,`total_sales`,`last_contacted`,`account_id`) values 
-(4,'ZZZ Company','deals2','Close Deals','Remarks3','','40000','2024-04-05 07:11:58',NULL),
-(11,'ZZZ Company','deals2','Close Deals','Remarks3','google.com','20000','2024-04-11 21:45:52',NULL),
-(12,'ibm','  ','Meeting','pogi','','10000','2024-04-23 20:34:01',0),
-(13,'ABC Company','Deals1234','Close Deals','remarks 555','facebook.com','1000000.00','2024-04-11 21:48:30',NULL),
-(14,'ABC Company','   ','Contacted','remarks 555','google.com','50000.00','2024-04-23 20:34:24',0),
-(15,'zzz Company',' ','Contacted','remarks 555','google.com','50000.00','2024-04-23 18:35:12',0);
+insert  into `new_prospect`(`prospect_id`,`company_name`,`item_deals`,`status`,`remark`,`pdf`,`total_sales`,`last_contacted`,`date_added`,`account_id`) values 
+(4,'ZZZ Company','deals2','Close Deals','Remarks3','','40000','2024-04-05 07:11:58','2024-04-20',NULL),
+(11,'ZZZ Company','deals2','Close Deals','Remarks3','google.com','20000','2024-04-11 21:45:52','2024-04-20',NULL),
+(12,'ibm','    ','Meeting','pogi','','10000','2024-04-23 20:42:53','2024-04-21',0),
+(13,'ABC Company','Deals1234','Close Deals','remarks 555','facebook.com','1000000.00','2024-04-11 21:48:30','2024-04-21',NULL),
+(14,'ABC Company','     ','Contacted','remarks 555','google.com','50000.00','2024-04-23 20:43:05','2024-04-22',0),
+(15,'zzz Company',' ','Contacted','remarks 555','google.com','50000.00','2024-04-23 18:35:12','2024-04-23',0);
 
 /*Table structure for table `schedule_list` */
 
