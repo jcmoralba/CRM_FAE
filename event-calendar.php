@@ -58,12 +58,23 @@ include 'sidebar.php';
     </style>
 </head>
 
-<body class="bg-light">
+<body>
+<div class="container mt-5">
 
+<p class="h2 mt-5">List of new Prospect</p>
 
-<button type="button" class="btn btn-primary" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#staticBackdrop">
-    Add Event
-</button>
+<div class=" mt-5">
+    <div class="row">
+      <div class="col-md-6">
+      </div>
+      <div class="col-md-6 text-md-end">
+        <button type="button" class="btn btn-primary" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#staticBackdrop">
+          <i class="fas fa-user-plus me-2"></i>
+          Add Event
+        </button>
+      </div>
+    </div>
+
 
 <!-- ADD EVENT MODAL -->
 <div class="modal fade" id="staticBackdrop" data-mdb-backdrop="static" data-mdb-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -205,6 +216,7 @@ include 'sidebar.php';
         </div>
     </div>
     <!-- Event Details Modal -->
+</div>
 
 
     
