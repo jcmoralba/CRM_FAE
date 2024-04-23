@@ -12,6 +12,7 @@ if (isset($_POST["login"])) {
     $password = $_POST['password'];
 
     $sql = "SELECT * FROM `account` WHERE `email`= '$email'";
+    echo $sql;
     $stmt = $con->prepare($sql);
     $stmt->execute();
     while ($row = $stmt->fetch()) {
