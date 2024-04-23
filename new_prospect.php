@@ -111,13 +111,14 @@
                 <?php echo $row['remark']; ?>
               </td>
               <td>
+                
                 <?php
                 if (strlen($row['pdf']) == 0) {
                   echo " ";
                 } else {
                   echo "<u><a href='{$row['pdf']}' target='_blank'>LINK</a></u>";
                 }
-
+                
                 ?>
               </td>
               <td>

@@ -15,8 +15,8 @@
 
 <body>
   <!-- update modal -->
-  <div class="modal fade" id="edit-prospect<?php echo $row['prospect_id']; ?>" data-mdb-backdrop=" static" data-mdb-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable">
+  <div class="modal fade" id="edit-prospect<?php echo $row['prospect_id']; ?>" data-mdb-backdrop="static" data-mdb-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
 
       <div class="modal-content">
         <div class="modal-header">
@@ -33,11 +33,11 @@
               <label for="comp_name">Company Name</label>
             </div>
 
-
-            <input class="form-check-input" type="checkbox" value="" id="myCheck" name="myCheck1" onclick="checks()">
+            <!-- checkbox button -->
+            <!-- <input class="form-check-input" type="checkbox" value="" id="myCheck" name="myCheck1" onclick="checks()">
             <label class="form-check-label" for="myCheck">
               Edit mode
-            </label>
+            </label> -->
 
 
 
@@ -48,7 +48,7 @@
                 <?php
 
                 $prospect_id = $row['prospect_id'];
-                $sql3 = "SELECT * FROM item_deals WHERE `prospect_id` = '$prospect_id'";
+                $sql3 = "SELECT DISTINCT `name` FROM item_deals WHERE `prospect_id` = '$prospect_id'";
                 $stmt3 = $con->prepare($sql3);
                 $stmt3->execute();
                 while ($row3 = $stmt3->fetch()) {
@@ -58,29 +58,33 @@
 
                 <?php } ?>
               </div>
-            </div>
+           
 
 
 
 
 
-            <div id="edit_deals" style="border: 1px solid grey;">
+            <div id="edit_deals" >
            
               <?php
 
               $prospect_id1 = $row['prospect_id'];
-              $sql3 = "SELECT * FROM item_deals WHERE `prospect_id` = '$prospect_id1'";
+              $sql3 = "SELECT  DISTINCT `name` FROM item_deals WHERE `prospect_id` = '$prospect_id1'";
               $stmt3 = $con->prepare($sql3);
               $stmt3->execute();
+              $num = 0;
               while ($row3 = $stmt3->fetch()) {
+                $num = $num + 1;
               ?>
 
                 <div class="form-floating mb-3" style="margin: 5px;">
-                  <input type="text" class="form-control" id="" name="name[]" placeholder="" value=" <?php echo $row3['name'] ?>">
+                  <input type="text" class="form-control" id="z<?php echo $num ?>" name="name[]" placeholder="" value=" <?php echo $row3['name'] ?>">
+                  <!-- <label for="z<?php echo $num ?>">deal  <?php echo $num ?>:</label> -->
                 </div>
 
               <?php } ?>
              
+            </div>
             </div>
 
                
@@ -126,10 +130,7 @@
               <input type="text" class="form-control" id="item_deal" name="item_deal" placeholder="Item Deal" value="<?php echo $row['item_deals']; ?>">
               <label for="item_deal">Item Deal</label>
             </div> -->
-            <div class="form-floating mb-3">
-              <textarea type="text" class="form-control" id="textInput" name="item_deal" placeholder="Item Deal" onkeypress="handleKeyPress(event)" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'>  <?php echo $row['item_deals']; ?></textarea>
-              <label for="item_deal">Item Deal</label>
-            </div>
+          <div style="margin-top: 15px;"></div>
             <?php
             $sql1 = "SELECT * FROM status";
             $stmt1 = $con->prepare($sql1);
