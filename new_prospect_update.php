@@ -40,14 +40,17 @@
             </label>
 
 
-            <div style="border: 1px solid grey; border-radius:5px;">
 
+            <div style="border: 1px solid grey; border-radius:5px;">
+              <input class="form-check-input" type="checkbox" value="1" id="myCheck" name="myCheck" onclick="checks()" >
+              <label class="form-check-label" for="myCheck" id="labelclick">
+                Edit mode
+              </label>
               <p>Item Deals:</p>
               <div id="view_deals">
                 <?php
 
                 $prospect_id = $row['prospect_id'];
-                echo $prospect_id;
                 $sql3 = "SELECT * FROM item_deals WHERE `prospect_id` = '$prospect_id'";
                 $stmt3 = $con->prepare($sql3);
                 $stmt3->execute();

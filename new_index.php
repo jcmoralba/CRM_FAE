@@ -85,7 +85,7 @@
   if ($result->rowCount() > 0) {
     $sales = array();
     while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-      $sales[] = $row["total_sales"];
+      $sales[] = $row["last_contacted"];
       $company[] = $row["company_name"];
     }
   }
@@ -101,10 +101,10 @@
     const sales = <?php echo json_encode($sales); ?>;
     const company = <?php echo json_encode($company); ?>;
     const data = {
-      labels: company,
+      labels: sales,
       datasets: [{
         label: '# of Sales',
-        data: sales,
+        data: company,
         borderWidth: 1
       }]
     };
@@ -155,7 +155,7 @@
       // },
       series: [{
         name: "Series 1",
-        data: sales
+        data: [1 ,10]
       }],
       fill: {
         type: "gradient",
@@ -167,7 +167,7 @@
         }
       },
       xaxis: {
-        categories: company
+        categories: sales
       }
     };
 
