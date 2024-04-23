@@ -42,10 +42,7 @@
 
 
             <div style="border: 1px solid grey; border-radius:5px;">
-              <input class="form-check-input" type="checkbox" value="1" id="myCheck" name="myCheck" onclick="checks()" >
-              <label class="form-check-label" for="myCheck" id="labelclick">
-                Edit mode
-              </label>
+            
               <p>Item Deals:</p>
               <div id="view_deals">
                 <?php
