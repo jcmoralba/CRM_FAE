@@ -1,4 +1,5 @@
 <?php
+require_once 'includes/connect.php';
 // Check if the emails variable is set and not empty
 if (isset($_POST["emails"]) && !empty($_POST["emails"])) {
     // Get the emails array from POST data and decode it
@@ -25,11 +26,22 @@ if (isset($_POST["emails"]) && !empty($_POST["emails"])) {
      if ($conn->connect_error) {
          die("Connection failed: " . $conn->connect_error);
      }
+
+     // for deals
+     $max_prospect_id =0;
+     $sql1 = "SELECT MAX(prospect_id) AS maxProspect FROM new_prospect;";
+     $stmt1 = $con->prepare($sql1);
+     $stmt1->execute();
+     while ($row1 = $stmt1->fetch()) {
+         $max_prospect_id = $row1['maxProspect'];
+     }
+     $_SESSION['max_prospect'] = $max_prospect_id ;
  
      // Prepare and execute SQL statement to insert data into the database
-     $number = 3;
+     $number = $_SESSION['max_prospect'];
      $user_id = 1;
-     $sql = "INSERT INTO deal_list (prospect_id, deal_name, account_id) VALUES (  $number, ?, $user_id)";
+     $max_prospect_id = $max_prospect_id + 1;
+     $sql = "INSERT INTO item_deals (prospect_id, deal_name) VALUES (  $max_prospect_id, ?)";
      $stmt = $conn->prepare($sql);
      $stmt->bind_param("s", $emails);
 

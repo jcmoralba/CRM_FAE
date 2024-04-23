@@ -92,7 +92,7 @@
                 <?php
                 $prospect_id = $row['prospect_id'];
                
-                $sql2 = "SELECT * FROM item_deals WHERE `prospect_id` = '$prospect_id'";
+                $sql2 = "SELECT DISTINCT  id, prospect_id, deal_name, account_id FROM item_deals WHERE `prospect_id` = '$prospect_id'";
                 $stmt2 = $con->prepare($sql2);
                 $stmt2->execute();
                 while ($row2 = $stmt2->fetch()) {
@@ -100,7 +100,7 @@
                 ?>
                 <!-- <?php echo $row['item_deals']; ?> -->
                 <span class="badge bg-secondary" style="margin: 5px;">
-                <?php echo $row2['name']; ?>
+                <?php echo $row2['deal_name']; ?>
                 </span>
                 <?php } ?>
               </td>
@@ -148,7 +148,7 @@
 
 
 
-
+          <!-- add modal -->
     <div class="modal fade" id="staticBackdrop" data-mdb-backdrop="static" data-mdb-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -166,10 +166,10 @@
                 <input type="input" class="form-control" id="comp_name" name="comp_name" placeholder="Company name">
                 <label for="comp_name">Company Name</label>
               </div>
-              <div class="form-floating mb-3">
+              <!-- <div class="form-floating mb-3">
                 <textarea type="text" class="form-control" id="textInput" name="item_deal" placeholder="Item Deal" onkeypress="handleKeyPress(event)" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'> </textarea>
                 <label for="item_deal">Item Deal</label>
-              </div>
+              </div> -->
 
               <?php include 'deals.php'; ?>
               <!-- item deals -->
