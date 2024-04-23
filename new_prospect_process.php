@@ -65,10 +65,11 @@ if (isset($_POST['updatedata'])) {
     $stmt = $con->prepare($sql);
     $stmt->execute();
 
-  
+    $array = $_POST['name'];
+    echo "Using implode: " . implode(" ", $array);
 
-    header("Location: new_prospect.php?updated=success");
-    exit();
+    // header("Location: new_prospect.php?updated=success");
+    // exit();
 }
 
 if (isset($_POST["deletedata"])) {
