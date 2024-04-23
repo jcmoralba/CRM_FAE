@@ -32,11 +32,15 @@
 <body>
 
   <div class="container mt-5">
+<<<<<<< HEAD
 
     <p class="h2 mt-5">List of new Prospect</p>
 
 <div class="container mt-5">
+=======
+>>>>>>> parent of 9856ec6 (Merge branch 'main' into jc-practice-features)
 
+    <p class="h2 mt-5">List of new Prospect</p>
 
 <p class="h2 mt-5">List of new Prospect</p>
 
@@ -238,8 +242,6 @@
     </div>
   </div>
   </div>
-
-
 
   <!-- MDB -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"></script>
