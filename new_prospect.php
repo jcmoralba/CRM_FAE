@@ -31,7 +31,9 @@
 
 <body>
 
+  <div class="container mt-5">
 
+    <p class="h2 mt-5">List of new Prospect</p>
 
     <?php
     $sql1 = "SELECT * FROM status";
@@ -249,8 +251,6 @@
 
 
 
-
-
   <!-- MDB -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"></script>
 
@@ -364,11 +364,13 @@
 
   <!-- SWEETALERT ADD AND EDIT -->
   <?php
-//falsy
+  // Check if 'added' parameter is set and has the value 'success' after adding new data
+  // Check if 'updated' parameter is set and has the value 'success' after updating data
+  // Check if 'deleted' parameter is set and has the value 'success' after deleting data
   if ((isset($_GET['added']) && $_GET['added'] === 'success') || (isset($_GET['updated']) && $_GET['updated'] === 'success') || (isset($_GET['deleted']) && $_GET['deleted'] === 'success')) {
   ?>
     <script>
-      //dito na yung show ng sw2
+      // Show SweetAlert2 alert based on the parameter present in the URL
       Swal.fire({
         title: "Success!",
         text: <?php echo (isset($_GET['added']) && $_GET['added'] === 'success') ? '"You successfully added a new prospect"' : ((isset($_GET['updated']) && $_GET['updated'] === 'success') ? '"You successfully updated the prospect"' : '"You successfully deleted the prospect"'); ?>,
@@ -376,7 +378,7 @@
         confirmButtonText: "OK"
       });
 
-      // remove url exit()
+      // Remove the parameter from the URL
       window.onload = function() {
         if (window.location.search.includes('added=success') || window.location.search.includes('updated=success') || window.location.search.includes('deleted=success')) {
           history.replaceState({}, document.title, window.location.pathname);
