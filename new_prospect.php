@@ -93,7 +93,7 @@
                 <?php
                 $prospect_id = $row['prospect_id'];
                
-                $sql2 = "SELECT * FROM item_deals WHERE `prospect_id` = '$prospect_id'";
+                $sql2 = "SELECT DISTINCT `name` FROM item_deals WHERE `prospect_id` = '$prospect_id'";
                 $stmt2 = $con->prepare($sql2);
                 $stmt2->execute();
                 while ($row2 = $stmt2->fetch()) {

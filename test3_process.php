@@ -41,9 +41,9 @@ if (isset($_POST["emails"]) && !empty($_POST["emails"])) {
      $number = $_SESSION['max_prospect'];
      $user_id = 1;
      $max_prospect_id = $max_prospect_id + 1;
-     $sql = "INSERT INTO item_deals (prospect_id, deal_name) VALUES (  $max_prospect_id, ?)";
+     $sql = "INSERT INTO item_deals (prospect_id, name) VALUES (  $max_prospect_id, :name)";
      $stmt = $conn->prepare($sql);
-     $stmt->bind_param("s", $emails);
+     $stmt->bind_param(':name', $emails);
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -79,8 +79,8 @@ if (isset($_POST["emails"]) && !empty($_POST["emails"])) {
     // Close statement and connection
     $stmt->close();
     $conn->close();
-
-    echo "Emails saved successfully!";
+    header("Location: new_prospect.php?added=success");
+    exit();
 } else {
     // If emails variable is not set or empty, display an error message
     echo "Error: Emails variable is not set or empty.";

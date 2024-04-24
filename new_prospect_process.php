@@ -1,5 +1,5 @@
 <?php
-require_once ("includes/connect.php");
+require_once("includes/connect.php");
 ?>
 
 <?php
@@ -11,14 +11,14 @@ if (isset($_POST['savedata'])) {
     $remark = $_POST['remark'];
     $pdf = $_POST['pdf'];
     $total_sale = $_POST['total_sales'];
-    $total_sale= preg_replace('/[^0-9.]/', '', $total_sale);
+    $total_sale = preg_replace('/[^0-9.]/', '', $total_sale);
     $date_now =  date("Y-m-d H:i:s");
-    $user_id =   $_POST["user_id"] ?? '0' ;
+    $user_id =   $_POST["user_id"] ?? '0';
 
     // foreach($_POST['name'] as $key){
     //     // echo $value;
     //     echo $_POST['name'][$key];
-        
+
     // }
     $sql = "INSERT INTO `new_prospect`(`company_name`, `item_deals`, `status`, `remark`, `pdf`, `total_sales`, `last_contacted`, `account_id`) VALUES ('$comp_name','$item_deal','$status','$remark','$pdf','$total_sale','$date_now', '$user_id')";
     // $data=array($name,$address,$number);
@@ -26,8 +26,8 @@ if (isset($_POST['savedata'])) {
     $stmt->execute();
 
 
-        // for deals
-        $max_prospect_id =0;
+    // for deals
+    $max_prospect_id = 0;
     $sql1 = "SELECT MAX(prospect_id) AS maxProspect FROM new_prospect WHERE `account_id`='$user_id';";
     $stmt1 = $con->prepare($sql1);
     $stmt1->execute();
@@ -36,12 +36,11 @@ if (isset($_POST['savedata'])) {
     }
     $_SESSION['max_prospect'] = $max_prospect_id;
 
-    // require_once('test3_process.php');
+     require_once('test3_process.php');
 
 
-    header("Location: new_prospect.php?added=success");
-    exit();
-
+    // header("Location: new_prospect.php?added=success");
+    // exit();
 }
 
 if (isset($_POST['updatedata'])) {
@@ -52,7 +51,7 @@ if (isset($_POST['updatedata'])) {
     $remark = $_POST['remark'];
     $pdf = $_POST['pdf'];
     $total_sale = $_POST['total_sales'];
-    $total_sale= preg_replace('/[^0-9.]/', '', $total_sale);
+    $total_sale = preg_replace('/[^0-9.]/', '', $total_sale);
     $date_now =  date("Y-m-d H:i:s");
 
 
@@ -62,24 +61,40 @@ if (isset($_POST['updatedata'])) {
     $stmt->execute();
 
     $array = $_POST['name'];
-    echo "Using implode: " . implode(" ", $array);
-    $array = json_encode($array);
 
-    echo $array;
+    foreach ($array as &$value) {
+        $value = htmlspecialchars(trim($value));
+    }
+    // Prepare the SQL INSERT statement
     $stmt = $con->prepare("INSERT INTO item_deals (name, prospect_id) VALUES (:name, :prospect_id)");
-    
-    // Iterate through the array and execute the statement for each element
-    foreach ($data as $row) {
-        // Bind parameters
-        $stmt->bindParam(':name', $array);
+     // Execute the statement for each element in the array
+     foreach ($array as $value) {
+        // Bind the parameter and execute the statement
+        $stmt->bindParam(':name', $value);
         $stmt->bindParam(':prospect_id', $prospect_id);
-        
-        // Execute the statement
+
         $stmt->execute();
     }
 
-    // header("Location: new_prospect.php?updated=success");
-    // exit();
+
+
+
+    //test
+    // echo $array;
+    // $stmt = $con->prepare("INSERT INTO item_deals (name, prospect_id) VALUES (:name, :prospect_id)");
+
+    // // Iterate through the array and execute the statement for each element
+    // foreach ($data as $row) {
+    //     // Bind parameters
+    //     $stmt->bindParam(':name', $array);
+    //     $stmt->bindParam(':prospect_id', $prospect_id);
+
+    //     // Execute the statement
+    //     $stmt->execute();
+    // }
+
+    header("Location: new_prospect.php?updated=success");
+    exit();
 }
 
 if (isset($_POST["deletedata"])) {
