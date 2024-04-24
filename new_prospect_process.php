@@ -63,6 +63,20 @@ if (isset($_POST['updatedata'])) {
 
     $array = $_POST['name'];
     echo "Using implode: " . implode(" ", $array);
+    $array = json_encode($array);
+
+    echo $array;
+    $stmt = $con->prepare("INSERT INTO item_deals (name, prospect_id) VALUES (:name, :prospect_id)");
+    
+    // Iterate through the array and execute the statement for each element
+    foreach ($data as $row) {
+        // Bind parameters
+        $stmt->bindParam(':name', $array);
+        $stmt->bindParam(':prospect_id', $prospect_id);
+        
+        // Execute the statement
+        $stmt->execute();
+    }
 
     // header("Location: new_prospect.php?updated=success");
     // exit();

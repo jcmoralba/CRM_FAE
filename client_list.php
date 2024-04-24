@@ -145,13 +145,61 @@ include "sidebar.php";
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js"></script>
 
   <script>
-    new DataTable('#example', {
-      layout: {
-        topStart: {
-          buttons: ['copy', 'excel', 'pdf', 'colvis']
+    $(document).ready(function() {
+      // Initialize DataTable
+      var table = $('#example').DataTable({
+        buttons: [{
+            extend: 'copy',
+            exportOptions: {
+              columns: ':not(:last-child)'
+            }
+          },
+          {
+            extend: 'csv',
+            exportOptions: {
+              columns: ':not(:last-child)'
+            }
+          },
+          {
+            extend: 'excel',
+            exportOptions: {
+              columns: ':not(:last-child)'
+            }
+          },
+          {
+            extend: 'pdf',
+            exportOptions: {
+              columns: ':not(:last-child)'
+            }
+          },
+          {
+            extend: 'print',
+            exportOptions: {
+              columns: ':not(:last-child)'
+            }
+          }
+        ],
+        layout: {
+          topStart: 'buttons'
         }
-      }
+      });
 
+      // Handle status filter
+      $('#statusFilter').on('change', function() {
+        var status = $(this).val();
+        if (status === "") {
+          table.column(2).search("").draw(); // Clear the search if "Filter Status" is chosen
+        } else {
+          table.column(2).search(status).draw(); // Filter based on selected status
+        }
+      });
+
+      // Handle clear filter button
+      $('#clearFilterBtn').on('click', function() {
+        $('#statusFilter').val(''); // Clear the selected value in the dropdown
+        table.column(2).search("").draw(); // Clear the search filter
+        $('#statusFilter option[value=""]').prop('selected', true); // Select "Filter Status" option
+      });
     });
   </script>
 

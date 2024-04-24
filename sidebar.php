@@ -19,7 +19,7 @@ require_once("includes/connect.php");
     <ul>
     <li>
           <a class="navbar-brand" href="">
-          <img src="imgs/logo-new.png" width="80px" height="auto" class="d-inline-block" alt="">
+          <img src="img/hytecpower1.png" width="80px" height="auto" class="d-inline-block" alt="">
             <span class="title">Hytec Power Inc</span>
           </a>
         </li>
@@ -61,14 +61,7 @@ require_once("includes/connect.php");
           <span class="title">Itenerary</span>
         </a>
       </li>
-      <li>
-        <a href="#" onclick="logout();">
-          <span class="icon">
-          <ion-icon name="log-out-outline"></ion-icon>
-          </span>
-          <span class="title">logout</span>
-        </a>
-      </li>
+     
     </ul>
   </div>
   <?php include 'navbar.php'; ?>

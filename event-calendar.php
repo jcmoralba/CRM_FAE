@@ -1,3 +1,4 @@
+
 <?php require_once('db-connect.php');
 include 'sidebar.php';
 ?>
@@ -27,6 +28,8 @@ include 'sidebar.php';
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
     <style>
         :root {
             --bs-success-rgb: 71, 222, 152 !important;
@@ -58,12 +61,23 @@ include 'sidebar.php';
     </style>
 </head>
 
-<body class="bg-light">
+<body>
+<div class="container mt-5">
 
+<p class="h2 mt-5">Itenarary</p>
 
-<button type="button" class="btn btn-primary" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#staticBackdrop">
-    Add Event
-</button>
+<div class=" mt-5">
+    <div class="row">
+      <div class="col-md-6">
+      </div>
+      <div class="col-md-6 text-md-end">
+        <button type="button" class="btn btn-primary" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#staticBackdrop">
+        <i class='bx bx-calendar-check me-2'></i>
+          Add Event
+        </button>
+      </div>
+    </div>
+
 
 <!-- ADD EVENT MODAL -->
 <div class="modal fade" id="staticBackdrop" data-mdb-backdrop="static" data-mdb-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -205,6 +219,7 @@ include 'sidebar.php';
         </div>
     </div>
     <!-- Event Details Modal -->
+</div>
 
 
     
