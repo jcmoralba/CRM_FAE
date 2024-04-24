@@ -32,7 +32,7 @@ CREATE TABLE `account` (
   `department` varchar(255) NOT NULL,
   `number` int(11) NOT NULL,
   PRIMARY KEY (`account_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `account` */
 
@@ -43,7 +43,8 @@ insert  into `account`(`account_id`,`user_type`,`user`,`pass`,`fname`,`lname`,`m
 (6,'','','123','asd','asd','','qwecqwe2@yahoo.com','FAE',3123123),
 (7,'','','123123','qwe','123','','qwecqwe2@yahoo.com','qwe',12123123),
 (8,'','','1234','junmar','Rosario','','qwe@yahoo.com','FAE',9823423),
-(9,'','','1234','junmar','Rosario','','qwe@yahoo.com','FAE',9823423);
+(9,'','','1234','junmar','Rosario','','qwe@yahoo.com','FAE',9823423),
+(10,'','','junmar','Junmar','Rosario','','junmar@gmail.com','IT',2147483647);
 
 /*Table structure for table `calendar_event_master` */
 
@@ -238,7 +239,7 @@ CREATE TABLE `new_prospect` (
 insert  into `new_prospect`(`prospect_id`,`company_name`,`item_deals`,`status`,`remark`,`pdf`,`total_sales`,`last_contacted`,`date_added`,`account_id`) values 
 (4,'ZZZ Company','deals2','Close Deals','Remarks3','','40000','2024-04-05 07:11:58','2024-04-20',NULL),
 (11,'ZZZ Company','deals2','Close Deals','Remarks3','google.com','20000','2024-04-11 21:45:52','2024-04-20',NULL),
-(12,'ibm','    ','Meeting','pogi','','10000','2024-04-23 20:42:53','2024-04-21',0),
+(12,'ibm','','Meeting','pogi','','10000','2024-04-24 12:59:54','2024-04-21',0),
 (13,'ABC Company','Deals1234','Close Deals','remarks 555','facebook.com','1000000.00','2024-04-11 21:48:30','2024-04-21',NULL),
 (14,'ABC Company','     ','Contacted','remarks 555','google.com','50000.00','2024-04-23 20:43:05','2024-04-22',0),
 (15,'zzz Company',' ','Contacted','remarks 555','google.com','50000.00','2024-04-23 18:35:12','2024-04-23',0);
@@ -254,12 +255,12 @@ CREATE TABLE `schedule_list` (
   `start_datetime` datetime NOT NULL,
   `end_datetime` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `schedule_list` */
 
 insert  into `schedule_list`(`id`,`title`,`description`,`start_datetime`,`end_datetime`) values 
-(2,'test1','test desc','2024-04-23 18:24:00','2024-04-24 18:24:00');
+(3,'aa','aa','2024-04-22 09:42:00','2024-04-27 09:42:00');
 
 /*Table structure for table `status` */
 
