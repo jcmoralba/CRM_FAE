@@ -170,7 +170,7 @@
                 <textarea type="text" class="form-control" id="textInput" name="item_deal" placeholder="Item Deal" onkeypress="handleKeyPress(event)" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'> </textarea>
                 <label for="item_deal">Item Deal</label>
               </div> -->
-
+                nothing
               <?php include 'deals.php'; ?>
               <!-- item deals -->
               <!-- <table id="TextBoxesGroup" class="table">
