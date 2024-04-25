@@ -27,7 +27,7 @@ if (isset($_POST["emails"]) && !empty($_POST["emails"])) {
          die("Connection failed: " . $conn->connect_error);
      }
      //select the max prospect id 
-     sleep(5);
+     sleep(2);
      $sql = "SELECT MAX(prospect_id) AS maxprospect FROM new_prospect";
      $stmt = $con->prepare($sql);
      $stmt->execute();

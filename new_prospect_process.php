@@ -26,35 +26,7 @@ if (isset($_POST['savedata'])) {
     $stmt->execute();
 
 
-    //     for deals
-    //     $max_prospect_id =0;
-    // $sql1 = "SELECT MAX(prospect_id) AS maxProspect FROM new_prospect WHERE `account_id`='$user_id';";
-    // $stmt1 = $con->prepare($sql1);
-    // $stmt1->execute();
-    // while ($row1 = $stmt1->fetch()) {
-    //     $max_prospect_id = $row1['maxProspect'];
-    // }
-    // $_SESSION['max_prospect'] = $max_prospect_id;
-
-    // require_once('test3_process.php');
-
-    $array = $_POST['name'];
-
-    foreach ($array as &$value) {
-        $value = htmlspecialchars(trim($value));
-    }
-    // Prepare the SQL INSERT statement
-    $stmt = $con->prepare("INSERT INTO item_deals (name, prospect_id) VALUES (:name, :prospect_id)");
-    // Execute the statement for each element in the array
-    foreach ($array as $value) {
-        // Bind the parameter and execute the statement
-        $stmt->bindParam(':name', $value);
-        $stmt->bindParam(':prospect_id', $prospect_id);
-
-        $stmt->execute();
-    }
-
-
+       
     header("Location: new_prospect.php?added=success");
     exit();
 }

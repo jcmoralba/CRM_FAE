@@ -156,14 +156,14 @@
             <h5 class="modal-title" id="staticBackdropLabel">Add new prospect</h5>
             <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body">
+          <div class="modal-body" id="mydiv1">
             <form style="width: 26rem;" action="new_prospect_process.php" method="POST">
               <!-- Name input -->
 
               <input type="hidden" name="user_id" value="  <?php echo  $_SESSION["user_id"] ?>">
 
               <div class="form-floating mb-3">
-                <input type="input" class="form-control" id="comp_name" name="comp_name" placeholder="Company name">
+                <input type="input" class="form-control textInput" id="comp_name" name="comp_name" placeholder="Company name" required>
                 <label for="comp_name">Company Name</label>
               </div>
               <!-- <div class="form-floating mb-3">
@@ -227,7 +227,7 @@
                 </div>
               </div>
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="total_sales" name="total_sales" placeholder="Total Sale" id="currency-field" pattern="^\₱\d{1,3}(,\d{3})*(\.\d+)?₱" value="" data-type="currency">
+                <input type="text" class="form-control textInput" id="total_sales" name="total_sales" placeholder="Total Sale" id="currency-field" pattern="^\₱\d{1,3}(,\d{3})*(\.\d+)?₱" value="" data-type="currency">
                 <label for="total_sales">Total Sale</label>
               </div>
               <div class="form-floating mb-3">
@@ -241,7 +241,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal"> <i class='bx bxs-x-circle me-2'></i>Close</button>
-            <button type="submit" name="savedata" id="savedata" onclick="add_deals();" class="btn btn-primary" data-mdb-ripple-init> <i class='bx bxs-save me-2'></i>Save Prospect</button>
+            <button type="submit" name="savedata" id="savedata" onclick="add_deals();" class="btn btn-primary" data-mdb-ripple-init disabled> <i class='bx bxs-save me-2'></i>Save Prospect</button>
           </div>
           </form>
         </div>
@@ -295,10 +295,41 @@
   </script> -->
 
 
+<!-- disable enter key to click submit -->
+<script>
+document.getElementById("mydiv1").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+    }
+});
+</script>
 
 
+<!-- disable button submit in add new prospect if some input is missing -->
+<script>
+// Get all input elements with class "textInput"
+var inputFields = document.getElementsByClassName("textInput");
+var submitButton = document.getElementById("savedata");
 
 
+// Function to check if all input fields are blank
+function areInputsBlank() {
+    for (var i = 0; i < inputFields.length; i++) {
+        if (inputFields[i].value.trim() !== '') {
+          
+            return false; // If any input field is not blank, return false
+        }
+    }
+    return true; // If all input fields are blank, return true
+}
+
+// Add event listeners to all input fields
+for (var i = 0; i < inputFields.length +1; i++) {
+    inputFields[i].addEventListener("input", function() {
+        submitButton.disabled = areInputsBlank(); // Disable button if all input fields are blank
+    });
+}
+</script>
 
 
 
@@ -569,7 +600,7 @@
       // Simulate a click on the button
       button11.click();
     }
-    setTimeout(add_deals(), 2000);
+   
   </script>
 </body>
 
