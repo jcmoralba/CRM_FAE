@@ -35,12 +35,7 @@
 
     <p class="h2 mt-5">List of new Prospect</p>
 
-<<<<<<< Updated upstream
-
-<?php
-=======
     <?php
->>>>>>> Stashed changes
     $sql1 = "SELECT * FROM status";
     $stmt1 = $con->prepare($sql1);
     $stmt1->execute();
@@ -96,17 +91,17 @@
               <td>
                 <?php
                 $prospect_id = $row['prospect_id'];
-               
+
                 $sql2 = "SELECT * FROM item_deals WHERE `prospect_id` = '$prospect_id'";
                 $stmt2 = $con->prepare($sql2);
                 $stmt2->execute();
                 while ($row2 = $stmt2->fetch()) {
-                
+
                 ?>
-                <!-- <?php echo $row['item_deals']; ?> -->
-                <span class="badge bg-secondary" style="margin: 5px;">
-                <?php echo $row2['name']; ?>
-                </span>
+                  <!-- <?php echo $row['item_deals']; ?> -->
+                  <span class="badge bg-secondary" style="margin: 5px;">
+                    <?php echo $row2['name']; ?>
+                  </span>
                 <?php } ?>
               </td>
               <td>
@@ -171,11 +166,11 @@
                 <input type="input" class="form-control" id="comp_name" name="comp_name" placeholder="Company name">
                 <label for="comp_name">Company Name</label>
               </div>
-              <div class="form-floating mb-3">
+              <!-- <div class="form-floating mb-3">
                 <textarea type="text" class="form-control" id="textInput" name="item_deal" placeholder="Item Deal" onkeypress="handleKeyPress(event)" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'> </textarea>
                 <label for="item_deal">Item Deal</label>
-              </div>
-
+              </div> -->
+              nothing
               <?php include 'deals.php'; ?>
               <!-- item deals -->
               <!-- <table id="TextBoxesGroup" class="table">
@@ -283,7 +278,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js"></script>
 
-  <script>
+  <!-- <script>
     // to click add deals when save data
     // Get references to the buttons
     var button1 = document.getElementById("savedata");
@@ -292,9 +287,12 @@
     // Add click event listener to button1
     button1.addEventListener("click", function() {
       // Simulate a click on button2
-      button2.click();
+      setTimeout(function() {
+        button2.click(); // Programmatically click the button
+    }, 2000); // 2000 milliseconds = 2 seconds
+      // button2.click();
     });
-  </script>
+  </script> -->
 
 
 
@@ -571,6 +569,7 @@
       // Simulate a click on the button
       button11.click();
     }
+    setTimeout(add_deals(), 2000);
   </script>
 </body>
 
