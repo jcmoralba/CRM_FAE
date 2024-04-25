@@ -166,10 +166,10 @@
                 <input type="input" class="form-control" id="comp_name" name="comp_name" placeholder="Company name">
                 <label for="comp_name">Company Name</label>
               </div>
-              <div class="form-floating mb-3">
+              <!-- <div class="form-floating mb-3">
                 <textarea type="text" class="form-control" id="textInput" name="item_deal" placeholder="Item Deal" onkeypress="handleKeyPress(event)" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'> </textarea>
                 <label for="item_deal">Item Deal</label>
-              </div>
+              </div> -->
 
               <?php include 'deals.php'; ?>
               <!-- item deals -->
