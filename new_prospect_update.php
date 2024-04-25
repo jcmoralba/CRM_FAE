@@ -35,7 +35,7 @@
                 <?php
 
                 $prospect_id = $row['prospect_id'];
-                $sql3 = "SELECT * FROM item_deals WHERE `prospect_id` = ' $prospect_id'";
+                $sql3 = "SELECT * FROM item_deals WHERE `prospect_id` = '$prospect_id'";
                 $stmt3 = $con->prepare($sql3);
                 $stmt3->execute();
                 while ($row3 = $stmt3->fetch()) {
