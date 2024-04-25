@@ -1,5 +1,5 @@
 <?php
-require_once ("includes/connect.php");
+require_once("includes/connect.php");
 ?>
 
 <?php
@@ -11,14 +11,14 @@ if (isset($_POST['savedata'])) {
     $remark = $_POST['remark'];
     $pdf = $_POST['pdf'];
     $total_sale = $_POST['total_sales'];
-    $total_sale= preg_replace('/[^0-9.]/', '', $total_sale);
+    $total_sale = preg_replace('/[^0-9.]/', '', $total_sale);
     $date_now =  date("Y-m-d H:i:s");
-    $user_id =   $_POST["user_id"] ?? '0' ;
+    $user_id =   $_POST["user_id"] ?? '0';
 
     // foreach($_POST['name'] as $key){
     //     // echo $value;
     //     echo $_POST['name'][$key];
-        
+
     // }
     $sql = "INSERT INTO `new_prospect`(`company_name`, `item_deals`, `status`, `remark`, `pdf`, `total_sales`, `last_contacted`, `account_id`) VALUES ('$comp_name','$item_deal','$status','$remark','$pdf','$total_sale','$date_now', '$user_id')";
     // $data=array($name,$address,$number);
@@ -45,8 +45,8 @@ if (isset($_POST['savedata'])) {
     }
     // Prepare the SQL INSERT statement
     $stmt = $con->prepare("INSERT INTO item_deals (name, prospect_id) VALUES (:name, :prospect_id)");
-     // Execute the statement for each element in the array
-     foreach ($array as $value) {
+    // Execute the statement for each element in the array
+    foreach ($array as $value) {
         // Bind the parameter and execute the statement
         $stmt->bindParam(':name', $value);
         $stmt->bindParam(':prospect_id', $prospect_id);
@@ -57,7 +57,6 @@ if (isset($_POST['savedata'])) {
 
     header("Location: new_prospect.php?added=success");
     exit();
-
 }
 
 if (isset($_POST['updatedata'])) {
@@ -68,7 +67,7 @@ if (isset($_POST['updatedata'])) {
     $remark = $_POST['remark'];
     $pdf = $_POST['pdf'];
     $total_sale = $_POST['total_sales'];
-    $total_sale= preg_replace('/[^0-9.]/', '', $total_sale);
+    $total_sale = preg_replace('/[^0-9.]/', '', $total_sale);
     $date_now =  date("Y-m-d H:i:s");
 
 
@@ -76,6 +75,22 @@ if (isset($_POST['updatedata'])) {
     $sql = "UPDATE `new_prospect` SET `company_name`='$comp_name', `item_deals`='$item_deal', `status`='$status', `remark`='$remark', `pdf`='$pdf', `total_sales`='$total_sale', `last_contacted`='$date_now' WHERE `prospect_id`='$prospect_id'";
     $stmt = $con->prepare($sql);
     $stmt->execute();
+    //update deals
+    $array = $_POST['name'];
+
+    foreach ($array as &$value) {
+        $value = htmlspecialchars(trim($value));
+    }
+    // Prepare the SQL INSERT statement
+    $stmt = $con->prepare("INSERT INTO item_deals (name, prospect_id) VALUES (:name, :prospect_id)");
+     // Execute the statement for each element in the array
+     foreach ($array as $value) {
+        // Bind the parameter and execute the statement
+        $stmt->bindParam(':name', $value);
+        $stmt->bindParam(':prospect_id', $prospect_id);
+
+        $stmt->execute();
+    }
 
     header("Location: new_prospect.php?updated=success");
     exit();

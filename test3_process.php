@@ -32,7 +32,7 @@ if (isset($_POST["emails"]) && !empty($_POST["emails"])) {
      $stmt = $con->prepare($sql);
      $stmt->execute();
      while ($row = $stmt->fetch()) {
-        $max_prospect = $row['maxprospect'] + 1;
+        $max_prospect = $row['maxprospect'];
      }
 
 

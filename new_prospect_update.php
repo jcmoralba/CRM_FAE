@@ -39,9 +39,10 @@
                 $stmt3 = $con->prepare($sql3);
                 $stmt3->execute();
                 while ($row3 = $stmt3->fetch()) {
+                  
                 ?>
 
-                  <span class="badge bg-secondary" style="margin: 5px;"> <?php echo $prospect_id ?> </span>
+                  <span class="badge bg-secondary" style="margin: 5px;"> <?php echo $row3['name'] ?> </span>
 
                 <?php } ?>
                 <button type="button" name="updatedeals" class="btn btn-primary" >Edit</button>
