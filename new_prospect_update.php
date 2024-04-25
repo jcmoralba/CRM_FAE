@@ -28,10 +28,10 @@
 
 
 
-       
-            <form action="" method="post">
-              <div style="border: 1px solid grey;">
-              <p>Item Deals:</p>
+            <div style="border: 1px solid grey;">
+
+              <div >
+                <p>Item Deals:</p>
                 <?php
 
                 $prospect_id = $row['prospect_id'];
@@ -39,20 +39,36 @@
                 $stmt3 = $con->prepare($sql3);
                 $stmt3->execute();
                 while ($row3 = $stmt3->fetch()) {
-                  
+
                 ?>
 
                   <span class="badge bg-secondary" style="margin: 5px;"> <?php echo $row3['name'] ?> </span>
 
                 <?php } ?>
-                <button type="button" name="updatedeals" class="btn btn-primary" >Edit</button>
+                <!-- <button type="button" name="updatedeals" class="btn btn-primary">Edit</button> -->
               </div>
-              
 
-            </form>
+              <div id="edit_deals">
 
+                <?php
 
-            <div style="border: 1px solid grey;">
+                $prospect_id1 = $row['prospect_id'];
+                $sql3 = "SELECT  DISTINCT `name` FROM item_deals WHERE `prospect_id` = '$prospect_id1'";
+                $stmt3 = $con->prepare($sql3);
+                $stmt3->execute();
+                $num = 0;
+                while ($row3 = $stmt3->fetch()) {
+                  $num = $num + 1;
+                ?>
+
+                  <div class="form-floating mb-3" style="margin: 5px;">
+                    <input type="text" class="form-control" id="z<?php echo $num ?>" name="name[]" placeholder="" value="<?php echo $row3['name'] ?>">
+                    <!-- <label for="z<?php echo $num ?>">deal  <?php echo $num ?>:</label> -->
+                  </div>
+
+                <?php } ?>
+
+              </div>
             </div>
 
 
@@ -60,19 +76,15 @@
 
 
 
-            <div class="form-floating mb-3">
-              <textarea type="text" class="form-control" id="textInput" name="item_deal" placeholder="Item Deal">  <?php echo $row['item_deals']; ?></textarea>
-              <label for="item_deal">Item Deal</label>
-            </div>
 
             <!-- <div class="form-floating mb-3">
               <input type="text" class="form-control" id="item_deal" name="item_deal" placeholder="Item Deal" value="<?php echo $row['item_deals']; ?>">
               <label for="item_deal">Item Deal</label>
             </div> -->
-            <div class="form-floating mb-3">
+            <!-- <div class="form-floating mb-3">
               <textarea type="text" class="form-control" id="textInput" name="item_deal" placeholder="Item Deal" onkeypress="handleKeyPress(event)" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'>  <?php echo $row['item_deals']; ?></textarea>
               <label for="item_deal">Item Deal</label>
-            </div>
+            </div> -->
             <?php
             $sql1 = "SELECT * FROM status";
             $stmt1 = $con->prepare($sql1);

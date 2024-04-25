@@ -75,17 +75,26 @@ if (isset($_POST['updatedata'])) {
     $sql = "UPDATE `new_prospect` SET `company_name`='$comp_name', `item_deals`='$item_deal', `status`='$status', `remark`='$remark', `pdf`='$pdf', `total_sales`='$total_sale', `last_contacted`='$date_now' WHERE `prospect_id`='$prospect_id'";
     $stmt = $con->prepare($sql);
     $stmt->execute();
+
+    //delete current deals
+
+    $sql = "DELETE FROM `item_deals` WHERE `prospect_id`='$prospect_id'";
+    $stmt = $con->prepare($sql);
+    $stmt->execute();
+
     //update deals
     $array = $_POST['name'];
 
-    foreach ($array as &$value) {
-        $value = htmlspecialchars(trim($value));
-    }
+    // foreach ($array as &$value) {
+    //     $value = htmlspecialchars(trim($value));
+    // }
+
     // Prepare the SQL INSERT statement
     $stmt = $con->prepare("INSERT INTO item_deals (name, prospect_id) VALUES (:name, :prospect_id)");
      // Execute the statement for each element in the array
      foreach ($array as $value) {
         // Bind the parameter and execute the statement
+        // echo "|deals:     " .  $value;
         $stmt->bindParam(':name', $value);
         $stmt->bindParam(':prospect_id', $prospect_id);
 
