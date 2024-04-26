@@ -31,7 +31,7 @@
 
 <body>
 
-  <div class="container mt-5">
+  <div class="container mt-5 mb-5">
 
     <p class="h2 mt-5">List of new Prospect</p>
 
@@ -65,7 +65,12 @@
         </div>
       </div>
 
-
+      <div class=" mt-2">
+        <button type="button" class="btn btn-outline-secondary btn-rounded approve-btn" data-mdb-ripple-init data-mdb-ripple-color="dark">Approve</button>
+        <button type="button" class="btn btn-outline-secondary btn-rounded pending-btn" data-mdb-ripple-init data-mdb-ripple-color="dark">Pending</button>
+        <button type="button" class="btn btn-outline-secondary btn-rounded decline-btn" data-mdb-ripple-init data-mdb-ripple-color="dark">Decline</button>
+      </div>
+      
       <table id="example" class="table table-striped table-bordered border-dark " style="width:100%">
         <thead>
           <tr class="bg-dark table-bordered border-dark">
@@ -83,7 +88,7 @@
           $stmt = $con->prepare($sql);
           $stmt->execute();
           while ($row = $stmt->fetch()) {
-          ?>
+          ?>  
             <tr>
               <td>
                 <?php echo $row['company_name']; ?>
@@ -120,6 +125,7 @@
 
                 ?>
               </td>
+              
               <td>
                 <button type="button" class="btn btn-info btn-rounded" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#view_prospect<?php echo $row['prospect_id']; ?>">
                   <i class="fas fa-eye me-2"></i>
@@ -368,7 +374,10 @@ for (var i = 0; i < inputFields.length +1; i++) {
             exportOptions: {
               columns: ':not(:last-child)'
             }
-          }
+          },
+          
+
+          
         ],
         layout: {
           topStart: 'buttons'
@@ -602,6 +611,34 @@ for (var i = 0; i < inputFields.length +1; i++) {
     }
    
   </script>
+
+<script>
+    // Get all buttons
+    let approveBtn = document.querySelector('.approve-btn');
+    let pendingBtn = document.querySelector('.pending-btn');
+    let declineBtn = document.querySelector('.decline-btn');
+
+    approveBtn.addEventListener('click', function() {
+        approveBtn.classList.remove('btn-outline-secondary');
+        approveBtn.classList.toggle('btn-primary');
+        pendingBtn.classList.remove('btn-primary');
+        declineBtn.classList.remove('btn-primary');
+    });
+
+    pendingBtn.addEventListener('click', function() {
+        pendingBtn  .classList.remove('btn-outline-secondary');
+        pendingBtn.classList.toggle('btn-primary');
+        approveBtn.classList.remove('btn-primary');
+        declineBtn.classList.remove('btn-primary');
+    });
+
+    declineBtn.addEventListener('click', function() {
+        declineBtn.classList.remove('btn-outline-secondary');
+        declineBtn.classList.toggle('btn-primary');
+        approveBtn.classList.remove('btn-primary');
+        pendingBtn.classList.remove('btn-primary');
+    });
+</script>
 </body>
 
 </html>
