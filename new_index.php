@@ -42,8 +42,8 @@
   <div class="cardBox">
     <div class="card">
       <div>
-        <div class="numbers">1,504</div>
-        <div class="cardName">Daily Views</div>
+        <div class="numbers">31</div>
+        <div class="cardName">Today's Added Prospect</div>
       </div>
 
       <div class="iconBx">
@@ -75,7 +75,7 @@
 
     <div class="card">
       <div>
-        <div class="numbers">$7,842</div>
+        <div class="numbers">Php 7,842</div>
         <div class="cardName">Earning</div>
       </div>
 
@@ -88,12 +88,12 @@
   <div id="chart"></div>
 
   <?php
-  $sql = "SELECT prospect_id, company_name, item_deals, `status`, remark, pdf, total_sales , last_contacted  FROM new_prospect";
+  $sql = "SELECT date_added, company_name FROM new_prospect";
   $result = $con->query($sql);
   if ($result->rowCount() > 0) {
     $sales = array();
     while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-      $sales[] = $row["total_sales"];
+      $sales[] = $row["date_added"];
       $company[] = $row["company_name"];
     }
   }
@@ -115,10 +115,10 @@
     const sales = <?php echo json_encode($sales); ?>;
     const company = <?php echo json_encode($company); ?>;
     const data = {
-      labels: company,
+      labels: sales,
       datasets: [{
         label: '# of Sales',
-        data: sales,
+        data: company,
         borderWidth: 1
       }]
     };
@@ -169,8 +169,9 @@
       // },
       series: [{
         name: "Series 1",
-        data: sales
+        data: [1,2,3]
       }],
+      
       fill: {
         type: "gradient",
         gradient: {
@@ -181,7 +182,7 @@
         }
       },
       xaxis: {
-        categories: company
+        categories: [4,5,6]
       }
     };
 
