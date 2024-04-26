@@ -110,6 +110,15 @@
                 <?php } ?>
               </td>
               <td>
+                <?php 
+                $status1 = $row['stat_id'];
+                if ($status1 == 1) {
+                  echo "pending:     ";
+                }elseif ($status1 == 3) {
+                  echo "rejected:     ";
+                }
+              
+                ?>
                 <?php echo $row['status']; ?>
               </td>
               <td>
@@ -176,7 +185,7 @@
                 <textarea type="text" class="form-control" id="textInput" name="item_deal" placeholder="Item Deal" onkeypress="handleKeyPress(event)" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'> </textarea>
                 <label for="item_deal">Item Deal</label>
               </div> -->
-                nothing
+              
               <?php include 'deals.php'; ?>
               <!-- item deals -->
               <!-- <table id="TextBoxesGroup" class="table">

@@ -4,7 +4,6 @@ include 'sidebar.php';
 
 $company_name = $_GET['data'];
 
-echo $company_name;
 
 ?>
 <!DOCTYPE html>
@@ -43,7 +42,7 @@ echo $company_name;
 <div class="container mt-5">
     <div class="row">
       <div class="col-md-6">
-        <p class="h2">List of new Prospect</p>
+        <p class="h2"><?php echo $company_name; ?> </p>
       </div>
       <div class="col-md-6 text-md-end">
        
