@@ -82,7 +82,7 @@
        <!-- <h5>
           <?php echo $_SESSION["user"] ?? "noname"; ?>
         </h5> -->
-
+        <input id="user1" type="hidden" value="<?php echo  $_SESSION["user"] ?? "noname"; ?>">
         <script src="https://cdn.lordicon.com/lordicon.js"></script>
 
       </div>
