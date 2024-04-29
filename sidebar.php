@@ -61,14 +61,7 @@ require_once("includes/connect.php");
           <span class="title">Itenerary</span>
         </a>
       </li>
-      <li>
-        <a href="#" onclick="logout();">
-          <span class="icon">
-          <ion-icon name="log-out-outline"></ion-icon>
-          </span>
-          <span class="title">logout</span>
-        </a>
-      </li>
+     
     </ul>
   </div>
   <?php include 'navbar.php'; ?>
