@@ -70,7 +70,7 @@
         <button type="button" class="btn btn-outline-secondary btn-rounded pending-btn" data-mdb-ripple-init data-mdb-ripple-color="dark">Pending</button>
         <button type="button" class="btn btn-outline-secondary btn-rounded decline-btn" data-mdb-ripple-init data-mdb-ripple-color="dark">Decline</button>
       </div>
-      
+
       <table id="example" class="table table-striped table-bordered border-dark " style="width:100%">
         <thead>
           <tr class="bg-dark table-bordered border-dark">
@@ -88,7 +88,7 @@
           $stmt = $con->prepare($sql);
           $stmt->execute();
           while ($row = $stmt->fetch()) {
-          ?>  
+          ?>
             <tr>
               <td>
                 <?php echo $row['company_name']; ?>
@@ -96,28 +96,28 @@
               <td>
                 <?php
                 $prospect_id = $row['prospect_id'];
-               
+
                 $sql2 = "SELECT * FROM item_deals WHERE `prospect_id` = '$prospect_id'";
                 $stmt2 = $con->prepare($sql2);
                 $stmt2->execute();
                 while ($row2 = $stmt2->fetch()) {
-                
+
                 ?>
-                <!-- <?php echo $row['item_deals']; ?> -->
-                <span class="badge bg-secondary" style="margin: 5px;">
-                <?php echo $row2['name']; ?>
-                </span>
+                  <!-- <?php echo $row['item_deals']; ?> -->
+                  <span class="badge bg-secondary" style="margin: 5px;">
+                    <?php echo $row2['name']; ?>
+                  </span>
                 <?php } ?>
               </td>
               <td>
-                <?php 
+                <?php
                 $status1 = $row['stat_id'];
                 if ($status1 == 1) {
                   echo "pending:     ";
-                }elseif ($status1 == 3) {
+                } elseif ($status1 == 3) {
                   echo "rejected:     ";
                 }
-              
+
                 ?>
                 <?php echo $row['status']; ?>
               </td>
@@ -134,22 +134,29 @@
 
                 ?>
               </td>
-              
+
               <td>
-                <button type="button" class="btn btn-info btn-rounded" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#view_prospect<?php echo $row['prospect_id']; ?>">
+                <button style="margin: 5px;" type="button" class="btn btn-info btn-rounded" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#view_prospect<?php echo $row['prospect_id']; ?>">
                   <i class="fas fa-eye me-2"></i>
                   View
                 </button>
 
-                <button type="button" class="btn btn-warning btn-rounded" data-mdb-riple-init data-mdb-modal-init data-mdb-target="#edit-prospect<?php echo $row['prospect_id']; ?>">
+                <button style="margin: 5px;" type="button" class="btn btn-warning btn-rounded" data-mdb-riple-init data-mdb-modal-init data-mdb-target="#edit-prospect<?php echo $row['prospect_id']; ?>">
                   <i class="fas fa-pen me-2"></i>
                   Edit
                 </button>
-                <button type="button" class="btn btn-danger btn-rounded" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#delete-modal<?php echo $row['prospect_id']; ?>">
+
+                <button style="margin: 5px;" type="button" value="" class="btn btn-danger btn-rounded" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#delete-modal<?php echo $row['prospect_id']; ?>">
                   <i class="fas fa-trash-can me-2"></i>
-                  Delete
                 </button>
+
+                <button style="margin: 5px;" type="button" class="btn btn-info btn-rounded" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#remarks_prospect<?php echo $row['prospect_id']; ?>">
+                  <i class="fas fa-eye me-2"></i>
+                  Add Remarks
+                </button>
+
               </td>
+
             </tr>
           <?php
             include 'new_prospect_update.php';
@@ -185,7 +192,7 @@
                 <textarea type="text" class="form-control" id="textInput" name="item_deal" placeholder="Item Deal" onkeypress="handleKeyPress(event)" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'> </textarea>
                 <label for="item_deal">Item Deal</label>
               </div> -->
-              
+
               <?php include 'deals.php'; ?>
               <!-- item deals -->
               <!-- <table id="TextBoxesGroup" class="table">
@@ -256,7 +263,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal"> <i class='bx bxs-x-circle me-2'></i>Close</button>
-            <button type="submit" name="savedata" id="savedata" onclick="add_deals();" class="btn btn-primary" data-mdb-ripple-init disabled> <i class='bx bxs-save me-2'></i>Save Prospect</button>
+            <button type="submit" name="savedata" id="savedata" onclick="add_deals();" class="btn btn-success" data-mdb-ripple-init disabled> <i class='bx bxs-save me-2'></i>Save Prospect</button>
           </div>
           </form>
         </div>
@@ -310,41 +317,41 @@
   </script> -->
 
 
-<!-- disable enter key to click submit -->
-<script>
-document.getElementById("mydiv1").addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
+  <!-- disable enter key to click submit -->
+  <script>
+    document.getElementById("mydiv1").addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
         event.preventDefault();
-    }
-});
-</script>
-
-
-<!-- disable button submit in add new prospect if some input is missing -->
-<script>
-// Get all input elements with class "textInput"
-var inputFields = document.getElementsByClassName("textInput");
-var submitButton = document.getElementById("savedata");
-
-
-// Function to check if all input fields are blank
-function areInputsBlank() {
-    for (var i = 0; i < inputFields.length; i++) {
-        if (inputFields[i].value.trim() !== '') {
-          
-            return false; // If any input field is not blank, return false
-        }
-    }
-    return true; // If all input fields are blank, return true
-}
-
-// Add event listeners to all input fields
-for (var i = 0; i < inputFields.length +1; i++) {
-    inputFields[i].addEventListener("input", function() {
-        submitButton.disabled = areInputsBlank(); // Disable button if all input fields are blank
+      }
     });
-}
-</script>
+  </script>
+
+
+  <!-- disable button submit in add new prospect if some input is missing -->
+  <script>
+    // Get all input elements with class "textInput"
+    var inputFields = document.getElementsByClassName("textInput");
+    var submitButton = document.getElementById("savedata");
+
+
+    // Function to check if all input fields are blank
+    function areInputsBlank() {
+      for (var i = 0; i < inputFields.length; i++) {
+        if (inputFields[i].value.trim() !== '') {
+
+          return false; // If any input field is not blank, return false
+        }
+      }
+      return true; // If all input fields are blank, return true
+    }
+
+    // Add event listeners to all input fields
+    for (var i = 0; i < inputFields.length + 1; i++) {
+      inputFields[i].addEventListener("input", function() {
+        submitButton.disabled = areInputsBlank(); // Disable button if all input fields are blank
+      });
+    }
+  </script>
 
 
 
@@ -384,9 +391,9 @@ for (var i = 0; i < inputFields.length +1; i++) {
               columns: ':not(:last-child)'
             }
           },
-          
 
-          
+
+
         ],
         layout: {
           topStart: 'buttons'
@@ -618,36 +625,35 @@ for (var i = 0; i < inputFields.length +1; i++) {
       // Simulate a click on the button
       button11.click();
     }
-   
   </script>
 
-<script>
+  <script>
     // Get all buttons
     let approveBtn = document.querySelector('.approve-btn');
     let pendingBtn = document.querySelector('.pending-btn');
     let declineBtn = document.querySelector('.decline-btn');
 
     approveBtn.addEventListener('click', function() {
-        approveBtn.classList.remove('btn-outline-secondary');
-        approveBtn.classList.toggle('btn-primary');
-        pendingBtn.classList.remove('btn-primary');
-        declineBtn.classList.remove('btn-primary');
+      approveBtn.classList.remove('btn-outline-secondary');
+      approveBtn.classList.toggle('btn-primary');
+      pendingBtn.classList.remove('btn-primary');
+      declineBtn.classList.remove('btn-primary');
     });
 
     pendingBtn.addEventListener('click', function() {
-        pendingBtn  .classList.remove('btn-outline-secondary');
-        pendingBtn.classList.toggle('btn-primary');
-        approveBtn.classList.remove('btn-primary');
-        declineBtn.classList.remove('btn-primary');
+      pendingBtn.classList.remove('btn-outline-secondary');
+      pendingBtn.classList.toggle('btn-primary');
+      approveBtn.classList.remove('btn-primary');
+      declineBtn.classList.remove('btn-primary');
     });
 
     declineBtn.addEventListener('click', function() {
-        declineBtn.classList.remove('btn-outline-secondary');
-        declineBtn.classList.toggle('btn-primary');
-        approveBtn.classList.remove('btn-primary');
-        pendingBtn.classList.remove('btn-primary');
+      declineBtn.classList.remove('btn-outline-secondary');
+      declineBtn.classList.toggle('btn-primary');
+      approveBtn.classList.remove('btn-primary');
+      pendingBtn.classList.remove('btn-primary');
     });
-</script>
+  </script>
 </body>
 
 </html>

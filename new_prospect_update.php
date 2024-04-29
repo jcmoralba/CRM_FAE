@@ -28,7 +28,7 @@
 
 
 
-            <div style="border: 1px solid grey;">
+            <div style="border: 1px solid grey; border-radius:5px; padding:5px;">
 
               <div >
                 <p>Item Deals:</p>
@@ -91,7 +91,7 @@
             $stmt1->execute();
             $data1 = $stmt1->fetchAll();
             ?>
-            <div class="form-floating mb-3">
+            <div class="form-floating mb-3" style="margin-top:15px;">
               <div class="col-md">
                 <div class="form-floating">
                   <select class="form-select" id="status" name="status" aria-label="Floating label select example">
@@ -123,7 +123,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
-          <button type="submit" name="updatedata" class="btn btn-primary" data-mdb-ripple-init>Update Prospect</button>
+          <button type="submit" name="updatedata" class="btn btn-success" data-mdb-ripple-init>Update Prospect</button>
         </div>
         </form>
       </div>
@@ -182,6 +182,34 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- add remarks modal -->
+    <div class="modal fade" id="remarks_prospect<?php echo $row['prospect_id']; ?>" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Remarks</h5>
+          <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="new_prospect_process.php" method="POST">
+            <input type="hidden" class="form-control" id="prospect_id" name="prospect_id" value="<?php echo $row['prospect_id']; ?>">
+            <div>
+              <p>Company Name: <?php echo $row['company_name']; ?></p>
+              <p>Item Deals: <?php echo $row['item_deals']; ?></p>
+              <p>Status: <?php echo $row['status']; ?></p>
+              <p>Total Sales: <?php echo $row['total_sales']; ?></p>
+              <p>PDF Link: <?php echo "<u><a href='{$row['pdf']}' target='_blank'>LINK</a></u>"; ?></p>
+
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
+          <button type="submit" name="addremarks" class="btn btn-success" data-mdb-ripple-init>Add Remarks</button>
         </div>
       </div>
     </div>
