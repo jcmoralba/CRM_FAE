@@ -248,18 +248,19 @@ CREATE TABLE `new_prospect` (
   `last_contacted` datetime NOT NULL DEFAULT current_timestamp(),
   `date_added` date DEFAULT NULL,
   `account_id` int(11) DEFAULT NULL,
+  `stat_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`prospect_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `new_prospect` */
 
-insert  into `new_prospect`(`prospect_id`,`company_name`,`item_deals`,`status`,`remark`,`pdf`,`total_sales`,`last_contacted`,`date_added`,`account_id`) values 
-(4,'ZZZ Company','deals2','Close Deals','Remarks3','','40000','2024-04-05 07:11:58','2024-04-20',NULL),
-(11,'ZZZ Company','deals2','Close Deals','Remarks3','google.com','20000','2024-04-11 21:45:52','2024-04-20',NULL),
-(33,'moralba2','','','remarks1','pdf','500000.00','2024-04-25 16:01:39',NULL,1),
-(34,'ABC COMPANY',' ','PRODUCT PRESENTATION','pagkain','www.friendster.com','1.00','2024-04-25 14:52:02',NULL,1),
-(35,'Hytec Power Inc. (HPI)','','','','','','2024-04-25 16:20:43',NULL,1),
-(36,'SUPER MARKET COMPANY','','','CRUSHES','www.facebook.com','10.00','2024-04-25 16:21:38',NULL,1);
+insert  into `new_prospect`(`prospect_id`,`company_name`,`item_deals`,`status`,`remark`,`pdf`,`total_sales`,`last_contacted`,`date_added`,`account_id`,`stat_id`) values 
+(4,'ZZZ Company','deals2','Close Deals','Remarks3','','40000','2024-04-05 07:11:58','2024-04-20',NULL,NULL),
+(11,'ZZZ Company','deals2','Close Deals','Remarks3','google.com','20000','2024-04-11 21:45:52','2024-04-20',NULL,NULL),
+(33,'moralba2','','','remarks1','pdf','500000.00','2024-04-25 16:01:39',NULL,1,NULL),
+(34,'ABC COMPANY',' ','PRODUCT PRESENTATION','pagkain','www.friendster.com','1.00','2024-04-25 14:52:02',NULL,1,NULL),
+(35,'Hytec Power Inc. (HPI)','','','','','','2024-04-25 16:20:43',NULL,1,NULL),
+(36,'SUPER MARKET COMPANY','','','CRUSHES','www.facebook.com','10.00','2024-04-25 16:21:38',NULL,1,NULL);
 
 /*Table structure for table `schedule_list` */
 
@@ -302,6 +303,23 @@ insert  into `status`(`status_id`,`status_name`) values
 (8,'COLLECTION'),
 (9,'AFTER SALES TRAINING AND SUPPORT'),
 (10,'COMMISSIONING');
+
+/*Table structure for table `status_approval` */
+
+DROP TABLE IF EXISTS `status_approval`;
+
+CREATE TABLE `status_approval` (
+  `stat_id` int(11) NOT NULL AUTO_INCREMENT,
+  `stat_name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`stat_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `status_approval` */
+
+insert  into `status_approval`(`stat_id`,`stat_name`) values 
+(1,'Pending'),
+(2,'Approved'),
+(3,'Rejected');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
