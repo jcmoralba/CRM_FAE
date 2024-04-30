@@ -74,7 +74,7 @@
       <table id="example" class="table table-striped table-bordered border-dark " style="width:100%">
         <thead>
           <tr class="bg-dark table-bordered border-dark">
-            <th class="text-white">COMPANY NAME</th>
+            <th class="text-white">SCHOOL NAME</th>
             <th class="text-white">ITEM DEALS</th>
             <th class="text-white">STATUS</th>
             <th class="text-white">REMARKS</th>

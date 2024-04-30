@@ -30,7 +30,7 @@
 
             <div style="border: 1px solid grey; border-radius:5px; padding:5px;">
 
-              <div >
+              <div>
                 <p>Item Deals:</p>
                 <?php
 
@@ -187,8 +187,8 @@
     </div>
   </div>
 
-    <!-- add remarks modal -->
-    <div class="modal fade" id="remarks_prospect<?php echo $row['prospect_id']; ?>" tabindex="-1">
+  <!-- add remarks modal -->
+  <div class="modal fade" id="remarks_prospect<?php echo $row['prospect_id']; ?>" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
@@ -198,13 +198,10 @@
         <div class="modal-body">
           <form action="new_prospect_process.php" method="POST">
             <input type="hidden" class="form-control" id="prospect_id" name="prospect_id" value="<?php echo $row['prospect_id']; ?>">
-            <div>
-              <p>Company Name: <?php echo $row['company_name']; ?></p>
-              <p>Item Deals: <?php echo $row['item_deals']; ?></p>
-              <p>Status: <?php echo $row['status']; ?></p>
-              <p>Total Sales: <?php echo $row['total_sales']; ?></p>
-              <p>PDF Link: <?php echo "<u><a href='{$row['pdf']}' target='_blank'>LINK</a></u>"; ?></p>
-
+           <p>Remarks:</p>
+            <div class="form-floating">
+              <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+              <!-- <label for="floatingTextarea2">Comments</label> -->
             </div>
         </div>
         <div class="modal-footer">
