@@ -10,7 +10,7 @@
   <!-- ======= Styles ====== -->
   <link rel="stylesheet" href="css/style_index_1.css">
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script> -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
 
@@ -88,29 +88,90 @@
   <div id="chart"></div>
 
   <?php
-  $sql = "SELECT date_added, company_name FROM new_prospect";
+  $sql = "SELECT date_added FROM new_prospect";
   $result = $con->query($sql);
   if ($result->rowCount() > 0) {
     $sales = array();
     while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-      $sales[] = $row["date_added"];
-      $company[] = $row["company_name"];
+      $date = $row["date_added"];
+      if (!isset($sales[$date])) {
+        $sales[$date] = 1;
+      } else {
+        $sales[$date]++;
+      }
     }
   }
+?>
 
-  // echo print_r($sales);
-  ?>
+<div id="chart"></div>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script>
+  var salesData = <?php echo json_encode($sales); ?>;
+
+  var dates = Object.keys(salesData);
+  var counts = Object.values(salesData);
+
+  var options = {
+    chart: {
+      type: 'area'
+    },
+    series: [{
+      name: 'sales',
+      data: counts
+    }],
+    xaxis: {
+      categories: dates
+    },
+    stroke: {
+  curve: 'smooth',
+  },
+  fill: {
+    type: "gradient",
+    gradient: {
+      shadeIntensity: 1,
+      opacityFrom: 0.7,
+      opacityTo: 0.9,
+      stops: [0, 90, 100]
+    }
+  },
+  };
+
+  var chart = new ApexCharts(document.querySelector("#chart"), options);
+
+  chart.render();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <!-- ================ Order Details List ================= -->
-  <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+  <!-- <canvas id="myChart" style="width:100%;max-width:600px"></canvas> -->
 
   <!-- MDB -->
-<script
-  type="text/javascript"
-  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"
-></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"></script>
 
-  <script>
+  <!-- <script>
     //setup block
     const sales = <?php echo json_encode($sales); ?>;
     const company = <?php echo json_encode($company); ?>;
@@ -150,11 +211,11 @@
     });
   </script>
 
-  </script>
+  </script> -->
 
   <!-- ================= New Customers ================ -->
 
-  <script>
+  <!-- <script>
     // apex chart
     var options = {
       chart: {
@@ -219,7 +280,7 @@
         }
       }
     });
-  </script>
+  </script> -->
 
   <!-- =========== Scripts =========  -->
   <script src="js/main.js"></script>
