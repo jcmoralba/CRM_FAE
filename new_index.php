@@ -103,8 +103,7 @@
   }
 ?>
 
-<div id="chart"></div>
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
 <script>
   var salesData = <?php echo json_encode($sales); ?>;
 
@@ -116,24 +115,24 @@
       type: 'area'
     },
     series: [{
-      name: 'sales',
+      name: 'Added Prospect',
       data: counts
     }],
     xaxis: {
       categories: dates
     },
     stroke: {
-  curve: 'smooth',
-  },
-  fill: {
-    type: "gradient",
-    gradient: {
-      shadeIntensity: 1,
-      opacityFrom: 0.7,
-      opacityTo: 0.9,
-      stops: [0, 90, 100]
-    }
-  },
+    curve: 'smooth',
+    },
+    fill: {
+      type: "gradient",
+      gradient: {
+        shadeIntensity: 1,
+        opacityFrom: 0.7,
+        opacityTo: 0.9,
+        stops: [0, 90, 100]
+      }
+    },
   };
 
   var chart = new ApexCharts(document.querySelector("#chart"), options);

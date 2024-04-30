@@ -1,0 +1,29 @@
+.btn-custom-view {
+    background-color: rgb(60,91,111);
+    color: #ffffff; 
+  }
+
+  .btn-custom-view:hover {
+    background-color: rgba(60,91,111,0.9);
+    color: #ffffff;
+  }
+  
+  .btn-custom-update {
+    background-color: rgb(255, 101, 0);
+    color: #ffffff; 
+  }
+
+  .btn-custom-update:hover {
+    background-color: rgba(255, 101, 0, 0.9);
+    color: #ffffff;
+  }
+
+  .btn-custom-delete {
+    background-color: rgb(231, 41, 41);
+    color: #ffffff; 
+  }
+
+  .btn-custom-delete:hover {
+    background-color: rgba(231, 41, 41, 0.9);
+    color: #ffffff;
+  }
