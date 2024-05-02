@@ -96,7 +96,7 @@
                 console.log(<?php echo $row['prospect_id']; ?>);
               }
             </script>
-         
+
 
 
 
@@ -224,13 +224,50 @@
             <input type="hidden" class="form-control" id="prospect_id" name="prospect_id" value="<?php echo $row['prospect_id']; ?>">
             <p>Remarks:</p>
             <div class="form-floating">
-              <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+              <textarea name="remarks" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
               <!-- <label for="floatingTextarea2">Comments</label> -->
             </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
-          <button type="submit" name="addremarks" class="btn btn-success" data-mdb-ripple-init>Add Remarks</button>
+          <button type="submit" name="add_remarks" class="btn btn-success" data-mdb-ripple-init>Add Remarks</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- remarks history modal -->
+  <div class="modal fade" id="remarks_history<?php echo $row['prospect_id']; ?>" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Remarks</h5>
+          <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="new_prospect_process.php" method="POST">
+            <input type="hidden" class="form-control" id="prospect_id" name="prospect_id" value="<?php echo $row['prospect_id']; ?>">
+            <p>Remarks History:</p>
+
+         
+              <?php
+              $sql4 = "SELECT `remarks_id`, `remarks_desc`, `prospect_id`, DATE_FORMAT(`date`, '%M %d, %Y - %r') AS `date` FROM `remarks_history` WHERE `prospect_id`='{$row['prospect_id']}'";
+              $stmt4 = $con->prepare($sql4);
+              $stmt4->execute();
+              $data4 = $stmt4->fetchAll();
+              ?>
+              <?php foreach ($data4 as $row4) { ?>
+                <div style="border: 1px solid gray; border-radius:2px; margin:5px; padding:5px;" id="border">
+
+                <h4> <?php echo $row4['remarks_desc']; ?> </h4>
+                <p> <?php echo $row4['date']; ?></p>
+                </div>
+              <?php } ?>
+           
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
         </div>
       </div>
     </div>

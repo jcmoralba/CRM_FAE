@@ -126,8 +126,9 @@
                 ?>
                 <?php echo $row['status']; ?>
               </td>
-              <td>
-                <?php echo $row['remark']; ?>
+              <td data-mdb-riple-init data-mdb-modal-init data-mdb-target="#remarks_history<?php echo $row['prospect_id']; ?>">
+               <?php echo $row['remark']; ?>
+             
               </td>
               <td>
                 <?php

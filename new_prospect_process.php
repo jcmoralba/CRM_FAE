@@ -1,4 +1,7 @@
 <?php
+
+use function PHPSTORM_META\sql_injection_subst;
+
 require_once("includes/connect.php");
 ?>
 
@@ -73,6 +76,19 @@ if (isset($_POST['updatedata'])) {
 
         $stmt->execute();
     }
+
+    header("Location: new_prospect.php?updated=success");
+    exit();
+}
+if (isset($_POST["add_remarks"])) {
+    $prospect_id = $_POST['prospect_id'];
+    $remarks = $_POST['remarks'];
+    $date = date("Y-m-d H:i:s");
+
+    $sql = "INSERT INTO `remarks_history`(`remarks_desc`, `prospect_id`, `date`) VALUES ('$remarks','$prospect_id','$date')";
+    // $data=array($name,$address,$number);
+    $stmt = $con->prepare($sql);
+    $stmt->execute();
 
     header("Location: new_prospect.php?updated=success");
     exit();
