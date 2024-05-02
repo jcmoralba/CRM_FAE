@@ -58,7 +58,7 @@
         <!-- Avatar -->
         <div class="dropdown">
           <a data-mdb-dropdown-init class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar" role="button" aria-expanded="false">
-            <img style="margin-right: -15px ;margin-top:-5px;" src="img/sirjohn.jpg" class="rounded-circle" height="35" alt="Black and White Portrait of a Man" loading="lazy" />
+            <img style="margin-right: -15px ;margin-top:-5px;" src="img/sirjohn.jpg" class="rounded-circle" height="35" alt="???" loading="lazy" />
               <lord-icon 
               src="https://cdn.lordicon.com/ifsxxxte.json" trigger="click" colors="primary:#545454" 
               style="width:15px;height: 25px; margin-top: 15px;">

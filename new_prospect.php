@@ -140,16 +140,16 @@
               </td>
               
               <td>
-                <button type="button" class="btn btn-custom-view btn-rounded" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#view_prospect<?php echo $row['prospect_id']; ?>">
+                <button style="margin: 5px;" type="button" class="btn btn-custom-view btn-rounded" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#view_prospect<?php echo $row['prospect_id']; ?>">
                   <i class="fas fa-eye me-2"></i>
                   View
                 </button>
 
-                <button type="button" class="btn btn-custom-update btn-rounded" data-mdb-riple-init data-mdb-modal-init data-mdb-target="#edit-prospect<?php echo $row['prospect_id']; ?>">
+                <button style="margin: 5px;" type="button" class="btn btn-custom-update btn-rounded" data-mdb-riple-init data-mdb-modal-init data-mdb-target="#edit-prospect<?php echo $row['prospect_id']; ?>">
                   <i class="fas fa-pen me-2"></i>
                   Edit
                 </button>
-                <button type="button" class="btn btn-custom-delete btn-rounded" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#delete-modal<?php echo $row['prospect_id']; ?>">
+                <button  style="margin: 5px;" type="button" class="btn btn-custom-delete btn-rounded" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#delete-modal<?php echo $row['prospect_id']; ?>">
                   <i class="fas fa-trash-can me-2"></i>
                   Delete
                 </button>
