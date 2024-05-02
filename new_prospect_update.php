@@ -20,7 +20,7 @@
           <form style="width: 26rem;" action="new_prospect_process.php" method="POST">
             <!-- Name input -->
             <input type="hidden" name="user_id" value="  <?php echo  $_SESSION["user_id"] ?>">
-            <input type="hidden" class="form-control" id="prospect_id" name="prospect_id" value="<?php echo $row['prospect_id']; ?>">
+            <input type="text" class="form-control" id="prospect_id" name="prospect_id" value="<?php echo $row['prospect_id']; ?>">
             <div class="form-floating mb-3">
               <input type="input" class="form-control" id="comp_name" name="comp_name" placeholder="Company name" value="<?php echo $row['company_name']; ?>">
               <label for="comp_name">Company Name</label>
@@ -73,6 +73,30 @@
 
 
 
+            <!-- Modal Body -->
+            <div class="modal-body">
+
+              <div id="inputsContainer" class="form-group">
+                <!-- Initial input field -->
+                <input type="text" name="input_text[]" class="form-control mb-2" placeholder="Enter text...">
+              </div>
+              <button type="button" class="btn btn-primary" onclick="addInput()">Add Input</button>
+              <button type="submit" class="btn btn-success" name="submit">Submit</button>
+
+            </div>
+            <script>
+              function addInput() {
+                var container = document.getElementById('inputsContainer');
+                var input = document.createElement('input');
+                input.type = 'text';
+                input.name = 'input_text[]';
+                input.className = 'form-control mb-2';
+                input.placeholder = 'Enter text...';
+                container.appendChild(input);
+                console.log(<?php echo $row['prospect_id']; ?>);
+              }
+            </script>
+         
 
 
 
@@ -198,7 +222,7 @@
         <div class="modal-body">
           <form action="new_prospect_process.php" method="POST">
             <input type="hidden" class="form-control" id="prospect_id" name="prospect_id" value="<?php echo $row['prospect_id']; ?>">
-           <p>Remarks:</p>
+            <p>Remarks:</p>
             <div class="form-floating">
               <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
               <!-- <label for="floatingTextarea2">Comments</label> -->
