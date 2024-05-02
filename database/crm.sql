@@ -212,7 +212,7 @@ CREATE TABLE `item_deals` (
   `prospect_id` int(11) NOT NULL,
   `account_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`item_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=174 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=201 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `item_deals` */
 
@@ -225,13 +225,13 @@ insert  into `item_deals`(`item_id`,`name`,`prospect_id`,`account_id`) values
 (50,'deals2',3,1),
 (51,'deals1',3,1),
 (52,'deals2',3,1),
-(81,'deals3',33,NULL),
-(168,'honey',35,NULL),
-(169,'bee',35,NULL),
-(170,'tree house',35,NULL),
-(171,'aa',36,NULL),
-(172,'ddd',36,NULL),
-(173,'xxx',36,NULL);
+(183,'honey',35,NULL),
+(184,'bee',35,NULL),
+(185,'tree house',35,NULL),
+(195,'aircon',36,NULL),
+(196,'tv',36,NULL),
+(197,'window',36,NULL),
+(200,'chair',33,NULL);
 
 /*Table structure for table `new_prospect` */
 
@@ -255,12 +255,31 @@ CREATE TABLE `new_prospect` (
 /*Data for the table `new_prospect` */
 
 insert  into `new_prospect`(`prospect_id`,`company_name`,`item_deals`,`status`,`remark`,`pdf`,`total_sales`,`last_contacted`,`date_added`,`account_id`,`stat_id`) values 
-(4,'ZZZ Company','deals2','Close Deals','Remarks3','','40000','2024-04-05 07:11:58','2024-04-20',NULL,NULL),
-(11,'ZZZ Company','deals2','Close Deals','Remarks3','google.com','20000','2024-04-11 21:45:52','2024-04-20',NULL,NULL),
-(33,'moralba2','','','remarks1','pdf','500000.00','2024-04-25 16:01:39',NULL,1,NULL),
-(34,'ABC COMPANY',' ','PRODUCT PRESENTATION','pagkain','www.friendster.com','1.00','2024-04-25 14:52:02',NULL,1,NULL),
-(35,'Hytec Power Inc. (HPI)','','','','','','2024-04-25 16:20:43',NULL,1,NULL),
-(36,'SUPER MARKET COMPANY','','','CRUSHES','www.facebook.com','10.00','2024-04-25 16:21:38',NULL,1,NULL);
+(4,'ZZZ Company','deals2','Close Deals','Remarks3','','40000','2024-04-05 07:11:58','2024-04-20',1,NULL),
+(11,'ZZZ Company','deals2','Close Deals','Remarks3','google.com','20000','2024-04-11 21:45:52','2024-04-20',1,NULL),
+(33,'moralba2','','PRODUCT PRESENTATION','finished by the end of april','pdf','500000.00','2024-05-02 14:56:16','2024-05-01',1,NULL),
+(34,'ABC COMPANY','','PROPOSAL','presenting equipment to BSU','www.friendster.com','1.00','2024-05-02 14:56:23','2024-05-01',1,NULL),
+(35,'Hytec Power Inc. (HPI)','','SURVEY','pagkain','www.facebook.com','500000.00','2024-05-02 09:20:58','2024-05-01',1,NULL),
+(36,'SUPER MARKET COMPANY','','PROSPECTING','CRUSHES','www.facebook.com','10.00','2024-05-02 09:31:59','2024-05-01',1,NULL);
+
+/*Table structure for table `remarks_history` */
+
+DROP TABLE IF EXISTS `remarks_history`;
+
+CREATE TABLE `remarks_history` (
+  `remarks_id` int(11) NOT NULL AUTO_INCREMENT,
+  `remarks_desc` varchar(255) DEFAULT NULL,
+  `prospect_id` int(11) DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
+  PRIMARY KEY (`remarks_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `remarks_history` */
+
+insert  into `remarks_history`(`remarks_id`,`remarks_desc`,`prospect_id`,`date`) values 
+(1,'inumin',36,'2024-05-02 15:33:31'),
+(2,'presenting equipment to BSU',34,'2024-05-01 16:00:54'),
+(3,'to be presented tomorrow at bulacan',34,'2024-05-02 16:00:54');
 
 /*Table structure for table `schedule_list` */
 
