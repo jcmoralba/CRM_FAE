@@ -80,12 +80,12 @@
                 <!-- Initial input field -->
                 <input type="text" name="input_text[]" class="form-control mb-2" placeholder="Enter text...">
               </div>
-              <button type="button" class="btn btn-primary" onclick="addInput()">Add Input</button>
+              <button type="button" class="btn btn-primary" onclick="addInput(<?php echo $row['prospect_id']; ?>)">Add Input</button>
               <button type="submit" class="btn btn-success" name="submit">Submit</button>
 
             </div>
             <script>
-              function addInput() {
+              function addInput(prospectId) {
                 var container = document.getElementById('inputsContainer');
                 var input = document.createElement('input');
                 input.type = 'text';
@@ -93,12 +93,9 @@
                 input.className = 'form-control mb-2';
                 input.placeholder = 'Enter text...';
                 container.appendChild(input);
-                console.log(<?php echo $row['prospect_id']; ?>);
+                console.log(prospectId);
               }
             </script>
-
-
-
 
 
             <!-- <div class="form-floating mb-3">
