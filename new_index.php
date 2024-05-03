@@ -104,6 +104,7 @@
 
   <div class="cardBox">
     <div class="card">
+      <a href="new_prospect.php">
       <div>
         <div class="numbers"><?php echo $added_today; ?></div>
         <div class="cardName">Today's Added Prospect</div>
@@ -112,9 +113,11 @@
       <div class="iconBx">
         <ion-icon name="eye-outline"></ion-icon>
       </div>
+      </a>
     </div>
 
     <div class="card">
+      <a href="new_prospect.php">
       <div>
         <div class="numbers"><?php echo $formattedTotalSum; ?></div>
         <div class="cardName">Expected Sales</div>
@@ -123,8 +126,11 @@
       <div class="iconBx">
         <ion-icon name="cart-outline"></ion-icon>
       </div>
+      </a>
     </div>
+
     <div class="card">
+      <a href="event-calendar.php">
       <div>
         <div class="numbers"><?php echo $itineraryCount ?></div>
         <div class="cardName">Itenerary for this <?php echo $currentMonth ?></div>
@@ -133,9 +139,11 @@
       <div class="iconBx">
         <ion-icon name="chatbubbles-outline"></ion-icon>
       </div>
+      </a>
     </div>
 
     <div class="card">
+      <a href="client_list.php">
       <div>
         <div class="numbers"><?php echo $formattedEarnings; ?></div>
         <div class="cardName">Total Earning</div>
@@ -144,6 +152,7 @@
       <div class="iconBx">
         <ion-icon name="cash-outline"></ion-icon>
       </div>
+      </a>
     </div>
   </div>
 
