@@ -100,8 +100,6 @@
   }
 ?>
 
-
-
   <div class="cardBox">
     <div class="card">
       <a href="new_prospect.php">
@@ -187,6 +185,12 @@
   
   var maxCount = Math.max(...counts);
 
+  var formattedDates = dates.map(function(date) {
+    var d = new Date(date);
+    var options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return d.toLocaleDateString('en-US', options);
+  });
+
   var areaOptions = {
     chart: {
       type: 'area',
@@ -198,7 +202,7 @@
       data: counts
     }],
     xaxis: {
-      categories: dates
+      categories: formattedDates
     },
     yaxis: {
       min: 1,
