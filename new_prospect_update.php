@@ -76,7 +76,7 @@
             <!-- Modal Body -->
             <div class="modal-body">
 
-              <div id="inputsContainer" class="form-group">
+              <div id="inputsContainer<?php echo $row['prospect_id']; ?>" class="form-group">
                 <!-- Initial input field -->
                 <input type="text" name="input_text[]" class="form-control mb-2" placeholder="Enter text...">
               </div>
@@ -86,7 +86,7 @@
             </div>
             <script>
               function addInput(prospectId) {
-                var container = document.getElementById('inputsContainer');
+                var container = document.getElementById('inputsContainer' + prospectId);
                 var input = document.createElement('input');
                 input.type = 'text';
                 input.name = 'input_text[]';
