@@ -89,7 +89,7 @@
         </thead>
         <tbody>
           <?php
-          $sql = "SELECT * FROM new_prospect WHERE `status` != 'Close Deals'";
+          $sql = "SELECT * FROM new_prospect WHERE `status` != 'Close Deals' AND `stat_id`='2'";
           $stmt = $con->prepare($sql);
           $stmt->execute();
           while ($row = $stmt->fetch()) {
@@ -116,6 +116,7 @@
               </td>
               <td>
                 <?php
+                // sales cycle status
                 $status1 = $row['stat_id'];
                 if ($status1 == 1) {
                   echo "pending:     ";
@@ -127,8 +128,18 @@
                 <?php echo $row['status']; ?>
               </td>
               <td data-mdb-riple-init data-mdb-modal-init data-mdb-target="#remarks_history<?php echo $row['prospect_id']; ?>">
-               <?php echo $row['remark']; ?>
-             
+                <!-- remarks history -->
+                <!-- <?php echo $row['remark']; ?> -->
+                <?php
+                $sql5 = "SELECT MAX(remarks_id), remarks_desc, DATE_FORMAT(`date`, '%M %d, %Y - %r') AS `date` FROM remarks_history WHERE `prospect_id`='$prospect_id'";
+                $stmt5 = $con->prepare($sql5);
+                $stmt5->execute();
+                while ($row5 = $stmt5->fetch()) {
+                  echo $row5['remarks_desc'] ;
+                }
+                ?>
+
+                
               </td>
               <td>
                 <?php
@@ -568,7 +579,7 @@
         }
       });
 
-      
+
 
       // Handle status filter
       $('#statusFilter').on('change', function() {
@@ -630,7 +641,7 @@
         }
       });
 
-      
+
 
       // Handle status filter
       $('#statusFilter').on('change', function() {
