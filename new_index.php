@@ -30,6 +30,8 @@
   rel="stylesheet"
 />
 
+
+
 </head>
 
 <body>
@@ -39,10 +41,71 @@
   ?>
 
   <!-- ======================= Cards ================== -->
+
+
+<!-- FOR TODAYS ADD PROSPECT -->
+<?php
+  $today = date("Y-m-d");
+
+  $sql = "SELECT COUNT(*) AS added_today FROM new_prospect WHERE date_added = '$today'";
+  $result = $con->query($sql);
+  
+  $added_today = 0;
+
+  if ($result->rowCount() > 0) {
+    $row = $result->fetch(PDO::FETCH_ASSOC);
+    $added_today = $row['added_today'];
+  }
+?>
+
+<!-- FOR TOTAL SALES -->
+<?php
+  $sql = "SELECT SUM(total_sales) AS total_sum FROM new_prospect";
+  $result = $con->query($sql);
+  if ($result->rowCount() > 0) {
+    $row = $result->fetch(PDO::FETCH_ASSOC);
+    $totalSum = $row['total_sum'];
+    $formattedTotalSum = number_format($totalSum);
+  }
+?>
+
+<!-- FOR EARNINGS -->
+<?php
+  $sql = "SELECT SUM(total_sales) AS total_sum FROM new_prospect WHERE `status` = 'Close Deals'";
+  $result = $con->query($sql);
+  if ($result->rowCount() > 0) {
+    $row = $result->fetch(PDO::FETCH_ASSOC);
+    $totalSum = $row['total_sum'];
+    $formattedEarnings = number_format($totalSum);
+  }
+?>
+
+<!-- FOR ITENERARY -->
+<?php
+  $currentMonth = date('F');
+
+  $firstDayOfMonth = date('Y-m-01');
+  $lastDayOfMonth = date('Y-m-t');
+
+  $sql = "SELECT COUNT(*) AS itinerary_count FROM schedule_list 
+          WHERE 
+            start_datetime BETWEEN '$firstDayOfMonth' AND '$lastDayOfMonth'
+            OR end_datetime BETWEEN '$firstDayOfMonth' AND '$lastDayOfMonth'";
+  $result = $con->query($sql);
+  if ($result->rowCount() > 0) {
+    $row = $result->fetch(PDO::FETCH_ASSOC);
+    $itineraryCount = $row['itinerary_count'];
+  } else {
+    $itineraryCount = 0;
+  }
+?>
+
+
+
   <div class="cardBox">
     <div class="card">
       <div>
-        <div class="numbers">31</div>
+        <div class="numbers"><?php echo $added_today; ?></div>
         <div class="cardName">Today's Added Prospect</div>
       </div>
 
@@ -53,19 +116,18 @@
 
     <div class="card">
       <div>
-        <div class="numbers">80</div>
-        <div class="cardName">Sales</div>
+        <div class="numbers"><?php echo $formattedTotalSum; ?></div>
+        <div class="cardName">Total Sales</div>
       </div>
 
       <div class="iconBx">
         <ion-icon name="cart-outline"></ion-icon>
       </div>
     </div>
-
     <div class="card">
       <div>
-        <div class="numbers">284</div>
-        <div class="cardName">Comments</div>
+        <div class="numbers"><?php echo $itineraryCount ?></div>
+        <div class="cardName">Itenerary for this <?php echo $currentMonth ?></div>
       </div>
 
       <div class="iconBx">
@@ -75,7 +137,7 @@
 
     <div class="card">
       <div>
-        <div class="numbers">Php 7,842</div>
+        <div class="numbers"><?php echo $formattedEarnings; ?></div>
         <div class="cardName">Earning</div>
       </div>
 
@@ -104,15 +166,23 @@
 ?>
 
 
+<div id="area-chart"></div>
+<div id="pie-chart"></div>
+
 <script>
+  // Area Chart
   var salesData = <?php echo json_encode($sales); ?>;
 
   var dates = Object.keys(salesData);
   var counts = Object.values(salesData);
+  
+  var maxCount = Math.max(...counts);
 
-  var options = {
+  var areaOptions = {
     chart: {
-      type: 'area'
+      type: 'area',
+      height: '400px',
+      width: '100%'
     },
     series: [{
       name: 'Added Prospect',
@@ -121,8 +191,13 @@
     xaxis: {
       categories: dates
     },
+    yaxis: {
+      min: 1,
+      max: maxCount,
+      forceNiceScale: true
+    },
     stroke: {
-    curve: 'smooth',
+      curve: 'smooth',
     },
     fill: {
       type: "gradient",
@@ -135,10 +210,59 @@
     },
   };
 
-  var chart = new ApexCharts(document.querySelector("#chart"), options);
-
-  chart.render();
+  var areaChart = new ApexCharts(document.querySelector("#area-chart"), areaOptions);
+  areaChart.render();
 </script>
+
+
+
+<?php
+  $quota = 100000; // dapat nababago to
+  $sql = "SELECT SUM(total_sales) AS total_sum FROM new_prospect";
+  $result = $con->query($sql);
+  if ($result->rowCount() > 0) {
+    $row = $result->fetch(PDO::FETCH_ASSOC);
+    $totalSum = $row['total_sum'];
+    $remainingQuota = $quota - $totalSum;
+  }
+?>
+
+
+
+
+
+<script>
+  // Pie Chart
+  var pieOptions = {
+    chart: {
+      type: 'pie',
+      height: '400px',
+      width: '500px'
+    },
+    series: [<?php echo $totalSum; ?>, <?php echo $remainingQuota; ?>], 
+    labels: ['Total Sales', 'Remaining Quota'], 
+    responsive: [{
+      breakpoint: 480,
+      options: {
+        chart: {
+          width: 200
+        },
+        legend: {
+          position: 'bottom'
+        }
+      }
+    }]
+  };
+
+  var pieChart = new ApexCharts(document.querySelector("#pie-chart"), pieOptions);
+  pieChart.render();
+</script>
+
+
+
+
+
+
 
 
 
