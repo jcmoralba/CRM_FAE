@@ -117,7 +117,7 @@
     <div class="card">
       <div>
         <div class="numbers"><?php echo $formattedTotalSum; ?></div>
-        <div class="cardName">Total Sales</div>
+        <div class="cardName">Expected Sales</div>
       </div>
 
       <div class="iconBx">
@@ -138,7 +138,7 @@
     <div class="card">
       <div>
         <div class="numbers"><?php echo $formattedEarnings; ?></div>
-        <div class="cardName">Earning</div>
+        <div class="cardName">Total Earning</div>
       </div>
 
       <div class="iconBx">
