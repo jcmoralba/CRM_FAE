@@ -1,6 +1,4 @@
-
-    
-    var calendar;
+  var calendar;
     var Calendar = FullCalendar.Calendar;
     var events = [];
     $(function() {
@@ -22,6 +20,18 @@
                 center: 'title',
             },
             selectable: true,
+            dateClick: function(info) {
+              var clickedDate = info.date;
+              var currentDate = new Date();
+              if (clickedDate.getDate() === currentDate.getDate() &&
+                  clickedDate.getMonth() === currentDate.getMonth() &&
+                  clickedDate.getFullYear() === currentDate.getFullYear()) {
+                  // Trigger modal on date click only if it's the current date
+                  $('#staticBackdroppp').modal('show');
+              }
+          },
+            
+            
             themeSystem: 'bootstrap',
             //Random default events
             events: events,
@@ -42,7 +52,7 @@
             eventDidMount: function(info) {
                 // Do Something after events mounted
             },
-            editable: false
+            editable: false,
         });
 
         calendar.render();

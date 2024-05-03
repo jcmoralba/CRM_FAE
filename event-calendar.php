@@ -65,6 +65,28 @@ include 'sidebar.php';
     Add Event
 </button>
 
+<div class="modal fade" id="staticBackdroppp" data-mdb-backdrop="static" data-mdb-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Attendance</h5>
+        <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <form action="attendance_process.php" method="post">
+          <input type="hidden" name="date_time" value="<?php echo date('Y-m-d H:i:s');?>">
+          <input type="hidden" name="user" value="<?php echo $_SESSION['user'];?>">
+          <button type="submit" name="time_in" class="btn btn-success" data-mdb-ripple-init>Time in</button>
+          <button type="submit" name="time_out" class="btn btn-warning" data-mdb-ripple-init>Time out</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <!-- ADD EVENT MODAL -->
 <div class="modal fade" id="staticBackdrop" data-mdb-backdrop="static" data-mdb-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
