@@ -34,7 +34,7 @@
 
 </head>
 
-<body>
+<body >
   <?php
   include 'sidebar.php';
 

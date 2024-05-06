@@ -78,7 +78,7 @@
 
               <div id="inputsContainer<?php echo $row['prospect_id']; ?>" class="form-group">
                 <!-- Initial input field -->
-                <input type="text" name="input_text[]" class="form-control mb-2" placeholder="Enter text...">
+                <input type="text" name="name[]" class="form-control mb-2" placeholder="Enter new deal...">
               </div>
               <button type="button" class="btn btn-primary" onclick="addInput(<?php echo $row['prospect_id']; ?>)">Add Input</button>
               <button type="submit" class="btn btn-success" name="submit">Submit</button>
@@ -89,9 +89,9 @@
                 var container = document.getElementById('inputsContainer' + prospectId);
                 var input = document.createElement('input');
                 input.type = 'text';
-                input.name = 'input_text[]';
+                input.name = 'name[]';
                 input.className = 'form-control mb-2';
-                input.placeholder = 'Enter text...';
+                input.placeholder = 'Enter new deal...';
                 container.appendChild(input);
                 console.log(prospectId);
               }

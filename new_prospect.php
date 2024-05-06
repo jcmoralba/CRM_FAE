@@ -195,7 +195,7 @@
         </thead>
         <tbody>
           <?php
-          $sql = "SELECT * FROM new_prospect WHERE `status` != 'Close Deals'";
+          $sql = "SELECT * FROM new_prospect WHERE `status` != 'Close Deals' AND `stat_id`='1'";
           $stmt = $con->prepare($sql);
           $stmt->execute();
           while ($row = $stmt->fetch()) {
@@ -252,7 +252,7 @@
                   View
                 </button>
 
-                <button style="margin: 5px;" type="button" class="btn btn-custom-update btn-rounded" data-mdb-riple-init data-mdb-modal-init data-mdb-target="#edit-prospect<?php echo $row['prospect_id']; ?>">
+                <!-- <button style="margin: 5px;" type="button" class="btn btn-custom-update btn-rounded" data-mdb-riple-init data-mdb-modal-init data-mdb-target="#edit-prospect<?php echo $row['prospect_id']; ?>">
                   <i class="fas fa-pen me-2"></i>
                   Edit
                 </button>
@@ -265,7 +265,7 @@
                   <i class="fas fa-eye me-2"></i>
                   Add Remarks
                 </button>
-              </td>
+              </td> -->
             </tr>
           <?php
             include 'new_prospect_update.php';
