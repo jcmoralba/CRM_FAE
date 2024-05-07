@@ -9,7 +9,7 @@
 
 <body>
   <!-- update modal -->
-  <div class="modal fade" id="edit-prospect<?php echo $row['prospect_id']; ?>" data-mdb-backdrop=" static" data-mdb-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal fade" id="edit-prospect<?php echo $row['prospect_id']; ?>" data-mdb-backdrop="static" data-mdb-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -211,7 +211,7 @@
   </div>
 
   <!-- add remarks modal -->
-  <div class="modal fade" id="remarks_prospect<?php echo $row['prospect_id']; ?>" tabindex="-1">
+  <div class="modal fade" id="remarks_prospect<?php echo $row['prospect_id']; ?>" tabindex="-1" data-mdb-backdrop="static" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
@@ -237,7 +237,7 @@
 
 
   <!-- remarks history modal -->
-  <div class="modal fade" id="remarks_history<?php echo $row['prospect_id']; ?>" tabindex="-1">
+  <div class="modal fade" id="remarks_history<?php echo $row['prospect_id']; ?>" tabindex="-1" >
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">

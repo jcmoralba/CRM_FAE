@@ -115,23 +115,22 @@
                 <?php } ?>
               </td>
               <td>
-                <?php
-                // sales cycle status
-                $status1 = $row['stat_id'];
-                if ($status1 == 1) {
-                  echo "pending:     ";
-                } elseif ($status1 == 3) {
-                  echo "rejected:     ";
-                }
-
-                ?>
+              
                 <?php echo $row['status']; ?>
               </td>
               <td data-mdb-riple-init data-mdb-modal-init data-mdb-target="#remarks_history<?php echo $row['prospect_id']; ?>">
                 <!-- remarks history -->
-                <!-- <?php echo $row['remark']; ?> -->
                 <?php
-                $sql5 = "SELECT MAX(remarks_id), remarks_desc, DATE_FORMAT(`date`, '%M %d, %Y - %r') AS `date` FROM remarks_history WHERE `prospect_id`='$prospect_id'";
+                $sql6 = "SELECT MAX(remarks_id) AS `max_remarks` FROM remarks_history WHERE `prospect_id`='$prospect_id'";
+                $stmt6 = $con->prepare($sql6);
+                $stmt6->execute();
+                while ($row6 = $stmt6->fetch()) {
+                  $max_remarks =  $row6['max_remarks'] ;
+                }
+                ?>
+
+                <?php
+                $sql5 = "SELECT MAX(remarks_id), remarks_desc, DATE_FORMAT(`date`, '%M %d, %Y - %r') AS `date` FROM remarks_history WHERE `prospect_id`='$prospect_id' AND `remarks_id`='$max_remarks'";
                 $stmt5 = $con->prepare($sql5);
                 $stmt5->execute();
                 while ($row5 = $stmt5->fetch()) {
