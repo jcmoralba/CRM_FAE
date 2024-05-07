@@ -87,11 +87,11 @@ if (isset($_POST['updatedata'])) {
     exit();
 }
 if (isset($_POST["add_remarks"])) {
-    $prospect_id = $_POST['prospect_id'];
+    $prospect_id12 = $_POST['prospect_id'];
     $remarks = $_POST['remarks'];
     $date = date("Y-m-d H:i:s");
 
-    $sql = "INSERT INTO `remarks_history`(`remarks_desc`, `prospect_id`, `date`) VALUES ('$remarks','$prospect_id','$date')";
+    $sql = "INSERT INTO `remarks_history`(`remarks_desc`, `prospect_id`, `date`) VALUES ('$remarks','$prospect_id12','$date')";
     // $data=array($name,$address,$number);
     $stmt = $con->prepare($sql);
     $stmt->execute();

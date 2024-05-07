@@ -109,7 +109,7 @@
 
                 ?>
                   <!-- <?php echo $row['item_deals']; ?> -->
-                  <span class="badge bg-secondary" style="margin: 5px;">
+                  <span class="badge bg-secondary" style="margin: 5px; color:white;">
                     <?php echo $row2['name']; ?>
                   </span>
                 <?php } ?>

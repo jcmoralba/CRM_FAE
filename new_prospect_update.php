@@ -218,7 +218,7 @@
         </div>
         <div class="modal-body">
           <form action="new_prospect_process.php" method="POST">
-            <input type="text" class="form-control" id="prospect_id" name="prospect_id" value="<?php echo $row['prospect_id']; ?>">
+            <input type="hidden" class="form-control" id="prospect_id" name="prospect_id" value="<?php echo $row['prospect_id']; ?>">
             <p>Remarks:</p>
             <div class="form-floating">
               <textarea name="remarks" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
@@ -244,7 +244,7 @@
         </div>
         <div class="modal-body">
           <form action="new_prospect_process.php" method="POST">
-            <input type="hidden" class="form-control" id="prospect_id" name="prospect_id" value="<?php echo $row['prospect_id']; ?>">
+            <input type="text" class="form-control" id="prospect_id" name="prospect_id" value="<?php echo $row['prospect_id']; ?>">
             <p>Remarks History:</p>
 
 
