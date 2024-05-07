@@ -1,0 +1,17 @@
+Model ID: COMMANDER XT2000
+
+Item Name: COMMANDER XT2000
+
+Description: WIKA 10
+
+Technical Specification:
+-All capabilities of the XT1000
+-Wirelessly controls any pump from up to 80 feet away in as few as 5 seconds
+-Precision control of the pump without violating the manufacturer?s warranty
+-Connectivity via 2.4 GHz Bluetooth or tethered
+-AC and/or battery operated Control Module with 3 week?s life
+-Indicator lights on Control Module to show battery status
+-Digital control to within .05% accuracy vs. 2-3% with analog
+-Removes the possibility of over or under torqueing
+-Saves time in constant pump adjustments
+-Could eliminate the need for explosion proof certification due to proximity from application
