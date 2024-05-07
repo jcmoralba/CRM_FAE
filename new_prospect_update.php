@@ -42,7 +42,7 @@
 
                 ?>
 
-                  <span class="badge bg-secondary" style="margin: 5px;"> <?php echo $row3['name'] ?> </span>
+                  <!-- <span class="badge bg-secondary" style="margin: 5px;"> <?php echo $row3['name'] ?> </span> -->
 
                 <?php } ?>
                 <!-- <button type="button" name="updatedeals" class="btn btn-primary">Edit</button> -->
@@ -69,33 +69,35 @@
                 <?php } ?>
 
               </div>
-            </div>
 
+              <!-- Modal Body -->
+              <div class="modal-body">
 
+                <div id="inputsContainer<?php echo $row['prospect_id']; ?>" class="form-group">
+                  <!-- Initial input field -->
+                  <input type="text" name="name[]" class="form-control mb-2" placeholder="Enter new deal...">
+                </div>
+                <button type="button" class="btn btn-primary" onclick="addInput(<?php echo $row['prospect_id']; ?>)">Add more deals</button>
+                <!-- <button type="submit" class="btn btn-success" name="submit">Submit</button> -->
 
-            <!-- Modal Body -->
-            <div class="modal-body">
-
-              <div id="inputsContainer<?php echo $row['prospect_id']; ?>" class="form-group">
-                <!-- Initial input field -->
-                <input type="text" name="name[]" class="form-control mb-2" placeholder="Enter new deal...">
               </div>
-              <button type="button" class="btn btn-primary" onclick="addInput(<?php echo $row['prospect_id']; ?>)">Add Input</button>
-              <button type="submit" class="btn btn-success" name="submit">Submit</button>
+              <script>
+                function addInput(prospectId) {
+                  var container = document.getElementById('inputsContainer' + prospectId);
+                  var input = document.createElement('input');
+                  input.type = 'text';
+                  input.name = 'name[]';
+                  input.className = 'form-control mb-2';
+                  input.placeholder = 'Enter new deal...';
+                  container.appendChild(input);
+                  console.log(prospectId);
+                }
+              </script>
 
             </div>
-            <script>
-              function addInput(prospectId) {
-                var container = document.getElementById('inputsContainer' + prospectId);
-                var input = document.createElement('input');
-                input.type = 'text';
-                input.name = 'name[]';
-                input.className = 'form-control mb-2';
-                input.placeholder = 'Enter new deal...';
-                container.appendChild(input);
-                console.log(prospectId);
-              }
-            </script>
+
+
+
 
 
             <!-- <div class="form-floating mb-3">
@@ -218,7 +220,7 @@
         </div>
         <div class="modal-body">
           <form action="new_prospect_process.php" method="POST">
-            <input type="hidden" class="form-control" id="prospect_id" name="prospect_id" value="<?php echo $row['prospect_id']; ?>">
+            <input type="text" class="form-control" id="prospect_id" name="prospect_id1" value="<?php echo $row['prospect_id']; ?>">
             <p>Remarks:</p>
             <div class="form-floating">
               <textarea name="remarks" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
@@ -246,7 +248,6 @@
           <form action="new_prospect_process.php" method="POST">
             <input type="text" class="form-control" id="prospect_id" name="prospect_id" value="<?php echo $row['prospect_id']; ?>">
             <p>Remarks History:</p>
-
 
             <?php
             $sql4 = "SELECT `remarks_id`, `remarks_desc`, `prospect_id`, DATE_FORMAT(`date`, '%M %d, %Y - %r') AS `date` FROM `remarks_history` WHERE `prospect_id`='{$row['prospect_id']}'";

@@ -109,7 +109,7 @@
 
                 ?>
                   <!-- <?php echo $row['item_deals']; ?> -->
-                  <span class="badge bg-secondary" style="margin: 5px; color:white;">
+                  <span class="badge " style="margin: 5px; color:white;background-color: rgb(60,91,111);">
                     <?php echo $row2['name']; ?>
                   </span>
                 <?php } ?>
@@ -221,15 +221,7 @@
                 <?php } ?>
               </td>
               <td>
-                <?php
-                $status1 = $row['stat_id'];
-                if ($status1 == 1) {
-                  echo "pending:     ";
-                } elseif ($status1 == 3) {
-                  echo "rejected:     ";
-                }
-
-                ?>
+           
                 <?php echo $row['status']; ?>
               </td>
               <td>

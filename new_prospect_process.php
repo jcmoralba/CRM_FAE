@@ -69,6 +69,8 @@ if (isset($_POST['updatedata'])) {
 
     //update deals
     $array = $_POST['name'];
+    $array = array_filter($array);
+
 
 
     // Prepare the SQL INSERT statement
@@ -87,7 +89,7 @@ if (isset($_POST['updatedata'])) {
     exit();
 }
 if (isset($_POST["add_remarks"])) {
-    $prospect_id12 = $_POST['prospect_id'];
+    $prospect_id12 = $_POST['prospect_id1'];
     $remarks = $_POST['remarks'];
     $date = date("Y-m-d H:i:s");
 
@@ -96,6 +98,7 @@ if (isset($_POST["add_remarks"])) {
     $stmt = $con->prepare($sql);
     $stmt->execute();
 
+    echo "test: " . $prospect_id12;
     header("Location: new_prospect.php?updated=success");
     exit();
 }
