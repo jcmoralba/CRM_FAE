@@ -1,0 +1,13 @@
+Model ID: VLSC1
+
+Item Name: Single-head Pneumatic Hand-Held
+
+Description: 
+Scabbling concrete to expose aggregate
+Leveling concrete and block joints
+Texturing, roughing and reducing concrete
+Preparing for coatings and waterproofing compounds
+Bridge maintenance
+
+Status:
+

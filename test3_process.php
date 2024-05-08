@@ -7,19 +7,21 @@ if (isset($_POST["submit"])) {
     $item_name = $_POST['item_name'];
     $desc = $_POST['desc'];
     $specs = $_POST['specs'];
+    $status = $_POST['status'];
     // <br />
     $file_name = $item_name;
 
     // $specs = json_decode($specs);
     $specs = str_replace("<br />", "", $specs);
-
-
+    $desc = str_replace("<br />", "", $desc);
+    $txt_name =  preg_replace('~[\\\\/:*?"<>|]~', ' ', $item_name);
+   
     // Get input data
     //  $input = $_POST["input"];
 
     // Define the file path
     //  $file_path = "saved_data.txt";
-    $file_path = "data/" . $file_name . ".txt";
+    $file_path = "data/" . $txt_name . ".txt";
     //C:\Users\jc\Documents\
     // Open the file in append mode
     file_put_contents( $file_path, "");
@@ -30,14 +32,15 @@ if (isset($_POST["submit"])) {
         $file,
         "Model ID: " . $model_id . "\n" .  "\n" .
             "Item Name: " . $item_name . "\n" .  "\n" .
-            "Description: " . $desc . "\n" .  "\n" .
-            "Technical Specification:" . "\n" . $specs . "\n"
+            "Description: " . "\n" . $desc . "\n" .  "\n" .
+            // "Technical Specification:" . "\n" . $specs . "\n" . 
+            "Status:" . "\n" . $status . "\n"
     );
 
     // Close the file
     fclose($file);
 
-    $sql = "UPDATE momento SET `stat`='1' WHERE `id`='$id'";
+    $sql = "UPDATE data1 SET `stat`='1' WHERE `id`='$id'";
     $stmt = $con1->prepare($sql);
     $stmt->execute();
 echo "goods";

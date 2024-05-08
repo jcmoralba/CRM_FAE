@@ -1,0 +1,9 @@
+Model ID: 	CFM @ 90 PSI
+
+Item Name: Pneumatic Vacuum
+
+Description: 
+Antistatic vacuum and air supply hose collects dry dust/debris
+
+Status:
+

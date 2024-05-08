@@ -1,0 +1,9 @@
+Model ID: CS 1225 HF
+
+Item Name: Dust Collection Vacuum
+
+Description: 
+Electromagnetic Pulse Cleaning System maintains maximum airflow. 
+
+Status:
+

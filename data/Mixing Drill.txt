@@ -1,0 +1,11 @@
+Model ID: EHR 23/1.4 R
+
+Item Name: Mixing Drill
+
+Description: 
+Powerful 14.5 Amp motor
+Mix up to 5 bags / 25 gallons / 200 pounds of high-viscosity materials
+Up to 1800 lbs. output per hour
+
+Status:
+

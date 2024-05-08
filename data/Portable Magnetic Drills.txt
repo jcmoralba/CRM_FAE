@@ -1,0 +1,9 @@
+Model ID: MAB 525
+
+Item Name: Portable Magnetic Drills
+
+Description: 
+The MAB 525 from CS Unitec is a high-power portable magnetic drilling machine that is ideal for production use. Drill up to 2-1/2" dia. with annular cutters. Twist drill up to 1" dia. Tap up to 15/16" dia. 6-1/3" stroke length. Order MAB 525 SB for optional swivel base, providing 20° movement left and right and 5/8" forward and backward. Equipped with a 2-speed, variable-speed, 14.5-Amp reversible motor, the MAB 525 is designed for continuous use with electronic torque control. Equipped with automatic internal lubrication and quick-change keyless cutter system for 3/4" Weldon shank. Advanced safety features include an electronic safety shutoff sensor, emergency-off function and magnetic force indicator.
+
+Status:
+

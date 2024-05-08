@@ -1,0 +1,10 @@
+Model ID: MABasic 200
+
+Item Name: Single-speed Portable Magnetic Drill
+
+Description: 
+Compact, lightweight, portable design
+Internal lubrication system
+
+Status:
+
