@@ -1,9 +1,0 @@
-Model ID: Model Id
-
-Item Name: Item Name
-
-Description: 
-Description
-
-Status:
-Status

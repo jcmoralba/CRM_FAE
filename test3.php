@@ -33,7 +33,7 @@
         <tbody>
 
             <?php
-            $sql = "SELECT * FROM data1 WHERE stat='0'";
+            $sql = "SELECT * FROM norbar WHERE stat='0' LIMIT 40";
             $stmt = $con1->prepare($sql);
             $stmt->execute();
             while ($row = $stmt->fetch()) {
@@ -47,17 +47,19 @@
                             <input type="text" name="model_id" value="<?php echo $row['COL 1']; ?>">
                         </td>
                         <td>
-                            <input type="text" name="item_name" value="<?php echo $row['COL 2']; ?>">
+                            <!-- <input type="text" name="item_name" value="<?php echo $row['COL 2']; ?>"> -->
+                            <textarea name="item_name" id="" cols="30" rows="10"><?php echo $row['COL 2']; ?></textarea>
                         </td>
                         <td>
-                        <textarea name="desc" id="" cols="30" rows="10"><?php echo nl2br($row['COL 3']); ?></textarea>
+                        <textarea name="desc" id="" cols="30" rows="10"><?php echo nl2br($row['COL 4']); ?></textarea>
                         </td>
                         <!-- <td>
                             <textarea name="specs" id="" cols="30" rows="10"><?php echo nl2br($row['COL 4']); ?></textarea>
                             <input type="text" name="specs1" value="<?php echo nl2br($row['COL 4']); ?>">    
                         </td> -->
                         <td>
-                            <input type="text" name="status" value="<?php echo $row['COL 5']; ?>">
+                        <textarea name="specs" id="" cols="30" rows="10"><?php echo nl2br($row['COL 3']); ?></textarea>
+                          
                         </td>
                         <td>
                             <input type="text" name="pics" value="<?php echo $row['COL 5']; ?>">

@@ -11,9 +11,11 @@ if (isset($_POST["submit"])) {
     // <br />
     $file_name = $item_name;
 
-    // $specs = json_decode($specs);
+    // remove all the unwanted charaters
     $specs = str_replace("<br />", "", $specs);
+    $specs = str_replace(" ? ",'', $specs);
     $desc = str_replace("<br />", "", $desc);
+    $desc = str_replace(" ? ", '', $desc);
     $txt_name =  preg_replace('~[\\\\/:*?"<>|]~', ' ', $item_name);
    
     // Get input data
@@ -33,14 +35,14 @@ if (isset($_POST["submit"])) {
         "Model ID: " . $model_id . "\n" .  "\n" .
             "Item Name: " . $item_name . "\n" .  "\n" .
             "Description: " . "\n" . $desc . "\n" .  "\n" .
-            // "Technical Specification:" . "\n" . $specs . "\n" . 
+            "Specification:" . "\n" . $specs . "\n" . "\n" . 
             "Status:" . "\n" . $status . "\n"
     );
 
     // Close the file
     fclose($file);
 
-    $sql = "UPDATE data1 SET `stat`='1' WHERE `id`='$id'";
+    $sql = "UPDATE norbar SET `stat`='1' WHERE `id`='$id'";
     $stmt = $con1->prepare($sql);
     $stmt->execute();
 echo "goods";
@@ -49,3 +51,35 @@ echo "goods";
     exit();
 }
 ?>
+
+
+<!-- 
+https://drive.google.com/file/d/your_file_id/view
+to
+bash
+Copy code
+https://drive.google.com/uc?export=download&id=your_file_id 
+
+https://sites.google.com/site/gdocs2direct/
+
+-->
+
+
+<?php 
+function generateDirectDownloadLink($googleDriveLink) {
+    // Extract file ID from the Google Drive link
+    $urlParts = parse_url($googleDriveLink);
+    parse_str($urlParts['query'], $query);
+    $fileId = $query['id'];
+
+    // Construct direct download link
+    $directDownloadLink = "https://drive.google.com/uc?export=download&id=" . $fileId;
+
+    return $directDownloadLink;
+}
+
+// Example usage
+$googleDriveLink = "https://drive.google.com/file/d/your_file_id/view";
+$directDownloadLink = generateDirectDownloadLink($googleDriveLink);
+echo "Direct Download Link: " . $directDownloadLink;
+ ?>

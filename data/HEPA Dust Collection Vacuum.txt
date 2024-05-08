@@ -1,9 +1,0 @@
-Model ID: CS 1445 H
-
-Item Name: HEPA Dust Collection Vacuum
-
-Description: 
-Electromagnetic Pulse Cleaning System maintains maximum airflow. 
-
-Status:
-

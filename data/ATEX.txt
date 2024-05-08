@@ -1,9 +1,0 @@
-Model ID: CS75 
-
-Item Name: ATEX
-
-Description: 
-From the most demanding cutting applications to everyday repair and construction environments, CS Unitec has the air saw you need to get the job done quickly. Specially designed piston air-motors require a low air volume while maintaining a high cutting speed under load. These saws are ideal for applications requiring pneumatic power for safety. These saws are safe around gas and other flammable materials and are recommended for fire and rescue applications where high CFM isn't available.
-
-Status:
-

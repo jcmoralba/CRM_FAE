@@ -1,9 +1,0 @@
-Model ID: MABasic Series
-
-Item Name: Electric Portable Magnetic Drills
-
-Description: 
-CS Unitec’s MABasic line of magnetic drills consists of powerful and reliable machines at an affordable price. These professional-grade workhorses have a hole cutting capacity of 1-3/8” diameter to 3-1/16” diameter with annular cutters in structural steel and other metals. With included geared drill chuck, these models easily convert to a standard drill press with a 10” stroke for conventional twist drills. CS Unitec’s MABasic magnetic drills are equipped with an Electronic Safety Shutoff Sensor and internal lubrication system. Standard equipment includes a lubrication bottle, safety strap, carabin hook, allen keys, pilot pin and carrying case.
-
-Status:
-
