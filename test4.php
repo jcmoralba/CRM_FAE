@@ -21,9 +21,11 @@
                 <th class="text-black">MODEL ID</th>
                 <th class="text-black">ITEM NAME</th>
                 <th class="text-black">DESCRIPTION</th>
-                <th class="text-black">SPECIFICATION</th>
+                <th class="text-black">TECH SPECIFICATIONS</th>
                 <th class="text-black">PICTURE</th>
                 <th class="text-black">STATUS</th>
+
+
 
                 <th class="text-black">ACTION</th>
             </tr>
@@ -53,12 +55,6 @@
                         <td>
                             <textarea name="specs" id="" cols="30" rows="10"><?php echo nl2br($row['COL 4']); ?></textarea>
                             <!-- <input type="text" name="specs1" value="<?php echo nl2br($row['COL 4']); ?>">     -->
-                        </td>
-                        <td>
-                            <input type="text" name="pics" value="<?php echo $row['COL 5']; ?>">
-                        </td>
-                        <td>
-                            <input type="text" name="status" value="<?php echo $row['COL 6']; ?>">
                         </td>
                         <td>
                             <button name="submit" type="submit" id="<?php echo $row['id']; ?>" class="btn btn-success">convert</button>
