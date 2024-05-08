@@ -1,3 +1,5 @@
+<?php 
+session_start() ?>
 <?php include 'includes/connect.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,12 +12,18 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body style="margin: 20px;">
 
-<a href="https://drive.google.com/file/d/1WMwsgOLp_RrYvB0_JkoX1UzTwvx9u91p/view?usp=sharing" download > pdf link </a>
+    <a href="https://drive.google.com/file/d/1WMwsgOLp_RrYvB0_JkoX1UzTwvx9u91p/view?usp=sharing" download> pdf link </a>
     <form action="test3_process.php" method="post">
-        <button name="all" type="button" class="btn btn-danger" onclick="buttonClicked()">convert all</button>
+        <button name="all" type="convert" class="btn btn-danger" onclick="">convert all</button>
     </form>
+    <?php 
+    $link = $_GET['dl_link'];
+    echo $_SESSION['dl_link'];
+    ?>
+   <a href="<?php echo $_SESSION['dl_link'];?>">download</a>
+   <button class="btn btn-danger"><?php $link ?></button>
     <table id="example" class="table table-bordered" style="width:100%; border:1px solid black;">
         <thead>
             <tr class="bg-dark table-bordered border-dark">
@@ -41,7 +49,7 @@
                 <form action="test3_process.php" method="post">
                     <tr>
                         <td>
-                        <input type="text" name="id" value="<?php echo $row['id']; ?>">
+                            <input type="text" name="id" value="<?php echo $row['id']; ?>">
                         </td>
                         <td>
                             <input type="text" name="model_id" value="<?php echo $row['COL 1']; ?>">
@@ -51,15 +59,15 @@
                             <textarea name="item_name" id="" cols="30" rows="10"><?php echo $row['COL 2']; ?></textarea>
                         </td>
                         <td>
-                        <textarea name="desc" id="" cols="30" rows="10"><?php echo nl2br($row['COL 4']); ?></textarea>
+                            <textarea name="desc" id="" cols="30" rows="10"><?php echo nl2br($row['COL 4']); ?></textarea>
                         </td>
                         <!-- <td>
                             <textarea name="specs" id="" cols="30" rows="10"><?php echo nl2br($row['COL 4']); ?></textarea>
                             <input type="text" name="specs1" value="<?php echo nl2br($row['COL 4']); ?>">    
                         </td> -->
                         <td>
-                        <textarea name="specs" id="" cols="30" rows="10"><?php echo nl2br($row['COL 3']); ?></textarea>
-                          
+                            <textarea name="specs" id="" cols="30" rows="10"><?php echo nl2br($row['COL 3']); ?></textarea>
+
                         </td>
                         <td>
                             <input type="text" name="pics" value="<?php echo $row['COL 5']; ?>">
