@@ -11,6 +11,8 @@
 </head>
 
 <body>
+
+<a href="https://drive.google.com/file/d/1WMwsgOLp_RrYvB0_JkoX1UzTwvx9u91p/view?usp=sharing" download > pdf link </a>
     <form action="test3_process.php" method="post">
         <button name="all" type="button" class="btn btn-danger" onclick="buttonClicked()">convert all</button>
     </form>
@@ -31,7 +33,7 @@
         <tbody>
 
             <?php
-            $sql = "SELECT * FROM momento WHERE stat='0'";
+            $sql = "SELECT * FROM data1 WHERE stat='0'";
             $stmt = $con1->prepare($sql);
             $stmt->execute();
             while ($row = $stmt->fetch()) {
@@ -48,11 +50,14 @@
                             <input type="text" name="item_name" value="<?php echo $row['COL 2']; ?>">
                         </td>
                         <td>
-                            <input type="text" name="desc" value="<?php echo $row['COL 3']; ?>">
+                        <textarea name="desc" id="" cols="30" rows="10"><?php echo nl2br($row['COL 3']); ?></textarea>
                         </td>
-                        <td>
+                        <!-- <td>
                             <textarea name="specs" id="" cols="30" rows="10"><?php echo nl2br($row['COL 4']); ?></textarea>
-                            <!-- <input type="text" name="specs1" value="<?php echo nl2br($row['COL 4']); ?>">     -->
+                            <input type="text" name="specs1" value="<?php echo nl2br($row['COL 4']); ?>">    
+                        </td> -->
+                        <td>
+                            <input type="text" name="status" value="<?php echo $row['COL 5']; ?>">
                         </td>
                         <td>
                             <input type="text" name="pics" value="<?php echo $row['COL 5']; ?>">

@@ -1,0 +1,13 @@
+Model ID: MODEL 5 8006 7000
+
+Item Name: Hydraulic Pipe Cutting Machine
+
+Description: 
+Cuts 6" to 96" dia. pipe
+Guide chain ensures straight cut
+Carbide-tipped or diamond-coated blades
+Longitudinal pipe cutting clamp available
+Pneumatic pipe cutting machine available
+
+Status:
+

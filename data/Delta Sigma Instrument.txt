@@ -1,8 +1,0 @@
-Model ID: DS-1
-
-Item Name: Delta Sigma Instrument
-
-Description: Ultrasonic bolt load measuring deviceThe Delta Sigma pulse-echo ultrasonic time-of-flight (TOF) measurement device; measures, displays, stores, and transfers bolt load and elongation data. The Delta Sigma uses a rugged, sealed color touch screen. The screen uses proven medical touch panel hardware.The measurement system is a hybrid technique, using the best of both analogue and digital signal processing techniques for fast signal acquisition and precise single shot TOF measurement.
-
-Technical Specification:
-https://drive.google.com/file/d/12H_my7UeVYzBAG4kw32rBBDBirdNPTSV/view?usp=sharing
