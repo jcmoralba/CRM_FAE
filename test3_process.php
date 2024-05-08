@@ -15,10 +15,12 @@ if (isset($_POST["submit"])) {
     $specs = str_replace("<br />", "", $specs);
     $specs = str_replace(" ? ",'', $specs);
     $specs = str_replace("? ",'', $specs);
+    $specs = str_replace("?",'', $specs);
 
     $desc = str_replace("<br />", "", $desc);
     $desc = str_replace(" ? ", '', $desc);
     $desc = str_replace("? ", '', $desc);
+    $desc = str_replace("?", '', $desc);
     $txt_name =  preg_replace('~[\\\\/:*?"<>|]~', ' ', $item_name);
    
     // Get input data
