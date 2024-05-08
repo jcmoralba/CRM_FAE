@@ -9,13 +9,16 @@ if (isset($_POST["submit"])) {
     $specs = $_POST['specs'];
     $status = $_POST['status'];
     // <br />
-    $file_name = $item_name;
+
 
     // remove all the unwanted charaters
     $specs = str_replace("<br />", "", $specs);
     $specs = str_replace(" ? ",'', $specs);
+    $specs = str_replace("? ",'', $specs);
+
     $desc = str_replace("<br />", "", $desc);
     $desc = str_replace(" ? ", '', $desc);
+    $desc = str_replace("? ", '', $desc);
     $txt_name =  preg_replace('~[\\\\/:*?"<>|]~', ' ', $item_name);
    
     // Get input data
