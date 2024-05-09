@@ -21,6 +21,8 @@ if (isset($_POST["submit"])) {
 
     echo "pics:" . $pics . "\n" . "\n";
 
+    $item_name = str_replace("?", " ", $item_name);
+
     $specs = str_replace("<br />", "", $specs);
     $specs = str_replace(" ? ", '', $specs);
     $specs = str_replace("? ", '', $specs);
@@ -37,7 +39,7 @@ if (isset($_POST["submit"])) {
 
     // Define the file path
     //  $file_path = "saved_data.txt";
-    $file_path = "data/" . $txt_name . ".txt";
+    $file_path = "C:/Users/jc/Downloads/" . $txt_name . ".txt";
     //C:\Users\jc\Documents\
     // Open the file in append mode
     file_put_contents($file_path, "");
