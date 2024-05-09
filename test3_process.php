@@ -52,11 +52,11 @@ if (isset($_POST["submit"])) {
     // Write input data to the file
     fwrite(
         $file,
-        "Model ID: " . $model_id . "\n" .  "\n" .
+            "Model ID: " . $model_id . "\n" .  "\n" .
             "Item Name: " . $item_name . "\n" .  "\n" .
             "Description: " . "\n" . $desc . "\n" .  "\n" .
-            "Specification:" . "\n" . $specs . "\n" . "\n" .
-            "Status:" . "\n" . $status . "\n"
+            "Specification:" . "\n" . $specs . "\n" 
+            // "Status:" . "\n" . $status . "\n"
     );
 
     // Close the file
