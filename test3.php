@@ -16,6 +16,8 @@ session_start() ?>
 
 <body style="margin: 20px;">
 
+
+
     <a href="https://drive.google.com/file/d/1WMwsgOLp_RrYvB0_JkoX1UzTwvx9u91p/view?usp=sharing" download> pdf link </a>
     <form action="test3_process.php" method="post">
         <button name="all" id="reload" type="convert" class="btn btn-danger" onclick="">convert all</button>
@@ -24,8 +26,11 @@ session_start() ?>
     $link = $_GET['dl_link'] ?? '1';
     echo $_SESSION['dl_link'];
     ?>
-    <a href="<?php echo $_SESSION['dl_link']; ?>">download</a>
-    <button class="btn btn-danger"><?php $link ?></button>
+   <br> <a href="<?php echo $_SESSION['dl_link']; ?>">jc <3</a>
+   <img src="img/cat.gif" 
+   style="
+   height: 100px; width:auto; border-radius:5%;  margin-left: auto;margin-right: 0; margin-top:-100px;display:block;" 
+   alt="JC">
     <table id="example" class="table table-bordered" style="width:100%; border:1px solid black;">
         <thead>
             <tr class="bg-dark table-bordered border-dark">
