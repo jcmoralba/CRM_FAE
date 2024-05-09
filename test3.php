@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start() ?>
 <?php include 'includes/connect.php'; ?>
 <!DOCTYPE html>
@@ -10,20 +10,22 @@ session_start() ?>
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </head>
 
 <body style="margin: 20px;">
 
     <a href="https://drive.google.com/file/d/1WMwsgOLp_RrYvB0_JkoX1UzTwvx9u91p/view?usp=sharing" download> pdf link </a>
     <form action="test3_process.php" method="post">
-        <button name="all" type="convert" class="btn btn-danger" onclick="">convert all</button>
+        <button name="all" id="reload" type="convert" class="btn btn-danger" onclick="">convert all</button>
     </form>
-    <?php 
-    $link = $_GET['dl_link'];
+    <?php
+    $link = $_GET['dl_link'] ?? '1';
     echo $_SESSION['dl_link'];
     ?>
-   <a href="<?php echo $_SESSION['dl_link'];?>">download</a>
-   <button class="btn btn-danger"><?php $link ?></button>
+    <a href="<?php echo $_SESSION['dl_link']; ?>">download</a>
+    <button class="btn btn-danger"><?php $link ?></button>
     <table id="example" class="table table-bordered" style="width:100%; border:1px solid black;">
         <thead>
             <tr class="bg-dark table-bordered border-dark">
@@ -76,7 +78,7 @@ session_start() ?>
                             <input type="text" name="status" value="<?php echo $row['COL 6']; ?>">
                         </td>
                         <td>
-                            <button name="submit" type="submit" id="<?php echo $row['id']; ?>" class="btn btn-success">convert</button>
+                            <button name="submit" type="submit" id="123" onclick="jc()" class="btn btn-success">convert</button>
                         </td>
                     </tr>
                 </form>
@@ -89,8 +91,32 @@ session_start() ?>
 </body>
 
 
+<script>
+document.getElementById('123').addEventListener('click', function() {
+    document.getElementById('reload').click();
+});
+</script>
 
+<script>
+   
+        document.getElementById('123').addEventListener('click', function() {
+    // Create a new KeyboardEvent with the key code for F5
+    var event = new KeyboardEvent('keydown', {
+        key: 'F5',
+        keyCode: 116,
+        code: 'F5',
+        which: 116,
+        keyCode: 116,
+        charCode: 116,
+        bubbles: true,
+        cancelable: true
+    });
 
+    // Dispatch the event to simulate pressing the F5 key
+    document.dispatchEvent(event);
+});
+  
+</script>
 <!-- 
 <script>
    
@@ -105,6 +131,30 @@ session_start() ?>
             }
         }
   
+</script> -->
+
+<!-- <script>
+$(document).ready(function() {
+    // Function to fetch data from server
+    function fetchData() {
+        $.ajax({
+            url: 'test3_fetch.php', // Path to server-side script
+            method: 'GET',
+            success: function(response) {
+                $('#example').html(response); // Update table content
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching data:', error);
+            }
+        });
+    }
+
+    // Fetch data initially when page loads
+    fetchData();
+
+    // Poll the server every 5 seconds for updates
+    setInterval(fetchData, 5000); // Adjust the interval as needed
+});
 </script> -->
 
 </html>

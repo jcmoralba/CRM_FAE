@@ -1,12 +1,13 @@
-Model ID: 29960.27
+Model ID: 29960.41
 
-Item Name: 27mm Ring End, 22mm spigot
+Item Name: 41mm Ring End, 22mm spigot
 
 Description: 
-T/HD 27MM RE 22MM SPIGOT
+T/HD 41MM RE 22MM SPIGOT
 
 Specification:
 Spanner end fittings are designed to suit Norbar 22mm diameter spigot ended torque handles.
+ 
  Features
 Forged alloy steel.
 Ends easily interchangeable.

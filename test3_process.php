@@ -68,15 +68,22 @@ if (isset($_POST["submit"])) {
     echo "goods";
     $_SESSION['dl_link'] = $directDownloadLink;
     // Redirect back to the form page
-    header("location:test3.php?goods=$id&dl_link=$directDownloadLink");
-    exit();
+    header("location:$directDownloadLink");
+    //    sleep(1);
+    //     // header("location:test3.php?goods=$id&dl_link=$directDownloadLink");
+    //     header("location:test3.php");
+    // exit();
 }
 if (isset($_POST["all"])) {
-    for ($i=0; $i < 50; $i++) { 
-        echo "<h1 style='color: red;'>ERROR</h1>" . "      ";
-    }
-   
 
+    sleep(15);
+
+    // for ($i=0; $i < 50; $i++) { 
+    //     echo "<h1 style='color: red;'>ERROR</h1>" . "      ";
+    // }
+    header("location:test3.php?goods=$id");
+
+    exit();
 }
 ?>
 

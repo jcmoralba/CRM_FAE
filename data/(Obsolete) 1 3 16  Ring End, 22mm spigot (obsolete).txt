@@ -1,13 +1,14 @@
-Model ID: 29960.24
+Model ID: 29962.19
 
-Item Name: 24mm Ring End, 22mm spigot
+Item Name: (Obsolete) 1 3/16" Ring End, 22mm spigot (obsolete)
 
 Description: 
-T/HD 24MM RE 22MM SPIGOT
+T/HD 1.3/16 AF RE 22mm
 
 Specification:
 Spanner end fittings are designed to suit Norbar 22mm diameter spigot ended torque handles.
- Features
+
+Features
 Forged alloy steel.
 Ends easily interchangeable.
 Torque Handle calibrated to give correct torque at nut/bolt.

@@ -1,13 +1,14 @@
-Model ID: 29960.22
+Model ID: 29969
 
-Item Name: 22mm Ring End, 22mm spigot
+Item Name: 3/4" Fixed Head, 22mm spigot
 
 Description: 
-T/HD 22MM RE 22MM SPIGOT
+T/HD 3/4SQ DR FIXED HD
 
 Specification:
 Spanner end fittings are designed to suit Norbar 22mm diameter spigot ended torque handles.
- Features
+
+Features
 Forged alloy steel.
 Ends easily interchangeable.
 Torque Handle calibrated to give correct torque at nut/bolt.

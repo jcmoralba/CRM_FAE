@@ -1,9 +1,9 @@
-Model ID: 130163
+Model ID: 130104
 
-Item Name: NorTorque model 200, 16 mm spigot (N?m only)
+Item Name: NorTorque model 200, 1/2", Adjustable Ratchet (Dual Scale)
 
 Description: 
-TH NORTORQUE MDL 200
+TW NORTORQUE MDL 200 1/2
 
 Specification:
 The NorTorqueutilises Norbar's proven mechanism and internal components and incorporates them into a purposeful and attractive torque wrench
@@ -15,12 +15,13 @@ The NorTorqueutilises Norbar's proven mechanism and internal components and inco
  Accurate to 3% of reading with models available to cover 12 Nm to 300 Nm.
  
  Features
+Push through ratchets with a narrow engagement angle of 5for working in tight spaces
 Convenient hanger feature for tool storage also aids wrench unlocking and adjustment
 Just eight turns to cover the entire scale
 Micrometer scale applying to the primary torque units (Nm on a dual scale wrench) for simple and error free setting
 Push/pull lock is fast and intuitive to use and prevents accidental adjustment of the set torque
 Light and fast adjustment saves operator time and effort
-Supplied with a Declaration of Conformance, which meets the requirements of ISO 6789-1:2018
+Supplied with a Declaration of Conformance, which meets the requirements of ISO 6789-1:2017
 
 Status:
 
