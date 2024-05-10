@@ -115,7 +115,7 @@
                 <?php } ?>
               </td>
               <td>
-              
+
                 <?php echo $row['status']; ?>
               </td>
               <td data-mdb-riple-init data-mdb-modal-init data-mdb-target="#remarks_history<?php echo $row['prospect_id']; ?>">
@@ -125,7 +125,7 @@
                 $stmt6 = $con->prepare($sql6);
                 $stmt6->execute();
                 while ($row6 = $stmt6->fetch()) {
-                  $max_remarks =  $row6['max_remarks'] ;
+                  $max_remarks =  $row6['max_remarks'];
                 }
                 ?>
 
@@ -134,11 +134,11 @@
                 $stmt5 = $con->prepare($sql5);
                 $stmt5->execute();
                 while ($row5 = $stmt5->fetch()) {
-                  echo $row5['remarks_desc'] ;
+                  echo $row5['remarks_desc'];
                 }
                 ?>
 
-                
+
               </td>
               <td>
                 <?php
@@ -161,10 +161,10 @@
                   <i class="fas fa-pen me-2"></i>
                   Edit
                 </button>
-                <button style="margin: 5px;" type="button" class="btn btn-custom-delete btn-rounded" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#delete-modal<?php echo $row['prospect_id']; ?>">
+                <!-- <button style="margin: 5px;" type="button" class="btn btn-custom-delete btn-rounded" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#delete-modal<?php echo $row['prospect_id']; ?>">
                   <i class="fas fa-trash-can me-2"></i>
                   Delete
-                </button>
+                </button> -->
 
                 <button style="margin: 5px;" type="button" class="btn btn-custom-view btn-rounded" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#remarks_prospect<?php echo $row['prospect_id']; ?>">
                   <i class="fas fa-eye me-2"></i>
@@ -220,7 +220,7 @@
                 <?php } ?>
               </td>
               <td>
-           
+
                 <?php echo $row['status']; ?>
               </td>
               <td>
@@ -243,20 +243,20 @@
                   View
                 </button>
 
-                <!-- <button style="margin: 5px;" type="button" class="btn btn-custom-update btn-rounded" data-mdb-riple-init data-mdb-modal-init data-mdb-target="#edit-prospect<?php echo $row['prospect_id']; ?>">
+                <button style="margin: 5px;" type="button" class="btn btn-custom-update btn-rounded" data-mdb-riple-init data-mdb-modal-init data-mdb-target="#edit-prospect<?php echo $row['prospect_id']; ?>">
                   <i class="fas fa-pen me-2"></i>
                   Edit
                 </button>
-                <button style="margin: 5px;" type="button" class="btn btn-custom-delete btn-rounded" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#delete-modal<?php echo $row['prospect_id']; ?>">
+                <!-- <button style="margin: 5px;" type="button" class="btn btn-custom-delete btn-rounded" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#delete-modal<?php echo $row['prospect_id']; ?>">
                   <i class="fas fa-trash-can me-2"></i>
                   Delete
-                </button>
+                </button> -->
 
-                <button style="margin: 5px;" type="button" class="btn btn-custom-view btn-rounded" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#remarks_prospect<?php echo $row['prospect_id']; ?>">
+                <!-- <button style="margin: 5px;" type="button" class="btn btn-custom-view btn-rounded" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#remarks_prospect<?php echo $row['prospect_id']; ?>">
                   <i class="fas fa-eye me-2"></i>
                   Add Remarks
-                </button>
-              </td> -->
+                </button> -->
+              </td>
             </tr>
           <?php
             include 'new_prospect_update.php';
