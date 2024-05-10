@@ -43,6 +43,7 @@ if (isset($_POST["submit"])) {
 
     // Define the file path
     //  $file_path = "saved_data.txt";
+    $txt_name = trim($txt_name);
     $file_path = "C:/Users/ASUS/Downloads/data/" . $txt_name . ".txt";
     //C:\Users\jc\Documents\
     // Open the file in append mode
@@ -52,9 +53,9 @@ if (isset($_POST["submit"])) {
     // Write input data to the file
     fwrite(
         $file,
-            "Model ID: " . $model_id . "\n" .  "\n" .
-            "Item Name: " . $item_name . "\n" .  "\n" .
-            "Description: " . $desc . "\n" .  "\n" .
+            "Model ID: " . "\n" . $model_id . "\n" .  "\n" .
+            "Item Name: " . "\n" . $item_name . "\n" .  "\n" .
+            "Description: " . "\n" . $desc . "\n" .  "\n" .
             "Specification:" . "\n" . $specs . "\n" 
             // "Status:" . "\n" . $status . "\n"
     );

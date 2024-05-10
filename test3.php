@@ -34,13 +34,13 @@ session_start() ?>
     <table id="example" class="table table-bordered" style="width:100%; border:1px solid black;">
         <thead>
             <tr class="bg-dark table-bordered border-dark">
-                <th class="text-black">#</th>
+               
                 <th class="text-black">MODEL ID</th>
                 <th class="text-black">ITEM NAME</th>
                 <th class="text-black">DESCRIPTION</th>
                 <th class="text-black">SPECIFICATION</th>
                 <th class="text-black">PICTURE</th>
-               
+                <th class="text-black">#</th>
 
                 <th class="text-black">ACTION</th>
             </tr>
@@ -55,9 +55,7 @@ session_start() ?>
             ?>
                 <form action="test3_process.php" method="post">
                     <tr>
-                        <td>
-                            <input type="text" name="id" value="<?php echo $row['id']; ?>">
-                        </td>
+                   
                         <td>
                             <input type="text" name="model_id" value="<?php echo $row['COL 1']; ?>">
                         </td>
@@ -82,6 +80,9 @@ session_start() ?>
                         <!-- <td>
                             <input type="text" name="status" value="<?php echo $row['COL 6']; ?>">
                         </td> -->
+                        <td>
+                            <input type="text" name="id" value="<?php echo $row['id']; ?>">
+                        </td>
                         <td>
                             <button name="submit" type="submit" id="123" onclick="jc()" class="btn btn-success">convert</button>
                         </td>
