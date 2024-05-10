@@ -58,7 +58,7 @@ require_once("includes/connect.php");
           <ion-icon name="document-text-outline"></ion-icon>
 
           </span>
-          <span class="title">Itinerary</span>
+          <span class="title">Itenerary</span>
         </a>
       </li>
      
