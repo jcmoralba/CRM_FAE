@@ -17,7 +17,7 @@ session_start() ?>
 <body style="margin: 20px;">
 
 
-
+    <h5>NOTE: Delete the textfile named['Item Name.txt', '.txt', 'N A.txt']</h5>
     <a href="https://drive.google.com/file/d/1WMwsgOLp_RrYvB0_JkoX1UzTwvx9u91p/view?usp=sharing" download> pdf link </a>
     <form action="test3_process.php" method="post">
         <button name="all" id="reload" type="convert" class="btn btn-danger" onclick="">convert all</button>
@@ -40,7 +40,7 @@ session_start() ?>
                 <th class="text-black">DESCRIPTION</th>
                 <th class="text-black">SPECIFICATION</th>
                 <th class="text-black">PICTURE</th>
-                <th class="text-black">STATUS</th>
+               
 
                 <th class="text-black">ACTION</th>
             </tr>
@@ -79,9 +79,9 @@ session_start() ?>
                         <td>
                             <input type="text" name="pics" value="<?php echo $row['COL 5']; ?>">
                         </td>
-                        <td>
+                        <!-- <td>
                             <input type="text" name="status" value="<?php echo $row['COL 6']; ?>">
-                        </td>
+                        </td> -->
                         <td>
                             <button name="submit" type="submit" id="123" onclick="jc()" class="btn btn-success">convert</button>
                         </td>

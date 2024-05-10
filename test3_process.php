@@ -43,7 +43,7 @@ if (isset($_POST["submit"])) {
 
     // Define the file path
     //  $file_path = "saved_data.txt";
-    $file_path = "C:/Users/jc/Downloads/" . $txt_name . ".txt";
+    $file_path = "C:/Users/ASUS/Downloads/data/" . $txt_name . ".txt";
     //C:\Users\jc\Documents\
     // Open the file in append mode
     file_put_contents($file_path, "");
@@ -54,7 +54,7 @@ if (isset($_POST["submit"])) {
         $file,
             "Model ID: " . $model_id . "\n" .  "\n" .
             "Item Name: " . $item_name . "\n" .  "\n" .
-            "Description: " . "\n" . $desc . "\n" .  "\n" .
+            "Description: " . $desc . "\n" .  "\n" .
             "Specification:" . "\n" . $specs . "\n" 
             // "Status:" . "\n" . $status . "\n"
     );
@@ -74,6 +74,10 @@ if (isset($_POST["submit"])) {
     echo "goods";
     $_SESSION['dl_link'] = $directDownloadLink;
     // Redirect back to the form page
+    if ($link_id == "N/A") {
+        header("location:test3.php?no_images");
+        exit();
+    }
     header("location:$directDownloadLink");
     //    sleep(1);
     //     // header("location:test3.php?goods=$id&dl_link=$directDownloadLink");
