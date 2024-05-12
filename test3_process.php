@@ -15,26 +15,27 @@ if (isset($_POST["submit"])) {
     $specs = str_replace("<br />", "", $specs);
     $desc = str_replace("<br />", "", $desc);
     $txt_name =  preg_replace('~[\\\\/:*?"<>|]~', ' ', $item_name);
-   
+
     // Get input data
     //  $input = $_POST["input"];
 
     // Define the file path
     //  $file_path = "saved_data.txt";
-    $file_path = "data/" . $txt_name . ".txt";
+    // C:\Users\jc\Downloads\data
+    $file_path = "C:/Users/jc/Downloads/" . $txt_name . ".txt";
     //C:\Users\jc\Documents\
     // Open the file in append mode
-    file_put_contents( $file_path, "");
+    file_put_contents($file_path, "");
     $file = fopen($file_path, "a");
 
     // Write input data to the file
     fwrite(
         $file,
-        "Model ID: " . $model_id . "\n" .  "\n" .
-            "Item Name: " . $item_name . "\n" .  "\n" .
+            "Model ID: " . "\n" . $model_id . "\n" .  "\n" .
+            "Item Name: " . "\n" . $item_name . "\n" .  "\n" .
             "Description: " . "\n" . $desc . "\n" .  "\n" .
-            // "Technical Specification:" . "\n" . $specs . "\n" . 
-            "Status:" . "\n" . $status . "\n"
+            "Specification:" . "\n" . $specs . "\n"
+
     );
 
     // Close the file
@@ -43,9 +44,8 @@ if (isset($_POST["submit"])) {
     $sql = "UPDATE data1 SET `stat`='1' WHERE `id`='$id'";
     $stmt = $con1->prepare($sql);
     $stmt->execute();
-echo "goods";
+    echo "goods";
     // Redirect back to the form page
     header("location:test3.php?goods=$id");
     exit();
 }
-?>

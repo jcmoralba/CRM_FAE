@@ -25,15 +25,14 @@
                 <th class="text-black">DESCRIPTION</th>
                 <th class="text-black">SPECIFICATION</th>
                 <th class="text-black">PICTURE</th>
-                <th class="text-black">STATUS</th>
-
+         
                 <th class="text-black">ACTION</th>
             </tr>
         </thead>
         <tbody>
 
             <?php
-            $sql = "SELECT * FROM data1 WHERE stat='0'";
+            $sql = "SELECT * FROM norbar WHERE stat='0' LIMIT 10";
             $stmt = $con1->prepare($sql);
             $stmt->execute();
             while ($row = $stmt->fetch()) {
@@ -50,21 +49,19 @@
                             <input type="text" name="item_name" value="<?php echo $row['COL 2']; ?>">
                         </td>
                         <td>
-                        <textarea name="desc" id="" cols="30" rows="10"><?php echo nl2br($row['COL 3']); ?></textarea>
+                        <textarea name="desc" id="" cols="30" rows="10"><?php echo nl2br($row['COL 4']); ?></textarea>
                         </td>
                         <!-- <td>
                             <textarea name="specs" id="" cols="30" rows="10"><?php echo nl2br($row['COL 4']); ?></textarea>
                             <input type="text" name="specs1" value="<?php echo nl2br($row['COL 4']); ?>">    
                         </td> -->
                         <td>
-                            <input type="text" name="status" value="<?php echo $row['COL 5']; ?>">
+                        <textarea name="specs" id="" cols="30" rows="10"><?php echo nl2br($row['COL 3']); ?></textarea>
                         </td>
                         <td>
                             <input type="text" name="pics" value="<?php echo $row['COL 5']; ?>">
                         </td>
-                        <td>
-                            <input type="text" name="status" value="<?php echo $row['COL 6']; ?>">
-                        </td>
+                      
                         <td>
                             <button name="submit" type="submit" id="<?php echo $row['id']; ?>" class="btn btn-success">convert</button>
                         </td>
