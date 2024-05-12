@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
     $status = "0";
     $pics = "0";
 
-    for ($i = 2; $i <= 5; $i++) {
+    for ($i = 2; $i <= 5000; $i++) {
 
         $sql = "SELECT * FROM norbar WHERE id='$i'";
         $stmt = $con1->prepare($sql);
@@ -120,7 +120,7 @@ if (isset($_POST['submit'])) {
             echo '</script>';
 
 
-            sleep(5);
+            sleep(.5);
         }
     }
 }
