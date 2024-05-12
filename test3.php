@@ -108,9 +108,18 @@ session_start() ?>
             $googleDriveLink = $pics;
             $directDownloadLink = generateDirectDownloadLink($googleDriveLink, $link_id);
             echo  "<br>" . "\r\n" . $directDownloadLink;
+            // $directDownloadLink = "https://example.com";
             ?>
+ <a id="dl" target="_blank" href="<?php echo $directDownloadLink; ?>"> jc <3</a>
+  <button onclick="openLinkInNewTab(<?php $directDownloadLink ?>)">test</button>
+  <a href="<?php $directDownloadLink ?>"  target="_blank" onclick="window.open( '<?php $directDownloadLink ?>' ); return false;">Open New Link</a>
 
-
+  <script>
+  function jc(){
+    var button = document.getElementById('dl');
+    button.click();
+  }
+  </script>
             <?php
             function generateDirectDownloadLink($googleDriveLink, $linkid)
             {
