@@ -8,7 +8,7 @@ if (isset($_POST["submit"])) {
     $item_name = $_POST['item_name'];
     $desc = $_POST['desc'];
     $specs = $_POST['specs'];
-    $status = $_POST['status'];
+   
     $pics = $_POST['pics'];
     // <br />
 
@@ -44,7 +44,7 @@ if (isset($_POST["submit"])) {
     // Define the file path
     //  $file_path = "saved_data.txt";
     $txt_name = trim($txt_name);
-    $file_path = "C:/Users/ASUS/Downloads/data/" . $txt_name . ".txt";
+    $file_path = "C:/Users/JC/Downloads/" . $txt_name . ".txt";
     //C:\Users\jc\Documents\
     // Open the file in append mode
     file_put_contents($file_path, "");
@@ -79,22 +79,22 @@ if (isset($_POST["submit"])) {
         header("location:test3.php?no_images");
         exit();
     }
-    header("location:$directDownloadLink");
+    // header("location:$directDownloadLink");
     //    sleep(1);
-    //     // header("location:test3.php?goods=$id&dl_link=$directDownloadLink");
+        header("location:test3.php?goods=$id");
     //     header("location:test3.php");
-    // exit();
+    exit();
 }
 if (isset($_POST["all"])) {
 
-    sleep(15);
+    sleep(.5);
 
-    // for ($i=0; $i < 50; $i++) { 
-    //     echo "<h1 style='color: red;'>ERROR</h1>" . "      ";
-    // }
-    header("location:test3.php?goods=$id");
+    for ($i=0; $i < 50; $i++) { 
+        echo "<h1 style='color: red;'>ERROR</h1>" . "      ";
+    }
+    // header("location:test3.php?goods=$id");
 
-    exit();
+    // exit();
 }
 ?>
 
