@@ -60,7 +60,8 @@ include 'sidebar.php';
 
 <body class="bg-light">
 
-
+<div class="container mt-5">
+  <p class="h2 mt-5">Itenerary</p>
 
 
 <div id="approveContent" class="content-block">
@@ -102,7 +103,7 @@ include 'sidebar.php';
     </div>
   </div>
 </div>
-
+</div>
 
 <!-- ADD EVENT MODAL -->
 <div class="modal fade" id="staticBackdrop" data-mdb-backdrop="static" data-mdb-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

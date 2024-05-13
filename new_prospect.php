@@ -242,6 +242,11 @@
                   <i class="fas fa-eye me-2"></i>
                   View
                 </button>
+                <button style="margin: 5px;" type="button" class="btn btn-custom-update btn-rounded" data-mdb-riple-init data-mdb-modal-init data-mdb-target="#edit-prospect<?php echo $row['prospect_id']; ?>">
+                  <i class="fas fa-pen me-2"></i>
+                  Edit
+                </button>
+                
 
                 <!-- <button style="margin: 5px;" type="button" class="btn btn-custom-update btn-rounded" data-mdb-riple-init data-mdb-modal-init data-mdb-target="#edit-prospect<?php echo $row['prospect_id']; ?>">
                   <i class="fas fa-pen me-2"></i>
