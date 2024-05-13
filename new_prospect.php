@@ -115,7 +115,7 @@
                 <?php } ?>
               </td>
               <td>
-              
+
                 <?php echo $row['status']; ?>
               </td>
               <td data-mdb-riple-init data-mdb-modal-init data-mdb-target="#remarks_history<?php echo $row['prospect_id']; ?>">
@@ -125,7 +125,7 @@
                 $stmt6 = $con->prepare($sql6);
                 $stmt6->execute();
                 while ($row6 = $stmt6->fetch()) {
-                  $max_remarks =  $row6['max_remarks'] ;
+                  $max_remarks =  $row6['max_remarks'];
                 }
                 ?>
 
@@ -134,11 +134,11 @@
                 $stmt5 = $con->prepare($sql5);
                 $stmt5->execute();
                 while ($row5 = $stmt5->fetch()) {
-                  echo $row5['remarks_desc'] ;
+                  echo $row5['remarks_desc'];
                 }
                 ?>
 
-                
+
               </td>
               <td>
                 <?php
@@ -179,6 +179,32 @@
         </tbody>
       </table>
     </div>
+    <!-- <script>
+      function fetchDataAndUpdateDiv() {
+        // Perform Ajax request
+        fetch('http://localhost/crm_fae/new_prospect.php')
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.text(); // Assuming response is text, adjust if necessary
+          })
+          .then(data => {
+            // Update the content of the div with the fetched data
+            document.getElementById('approveContent').innerHTML = data;
+          })
+          .catch(error => {
+            // Handle errors
+            console.error('There was a problem with the fetch operation:', error);
+          });
+      }
+
+      // Run the function initially
+      fetchDataAndUpdateDiv();
+
+      // Run the function every second
+      setInterval(fetchDataAndUpdateDiv, 1000);
+    </script> -->
     <div id="pendingContent" class="content-block" style="display: none;">
       <h1>pending</h1>
       <table id="pending_table" class="table table-striped table-bordered border-dark " style="width:100%">
@@ -220,7 +246,7 @@
                 <?php } ?>
               </td>
               <td>
-           
+
                 <?php echo $row['status']; ?>
               </td>
               <td>
@@ -246,7 +272,7 @@
                   <i class="fas fa-pen me-2"></i>
                   Edit
                 </button>
-                
+
 
                 <!-- <button style="margin: 5px;" type="button" class="btn btn-custom-update btn-rounded" data-mdb-riple-init data-mdb-modal-init data-mdb-target="#edit-prospect<?php echo $row['prospect_id']; ?>">
                   <i class="fas fa-pen me-2"></i>
