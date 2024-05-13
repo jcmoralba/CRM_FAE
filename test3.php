@@ -84,7 +84,7 @@ session_start() ?>
                                     <input type="text" name="id" value="<?php echo $row['id']; ?>">
                                 </td>
                                 <td>
-                                    <button name="submit" type="submit" id="123" onclick="jc()" class="btn btn-success">convert</button>
+                                    <button name="submit" type="submit" id="123" onclick="jc(<?php $pics ?>)" class="btn btn-success">convert</button>
                                 </td>
                             </tr>
                         </form>
@@ -115,9 +115,14 @@ session_start() ?>
   <a href="<?php $directDownloadLink ?>"  target="_blank" onclick="window.open( '<?php $directDownloadLink ?>' ); return false;">Open New Link</a>
 
   <script>
-  function jc(){
+  function jc(check_pics){
     var button = document.getElementById('dl');
-    button.click();
+    if (check_pics == "N/A"){
+       
+    }else{
+        button.click();
+    }
+  
   }
   </script>
             <?php
