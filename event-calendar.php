@@ -60,10 +60,28 @@ include 'sidebar.php';
 
 <body class="bg-light">
 
+<div class="container mt-5">
+  <p class="h2 mt-5">Itenerary</p>
 
-<button type="button" class="btn btn-primary" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#staticBackdrop">
-    Add Event
-</button>
+
+<div id="approveContent" class="content-block">
+    <div class="row">
+        <div class="col-md-6">
+            <!-- Content in the left column (if any) -->
+        </div>
+        <div class="col-md-6 text-md-end">
+            <!-- Button aligned to the right side -->
+            <button type="button" class="btn btn-primary mt-5 me-2" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#staticBackdrop">
+            <i class="fas fa-calendar me-2"></i>  
+            Add Event
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+
 
 <div class="modal fade" id="staticBackdroppp" data-mdb-backdrop="static" data-mdb-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
@@ -85,7 +103,7 @@ include 'sidebar.php';
     </div>
   </div>
 </div>
-
+</div>
 
 <!-- ADD EVENT MODAL -->
 <div class="modal fade" id="staticBackdrop" data-mdb-backdrop="static" data-mdb-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -199,7 +217,6 @@ include 'sidebar.php';
             <div class="modal-content rounded-0">
                 <div class="modal-header rounded-0">
                     <h5 class="modal-title">Schedule Details</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body rounded-0">
                     <div class="container-fluid">
@@ -218,9 +235,9 @@ include 'sidebar.php';
                 </div>
                 <div class="modal-footer rounded-0">
                     <div class="text-end">
-                        <button type="button" class="btn btn-primary btn-sm rounded-0" id="edit" data-id=""> <i class='bx bxs-pencil me-2'></i>Edit</button>
-                        <button type="button" class="btn btn-danger btn-sm rounded-0" id="delete" data-id=""> <i class='bx bxs-trash me-2'></i>Delete</button>
-                        <button type="button" class="btn btn-secondary btn-sm rounded-0" data-bs-dismiss="modal"> <i class='bx bxs-x-circle me-2'></i>Close</button>
+                        <button type="button" class="btn btn-primary" id="edit" data-id=""> <i class='bx bxs-pencil me-2'></i>Edit</button>
+                        <button type="button" class="btn btn-danger" id="delete" data-id=""> <i class='bx bxs-trash me-2'></i>Delete</button>
+                        <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal"><i class='bx bxs-x-circle me-2' ></i>Close</button>
                     </div>
                 </div>
             </div>
@@ -232,7 +249,7 @@ include 'sidebar.php';
     
 
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 
