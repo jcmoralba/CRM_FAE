@@ -139,7 +139,7 @@
                 $stmt5->execute();
                 while ($row5 = $stmt5->fetch()) {
                   echo $row5['remarks_desc'];
-                  echo $row5['remarks_desc'];
+              
                 }
                 ?>
 
