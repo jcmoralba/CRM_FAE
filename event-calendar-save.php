@@ -1,7 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
 <?php 
 require_once('db-connect.php');
 if($_SERVER['REQUEST_METHOD'] !='POST'){
-    echo "<script> alert('Error: No data to save.'); location.replace('event-calendar.php') </script>";
+    ?>
+     <script>
+        // Display success message with SweetAlert
+        Swal.fire({
+            icon: "error",
+            title: "No data to save",
+            showConfirmButton: false,
+        });
+        setTimeout(function() {
+            window.location.href = "event-calendar.php";
+        }, 1500);
+    </script>
+    <?php
+    //echo "<script> alert('Error: No data to save.'); location.replace('event-calendar.php') </script>";
     $conn->close();
     exit;
 }
@@ -15,7 +38,20 @@ if(empty($id)){
 }
 $save = $conn->query($sql);
 if($save){
-    echo "<script> alert('Schedule Successfully Saved.'); location.replace('event-calendar.php') </script>";
+    ?>
+     <script>
+        Swal.fire({
+            icon: "success",
+            title: "Added event sucessfully",
+            showConfirmButton: false,
+        });
+
+        setTimeout(function() {
+            window.location.href = "event-calendar.php";
+        }, 1500);
+    </script>
+    <?php
+    // echo "<script>location.replace('event-calendar.php') </script>";
 }else{
     echo "<pre>";
     echo "An Error occured.<br>";
@@ -25,3 +61,6 @@ if($save){
 }
 $conn->close();
 ?>
+    
+</body>
+</html>
