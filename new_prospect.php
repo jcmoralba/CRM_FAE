@@ -88,6 +88,7 @@
           </tr>
         </thead>
         <tbody>
+         
           <?php
           $sql = "SELECT * FROM new_prospect WHERE `status` != 'Close Deals' AND `stat_id`='2'";
           $stmt = $con->prepare($sql);
