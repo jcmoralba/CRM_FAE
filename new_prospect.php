@@ -88,7 +88,6 @@
           </tr>
         </thead>
         <tbody>
-
           <?php
           $sql = "SELECT * FROM new_prospect WHERE `status` != 'Close Deals' AND `stat_id`='2'";
           $stmt = $con->prepare($sql);
@@ -116,7 +115,7 @@
                 <?php } ?>
               </td>
               <td>
-
+              
                 <?php echo $row['status']; ?>
               </td>
               <td data-mdb-riple-init data-mdb-modal-init data-mdb-target="#remarks_history<?php echo $row['prospect_id']; ?>">
@@ -126,7 +125,7 @@
                 $stmt6 = $con->prepare($sql6);
                 $stmt6->execute();
                 while ($row6 = $stmt6->fetch()) {
-                  $max_remarks =  $row6['max_remarks'];
+                  $max_remarks =  $row6['max_remarks'] ;
                 }
                 ?>
 
@@ -135,11 +134,11 @@
                 $stmt5 = $con->prepare($sql5);
                 $stmt5->execute();
                 while ($row5 = $stmt5->fetch()) {
-                  echo $row5['remarks_desc'];
+                  echo $row5['remarks_desc'] ;
                 }
                 ?>
 
-
+                
               </td>
               <td>
                 <?php
@@ -162,10 +161,10 @@
                   <i class="fas fa-pen me-2"></i>
                   Edit
                 </button>
-                <!-- <button style="margin: 5px;" type="button" class="btn btn-custom-delete btn-rounded" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#delete-modal<?php echo $row['prospect_id']; ?>">
+                <button style="margin: 5px;" type="button" class="btn btn-custom-delete btn-rounded" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#delete-modal<?php echo $row['prospect_id']; ?>">
                   <i class="fas fa-trash-can me-2"></i>
                   Delete
-                </button> -->
+                </button>
 
                 <button style="margin: 5px;" type="button" class="btn btn-custom-view btn-rounded" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#remarks_prospect<?php echo $row['prospect_id']; ?>">
                   <i class="fas fa-eye me-2"></i>
@@ -180,10 +179,8 @@
         </tbody>
       </table>
     </div>
-
-    
     <div id="pendingContent" class="content-block" style="display: none;">
-      <h1>PENDING</h1>
+      <h1>pending</h1>
       <table id="pending_table" class="table table-striped table-bordered border-dark " style="width:100%">
         <thead>
           <tr class="bg-dark table-bordered border-dark">
@@ -223,7 +220,7 @@
                 <?php } ?>
               </td>
               <td>
-
+           
                 <?php echo $row['status']; ?>
               </td>
               <td>
@@ -245,116 +242,13 @@
                   <i class="fas fa-eye me-2"></i>
                   View
                 </button>
-
                 <button style="margin: 5px;" type="button" class="btn btn-custom-update btn-rounded" data-mdb-riple-init data-mdb-modal-init data-mdb-target="#edit-prospect<?php echo $row['prospect_id']; ?>">
                   <i class="fas fa-pen me-2"></i>
                   Edit
                 </button>
-                <!-- <button style="margin: 5px;" type="button" class="btn btn-custom-delete btn-rounded" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#delete-modal<?php echo $row['prospect_id']; ?>">
-                  <i class="fas fa-trash-can me-2"></i>
-                  Delete
-                </button> -->
+                
 
-                <!-- <button style="margin: 5px;" type="button" class="btn btn-custom-view btn-rounded" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#remarks_prospect<?php echo $row['prospect_id']; ?>">
-                  <i class="fas fa-eye me-2"></i>
-                  Add Remarks
-                </button> -->
-              </td>
-            </tr>
-          <?php
-            include 'new_prospect_update.php';
-          }
-          ?>
-        </tbody>
-      </table>
-
-    </div>
-    <!-- rejected -->
-    <div id="rejectedContent" class="content-block" style="display: none;">
-      <h1>REJECTED</h1>
-      <table id="example" class="table table-striped table-bordered border-dark " style="width:100%">
-        <thead>
-          <tr class="bg-dark table-bordered border-dark">
-            <th class="text-black">COMPANY NAME</th>
-            <th class="text-black">ITEM DEALS</th>
-            <th class="text-black">STATUS</th>
-            <th class="text-black">REMARKS</th>
-            <th class="text-black">PDF LINK</th>
-            <!-- <th class="text-black">ACTION</th> -->
-          </tr>
-        </thead>
-        <tbody>
-
-          <?php
-          $sql = "SELECT * FROM new_prospect WHERE `status` != 'Close Deals' AND `stat_id`='3'";
-          $stmt = $con->prepare($sql);
-          $stmt->execute();
-          while ($row = $stmt->fetch()) {
-          ?>
-            <tr>
-              <td>
-                <?php echo $row['company_name']; ?>
-              </td>
-              <td>
-                <?php
-                $prospect_id = $row['prospect_id'];
-
-                $sql2 = "SELECT * FROM item_deals WHERE `prospect_id` = '$prospect_id'";
-                $stmt2 = $con->prepare($sql2);
-                $stmt2->execute();
-                while ($row2 = $stmt2->fetch()) {
-
-                ?>
-                  <!-- <?php echo $row['item_deals']; ?> -->
-                  <span class="badge " style="margin: 5px; color:white;background-color: rgb(60,91,111);">
-                    <?php echo $row2['name']; ?>
-                  </span>
-                <?php } ?>
-              </td>
-              <td>
-
-                <?php echo $row['status']; ?>
-              </td>
-              <td data-mdb-riple-init data-mdb-modal-init data-mdb-target="#remarks_history<?php echo $row['prospect_id']; ?>">
-                <!-- remarks history -->
-                <?php
-                $sql6 = "SELECT MAX(remarks_id) AS `max_remarks` FROM remarks_history WHERE `prospect_id`='$prospect_id'";
-                $stmt6 = $con->prepare($sql6);
-                $stmt6->execute();
-                while ($row6 = $stmt6->fetch()) {
-                  $max_remarks =  $row6['max_remarks'];
-                }
-                ?>
-
-                <?php
-                $sql5 = "SELECT MAX(remarks_id), remarks_desc, DATE_FORMAT(`date`, '%M %d, %Y - %r') AS `date` FROM remarks_history WHERE `prospect_id`='$prospect_id' AND `remarks_id`='$max_remarks'";
-                $stmt5 = $con->prepare($sql5);
-                $stmt5->execute();
-                while ($row5 = $stmt5->fetch()) {
-                  echo $row5['remarks_desc'];
-                }
-                ?>
-
-
-              </td>
-              <td>
-                <?php
-                if (strlen($row['pdf']) == 0) {
-                  echo " ";
-                } else {
-                  echo "<u><a href='{$row['pdf']}' target='_blank'>LINK</a></u>";
-                }
-
-                ?>
-              </td>
-
-              <!-- <td>
-                <button style="margin: 5px;" type="button" class="btn btn-custom-view btn-rounded" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#view_prospect<?php echo $row['prospect_id']; ?>">
-                  <i class="fas fa-eye me-2"></i>
-                  View
-                </button>
-
-                <button style="margin: 5px;" type="button" class="btn btn-custom-update btn-rounded" data-mdb-riple-init data-mdb-modal-init data-mdb-target="#edit-prospect<?php echo $row['prospect_id']; ?>">
+                <!-- <button style="margin: 5px;" type="button" class="btn btn-custom-update btn-rounded" data-mdb-riple-init data-mdb-modal-init data-mdb-target="#edit-prospect<?php echo $row['prospect_id']; ?>">
                   <i class="fas fa-pen me-2"></i>
                   Edit
                 </button>
@@ -375,7 +269,10 @@
           ?>
         </tbody>
       </table>
-      
+
+    </div>
+    <div id="rejectedContent" class="content-block" style="display: none;">
+      <h1>rejected</h1>
     </div>
 
     <?php
