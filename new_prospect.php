@@ -305,14 +305,14 @@
     <!-- rejected -->
     <div id="rejectedContent" class="content-block" style="display: none;">
       <h1>REJECTED</h1>
-      <table id="example" class="table table-striped table-bordered border-dark " style="width:100%">
+      <table id="rejected_table" class="table table-striped table-bordered border-dark " style="width:100%">
         <thead>
           <tr class="bg-dark table-bordered border-dark">
-            <th class="text-black">COMPANY NAME</th>
-            <th class="text-black">ITEM DEALS</th>
-            <th class="text-black">STATUS</th>
-            <th class="text-black">REMARKS</th>
-            <th class="text-black">PDF LINK</th>
+            <th class="text-white">COMPANY NAME</th>
+            <th class="text-white">ITEM DEALS</th>
+            <th class="text-white">STATUS</th>
+            <th class="text-white">REMARKS</th>
+            <th class="text-white">PDF LINK</th>
             <!-- <th class="text-black">ACTION</th> -->
           </tr>
         </thead>
@@ -731,11 +731,75 @@
       });
     });
   </script>
-  datatable pending
+  <!-- datatable pending -->
   <script>
     $(document).ready(function() {
       // Initialize DataTable
       var table = $('#pending_table').DataTable({
+        buttons: [{
+            extend: 'copy',
+            exportOptions: {
+              columns: ':not(:last-child)'
+            }
+          },
+          {
+            extend: 'csv',
+            exportOptions: {
+              columns: ':not(:last-child)'
+            }
+          },
+          {
+            extend: 'excel',
+            exportOptions: {
+              columns: ':not(:last-child)'
+            }
+          },
+          {
+            extend: 'pdf',
+            exportOptions: {
+              columns: ':not(:last-child)'
+            }
+          },
+          {
+            extend: 'print',
+            exportOptions: {
+              columns: ':not(:last-child)'
+            }
+          },
+
+        ],
+        layout: {
+          topStart: 'buttons'
+        }
+      });
+
+
+
+      // Handle status filter
+      $('#statusFilter').on('change', function() {
+        var status = $(this).val();
+        if (status === "") {
+          table.column(2).search("").draw(); // Clear the search if "Filter Status" is chosen
+        } else {
+          table.column(2).search(status).draw(); // Filter based on selected status
+        }
+      });
+
+      // Handle clear filter button
+      $('#clearFilterBtn').on('click', function() {
+        $('#statusFilter').val(''); // Clear the selected value in the dropdown
+        table.column(2).search("").draw(); // Clear the search filter
+        $('#statusFilter option[value=""]').prop('selected', true); // Select "Filter Status" option
+      });
+    });
+  </script>
+
+  <!-- rejected table -->
+
+  <script>
+    $(document).ready(function() {
+      // Initialize DataTable
+      var table = $('#rejected_table').DataTable({
         buttons: [{
             extend: 'copy',
             exportOptions: {
