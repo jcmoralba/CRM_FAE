@@ -137,6 +137,8 @@ if (isset($_POST['submit'])) {
 
 ?>
 <script>
+    // js click thru link
+    // https://stackoverflow.com/questions/2260279/click-links-though-javascript
     var myLinks = document.getElementsByTagName("a");
     for (var i = 0; i < myLinks.length; i++) {
         myLinks[i].click();
