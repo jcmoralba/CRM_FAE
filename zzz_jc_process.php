@@ -110,19 +110,7 @@ if (isset($_POST['submit'])) {
 
 
 
-            // save pics v2
-
-            $url =  $directDownloadLink; // URL of the page to be opened in the new tab
-            echo '<script>';
-            echo 'function openNewTab(url) {';
-            echo 'var win = window.open(url, \'_blank\');';
-            echo 'win.focus();'; // Focus on the new tab
-            echo '}';
-            echo 'openNewTab(\'' . $url . '\');'; // Call the function to open the new tab
-            echo '</script>';
-
-
-            sleep(.5);
+           
         }
     }
 
