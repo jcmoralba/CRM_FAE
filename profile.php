@@ -1,3 +1,6 @@
+<?php
+include("includes/connect.php");
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,6 +28,18 @@
 <?php  include "sidebar.php" ?>
 <body>
 <div class="container mt-5" >
+<?php
+if(isset($_SESSION["user_id"])) {
+  $user_id = $_SESSION["user_id"];
+
+  $sql = "SELECT * FROM account WHERE account_id = :user_id";
+  $stmt = $con->prepare($sql);
+  $stmt->bindParam(':user_id', $user_id);
+  $stmt->execute();
+
+  // Fetch user data
+  if($row = $stmt->fetch()) {
+?>
    
   <h1 class="mb-4" >Profile Settings</h1>
   <form>
@@ -42,20 +57,20 @@
         <div class="row">
           <div class="col-md-4">
             <div class="mb-3">
-              <label for="firstname" class="form-label">First Name</label>
-              <input type="text" class="form-control" id="firstname" name="firstname">
+              <label for="firstname" class="form-label" >First Name</label>
+              <input type="text" class="form-control" id="firstname" name="firstname" value="<?php echo $row['fname']; ?>">
             </div>
           </div>
           <div class="col-md-4">
             <div class="mb-3">
               <label for="middlename" class="form-label">Middle Name</label>
-              <input type="text" class="form-control" id="middlename" name="middlename">
+              <input type="text" class="form-control" id="middlename" name="middlename" value="<?php echo $row['mname']; ?>">
             </div>
           </div>
           <div class="col-md-4">
             <div class="mb-3">
               <label for="surname" class="form-label">Surname</label>
-              <input type="text" class="form-control" id="surname" name="surname">
+              <input type="text" class="form-control" id="surname" name="surname" value="<?php echo $row['lname'] ?>">
             </div>
           </div>
         </div>
@@ -77,7 +92,7 @@
           <div class="col-md-6">
             <div class="mb-3">
               <label for="email" class="form-label">Email Address</label>
-              <input type="email" class="form-control" id="email" name="email">
+              <input type="email" class="form-control" id="email" name="email" value="<?php echo $row['email'] ?>">
             </div>
           </div>
           <div class="col-md-6">
@@ -96,5 +111,15 @@
     </div>
   </form>
 </div>
+<?php
+    } else {
+        echo "User not found.";
+    }
+} else {
+    echo "User not logged in.";
+}
+?>
 </body>
 </html>
+
+

@@ -203,6 +203,32 @@ include 'sidebar.php';
 </div>
 <!-- DELETE MODAL -->
 
+<!-- MARK AS DONE MODAL -->
+<div
+  class="modal fade"
+  id="confirm"
+  data-mdb-backdrop="static"
+  data-mdb-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="confirmLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirmLabel">Confirm event</h5>
+        <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">Are you sure you want to label mark as done youre event?</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-mdb-ripple-init>Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- MARK AS DONE MODAL -->
+
 
     <div class="container py-5" id="page-container">
         <div class="row">
@@ -229,7 +255,7 @@ include 'sidebar.php';
                             <dd id="start" class=""></dd>
                             <dt class="text-muted">End</dt>
                             <dd id="end" class=""></dd>
-                            <button>Mark as done</button>
+                            <button type="button" class="btn btn-primary mt-2 mb-2" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#confirm"><i class="far fa-calendar-check me-2"></i>Mark as done</button>
                         </dl>
                     </div>
                 </div>
