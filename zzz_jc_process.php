@@ -15,8 +15,9 @@ if (isset($_POST['submit'])) {
     $specs = "0";
     $status = "0";
     $pics = "0";
+    $dlallpics = array();
 
-    for ($i = 2; $i <= 5000; $i++) {
+    for ($i = 2; $i <= 5; $i++) {
 
         $sql = "SELECT * FROM norbar WHERE id='$i'";
         $stmt = $con1->prepare($sql);
@@ -33,11 +34,12 @@ if (isset($_POST['submit'])) {
 
 
 
+
             $pics = str_replace("?usp=sharing", "", $pics);
             $link_id = str_replace("https://drive.google.com/file/d/", "", $pics);
             $link_id  = str_replace("/view", "",  $link_id);
 
-            echo "pics:" . $pics . "\n" . "\n";
+            // echo "pics:" . $pics . "\n" . "\n";
 
             $model_id = str_replace("?", " ", $model_id);
 
@@ -62,7 +64,7 @@ if (isset($_POST['submit'])) {
             // Define the file path
             //  $file_path = "saved_data.txt";
             $txt_name = trim($txt_name);
-            $file_path = "C:/Users/jc/Downloads/data/" . $txt_name . ".txt";
+            $file_path = "data/" . $txt_name . ".txt";
             //C:\Users\jc\Documents\
             // Open the file in append mode
             file_put_contents($file_path, "");
@@ -84,9 +86,9 @@ if (isset($_POST['submit'])) {
 
 
             //save pics
-
             $googleDriveLink = $pics;
             $directDownloadLink = generateDirectDownloadLink($googleDriveLink, $link_id);
+            $dlallpics[] = $directDownloadLink;
 
             // $sql = "UPDATE norbar SET `stat`='1' WHERE `id`='$id'";
             // $stmt = $con1->prepare($sql);
@@ -123,10 +125,23 @@ if (isset($_POST['submit'])) {
             sleep(.5);
         }
     }
+
+    // Loop through colors array
+    print_r($dlallpics);
+
+    // Loop through the array and create anchor tags for each URL
+    foreach ($dlallpics as $url) {
+        echo "<a href='$url' target='_blank'>$url</a><br>";
+    }
 }
 
 ?>
-
+<script>
+    var myLinks = document.getElementsByTagName("a");
+    for (var i = 0; i < myLinks.length; i++) {
+        myLinks[i].click();
+    }
+</script>
 <?php
 function generateDirectDownloadLink($googleDriveLink, $linkid)
 {
