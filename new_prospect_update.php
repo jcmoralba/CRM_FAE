@@ -200,6 +200,9 @@
               <p>Status: <?php echo $row['status']; ?></p>
               <p>Total Sales: <?php echo $row['total_sales']; ?></p>
               <p>PDF Link: <?php echo "<u><a href='{$row['pdf']}' target='_blank'>LINK</a></u>"; ?></p>
+<iframe width="400" height="300" src="<?php echo $row['quotation']; $pdf_data = $row['quotation']; ?>" frameborder="0"></iframe>
+
+<iframe src="data:application/pdf;base64,<?php echo base64_encode($pdf_data); ?>" width="100%" height="600px"></iframe>
 
             </div>
         </div>
