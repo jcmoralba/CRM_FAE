@@ -64,7 +64,8 @@ if (isset($_POST['submit'])) {
             // Define the file path
             //  $file_path = "saved_data.txt";
             $txt_name = trim($txt_name);
-            $file_path = "data/" . $txt_name . ".txt";
+            // C:\Users\User\Downloads
+            $file_path = "C:/Users/User/Downloads/" . $txt_name . ".txt";
             //C:\Users\jc\Documents\
             // Open the file in append mode
             file_put_contents($file_path, "");
@@ -115,7 +116,7 @@ if (isset($_POST['submit'])) {
     }
 
     // Loop through colors array
-    print_r($dlallpics);
+    // print_r($dlallpics);
 
     // Loop through the array and create anchor tags for each URL
     foreach ($dlallpics as $url) {

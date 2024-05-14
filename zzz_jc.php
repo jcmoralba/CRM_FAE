@@ -80,3 +80,41 @@
     </table>
 </body>
 </html>
+
+
+
+
+    <!-- ideas -->
+    <!-- <?php
+// Get the URL of the image from Google Drive
+$imageUrl = 'https://drive.google.com/uc?id=YOUR_IMAGE_ID';
+
+// Get the image content
+$image = file_get_contents($imageUrl);
+
+// Load the image
+$sourceImage = imagecreatefromstring($image);
+
+// Get the dimensions of the original image
+$sourceWidth = imagesx($sourceImage);
+$sourceHeight = imagesy($sourceImage);
+
+// Calculate the new dimensions (e.g., resize to 50% of the original size)
+$newWidth = $sourceWidth * 0.5;
+$newHeight = $sourceHeight * 0.5;
+
+// Create a new image with the resized dimensions
+$resizedImage = imagecreatetruecolor($newWidth, $newHeight);
+
+// Resize the original image to the new dimensions
+imagecopyresampled($resizedImage, $sourceImage, 0, 0, 0, 0, $newWidth, $newHeight, $sourceWidth, $sourceHeight);
+
+// Output the resized image
+header('Content-Type: image/jpeg');
+imagejpeg($resizedImage);
+
+// Free up memory
+imagedestroy($sourceImage);
+imagedestroy($resizedImage);
+?> -->
+
