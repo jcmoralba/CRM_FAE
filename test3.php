@@ -21,11 +21,9 @@ session_start() ?>
     <a href="https://drive.google.com/file/d/1WMwsgOLp_RrYvB0_JkoX1UzTwvx9u91p/view?usp=sharing" download> pdf link </a>
     <form action="test3_process.php" method="post">
         <button name="all" id="reload" type="convert" class="btn btn-danger" onclick="">convert all</button>
+        <button name="revert" type="submit">revert</button>
     </form>
-    <?php
-    $link = $_GET['dl_link'] ?? '1';
-    echo $_SESSION['dl_link'];
-    ?>
+ 
    
             <img src="img/cat.gif" style="
    height: 100px; width:auto; border-radius:5%;  margin-left: auto;margin-right: 0; margin-top:-100px;display:block;" alt="JC">
@@ -47,7 +45,7 @@ session_start() ?>
                 <tbody>
 
                     <?php
-                    $sql = "SELECT * FROM norbar WHERE stat='0' LIMIT 1";
+                    $sql = "SELECT * FROM `data` WHERE stat='0' LIMIT 1";
                     $stmt = $con1->prepare($sql);
                     $stmt->execute();
                     while ($row = $stmt->fetch()) {
@@ -84,7 +82,7 @@ session_start() ?>
                                     <input type="text" name="id" value="<?php echo $row['id']; ?>">
                                 </td>
                                 <td>
-                                    <button name="submit" type="submit" id="123" onclick="jc(<?php $pics ?>)" class="btn btn-success">convert</button>
+                                    <button name="submit1" type="submit" id="123" onclick="jc(<?php $pics ?>)" class="btn btn-success">convert</button>
                                 </td>
                             </tr>
                         </form>
@@ -163,7 +161,7 @@ session_start() ?>
                 <tbody>
 
                     <?php
-                    $sql = "SELECT * FROM norbar WHERE stat='0' LIMIT 5";
+                    $sql = "SELECT * FROM `data` WHERE stat='0' LIMIT 5";
                     $stmt = $con1->prepare($sql);
                     $stmt->execute();
                     while ($row = $stmt->fetch()) {

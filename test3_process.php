@@ -2,13 +2,13 @@
 session_start();
 include 'includes/connect.php';
 // Check if the emails variable is set and not empty
-if (isset($_POST["submit"])) {
+if (isset($_POST["submit1"])) {
     $id = $_POST['id'];
     $model_id = $_POST['model_id'];
     $item_name = $_POST['item_name'];
     $desc = $_POST['desc'];
     $specs = $_POST['specs'];
-   
+
     $pics = $_POST['pics'];
     // <br />
 
@@ -53,11 +53,11 @@ if (isset($_POST["submit"])) {
     // Write input data to the file
     fwrite(
         $file,
-            "Model ID: " . "\n" . $model_id . "\n" .  "\n" .
+        "Model ID: " . "\n" . $model_id . "\n" .  "\n" .
             "Item Name: " . "\n" . $item_name . "\n" .  "\n" .
             "Description: " . "\n" . $desc . "\n" .  "\n" .
-            "Specification:" . "\n" . $specs . "\n" 
-            // "Status:" . "\n" . $status . "\n"
+            "Specification:" . "\n" . $specs . "\n"
+        // "Status:" . "\n" . $status . "\n"
     );
 
     // Close the file
@@ -69,7 +69,7 @@ if (isset($_POST["submit"])) {
     $googleDriveLink = $pics;
     $directDownloadLink = generateDirectDownloadLink($googleDriveLink, $link_id);
 
-    $sql = "UPDATE norbar SET `stat`='1' WHERE `id`='$id'";
+    $sql = "UPDATE `data` SET `stat`='1' WHERE `id`='$id'";
     $stmt = $con1->prepare($sql);
     $stmt->execute();
     echo "goods";
@@ -81,7 +81,7 @@ if (isset($_POST["submit"])) {
     }
     // header("location:$directDownloadLink");
     //    sleep(1);
-        header("location:test3.php?goods=$id");
+    header("location:test3.php?goods=$id");
     //     header("location:test3.php");
     exit();
 }
@@ -89,12 +89,25 @@ if (isset($_POST["all"])) {
 
     sleep(.5);
 
-    for ($i=0; $i < 50; $i++) { 
+    for ($i = 0; $i < 50; $i++) {
         echo "<h1 style='color: red;'>ERROR</h1>" . "      ";
     }
     // header("location:test3.php?goods=$id");
 
     // exit();
+}
+if (isset($_POST['revert'])) {
+    $sql = "SELECT max(id) as MAXID FROM `data` WHERE stat='1' LIMIT 1";
+    $stmt = $con1->prepare($sql);
+    $stmt->execute();
+    while ($row = $stmt->fetch()) {
+        $max_id = $row['MAXID'];
+    }
+    $sql = "UPDATE `data` set `stat`= '0' WHERE id=:id";
+    $stmt = $con1->prepare($sql);
+    $stmt->bindParam(':id', $max_id);
+    $stmt->execute();   
+     header("location:test3.php?reverted=$max_id");
 }
 ?>
 
