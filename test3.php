@@ -23,106 +23,96 @@ session_start() ?>
         <button name="all" id="reload" type="convert" class="btn btn-danger" onclick="">convert all</button>
         <button name="revert" type="submit">revert</button>
     </form>
- 
-   
-            <img src="img/cat.gif" style="
+
+
+    <img src="img/cat.gif" style="
    height: 100px; width:auto; border-radius:5%;  margin-left: auto;margin-right: 0; margin-top:-100px;display:block;" alt="JC">
 
-            <table id="example" class="table table-bordered" style="width:100%; border:1px solid black;">
-                <thead>
-                    <tr class="bg-dark table-bordered border-dark">
+    <table id="example" class="table table-bordered" style="width:100%; border:1px solid black;">
+        <thead>
+            <tr class="bg-dark table-bordered border-dark">
 
-                        <th class="text-black">MODEL ID</th>
-                        <th class="text-black">ITEM NAME</th>
-                        <th class="text-black">DESCRIPTION</th>
-                        <th class="text-black">SPECIFICATION</th>
-                        <th class="text-black">PICTURE</th>
-                        <th class="text-black">#</th>
+                <th class="text-black">MODEL ID</th>
+                <th class="text-black">ITEM NAME</th>
+                <th class="text-black">DESCRIPTION</th>
+                <th class="text-black">SPECIFICATION</th>
+                <th class="text-black">PICTURE</th>
+                <th class="text-black">#</th>
 
-                        <th class="text-black">ACTION</th>
-                    </tr>
-                </thead>
-                <tbody>
+                <th class="text-black">ACTION</th>
+            </tr>
+        </thead>
+        <tbody>
 
-                    <?php
-                    $sql = "SELECT * FROM `data` WHERE stat='0' LIMIT 1";
-                    $stmt = $con1->prepare($sql);
-                    $stmt->execute();
-                    while ($row = $stmt->fetch()) {
-                    ?>
-                        <form action="test3_process.php" method="post">
-                            <tr>
-
-                                <td>
-                                    <input type="text" name="model_id" value="<?php echo $row['COL 1']; ?>">
-                                </td>
-                                <td>
-                                    <!-- <input type="text" name="item_name" value="<?php echo $row['COL 2']; ?>"> -->
-                                    <textarea name="item_name" id="" cols="30" rows="10"><?php echo $row['COL 2']; ?></textarea>
-                                </td>
-                                <td>
-                                    <textarea name="desc" id="" cols="30" rows="10"><?php echo nl2br($row['COL 4']); ?></textarea>
-                                </td>
-                                <!-- <td>
-                            <textarea name="specs" id="" cols="30" rows="10"><?php echo nl2br($row['COL 4']); ?></textarea>
-                            <input type="text" name="specs1" value="<?php echo nl2br($row['COL 4']); ?>">    
-                        </td> -->
-                                <td>
-                                    <textarea name="specs" id="" cols="30" rows="10"><?php echo nl2br($row['COL 3']); ?></textarea>
-
-                                </td>
-                                <td>
-                                    <input type="text" name="pics" value="<?php echo $row['COL 5']; ?>">
-                                    <?php $pics =  $row['COL 5']; ?>
-                                </td>
-                                <!-- <td>
-                            <input type="text" name="status" value="<?php echo $row['COL 6']; ?>">
-                        </td> -->
-                                <td>
-                                    <input type="text" name="id" value="<?php echo $row['id']; ?>">
-                                </td>
-                                <td>
-                                    <button name="submit1" type="submit" id="123" onclick="jc(<?php $pics ?>)" class="btn btn-success">convert</button>
-                                </td>
-                            </tr>
-                        </form>
-                    <?php } ?>
-
-                </tbody>
-
-            </table>
-
-
-
-            <?php echo $pics; ?>
             <?php
-            // remove all the unwanted charaters
-
-            $pics = str_replace("?usp=sharing", "", $pics);
-            $link_id = str_replace("https://drive.google.com/file/d/", "", $pics);
-            $link_id  = str_replace("/view", "",  $link_id);
-
-
-            $googleDriveLink = $pics;
-            $directDownloadLink = generateDirectDownloadLink($googleDriveLink, $link_id);
-            echo  "<br>" . "\r\n" . $directDownloadLink;
-            // $directDownloadLink = "https://example.com";
+            $sql = "SELECT * FROM `data` WHERE stat='0' LIMIT 1";
+            $stmt = $con1->prepare($sql);
+            $stmt->execute();
+            while ($row = $stmt->fetch()) {
             ?>
- <a id="dl" target="_blank" href="<?php echo $directDownloadLink; ?>"> jc <3</a>
-  <button onclick="openLinkInNewTab(<?php $directDownloadLink ?>)">test</button>
-  <a href="<?php $directDownloadLink ?>"  target="_blank" onclick="window.open( '<?php $directDownloadLink ?>' ); return false;">Open New Link</a>
+                <form action="test3_process.php" method="post">
+                    <tr>
+                        <td>
+                            <input type="text" name="model_id" value="<?php echo $row['model_id']; ?>">
+                        </td>
+                        <td>
+                            <textarea name="item_name" id="" cols="30" rows="10"><?php echo $row['item_name']; ?></textarea>
+                        </td>
+                        <td>
+                            <textarea name="desc" id="" cols="30" rows="10"><?php echo nl2br($row['desc']); ?></textarea>
+                        </td>
+                        <td>
+                            <textarea name="specs" id="" cols="30" rows="10"><?php echo nl2br($row['specs']); ?></textarea>
+                        </td>
+                        <td>
+                            <input type="text" name="pics" value="<?php echo $row['pics']; ?>">
+                            <?php $pics =  $row['pics']; ?>
+                        </td>               
+                        <td>
+                            <input type="text" name="id" value="<?php echo $row['id']; ?>">
+                        </td>
+                        <td>
+                            <button name="submit1" type="submit" id="123" onclick="jc(<?php $pics ?>)" class="btn btn-success">convert</button>
+                        </td>
+                    </tr>
+                </form>
+            <?php } ?>
 
-  <script>
-  function jc(check_pics){
-    var button = document.getElementById('dl');
-    if (check_pics == "N/A"){
-       
-    }else{
-        button.click();
-    }
-  
-  }
-  </script>
+        </tbody>
+
+    </table>
+
+
+
+    <?php echo $pics; ?>
+    <?php
+    // remove all the unwanted charaters
+
+    $pics = str_replace("?usp=sharing", "", $pics);
+    $link_id = str_replace("https://drive.google.com/file/d/", "", $pics);
+    $link_id  = str_replace("/view", "",  $link_id);
+
+
+    $googleDriveLink = $pics;
+    $directDownloadLink = generateDirectDownloadLink($googleDriveLink, $link_id);
+    echo  "<br>" . "\r\n" . $directDownloadLink;
+    // $directDownloadLink = "https://example.com";
+    ?>
+    <a id="dl" target="_blank" href="<?php echo $directDownloadLink; ?>"> jc <3</a>
+            <button onclick="openLinkInNewTab(<?php $directDownloadLink ?>)">test</button>
+            <a href="<?php $directDownloadLink ?>" target="_blank" onclick="window.open( '<?php $directDownloadLink ?>' ); return false;">Open New Link</a>
+
+            <script>
+                function jc(check_pics) {
+                    var button = document.getElementById('dl');
+                    if (check_pics == "N/A") {
+
+                    } else {
+                        button.click();
+                    }
+
+                }
+            </script>
             <?php
             function generateDirectDownloadLink($googleDriveLink, $linkid)
             {
@@ -170,34 +160,25 @@ session_start() ?>
                             <tr>
 
                                 <td>
-                                    <input type="text" name="model_id" value="<?php echo $row['COL 1']; ?>">
+                                    <input type="text" name="model_id" value="<?php echo $row['model_id']; ?>">
                                 </td>
                                 <td>
-                                    <!-- <input type="text" name="item_name" value="<?php echo $row['COL 2']; ?>"> -->
-                                    <textarea name="item_name" id="" cols="30" rows="10"><?php echo $row['COL 2']; ?></textarea>
+                                    <textarea name="item_name" id="" cols="30" rows="10"><?php echo $row['item_name']; ?></textarea>
                                 </td>
                                 <td>
-                                    <textarea name="desc" id="" cols="30" rows="10"><?php echo nl2br($row['COL 4']); ?></textarea>
-                                </td>
-                                <!-- <td>
-                            <textarea name="specs" id="" cols="30" rows="10"><?php echo nl2br($row['COL 4']); ?></textarea>
-                            <input type="text" name="specs1" value="<?php echo nl2br($row['COL 4']); ?>">    
-                        </td> -->
+                                    <textarea name="desc" id="" cols="30" rows="10"><?php echo nl2br($row['desc']); ?></textarea>
+                                </td>                
                                 <td>
-                                    <textarea name="specs" id="" cols="30" rows="10"><?php echo nl2br($row['COL 3']); ?></textarea>
-
+                                    <textarea name="specs" id="" cols="30" rows="10"><?php echo nl2br($row['specs']); ?></textarea>
                                 </td>
                                 <td>
-                                    <input type="text" name="pics" value="<?php echo $row['COL 5']; ?>">
-                                </td>
-                                <!-- <td>
-                            <input type="text" name="status" value="<?php echo $row['COL 6']; ?>">
-                        </td> -->
+                                    <input type="text" name="pics" value="<?php echo $row['pics']; ?>">
+                                </td>                      
                                 <td>
                                     <input type="text" name="id" value="<?php echo $row['id']; ?>">
                                 </td>
                                 <td>
-                                    <!-- <button name="submit" type="submit" id="123" onclick="jc()" class="btn btn-success">convert</button> -->
+
                                 </td>
                             </tr>
                         </form>

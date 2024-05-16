@@ -44,7 +44,7 @@ if (isset($_POST["submit1"])) {
     // Define the file path
     //  $file_path = "saved_data.txt";
     $txt_name = trim($txt_name);
-    $file_path = "C:/Users/rueda/Downloads/" . $txt_name . ".txt";
+    $file_path = "data/" . $txt_name . ".txt";
     //C:\Users\jc\Documents\
     // Open the file in append mode
     file_put_contents($file_path, "");
