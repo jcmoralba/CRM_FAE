@@ -14,10 +14,9 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="staticBackdropLabel">Edit prospect</h5>
-          <!-- <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" ></button>
-          <button type="button" class="btn btn-light" data-mdb-ripple-init data-mdb-dismiss="modal">X</button> -->
+          <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">  
+        <div class="modal-body">
           <form style="width: 26rem;" action="new_prospect_process.php" method="POST">
             <!-- Name input -->
             <input type="hidden" name="user_id" value="  <?php echo  $_SESSION["user_id"] ?>">
@@ -62,16 +61,17 @@
                   $num = $num + 1;
                 ?>
 
-                
-                    <input type="text" class="form-control mb-2" id="z<?php echo $num ?>" name="name[]" placeholder="" value="<?php echo $row3['name'] ?>">
+                  <div class="form-floating mb-3" style="margin: 5px;">
+                    <input type="text" class="form-control" id="z<?php echo $num ?>" name="name[]" placeholder="" value="<?php echo $row3['name'] ?>">
                     <!-- <label for="z<?php echo $num ?>">deal  <?php echo $num ?>:</label> -->
-              
+                  </div>
+
                 <?php } ?>
 
               </div>
 
               <!-- Modal Body -->
-           
+              <div class="modal-body">
 
                 <div id="inputsContainer<?php echo $row['prospect_id']; ?>" class="form-group">
                   <!-- Initial input field -->
@@ -80,7 +80,7 @@
                 <button type="button" class="btn btn-primary" onclick="addInput(<?php echo $row['prospect_id']; ?>)">Add more deals</button>
                 <!-- <button type="submit" class="btn btn-success" name="submit">Submit</button> -->
 
-             
+              </div>
               <script>
                 function addInput(prospectId) {
                   var container = document.getElementById('inputsContainer' + prospectId);
@@ -203,9 +203,6 @@
 <iframe width="400" height="300" src="<?php echo $row['quotation']; $pdf_data = $row['quotation']; ?>" frameborder="0"></iframe>
 
 <iframe src="data:application/pdf;base64,<?php echo base64_encode($pdf_data); ?>" width="100%" height="600px"></iframe>
-<?php $content = $row['quotation']; ?>
-<p>PDF LINK:<object data="data:application/pdf;base64,<?php echo base64_encode($content) ?>" type="application/pdf" style="height:200px;width:60%"></object>
- </p>
 
             </div>
         </div>
@@ -256,7 +253,7 @@
             <p>Remarks History:</p>
 
             <?php
-            $sql4 = "SELECT `remarks_id`, `remarks_desc`, `prospect_id`, `account_id`, DATE_FORMAT(`date`, '%M %d, %Y - %r') AS `date` FROM `remarks_history` WHERE `prospect_id`='{$row['prospect_id']}'";
+            $sql4 = "SELECT `remarks_id`, `remarks_desc`, `prospect_id`, DATE_FORMAT(`date`, '%M %d, %Y - %r') AS `date` FROM `remarks_history` WHERE `prospect_id`='{$row['prospect_id']}'";
             $stmt4 = $con->prepare($sql4);
             $stmt4->execute();
             $data4 = $stmt4->fetchAll();
@@ -265,7 +262,7 @@
               <div style="border: 1px solid gray; border-radius:2px; margin:5px; padding:5px;" id="border">
 
                 <h4> <?php echo $row4['remarks_desc']; ?> </h4>
-                <p> <?php echo $row4['date']; ?> - User: <?php echo $row4['account_id']; ?></p>
+                <p> <?php echo $row4['date']; ?></p>
               </div>
             <?php } ?>
 

@@ -85,12 +85,11 @@
             <th class="text-white">STATUS</th>
             <th class="text-white">REMARKS</th>
             <th class="text-white">PDF LINK</th>
-            <th class="text-white">QUOTATION</th>
             <th class="text-white">ACTION</th>
           </tr>
         </thead>
         <tbody>
-                <div id="refresh" >
+
           <?php
           $sql = "SELECT * FROM new_prospect WHERE `status` != 'Close Deals' AND `stat_id`='2'";
           $stmt = $con->prepare($sql);
@@ -157,9 +156,6 @@
 
                 ?>
               </td>
-              <td>
-                <?php echo $row['quotation']; ?>
-              </td>
 
               <td>
                 <button style="margin: 5px;" type="button" class="btn btn-custom-view btn-rounded" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#view_prospect<?php echo $row['prospect_id']; ?>">
@@ -186,7 +182,6 @@
             include 'new_prospect_update.php';
           }
           ?>
-          </div>
         </tbody>
       </table>
     </div>
@@ -204,7 +199,7 @@
           })
           .then(data => {
             // Update the content of the div with the fetched data
-            document.getElementById('refresh').innerHTML = data;
+            document.getElementById('approveContent').innerHTML = data;
           })
           .catch(error => {
             // Handle errors
@@ -218,8 +213,6 @@
       // Run the function every second
       setInterval(fetchDataAndUpdateDiv, 1000);
     </script> -->
-
-
     <div id="pendingContent" class="content-block" style="display: none;">
       <h1>PENDING</h1>
       <table id="pending_table" class="table table-striped table-bordered border-dark " style="width:100%">
@@ -229,7 +222,7 @@
             <th class="text-white">ITEM DEALS</th>
             <th class="text-white">STATUS</th>
             <th class="text-white">REMARKS</th>
-            <th class="text-white">PDF LINK</th>         
+            <th class="text-white">PDF LINK</th>
             <th class="text-white">ACTION</th>
           </tr>
         </thead>
