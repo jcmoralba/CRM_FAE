@@ -53,14 +53,27 @@ require_once 'includes/connect.php';
 
       // Sweetalert for timein with formatted date and time
       echo "<script>
-                Swal.fire({
-                  icon: 'success',
-                  title: 'Time In Successful',
-                  html: 'You have successfully clocked in on <strong>$formatted_time_in</strong>',
-                }).then(() => {
-                  window.location.href = 'event-calendar.php';
-                });
-              </script>";
+        Swal.fire({
+          icon: 'success',
+          title: 'Time In Successful',
+          html: 'You have successfully clocked in on <strong>$formatted_time_in</strong>',
+          width: 600,
+          padding: '3em',
+          color: '#716add',
+          background: '#fff url(/images/trees.png)',
+          backdrop: `
+            rgba(0,0,123,0.4)
+            url(img/sirjohnquibs.jpg)
+            left top
+            no-repeat
+          `
+        }).then(() => {
+          window.location.href = 'event-calendar.php';
+        });
+      </script>";
+
+      
+
     } else {
       // Sweetalert validation kapag nag timein na
       echo "<script>
