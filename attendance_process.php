@@ -51,6 +51,8 @@ require_once 'includes/connect.php';
       $stmt = $con->prepare($sql);
       $stmt->execute();
 
+      // hsahd
+
       // Sweetalert for timein with formatted date and time
       echo "<script>
         Swal.fire({
