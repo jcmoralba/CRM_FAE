@@ -33,7 +33,7 @@ if (isset($_POST['savedata'])) {
         $max_prospect = $row['maxprospect'];
     }
 
-    $sql = "INSERT INTO `remarks_history`(`remarks_desc`, `prospect_id`, `date`) VALUES ('$remark','$max_prospect','$date_now')";
+    $sql = "INSERT INTO `remarks_history`(`remarks_desc`, `prospect_id`, `date`,`account_id`) VALUES ('$remark','$max_prospect','$date_now','$user_id')";
     $stmt = $con->prepare($sql);
     $stmt->execute();
 

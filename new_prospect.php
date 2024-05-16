@@ -85,6 +85,7 @@
             <th class="text-white">STATUS</th>
             <th class="text-white">REMARKS</th>
             <th class="text-white">PDF LINK</th>
+            <th class="text-white">QUOTATION</th>
             <th class="text-white">ACTION</th>
           </tr>
         </thead>
@@ -156,7 +157,9 @@
 
                 ?>
               </td>
-
+              <td>
+                <?php echo $row['quotation']; ?>
+              </td>
               <td>
                 <button style="margin: 5px;" type="button" class="btn btn-custom-view btn-rounded" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#view_prospect<?php echo $row['prospect_id']; ?>">
                   <i class="fas fa-eye me-2"></i>

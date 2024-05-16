@@ -204,6 +204,8 @@
 
 <iframe src="data:application/pdf;base64,<?php echo base64_encode($pdf_data); ?>" width="100%" height="600px"></iframe>
 
+
+<iframe id="quotationViewer" style="width: 100%; height: 500px;" frameborder="0"></iframe>
             </div>
         </div>
         <div class="modal-footer">
