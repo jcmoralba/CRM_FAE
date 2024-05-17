@@ -1,6 +1,6 @@
 /*
 SQLyog Community v13.2.1 (64 bit)
-MySQL - 10.4.28-MariaDB : Database - crm
+MySQL - 10.4.32-MariaDB : Database - crm
 *********************************************************************
 */
 
@@ -32,7 +32,7 @@ CREATE TABLE `account` (
   `department` varchar(255) NOT NULL,
   `number` int(11) NOT NULL,
   PRIMARY KEY (`account_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `account` */
 
@@ -44,300 +44,45 @@ insert  into `account`(`account_id`,`user_type`,`user`,`pass`,`fname`,`lname`,`m
 (7,'','','123123','qwe','123','','qwecqwe2@yahoo.com','qwe',12123123),
 (8,'','','1234','junmar','Rosario','','qwe@yahoo.com','FAE',9823423),
 (9,'','','1234','junmar','Rosario','','qwe@yahoo.com','FAE',9823423),
-(10,'','','junmar','Junmar','Rosario','','junmar@gmail.com','IT',2147483647);
+(10,'','','junmar','Junmar','Rosario','','junmar@gmail.com','IT',2147483647),
+(11,'','','123456789','Mark','Doblon','','markdoblon946@gmail.com','IT',2147483647);
 
-/*Table structure for table `activity` */
+/*Table structure for table `admini` */
 
-DROP TABLE IF EXISTS `activity`;
+DROP TABLE IF EXISTS `admini`;
 
-CREATE TABLE `activity` (
-  `act_ID` int(50) NOT NULL AUTO_INCREMENT,
-  `actName` varchar(255) DEFAULT NULL,
-  `datee` date DEFAULT NULL,
-  `descrip` varchar(255) DEFAULT NULL,
-  `contacts_ID` int(50) DEFAULT NULL,
-  PRIMARY KEY (`act_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-/*Data for the table `activity` */
-
-insert  into `activity`(`act_ID`,`actName`,`datee`,`descrip`,`contacts_ID`) values 
-(1,'test','2024-03-25','testing',30),
-(2,'testing','2024-03-26','tester',30);
-
-/*Table structure for table `admin` */
-
-DROP TABLE IF EXISTS `admin`;
-
-CREATE TABLE `admin` (
-  `admin_id` int(255) NOT NULL AUTO_INCREMENT,
-  `email` varchar(100) NOT NULL,
-  `password_hash` varchar(255) NOT NULL,
-  `fName` varchar(255) NOT NULL,
-  `lName` varchar(255) NOT NULL,
-  `deleted` int(50) DEFAULT NULL,
+CREATE TABLE `admini` (
+  `admin_id` int(50) NOT NULL AUTO_INCREMENT,
+  `fullname` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `role` varbinary(255) NOT NULL,
+  `psswrd` varchar(255) NOT NULL,
   PRIMARY KEY (`admin_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Data for the table `admin` */
+/*Data for the table `admini` */
 
-insert  into `admin`(`admin_id`,`email`,`password_hash`,`fName`,`lName`,`deleted`) values 
-(17,'vladimer.ilagor@gmail.com','$2y$10$PMQ6Soy1Az1gNVZg9YMGAuOsnyRMrWIXClzv742xiihg1KuS9G6ee','Vladimer','Ilagor',0),
-(18,'vladimer.ilagor@gmail.coms','$2y$10$PBDzuZZ7TJaBXnexQXcSkePDYE3RXQSokvfoZDiBh.LPG8EDxoZqe','Vladimer','Ilagor',0),
-(19,'jrquibol@gmail.com','$2y$10$esYsG/.sERdp0DUZoE5UTOFHakFXj3MzM8GiU/s5DAIOAUtrMj48G','sir','john',0),
-(20,'vladimer.ilagor@gmail.comss','$2y$10$8TdDmwmFaZ0eebT0mMVsG.eY6twVEtZhjke3CZiCR1ZCV/BeNpesO','Vladimer','Ilagor',1),
-(21,'ilagorv.qcydoqcu@gmail.com','$2y$10$qUpFmR5c7tsLewhSOo1JkeannE8DZGJfIZcdZadlI4qy0RqQ5.FaG','Vladimer','Ilagor',1),
-(22,'ryanquibol05@gmail.com','$2y$10$BS8R.ZDNe8tMOAgI9zVIb.1j8e7pPO0Fidk/SOuqXN4irwEqp1xiS','Sir','John',1),
-(23,'zxc@gmail.com','$2y$10$iZEuXA1DUmpxACgFPaCCy.5pJJNaGdt742EWfeOZbz691tVXWjqpe','try','asd',0),
-(24,'qweqwe@gmail.com','$2y$10$qK.BC28KWa0psg4zzUVwuebItAdXHutun3uYUFNhEZvmeR.3GPXE2','a','a',0);
+insert  into `admini`(`admin_id`,`fullname`,`email`,`role`,`psswrd`) values 
+(1,'TSM','hytec.tsm@gmail.com','TSM','3bfc7b35d1ee40e54c67cf658a826299a708bfa55fbe64fec8eb502ad3d59f49'),
+(2,'ADMIN','hytec.admin@gmail.com','ADMIN','ac9689e2272427085e35b9d3e3e8bed88cb3434828b43b86fc0596cad4c6e270'),
+(3,'FAE','hytec.fae@gmail.com','FAE','43abb860dd862cf140b1be33e010575a786fde0747727c3213c229bf711cbee9');
 
 /*Table structure for table `attendance` */
 
 DROP TABLE IF EXISTS `attendance`;
 
 CREATE TABLE `attendance` (
-  `attendance_id` int(50) NOT NULL AUTO_INCREMENT,
+  `attendance_id` int(11) NOT NULL AUTO_INCREMENT,
   `account_name` varchar(255) NOT NULL,
   `timein_datetime` date DEFAULT NULL,
   `timeout_datetime` date DEFAULT NULL,
   PRIMARY KEY (`attendance_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `attendance` */
 
 insert  into `attendance`(`attendance_id`,`account_name`,`timein_datetime`,`timeout_datetime`) values 
-(9,'junmar','2024-05-16','2024-05-16'),
-(10,'junmar','2024-05-16','2024-05-16'),
-(11,'junmar','2024-05-16','2024-05-16'),
-(12,'junmar','2024-05-16','2024-05-16'),
-(13,'junmar','2024-05-16','2024-05-16'),
-(14,'junmar','2024-05-16','2024-05-16'),
-(15,'junmar','2024-05-16','2024-05-16'),
-(16,'junmar','2024-05-16','2024-05-16'),
-(17,'junmar','2024-05-16','2024-05-16'),
-(18,'junmar','2024-05-16','2024-05-16'),
-(19,'junmar','2024-05-16','2024-05-16'),
-(20,'junmar','2024-05-16','2024-05-16'),
-(21,'junmar','2024-05-16','2024-05-16'),
-(22,'junmar','2024-05-16','2024-05-16'),
-(23,'junmar','2024-05-16','2024-05-16'),
-(24,'junmar','2024-05-16','2024-05-16'),
-(25,'junmar','2024-05-16','2024-05-16'),
-(26,'junmar','2024-05-16','2024-05-16'),
-(27,'junmar','2024-05-16','2024-05-16'),
-(28,'junmar','2024-05-16','2024-05-16'),
-(29,'junmar','2024-05-16','2024-05-16'),
-(30,'junmar','2024-05-16','2024-05-16'),
-(31,'junmar','2024-05-16','2024-05-16'),
-(32,'junmar','2024-05-16','2024-05-16'),
-(33,'junmar','2024-05-16','2024-05-16'),
-(34,'junmar','2024-05-16','2024-05-16'),
-(35,'junmar','2024-05-16','2024-05-16'),
-(36,'junmar','2024-05-16','2024-05-16'),
-(37,'junmar','2024-05-16','2024-05-16'),
-(38,'junmar','2024-05-16','2024-05-16'),
-(39,'junmar','2024-05-16','2024-05-16'),
-(40,'junmar','2024-05-16',NULL);
-
-/*Table structure for table `calendar_event_master` */
-
-DROP TABLE IF EXISTS `calendar_event_master`;
-
-CREATE TABLE `calendar_event_master` (
-  `event_id` int(11) NOT NULL AUTO_INCREMENT,
-  `event_name` varchar(255) DEFAULT NULL,
-  `event_start_date` date DEFAULT NULL,
-  `event_end_date` date DEFAULT NULL,
-  PRIMARY KEY (`event_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
-/*Data for the table `calendar_event_master` */
-
-insert  into `calendar_event_master`(`event_id`,`event_name`,`event_start_date`,`event_end_date`) values 
-(1,'party','2024-03-31','2024-04-01');
-
-/*Table structure for table `client_list` */
-
-DROP TABLE IF EXISTS `client_list`;
-
-CREATE TABLE `client_list` (
-  `client_id` int(11) NOT NULL AUTO_INCREMENT,
-  `company_name` varchar(255) NOT NULL,
-  `pdf` varchar(255) NOT NULL,
-  `last_contacted` varchar(255) NOT NULL,
-  `remark` varchar(255) NOT NULL,
-  `total_sales` varchar(255) NOT NULL,
-  PRIMARY KEY (`client_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-/*Data for the table `client_list` */
-
-insert  into `client_list`(`client_id`,`company_name`,`pdf`,`last_contacted`,`remark`,`total_sales`) values 
-(1,'zzz Company','002_PDF','11/2/2020','remarks2','50,000'),
-(2,'1235646','1324345','','246576',''),
-(3,'asdasd','asdasd','asdasd','asdsad','asdsadas');
-
-/*Table structure for table `clients` */
-
-DROP TABLE IF EXISTS `clients`;
-
-CREATE TABLE `clients` (
-  `client_ID` int(50) NOT NULL AUTO_INCREMENT,
-  `cName` varchar(255) DEFAULT NULL,
-  `cNum` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `company` varchar(255) DEFAULT NULL,
-  `deleted` int(50) DEFAULT NULL,
-  PRIMARY KEY (`client_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-/*Data for the table `clients` */
-
-insert  into `clients`(`client_ID`,`cName`,`cNum`,`email`,`company`,`deleted`) values 
-(1,'test','1234','test@gmail.com','testcompany',0),
-(2,'Asd','123456789','123@123.com','123company',1);
-
-/*Table structure for table `clogs` */
-
-DROP TABLE IF EXISTS `clogs`;
-
-CREATE TABLE `clogs` (
-  `clogs_ID` int(50) NOT NULL AUTO_INCREMENT,
-  `nCalled` varchar(255) DEFAULT NULL,
-  `pNum` varchar(255) DEFAULT NULL,
-  `datee` date DEFAULT NULL,
-  `tCall` varchar(255) DEFAULT NULL,
-  `lenCall` varchar(255) DEFAULT NULL,
-  `purpCall` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`clogs_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-/*Data for the table `clogs` */
-
-insert  into `clogs`(`clogs_ID`,`nCalled`,`pNum`,`datee`,`tCall`,`lenCall`,`purpCall`) values 
-(3,'Sir John','+63 9123123123','2024-03-12','8:30 AM','5:00 Minutes','natae raw siya'),
-(4,'Sir quibs','+63 9131223321','2024-03-13','6:30 AM','10:00 Minutes','nasan daw yung gamot');
-
-/*Table structure for table `contacts` */
-
-DROP TABLE IF EXISTS `contacts`;
-
-CREATE TABLE `contacts` (
-  `contacts_ID` int(50) NOT NULL AUTO_INCREMENT,
-  `fName` varchar(255) DEFAULT NULL,
-  `lName` varchar(255) DEFAULT NULL,
-  `cNum` int(50) DEFAULT NULL,
-  `eMail` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`contacts_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-/*Data for the table `contacts` */
-
-insert  into `contacts`(`contacts_ID`,`fName`,`lName`,`cNum`,`eMail`) values 
-(3,'rosem','rosario',99784545,'rosemarjunmar@yahoo.com'),
-(4,'rosemar','rosario',9687764,'Rosemarjunmar@yahoo.com'),
-(5,'Junnmar','Rosario',96764654,'JunmarRosario@yahoo.com'),
-(9,'nices','nice',986776465,'nicerosejunmar@yahoo.com'),
-(12,'John','Maathew',987776765,'mewmatthew@yahoo.com'),
-(13,'tuy','tuy',96746545,'yvesaballa@yahoo.com');
-
-/*Table structure for table `deal_list` */
-
-DROP TABLE IF EXISTS `deal_list`;
-
-CREATE TABLE `deal_list` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `deal_name` varchar(255) DEFAULT NULL,
-  `prospect_id` int(11) DEFAULT NULL,
-  `account_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-/*Data for the table `deal_list` */
-
-insert  into `deal_list`(`id`,`deal_name`,`prospect_id`,`account_id`) values 
-(1,'aaa',3,1),
-(2,'bbb',3,1),
-(3,'aaa',3,1),
-(4,'bbb',3,1);
-
-/*Table structure for table `deals` */
-
-DROP TABLE IF EXISTS `deals`;
-
-CREATE TABLE `deals` (
-  `dealID` int(50) NOT NULL AUTO_INCREMENT,
-  `dName` varchar(255) NOT NULL,
-  `dValue` int(50) NOT NULL,
-  `dStage` varchar(255) NOT NULL,
-  `datee` date DEFAULT NULL,
-  `contacts_ID` int(50) NOT NULL,
-  `isDeleted` int(50) NOT NULL,
-  `contacts` varchar(255) NOT NULL,
-  `orders` varchar(255) NOT NULL,
-  `client_ID` int(50) DEFAULT NULL,
-  PRIMARY KEY (`dealID`),
-  KEY `contacts_ID` (`contacts_ID`),
-  CONSTRAINT `deals_ibfk_1` FOREIGN KEY (`contacts_ID`) REFERENCES `contacts` (`contacts_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-/*Data for the table `deals` */
-
-insert  into `deals`(`dealID`,`dName`,`dValue`,`dStage`,`datee`,`contacts_ID`,`isDeleted`,`contacts`,`orders`,`client_ID`) values 
-(3,'CRM',100,'Negotation','2024-04-01',29,0,'21','cdo',1),
-(4,'sda',131,'Qualification',NULL,29,1,'22','cdo',2),
-(5,'asdaaaaaaa',132,'Qualified','2024-03-22',29,0,'23','cdo',1),
-(6,'adsa',123,'Qualification',NULL,29,0,'24','cdo',2),
-(7,'nice',1231,'New',NULL,29,0,'25','toyota',1),
-(8,'dsa',12,'New','1970-01-01',29,0,'26','cdo',2),
-(9,'asd',123,'New','1970-01-01',29,0,'27','cdo',1),
-(10,'CRMMM',100,'Existing','1970-01-01',30,0,'28','cdo',2),
-(11,'qeq',123,'New','2024-03-21',29,0,'29','cdo',1),
-(12,'xx',1232,'New','2024-03-21',29,0,'30','cdo',2),
-(13,'x1',1111,'Qualification','2024-03-22',29,0,'31','v',1),
-(14,'QWEQW',1231,'New','2024-03-21',29,0,'32','v',2),
-(15,'QEQWE',123,'New','2024-03-21',29,0,'33','v',1),
-(16,'LAST',44,'New','2024-03-21',29,0,'34','cdo',2),
-(17,'ngek',100,'Negotiation','2024-03-23',29,0,'35','cdo',1),
-(21,'sir',1231,'Negotiation','2024-03-22',29,0,'36','cdo',2),
-(23,'add',3424,'Negotiation','2024-03-23',29,0,'37','cdo',1),
-(25,'mark',12,'Qualified','2024-03-22',29,0,'38','cdo',2),
-(26,'sda',1231,'Qualified','2024-03-22',29,0,'39','cdo',1),
-(28,'iiii',123,'Qualified','2024-03-22',29,0,'40','cdo',2),
-(32,'asdas',123,'Qualified','2024-03-22',29,0,'41','cdo',1),
-(33,'opop',88,'Qualified','2024-03-22',29,0,'42','cdo',2),
-(36,'crmmmmmm',123333,'Negotiation','2024-03-22',31,0,'43','v',1),
-(37,'asddd',1222,'Negotiation','2024-03-23',31,0,'44','v',2),
-(38,'make',12344,'Negotiation','2024-03-23',31,0,'45','v',1),
-(39,'yyyy',889,'In - Negotiation','2024-03-29',30,0,'46','v',1),
-(53,'test',2,'Existing','2024-03-13',31,0,'2','wrench',1);
-
-/*Table structure for table `events` */
-
-DROP TABLE IF EXISTS `events`;
-
-CREATE TABLE `events` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(500) NOT NULL,
-  `description` varchar(500) NOT NULL,
-  `deleted` int(1) NOT NULL DEFAULT 0,
-  `start_date` date NOT NULL,
-  `end_date` date NOT NULL,
-  `created_on` date DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-/*Data for the table `events` */
-
-insert  into `events`(`id`,`title`,`description`,`deleted`,`start_date`,`end_date`,`created_on`) values 
-(1,'Title 1','This the Description of title 1',1,'2024-03-12','2024-03-14',NULL),
-(2,'sdkfj','ksdgjfskdf',1,'2024-03-12','2024-03-14',NULL),
-(3,'asdas','asdasdasd',1,'2024-03-13','2024-03-21',NULL),
-(4,'BLACK FRIDAY','Nigga',1,'2024-02-26','2024-03-22',NULL),
-(5,'Title 1cfdf','askdjgashdihi',1,'2024-03-22','2024-03-26',NULL),
-(6,'Event title 1123','Description of title event 1',1,'2024-03-22','2024-03-26',NULL),
-(7,'asdas','hdajsda',1,'2024-03-01','2024-03-23',NULL),
-(8,'asdasd','asdasd',1,'2024-03-01','2024-03-21',NULL);
+(1,'claude','2024-05-17','2024-05-17');
 
 /*Table structure for table `item_deals` */
 
@@ -349,7 +94,7 @@ CREATE TABLE `item_deals` (
   `prospect_id` int(11) NOT NULL,
   `account_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`item_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=203 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=223 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `item_deals` */
 
@@ -369,8 +114,24 @@ insert  into `item_deals`(`item_id`,`name`,`prospect_id`,`account_id`) values
 (196,'tv',36,NULL),
 (197,'window',36,NULL),
 (200,'chair',33,NULL),
-(201,'sdfg',37,1),
-(202,'sdfghjkl',37,1);
+(203,'chair',37,NULL),
+(204,'monitor',37,NULL),
+(207,'desk',4,NULL),
+(208,'aircon',34,NULL),
+(209,'monitor',38,1),
+(210,'mouse',38,1),
+(211,'lan cable',38,1),
+(212,'chair',40,1),
+(213,'aircon',40,1),
+(214,'monitor',40,1),
+(215,'chair',41,1),
+(216,'aircon',41,1),
+(217,'monitor',41,1),
+(218,'chair',41,1),
+(219,'aircon',41,1),
+(220,'monitor',41,1),
+(221,'chair',42,1),
+(222,'aircon',42,1);
 
 /*Table structure for table `new_prospect` */
 
@@ -390,18 +151,23 @@ CREATE TABLE `new_prospect` (
   `account_id` int(11) DEFAULT NULL,
   `stat_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`prospect_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `new_prospect` */
 
 insert  into `new_prospect`(`prospect_id`,`company_name`,`item_deals`,`status`,`remark`,`pdf`,`quotation`,`total_sales`,`last_contacted`,`date_added`,`account_id`,`stat_id`) values 
-(4,'ZZZ Company','deals2','PROSPECTING','Remarks3','','REYES_MART_ADRIAN RESUME.pdf','40000','2024-04-05 07:11:58','2024-04-20',1,2),
-(11,'ZZZ Company','deals2','Close Deals','Remarks3','google.com','REYES_MART_ADRIAN RESUME.pdf','20000','2024-04-11 21:45:52','2024-04-20',1,2),
-(33,'moralba2','','PRODUCT PRESENTATION','finished by the end of april','pdf','REYES_MART_ADRIAN RESUME.pdf','500000.00','2024-05-02 14:56:16','2024-05-01',1,2),
-(34,'ABC COMPANY','','SURVEY','','www.friendster.com','','200000000000000000000000000.00','2024-05-16 09:45:17','2024-05-01',1,2),
+(4,'ZZZ Company','','PROSPECTING','','','REYES_MART_ADRIAN RESUME.pdf','40000','2024-05-16 16:21:53','2024-04-20',1,2),
+(11,'ZZZ Company','deals2','Close Deals','Remarks3','google.com','REYES_MART_ADRIAN RESUME.pdf','20000','2024-04-11 21:45:52','2024-04-20',1,1),
+(33,'moralba2','','PRODUCT PRESENTATION','finished by the end of april','pdf','REYES_MART_ADRIAN RESUME.pdf','500000.00','2024-05-02 14:56:16','2024-05-01',1,1),
+(34,'ABC COMPANY','','SURVEY','','www.friendster.com','','1.00','2024-05-16 16:34:54','2024-05-01',1,1),
 (35,'Hytec Power Inc. (HPI)','','SURVEY','pagkain','www.facebook.com','','500000.00','2024-05-02 09:20:58','2024-05-01',1,1),
-(36,'SUPER MARKET COMPANY','','PROSPECTING','CRUSHES','www.facebook.com','','10.00','2024-05-02 09:31:59','2024-05-01',1,1),
-(37,'asdfg','','PROSPECTING','','junmar','','1.00','2024-05-14 09:57:14','2024-05-14',4,1);
+(36,'SUPER MARKET COMPANY','','PROSPECTING','CRUSHES','www.facebook.com','','10.00','2024-05-02 09:31:59','2024-05-01',1,3),
+(37,'BSU','','','','junmar','','1.00','2024-05-16 14:46:38','2024-05-14',4,2),
+(38,'Quezon City University','','PROSPECTING','','google.com','Upon Request','50000.00','2024-05-16 16:36:11','2024-05-16',1,2),
+(39,'CSTA','','PROSPECTING','','google.com','Upon Request','80000.00','2024-05-16 16:44:38','2024-05-16',1,1),
+(40,'CSTA','','PROSPECTING','','google.com','Upon Request','80000.00','2024-05-16 16:44:39','2024-05-16',1,1),
+(41,'CSTA','','PROSPECTING','','google.com','Upon Request','80000.00','2024-05-16 16:44:41','2024-05-16',1,1),
+(42,'QCU','','PROPOSAL','','google.com','Upon Request','90000.00','2024-05-16 16:47:46','2024-05-16',1,1);
 
 /*Table structure for table `remarks_history` */
 
@@ -412,18 +178,26 @@ CREATE TABLE `remarks_history` (
   `remarks_desc` varchar(255) DEFAULT NULL,
   `prospect_id` int(11) DEFAULT NULL,
   `date` datetime DEFAULT NULL,
+  `account_id` int(11) NOT NULL,
   PRIMARY KEY (`remarks_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `remarks_history` */
 
-insert  into `remarks_history`(`remarks_id`,`remarks_desc`,`prospect_id`,`date`) values 
-(1,'inumin',36,'2024-05-02 15:33:31'),
-(2,'presenting equipment to BSU',34,'2024-05-01 16:00:54'),
-(3,'to be presented tomorrow at bulacan',34,'2024-05-02 16:00:54'),
-(4,'water',35,'2024-05-07 13:45:16'),
-(5,'contact the prospect and present the equipment',36,'2024-05-07 14:33:18'),
-(6,'hehe',37,'2024-05-14 09:57:14');
+insert  into `remarks_history`(`remarks_id`,`remarks_desc`,`prospect_id`,`date`,`account_id`) values 
+(1,'meeting the client',36,'2024-05-02 15:33:31',0),
+(2,'presenting equipment to BSU',34,'2024-05-01 16:00:54',0),
+(3,'to be presented tomorrow at bulacan',34,'2024-05-02 16:00:54',0),
+(4,'product presentation',35,'2024-05-07 13:45:16',0),
+(5,'contact the prospect and present the equipment',36,'2024-05-07 14:33:18',0),
+(6,'contact the client',37,'2024-05-14 09:57:14',0),
+(7,'presenting deals in HPI',4,'2024-05-16 16:34:39',0),
+(8,'contact boss for confirmation',38,'2024-05-16 16:36:11',1),
+(9,'contact the client',40,'2024-05-16 16:44:38',1),
+(10,'contact the client',41,'2024-05-16 16:44:39',1),
+(11,'contact the client',41,'2024-05-16 16:44:41',1),
+(12,'contact the client',42,'2024-05-16 16:47:46',1),
+(13,'presentation',37,'2024-05-16 16:50:36',0);
 
 /*Table structure for table `schedule_list` */
 
@@ -435,25 +209,20 @@ CREATE TABLE `schedule_list` (
   `description` text NOT NULL,
   `start_datetime` datetime NOT NULL,
   `end_datetime` datetime DEFAULT NULL,
+  `employee_ID` int(50) DEFAULT NULL,
+  `comments` varchar(255) DEFAULT NULL,
+  `deleted` int(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `schedule_list` */
 
-insert  into `schedule_list`(`id`,`title`,`description`,`start_datetime`,`end_datetime`) values 
-(4,'party','caloocan north','2024-04-26 15:20:00','2024-04-27 15:20:00'),
-(5,'Trail blazer ','Meeting for NCR Clients','2024-04-25 08:23:00','2024-04-25 10:23:00'),
-(8,'makess','make','2024-05-13 10:35:00','2024-05-14 10:35:00'),
-(9,'title','title','2024-05-13 10:37:00','2024-05-13 10:37:00'),
-(10,'da','asd','2024-05-14 10:37:00','2024-05-16 10:37:00'),
-(14,'aa','aa','2024-05-13 10:42:00','2024-05-16 10:42:00'),
-(15,'aaaa','aa','2024-05-13 10:45:00','2024-05-14 10:45:00'),
-(16,'zzz','zzzz','2024-05-14 10:48:00','2024-05-14 10:48:00'),
-(17,'adasd','asdas','2024-05-13 10:50:00','2024-05-14 10:50:00'),
-(18,'aa','aab','2024-05-13 10:53:00','2024-05-14 10:53:00'),
-(19,'asdfg','asdfghj','2024-05-13 10:54:00','2024-05-14 10:54:00'),
-(20,'qwer','wert','2024-05-13 10:55:00','2024-05-14 10:55:00'),
-(22,'ertyui','dfghjkl','2024-05-13 11:19:00','2024-05-14 11:19:00');
+insert  into `schedule_list`(`id`,`title`,`description`,`start_datetime`,`end_datetime`,`employee_ID`,`comments`,`deleted`) values 
+(4,'party','caloocan north','2024-04-26 15:20:00','2024-04-27 15:20:00',0,'',0),
+(5,'Trail blazer ','Meeting for NCR Clients','2024-04-25 08:23:00','2024-04-25 10:23:00',1,'',0),
+(6,'title','desc','2024-05-07 14:14:00','2024-05-09 14:14:00',1,'asd',0),
+(7,'test2','test2','2024-05-07 14:36:00','2024-05-08 14:36:00',7,'',0),
+(8,'Schneider Presentation','Bring all the ojts','2024-05-05 21:34:00','2024-05-05 00:37:00',0,'',0);
 
 /*Table structure for table `status` */
 
@@ -519,7 +288,7 @@ DROP TABLE IF EXISTS `vw_newprospect`;
 /*!50001 DROP TABLE IF EXISTS `vw_newprospect` */;
 /*!50001 DROP VIEW IF EXISTS `vw_newprospect` */;
 
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`admin`@`%` SQL SECURITY DEFINER VIEW `vw_newprospect` AS select `crm`.`new_prospect`.`prospect_id` AS `prospect_id`,`crm`.`new_prospect`.`company_name` AS `company_name`,`crm`.`new_prospect`.`item_deals` AS `item_deals`,`crm`.`new_prospect`.`status` AS `status`,`crm`.`new_prospect`.`remark` AS `remark`,`crm`.`new_prospect`.`pdf` AS `pdf`,`crm`.`new_prospect`.`quotation` AS `quotation`,`crm`.`status_approval`.`stat_name` AS `stat_name` from (`new_prospect` join `status_approval` on(`crm`.`status_approval`.`stat_id` = `crm`.`new_prospect`.`stat_id`)) */;
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`admin`@`%` SQL SECURITY DEFINER VIEW `vw_newprospect` AS select `new_prospect`.`prospect_id` AS `prospect_id`,`new_prospect`.`company_name` AS `company_name`,`new_prospect`.`item_deals` AS `item_deals`,`new_prospect`.`status` AS `status`,`new_prospect`.`remark` AS `remark`,`new_prospect`.`pdf` AS `pdf`,`new_prospect`.`quotation` AS `quotation`,`status_approval`.`stat_name` AS `stat_name` from (`new_prospect` join `status_approval` on(`status_approval`.`stat_id` = `new_prospect`.`stat_id`)) */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
