@@ -27,6 +27,15 @@
     background-color: rgba(231, 41, 41, 0.9);
     color: #ffffff;
   }
+  .btn-custom-remarks {
+    background-color: rgb(51, 51, 51);
+    color: #ffffff; 
+  }
+
+  .btn-custom-remarks:hover {
+    background-color: rgba(51, 51, 51, 0.9);
+    color: #ffffff;
+  }
 
   .btn .btn-custom-view .btn-rounded{
     size: 400px;

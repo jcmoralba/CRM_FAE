@@ -175,12 +175,11 @@
                   Delete
                 </button> -->
 
-                <button style="margin: 5px;" type="button" class="btn btn-custom-view btn-rounded" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#remarks_prospect<?php echo $row['prospect_id']; ?>">
-  <div class="d-flex align-items-center">
-    <i class="fas fa-eye me-2"></i>
-    <div>Remarks</div>
-  </div>
-</button>
+
+<button style="margin: 5px;" type="button" class="btn btn-custom-remarks btn-rounded" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#remarks_prospect<?php echo $row['prospect_id']; ?>">
+                  <i class="fas fa-eye me-2"></i>
+                  Add Remarks
+                </button>
 
               </td>
             </tr>

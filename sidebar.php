@@ -19,8 +19,8 @@ require_once("includes/connect.php");
     <ul>
     <li>
           <a class="navbar-brand" href="">
-          <img src="img/hytecpower1.png" width="70px" height="auto" class="d-inline-block" alt="">
-            <span class="title">Hytec Power Inc</span>
+          <img src="img/hytecpower1.png" width="80px" height="auto" class="d-inline-block img-fluid me-1 ms-2"  alt="">
+            <span class="title fw-bold">Hytec Power Inc</span>
           </a>
         </li>
       </li>
@@ -61,11 +61,30 @@ require_once("includes/connect.php");
           <span class="title">Itenerary</span>
         </a>
       </li>
+
+      <button onClick>
+
+      </button>
      
     </ul>
   </div>
   <?php include 'navbar.php'; ?>
   <script src="js/main.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+  const lis = document.querySelectorAll('.navigation ul li');
+
+  lis.forEach(li => {
+    li.addEventListener('click', function() {
+      // Remove active class from all lis
+      lis.forEach(item => item.classList.remove('active'));
+      // Add active class to the clicked li
+      this.classList.add('active');
+    });
+  });
+});
+
+</script>
 
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

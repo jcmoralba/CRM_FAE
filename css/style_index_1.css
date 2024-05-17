@@ -30,7 +30,7 @@ body {
 /* =============== Navigation ================ */
 .navigation {
   position: fixed;
-  width: 300px;
+  width: 250px;
   height: 100%;
   background: var(--red);
   border-left: 0px solid var(--red);
@@ -75,6 +75,7 @@ body {
   text-decoration: none;
   color: var(--white);
 }
+
 .navigation ul li:hover a,
 .navigation ul li.hovered a {
   color: var(--red);
@@ -101,6 +102,12 @@ body {
   text-align: start;
   white-space: nowrap;
 }
+
+.navigation ul li.active {
+  background-color: var(--white);
+  color: var(--red);
+}
+
 
 /* --------- curve outside ---------- */
 .navigation ul li:hover a::before,
@@ -130,11 +137,12 @@ body {
   pointer-events: none;
 }
 
+
 /* ===================== Main ===================== */
 .main {
   position: absolute;
-  width: calc(100% - 300px);
-  left: 300px;
+  width: calc(100% - 250px);
+  left: 250px;
   min-height: 100vh;
   background: var(--white);
   transition: 0.5s;

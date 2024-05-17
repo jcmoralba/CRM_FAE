@@ -43,7 +43,7 @@
                     _details.find('#description').text(scheds[id].description)
                     _details.find('#start').text(scheds[id].sdate)
                     _details.find('#end').text(scheds[id].edate)
-                    _details.find('#edit,#delete').attr('data-id', id)
+                    _details.find('#edit,#delete,#asDone').attr('data-id', id)
                     _details.modal('show')
                 } else {
                     alert("Event is undefined");
@@ -120,6 +120,20 @@
                 $('#confirmationModal').modal('show');
                 $('#confirmDelete').click(function() {
                     location.href = "./event-calendar-delete.php?id=" + id;
+                });
+            } else {
+                alert("Event is undefined");
+            }
+        });
+
+
+        $('#asDone').click(function() {
+            var id = $(this).attr('data-id');
+            if (!!scheds[id]) {
+                $('#event-details-modal').modal('hide')
+                $('#confirm').modal('show');
+                $('#markAsDone').click(function() {
+                    location.href = "./event-calendar-done.php?id=" + id;
                 });
             } else {
                 alert("Event is undefined");

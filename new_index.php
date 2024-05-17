@@ -117,8 +117,8 @@
     <div class="card">
       <a href="new_prospect.php">
       <div>
-        <div class="numbers"><?php echo $formattedTotalSum; ?></div>
-        <div class="cardName">Expected Sales</div>
+        <div class="numbers"><?php echo "₱" . $formattedTotalSum; ?></div>
+        <div class="cardName">Gross Sales</div>
       </div>
 
       <div class="iconBx">
@@ -143,7 +143,7 @@
     <div class="card">
       <a href="client_list.php">
       <div>
-        <div class="numbers"><?php echo $formattedEarnings; ?></div>
+        <div class="numbers"><?php echo "₱" . $formattedEarnings; ?></div>
         <div class="cardName">Total Earning</div>
       </div>
 
@@ -168,108 +168,109 @@
       } else {
         $sales[$date]++;
       }
+      }
     }
-  }
-?>
+  ?>
 
+<div id="chart-container" style="display: flex; justify-content: space-between; ">
+  <div id="area-chart" style="width: 50%; box-shadow: 0px 0px 84px 0px rgba(0,0,0,0.1); margin: 20px 10px 20px 30px; border-radius: 15px;"></div>
+  <div id="pie-chart-container" style="width: 50%; box-shadow: 0px 0px 84px 0px rgba(0,0,0,0.1); margin: 20px 30px 20px 10px; display: grid; place-items: center; border-radius: 15px;">
+  <div id="pie-chart"></div>
+</div>
 
-<div id="area-chart"></div>
-<div id="pie-chart"></div>
+</div>
 
-<script>
-  // Area Chart
-  var salesData = <?php echo json_encode($sales); ?>;
+  <script>
+    // Area Chart
+    var salesData = <?php echo json_encode($sales); ?>;
 
-  var dates = Object.keys(salesData);
-  var counts = Object.values(salesData);
-  
-  var maxCount = Math.max(...counts);
+    var dates = Object.keys(salesData);
+    var counts = Object.values(salesData);
+    
+    var maxCount = Math.max(...counts);
 
-  var formattedDates = dates.map(function(date) {
-    var d = new Date(date);
-    var options = { year: 'numeric', month: 'long', day: 'numeric' };
-    return d.toLocaleDateString('en-US', options);
-  });
+    var formattedDates = dates.map(function(date) {
+      var d = new Date(date);
+      var options = { year: 'numeric', month: 'long', day: 'numeric' };
+      return d.toLocaleDateString('en-US', options);
+    });
 
-  var areaOptions = {
-    chart: {
-      type: 'area',
-      height: '400px',
-      width: '100%'
-    },
-    series: [{
-      name: 'Added Prospect',
-      data: counts
-    }],
-    xaxis: {
-      categories: formattedDates
-    },
-    yaxis: {
-      min: 1,
-      max: maxCount,
-      forceNiceScale: true
-    },
-    stroke: {
-      curve: 'smooth',
-    },
-    fill: {
-      type: "gradient",
-      gradient: {
-        shadeIntensity: 1,
-        opacityFrom: 0.7,
-        opacityTo: 0.9,
-        stops: [0, 90, 100]
-      }
-    },
-  };
-
-  var areaChart = new ApexCharts(document.querySelector("#area-chart"), areaOptions);
-  areaChart.render();
-</script>
-
-
-
-<?php
-  $quota = 100000; // dapat nababago to
-  $sql = "SELECT SUM(total_sales) AS total_sum FROM new_prospect";
-  $result = $con->query($sql);
-  if ($result->rowCount() > 0) {
-    $row = $result->fetch(PDO::FETCH_ASSOC);
-    $totalSum = $row['total_sum'];
-    $remainingQuota = $quota - $totalSum;
-  }
-?>
-
-
-
-
-
-<script>
-  // Pie Chart
-  var pieOptions = {
-    chart: {
-      type: 'pie',
-      height: '400px',
-      width: '500px'
-    },
-    series: [<?php echo $totalSum; ?>, <?php echo $remainingQuota; ?>], 
-    labels: ['Total Sales', 'Remaining Quota'], 
-    responsive: [{
-      breakpoint: 480,
-      options: {
-        chart: {
-          width: 200
-        },
-        legend: {
-          position: 'bottom'
+    var areaOptions = {
+      chart: {
+        type: 'area',
+        height: '400px',
+        width: '100%'
+      },
+      series: [{
+        name: 'Added Prospect',
+        data: counts
+      }],
+      xaxis: {
+        categories: formattedDates
+      },
+      yaxis: {
+        min: 1,
+        max: maxCount,
+        forceNiceScale: true
+      },
+      stroke: {
+        curve: 'smooth',
+      },
+      fill: {
+        type: "gradient",
+        gradient: {
+          shadeIntensity: 1,
+          opacityFrom: 0.7,
+          opacityTo: 0.9,
+          stops: [0, 90, 100]
         }
-      }
-    }]
-  };
+      },
+    };
 
-  var pieChart = new ApexCharts(document.querySelector("#pie-chart"), pieOptions);
-  pieChart.render();
-</script>
+    var areaChart = new ApexCharts(document.querySelector("#area-chart"), areaOptions);
+    areaChart.render();
+  </script>
+
+
+
+  <?php
+    $quota = 100000; // dapat nababago to
+    $sql = "SELECT SUM(total_sales) AS total_sum FROM new_prospect";
+    $result = $con->query($sql);
+    if ($result->rowCount() > 0) {
+      $row = $result->fetch(PDO::FETCH_ASSOC);
+      $totalSum = $row['total_sum'];
+      $remainingQuota = $quota - $totalSum;
+    }
+  ?>
+
+
+  <script>
+    // Pie Chart
+    var pieOptions = {
+      chart: {
+        type: 'pie',
+        height: '400px',
+        width: '500px'
+      },
+      series: [<?php echo $totalSum; ?>, <?php echo $remainingQuota; ?>], 
+      labels: ['Total Sales', 'Remaining Quota'], 
+      responsive: [{
+        breakpoint: 480,
+        options: {
+          chart: {
+            width: 200
+          },
+          legend: {
+            position: 'bottom'
+          }
+        }
+      }]
+    };
+
+    var pieChart = new ApexCharts(document.querySelector("#pie-chart"), pieOptions);
+    pieChart.render();
+  </script>
 
 
 
