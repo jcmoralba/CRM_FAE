@@ -8,6 +8,7 @@
 </head>
 
 <body>
+
   <!-- update modal -->
   <div class="modal fade" id="edit-prospect<?php echo $row['prospect_id']; ?>" data-mdb-backdrop="static" data-mdb-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -48,7 +49,7 @@
                 <!-- <button type="button" name="updatedeals" class="btn btn-primary">Edit</button> -->
               </div>
 
-              <div id="edit_deals"  class="form-group">
+              <div id="edit_deals">
 
                 <?php
 
@@ -61,15 +62,17 @@
                   $num = $num + 1;
                 ?>
 
-                    <input type="text" class="form-control mb-2" id="z<?php echo $num ?>" name="name[]" placeholder="" value="<?php echo $row3['name'] ?>">
+                  <div class="form-floating mb-3" style="margin: 5px;">
+                    <input type="text" class="form-control" id="z<?php echo $num ?>" name="name[]" placeholder="" value="<?php echo $row3['name'] ?>">
                     <!-- <label for="z<?php echo $num ?>">deal  <?php echo $num ?>:</label> -->
+                  </div>
 
                 <?php } ?>
 
               </div>
 
               <!-- Modal Body -->
-            
+              <div class="modal-body">
 
                 <div id="inputsContainer<?php echo $row['prospect_id']; ?>" class="form-group">
                   <!-- Initial input field -->
@@ -78,7 +81,7 @@
                 <button type="button" class="btn btn-primary" onclick="addInput(<?php echo $row['prospect_id']; ?>)">Add more deals</button>
                 <!-- <button type="submit" class="btn btn-success" name="submit">Submit</button> -->
 
-           
+              </div>
               <script>
                 function addInput(prospectId) {
                   var container = document.getElementById('inputsContainer' + prospectId);
@@ -230,7 +233,7 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Add Remarks</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Remarks</h5>
           <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">

@@ -27,3 +27,7 @@
     background-color: rgba(231, 41, 41, 0.9);
     color: #ffffff;
   }
+
+  .btn .btn-custom-view .btn-rounded{
+    size: 400px;
+  }
