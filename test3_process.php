@@ -50,6 +50,19 @@ if (isset($_POST["submit1"])) {
     file_put_contents($file_path, "");
     $file = fopen($file_path, "a");
 
+   if ($model_id == "") {
+    $model_id = "N/A";
+   }
+   if ($item_name == "") {
+    $item_name = "N/A";
+   }
+   if ($desc == "") {
+    $desc = "N/A";
+   }
+   if ($specs == "") {
+    $specs = "N/A";
+   }
+
     // Write input data to the file
     fwrite(
         $file,
