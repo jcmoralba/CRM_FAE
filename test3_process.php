@@ -36,17 +36,17 @@ if (isset($_POST["submit1"])) {
     $desc = str_replace("? ", '', $desc);
     $desc = str_replace(" ?", '', $desc);
     $desc = str_replace("?", '', $desc);
-    $txt_name =  preg_replace('~[\\\\/:*?"<>|]~', ' ', $item_name);
+    $txt_name =  preg_replace('~[\\\\/:*?"<>|]~', ' ', $model_id);
 
 
     //COUNTER
     $counterMap = []
 
     //COUNTER
-    if (array_key_exists($item_name, $counterMap)) {
-        $counterMap[$item_name]++;
+    if (array_key_exists($model_id, $counterMap)) {
+        $counterMap[$model_id]++;
     } else {
-        $counterMap[$item_name] = 1;
+        $counterMap[$model_id] = 1;
     }
     
 
@@ -56,7 +56,7 @@ if (isset($_POST["submit1"])) {
     // Define the file path
     //  $file_path = "saved_data.txt";
     $txt_name = trim($txt_name);
-    $file_path = "data/". ($counterMap[$item_name] > 1? $txt_name. $counterMap[$item_name]. ".txt" : $txt_name. ".txt");
+    $file_path = "data/". ($counterMap[$model_id] > 1? $txt_name. $counterMap[$model_id]. ".txt" : $txt_name. ".txt");
     //C:\Users\jc\Documents\
     // Open the file in append mode
     file_put_contents($file_path, "");
