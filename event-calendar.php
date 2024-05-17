@@ -71,7 +71,7 @@ include 'sidebar.php';
         </div>
         <div class="col-md-6 text-md-end">
             <!-- Button aligned to the right side -->
-            <button type="button" class="btn btn-primary mt-5 me-2" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#staticBackdrop">
+            <button type="button" class="btn btn-success btn-rounded mt-5 me-2" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#staticBackdrop">
             <i class="fas fa-calendar me-2"></i>  
             Add Event
             </button>
@@ -137,8 +137,9 @@ include 'sidebar.php';
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal"><i class='bx bxs-x-circle me-2' ></i>Close</button>
-        <button type="submit" class="btn btn-primary" form="schedule-form"><i class='bx bxs-save me-2'></i>Save</button>
+      <button type="submit" class="btn btn-success btn-rounded " form="schedule-form"><i class='bx bxs-save me-2'></i>Save</button>  
+      <button type="button" class="btn btn-danger btn-rounded" data-mdb-ripple-init data-mdb-dismiss="modal"><i class='bx bxs-x-circle me-2' ></i>Close</button>
+        
       </div>
     </div>
   </div>
@@ -173,8 +174,9 @@ include 'sidebar.php';
             <input type="datetime-local" class="form-control" id="editEventEndDateTime" name="end_datetime">
           </div>
           <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal"> <i class='bx bxs-x-circle me-2'></i>Close</button>
-            <button type="submit" class="btn btn-primary"> <i class='bx bxs-save me-2' ></i>Save Changes</button>
+          <button type="submit" class="btn btn-success btn-rounded"> <i class='bx bxs-save me-2' ></i>Save Changes</button>
+          <button type="button" class="btn btn-danger btn-rounded" data-mdb-ripple-init data-mdb-dismiss="modal"> <i class='bx bxs-x-circle me-2'></i>Close</button>
+            
           </div>
         </form>
       </div>
@@ -196,7 +198,7 @@ include 'sidebar.php';
       </div>
       <div class="modal-footer">
       <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal"> <i class='bx bxs-x-circle me-2'></i>Close</button>
-        <button type="button" class="btn btn-danger" id="confirmDelete"> <i class='bx bxs-trash me-2'></i>Delete</button>
+        <button type="button" class="btn btn-danger" id="confirmDelete"> <i class='bx bxs-trash me-2'></i>Remove</button>
       </div>
     </div>
   </div>
@@ -221,8 +223,8 @@ include 'sidebar.php';
       </div>
       <div class="modal-body">Are you sure you want to label mark as done youre event?</div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" data-mdb-ripple-init>Yes</button>
+      <button type="button" class="btn btn-success" data-mdb-ripple-init>Done</button>  
+      <button type="button" class="btn btn-danger" data-mdb-ripple-init data-mdb-dismiss="modal"><i class='bx bxs-x-circle me-2'></i> Close</button>
       </div>
     </div>
   </div>
@@ -255,15 +257,16 @@ include 'sidebar.php';
                             <dd id="start" class=""></dd>
                             <dt class="text-muted">End</dt>
                             <dd id="end" class=""></dd>
-                            <button type="button" class="btn btn-primary mt-2 mb-2" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#confirm"><i class="far fa-calendar-check me-2"></i>Mark as done</button>
+                            <button type="button" class="btn btn-success mt-2 mb-2" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#confirm"><i class="far fa-calendar-check me-2"></i>Mark as done</button>
                         </dl>
                     </div>
                 </div>
                 <div class="modal-footer rounded-0">
                     <div class="text-end">
-                        <button type="button" class="btn btn-primary" id="edit" data-id=""> <i class='bx bxs-pencil me-2'></i>Edit</button>
-                        <button type="button" class="btn btn-danger" id="delete" data-id=""> <i class='bx bxs-trash me-2'></i>Delete</button>
-                        <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal"><i class='bx bxs-x-circle me-2' ></i>Close</button>
+                    <button type="button" class="btn btn-primary btn-rounded" id="edit" data-id=""> <i class='bx bxs-pencil me-2'></i>Edit</button>
+
+                        <button type="button" class="btn btn-danger btn-rounded" id="delete" data-id=""> <i class='bx bxs-trash me-2'></i>Remove</button>
+                        <button type="button" class="btn btn-secondary btn-rounded" data-mdb-ripple-init data-mdb-dismiss="modal"><i class='bx bxs-x-circle me-2' ></i>Close</button>
                     </div>
                 </div>
             </div>

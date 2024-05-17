@@ -176,9 +176,12 @@
                 </button> -->
 
                 <button style="margin: 5px;" type="button" class="btn btn-custom-view btn-rounded" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#remarks_prospect<?php echo $row['prospect_id']; ?>">
-                  <i class="fas fa-eye me-2"></i>
-                  Add Remarks
-                </button>
+  <div class="d-flex align-items-center">
+    <i class="fas fa-eye me-2"></i>
+    <div>Remarks</div>
+  </div>
+</button>
+
               </td>
             </tr>
           <?php
@@ -508,35 +511,45 @@
             $data1 = $stmt1->fetchAll();
             ?>
             <div class="form-floating mb-3">
-              <div class="col-md">
-                <div class="form-floating">
-                  <select class="form-select" id="status" name="status" aria-label="Floating label select example">
-                    <option selected>Select Status</option>
-                    <?php foreach ($data1 as $row1) { ?>
-                      <option value="<?= htmlspecialchars($row1['status_name']) ?>"><?= htmlspecialchars($row1['status_name']) ?></option>
-                    <?php } ?>
-                  </select>
-                  <label for="status">Sale Cycle</label>
-                </div>
-              </div>
-            </div>
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control textInput" id="total_sales" name="total_sales" placeholder="Total Sale" id="currency-field" pattern="^\₱\d{1,3}(,\d{3})*(\.\d+)?₱" value="" data-type="currency">
-              <label for="total_sales">Total Sale</label>
-            </div>
-            <div class="form-floating mb-3">
-              <input type="input" class="form-control" id="remark" name="remark" placeholder="Remarks">
-              <label for="form-control">Remarks</label>
-            </div>
-            <div class="form-floating mb-3">
-              <input type="input" class="form-control" id="pdf" name="pdf" placeholder="Remarks">
-              <label for="pdf">PDF Link</label>
-            </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal"> <i class='bx bxs-x-circle me-2'></i>Close</button>
-          <button type="submit" name="savedata" id="savedata" onclick="add_deals();" class="btn btn-primary" data-mdb-ripple-init disabled> <i class='bx bxs-save me-2'></i>Save Prospect</button>
-        </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-floating">
+        <select class="form-select" id="status" name="status" aria-label="Floating label select example">
+          <option selected>Select Status</option>
+          <?php foreach ($data1 as $row1) { ?>
+            <option value="<?= htmlspecialchars($row1['status_name']) ?>"><?= htmlspecialchars($row1['status_name']) ?></option>
+          <?php } ?>
+        </select>
+        <label for="status">Sale Cycle</label>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control textInput" id="total_sales" name="total_sales" placeholder="Total Sale" id="currency-field" pattern="^\₱\d{1,3}(,\d{3})*(\.\d+)?₱" value="" data-type="currency">
+        <label for="total_sales">Total Sale</label>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-floating mb-3">
+        <input type="input" class="form-control" id="remark" name="remark" placeholder="Remarks">
+        <label for="form-control">Remarks</label>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-floating mb-3">
+        <input type="input" class="form-control" id="pdf" name="pdf" placeholder="PDF Link">
+        <label for="pdf">PDF Link</label>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal"> <i class='bx bxs-x-circle me-2'></i>Close</button>
+  <button type="submit" name="savedata" id="savedata" onclick="add_deals();" class="btn btn-primary" data-mdb-ripple-init disabled> <i class='bx bxs-save me-2'></i>Save Prospect</button>
+</div>
+
         </form>
       </div>
     </div>

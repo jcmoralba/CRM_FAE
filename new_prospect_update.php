@@ -183,35 +183,47 @@
 
   <!-- view modal -->
   <div class="modal fade" id="view_prospect<?php echo $row['prospect_id']; ?>" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">View Prospect</h5>
-          <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form action="new_prospect_process.php" method="POST">
-            <input type="hidden" class="form-control" id="prospect_id" name="prospect_id" value="<?php echo $row['prospect_id']; ?>">
-            <div>
-              <p>Company Name: <?php echo $row['company_name']; ?></p>
-              <p>Item Deals: <?php echo $row['item_deals']; ?></p>
-              <p>Status: <?php echo $row['status']; ?></p>
-              <p>Total Sales: <?php echo $row['total_sales']; ?></p>
-              <p>PDF Link: <?php echo "<u><a href='{$row['pdf']}' target='_blank'>LINK</a></u>"; ?></p>
-<iframe width="400" height="300" src="<?php echo $row['quotation']; $pdf_data = $row['quotation']; ?>" frameborder="0"></iframe>
-
-<iframe src="data:application/pdf;base64,<?php echo base64_encode($pdf_data); ?>" width="100%" height="600px"></iframe>
-
-
-<iframe id="quotationViewer" style="width: 100%; height: 500px;" frameborder="0"></iframe>
+  <div class="modal-dialog modal-dialog-centered modal-lg"> <!-- Added modal-lg for larger modal -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Prospect Details</h5>
+        <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="new_prospect_process.php" method="POST">
+          <input type="hidden" class="form-control" id="prospect_id" name="prospect_id" value="<?php echo $row['prospect_id']; ?>">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <p><strong>Company Name:</strong> <?php echo $row['company_name']; ?></p>
+              </div>
+              <div class="col-md-6">
+                <p><strong>Item Deals:</strong> <?php echo $row['item_deals']; ?></p>
+              </div>
             </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
-        </div>
+            <div class="row">
+              <div class="col-md-6">
+                <p><strong>Status:</strong> <?php echo $row['status']; ?></p>
+              </div>
+              <div class="col-md-6">
+                <p><strong>Total Sales:</strong> <?php echo $row['total_sales']; ?></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <p><strong>PDF Link:</strong> <?php echo "<u><a href='{$row['pdf']}' target='_blank'>LINK</a></u>"; ?></p>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
+</div>
+
 
   <!-- add remarks modal -->
   <div class="modal fade" id="remarks_prospect<?php echo $row['prospect_id']; ?>" tabindex="-1" data-mdb-backdrop="static" aria-hidden="true">

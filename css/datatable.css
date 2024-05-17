@@ -3,3 +3,8 @@
   margin-bottom: 10px;
 }
 
+
+.btn.btn-rounded{
+  background-color: rgb(105, 105, 217);
+  color: white;
+}
