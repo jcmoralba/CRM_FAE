@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 use function PHPSTORM_META\sql_injection_subst;
 
 require_once("includes/connect.php");
@@ -92,13 +92,15 @@ if (isset($_POST["add_remarks"])) {
     $prospect_id12 = $_POST['prospect_id1'];
     $remarks = $_POST['remarks'];
     $date = date("Y-m-d H:i:s");
+    $user_id = $_SESSION["user_id"];
 
-    $sql = "INSERT INTO `remarks_history`(`remarks_desc`, `prospect_id`, `date`) VALUES ('$remarks','$prospect_id12','$date')";
+    $sql = "INSERT INTO `remarks_history`(`remarks_desc`, `prospect_id`, `date`, `account_id`) VALUES ('$remarks','$prospect_id12','$date','$user_id')";
     // $data=array($name,$address,$number);
     $stmt = $con->prepare($sql);
     $stmt->execute();
 
     echo "test: " . $prospect_id12;
+//  echo "id: " .;
     header("Location: new_prospect.php?updated=success");
     exit();
 }

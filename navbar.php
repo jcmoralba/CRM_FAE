@@ -38,20 +38,35 @@
       <div class="notification-profile-container">
         <!-- Notification Dropdown -->
         <div class="dropdown">
+          
           <a data-mdb-dropdown-init class="text-reset me-3 dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button" aria-expanded="false">
             <i class="fas fa-bell"></i>
-            <span class="badge rounded-pill badge-notification bg-danger">1</span>
+            <?php
+          $sql100 = "SELECT COUNT(id) AS id FROM notif_fae ";
+          $stmt100 = $con->prepare($sql100);
+          $stmt100->execute();
+          while ($row100 = $stmt100->fetch()) {
+          ?>
+            <span class="badge rounded-pill badge-notification bg-danger"><?php echo $row100['id'] ?></span>
+            <?php } ?>
           </a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+          <?php
+          $sql99 = "SELECT * FROM notif_fae ";
+          $stmt99 = $con->prepare($sql99);
+          $stmt99->execute();
+          while ($row99 = $stmt99->fetch()) {
+          ?>
             <li>
-              <a class="dropdown-item" href="#">Some news</a>
+              <a class="dropdown-item" href="new_prospect.php"><?php echo $row99['details'] ?></a>
             </li>
-            <li>
+            <!-- <li>
               <a class="dropdown-item" href="#">Another news</a>
             </li>
             <li>
               <a class="dropdown-item" href="#">Something else here</a>
-            </li>
+            </li> -->
+            <?php } ?>
           </ul>
         </div>
 
