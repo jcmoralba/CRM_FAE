@@ -269,16 +269,17 @@
             <!-- <p>Remarks History:</p> -->
 
             <?php
-            $sql4 = "SELECT `remarks_id`, `remarks_desc`, `prospect_id`, account_id, user_type, fname, DATE_FORMAT(`date`, '%M %d, %Y - %r') AS `date` FROM `vw_remarks` WHERE `prospect_id`='{$row['prospect_id']}'";
+            $sql4 = "SELECT `remarks_id`, `remarks_desc`, `prospect_id`, account_id, user_type, fname, lname, DATE_FORMAT(`date`, '%M %d, %Y - %h:%i %p') AS `date` FROM `vw_remarks` WHERE `prospect_id`='{$row['prospect_id']}'";
             $stmt4 = $con->prepare($sql4);
             $stmt4->execute();
             $data4 = $stmt4->fetchAll();       
             ?>
+           
             <?php foreach ($data4 as $row4) { ?>
               <div style="border: 1px solid white; border-radius:10px; margin:5px; padding:10px; background-color:#f1f1f1;" id="border">
-             
-                <h4> <?php echo $row4['remarks_desc']; ?> </h4>
-                <p> <?php echo $row4['date']; ?> - <?php echo $row4['user_type'] .": " . $row4['fname'] ?></p>
+             <p>  <b><?php echo $row4['fname'] . " " . $row4['lname'] . "</b> <span style='color: #0064d1; padding:2px; border-radius:5px; background-color:white;'>  {$row4['user_type']} </span>" ?></p>
+                <h6> <?php echo $row4['remarks_desc']; ?> </h4>
+                <p> <?php echo $row4['date']; ?> </p>
               </div>
             <?php } ?>
 

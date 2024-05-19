@@ -37,15 +37,15 @@ CREATE TABLE `account` (
 /*Data for the table `account` */
 
 insert  into `account`(`account_id`,`user_type`,`user`,`pass`,`fname`,`lname`,`mname`,`email`,`department`,`number`) values 
-(1,'FAE','jc','moralba','claude','','','jcmoralba@gmail.com','',0),
+(1,'FAE','jc','moralba','claude','moralba','','jcmoralba@gmail.com','',0),
 (4,'IT','','junmar','junmar','rosario','test','junmarpogi@gmail.com','FAE',91232312),
-(5,'FAE','','1234','jaspher','wadadaw','','test@gmail.com','FAE',9823423),
-(6,'IT','','123','ferry','asd','','qwecqwe2@yahoo.com','FAE',3123123),
-(7,'FAE','','123123','sirjohn','123','','qwecqwe2@yahoo.com','qwe',12123123),
-(8,'FAE','','1234','spencer','Rosario','','qwe@yahoo.com','FAE',9823423),
-(9,'IT','','1234','yves','Rosario','','qwe@yahoo.com','FAE',9823423),
-(10,'IT','','junmar','adrian','Rosario','','junmar@gmail.com','IT',2147483647),
-(11,'IT','','123456789','Mark','Doblon','','markdoblon946@gmail.com','IT',2147483647);
+(5,'FAE','','1234','jaspher','tanghal','','jaspher@gmail.com','FAE',9823423),
+(6,'IT','','1234','ferry','ruedas','','ferry@gmail.com','FAE',3123123),
+(7,'FAE','','1234','sirjohn','quibol','','sirjohn@gmail.com','qwe',12123123),
+(8,'FAE','','1234','spencer','samar','','spencer@gmail.com','FAE',9823423),
+(9,'IT','','1234','yves','surname','','yves@gmail.com','FAE',9823423),
+(10,'IT','','1234','adrian','reyes','','adrian@gmail.com','IT',2147483647),
+(11,'IT','','1234','Mark','Doblon','','markdoblon946@gmail.com','IT',2147483647);
 
 /*Table structure for table `admini` */
 
