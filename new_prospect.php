@@ -228,10 +228,12 @@
             <th class="text-white">STATUS</th>
             <th class="text-white">REMARKS</th>
             <th class="text-white">PDF LINK</th>
+            <th class="text-white">QUOTATION</th>
             <th class="text-white">ACTION</th>
           </tr>
         </thead>
         <tbody>
+
           <?php
           $sql = "SELECT * FROM new_prospect WHERE `status` != 'Close Deals' AND `stat_id`='1'";
           $stmt = $con->prepare($sql);
@@ -253,7 +255,7 @@
 
                 ?>
                   <!-- <?php echo $row['item_deals']; ?> -->
-                  <span class="badge bg-secondary" style="margin: 5px;">
+                  <span class="badge " style="margin: 5px; color:white;background-color: rgb(60,91,111);">
                     <?php echo $row2['name']; ?>
                   </span>
                 <?php } ?>
@@ -263,8 +265,30 @@
 
                 <?php echo $row['status']; ?>
               </td>
-              <td>
-                <?php echo $row['remark']; ?>
+              <td data-mdb-riple-init data-mdb-modal-init data-mdb-target="#remarks_history<?php echo $row['prospect_id']; ?>">
+                <!-- remarks history -->
+                <?php
+                $sql6 = "SELECT MAX(remarks_id) AS `max_remarks` FROM remarks_history WHERE `prospect_id`='$prospect_id'";
+                $stmt6 = $con->prepare($sql6);
+                $stmt6->execute();
+                while ($row6 = $stmt6->fetch()) {
+                  $max_remarks =  $row6['max_remarks'];
+                  $max_remarks =  $row6['max_remarks'];
+                }
+                ?>
+
+                <?php
+                $sql5 = "SELECT MAX(remarks_id), remarks_desc, DATE_FORMAT(`date`, '%M %d, %Y - %r') AS `date` FROM remarks_history WHERE `prospect_id`='$prospect_id' AND `remarks_id`='$max_remarks'";
+                $stmt5 = $con->prepare($sql5);
+                $stmt5->execute();
+                while ($row5 = $stmt5->fetch()) {
+                  echo $row5['remarks_desc'];
+              
+                }
+                ?>
+
+
+
               </td>
               <td>
                 <?php
@@ -276,7 +300,9 @@
 
                 ?>
               </td>
-
+              <td>
+                <?php echo $row['quotation']; ?>
+              </td>
               <td>
                 <button style="margin: 5px;" type="button" class="btn btn-custom-view btn-rounded" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#view_prospect<?php echo $row['prospect_id']; ?>">
                   <i class="fas fa-eye me-2"></i>
@@ -293,10 +319,11 @@
                 </button> -->
 
 
-                <!-- <button style="margin: 5px;" type="button" class="btn btn-custom-view btn-rounded" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#remarks_prospect<?php echo $row['prospect_id']; ?>">
+<button style="margin: 5px;" type="button" class="btn btn-custom-remarks btn-rounded" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#remarks_prospect<?php echo $row['prospect_id']; ?>">
                   <i class="fas fa-eye me-2"></i>
                   Add Remarks
-                </button> -->
+                </button>
+
               </td>
             </tr>
           <?php

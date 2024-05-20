@@ -20,7 +20,7 @@ require_once("includes/connect.php");
     <li>
           <a class="navbar-brand" href="">
           <img src="img/hytecpower1.png" width="80px" height="auto" class="d-inline-block img-fluid me-1 ms-2"  alt="">
-            <span class="title fw-bold">Hytec Power Inc</span>
+            <span class="title fw-bold">FAE</span>
           </a>
         </li>
       </li>

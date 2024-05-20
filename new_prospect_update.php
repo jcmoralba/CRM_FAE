@@ -269,7 +269,8 @@
             <!-- <p>Remarks History:</p> -->
 
             <?php
-            $sql4 = "SELECT `remarks_id`, `remarks_desc`, `prospect_id`, account_id, user_type, fname, lname, DATE_FORMAT(`date`, '%M %d, %Y - %r') AS `date` FROM `vw_remarks` WHERE `prospect_id`='{$row['prospect_id']}'";
+            $sql4 = "SELECT `remarks_id`, `remarks_desc`, `prospect_id`, account_id, user_type, fname, lname,
+             DATE_FORMAT(`date`, '%M %d, %Y - %r') AS `date` FROM `vw_remarks` WHERE `prospect_id`='{$row['prospect_id']}'";
             $stmt4 = $con->prepare($sql4);
             $stmt4->execute();
             $data4 = $stmt4->fetchAll();       
