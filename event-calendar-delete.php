@@ -23,8 +23,8 @@ if($delete){
      <script>
         // Display success message with SweetAlert
         Swal.fire({
-            icon: "warning",
-            title: "Delete event sucessfully",
+            icon: "info",
+            title: "Sucessfully the event is done",
             showConfirmButton: false,
         });
         setTimeout(function() {

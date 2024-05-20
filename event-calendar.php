@@ -191,15 +191,18 @@ include 'sidebar.php';
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="confirmationModalLabel">Confirm Deletion</h5>
+        <h5 class="modal-title" id="confirmationModalLabel">Mark event as done</h5>
         <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Are you sure to delete this scheduled event?
+        Are you sure you want to label mark as done youre event?</div>
+      <div class="modal-footer">
       </div>
       <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal"> <i class='bx bxs-x-circle me-2'></i>Close</button>
-        <button type="button" class="btn btn-danger" id="confirmDelete"> <i class='bx bxs-trash me-2'></i>Remove</button>
+    
+      
+        <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal"> <i class='bx bxs-x-circle me-2'></i>Close</button>
+        <button type="button" class="btn btn-primary" id="confirmDelete"></i>Done</button>
       </div>
     </div>
   </div>
@@ -207,7 +210,7 @@ include 'sidebar.php';
 <!-- DELETE MODAL -->
 
 <!-- MARK AS DONE MODAL -->
-<div
+<!-- <div
   class="modal fade"
   id="confirm"
   data-mdb-backdrop="static"
@@ -224,17 +227,16 @@ include 'sidebar.php';
       </div>
       <div class="modal-body">Are you sure you want to label mark as done youre event?</div>
       <div class="modal-footer">
-<<<<<<< HEAD
+
         <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" id="markAsDone" data-mdb-ripple-init>Yes</button>
-=======
-      <button type="button" class="btn btn-success" data-mdb-ripple-init>Done</button>  
-      <button type="button" class="btn btn-danger" data-mdb-ripple-init data-mdb-dismiss="modal"><i class='bx bxs-x-circle me-2'></i> Close</button>
->>>>>>> 87a8b28691362776624612d2a63af356ae9707f7
-      </div>
+        
+       <button type="button" class="btn btn-success" data-mdb-ripple-init>Done</button>  
+      <button type="button" class="btn btn-danger" id="markAsDone"data-mdb-ripple-init data-mdb-dismiss="modal"><i class='bx bxs-x-circle me-2'></i> Close</button> -->
+      <!-- </div>
     </div>
   </div>
-</div>
+</div> -->
 <!-- MARK AS DONE MODAL -->
 
 
@@ -255,29 +257,6 @@ include 'sidebar.php';
                     <h5 class="modal-title">Schedule Details</h5>
                 </div>
                 <div class="modal-body rounded-0">
-<<<<<<< HEAD
-                  <div class="container-fluid">
-                      <dl>
-                          <dt class="text-muted">Title</dt>
-                          <dd id="title" class="fw-bold fs-4"></dd>
-                          <dt class="text-muted">Description</dt>
-                          <dd id="description" class=""></dd>
-                          <dt class="text-muted">Start</dt>
-                          <dd id="start" class=""></dd>
-                          <dt class="text-muted">End</dt>
-                          <dd id="end" class=""></dd>
-                          <button type="button" class="btn btn-primary mt-2 mb-2" id="asDone" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#confirm"><i class="far fa-calendar-check me-2"></i>Mark as done</button>
-                      </dl>
-                  </div>
-              </div>
-              <div class="modal-footer rounded-0">
-                  <div class="text-end">
-                      <button type="button" class="btn btn-primary" id="edit" data-id=""> <i class='bx bxs-pencil me-2'></i>Edit</button>
-                      <button type="button" class="btn btn-danger" id="delete" data-id=""> <i class='bx bxs-trash me-2'></i>Delete</button>
-                      <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal"><i class='bx bxs-x-circle me-2' ></i>Close</button>
-                  </div>
-              </div>
-=======
                     <div class="container-fluid">
                         <dl>
                             <dt class="text-muted">Title</dt>
@@ -288,7 +267,7 @@ include 'sidebar.php';
                             <dd id="start" class=""></dd>
                             <dt class="text-muted">End</dt>
                             <dd id="end" class=""></dd>
-                            <button type="button" class="btn btn-success mt-2 mb-2" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#confirm"><i class="far fa-calendar-check me-2"></i>Mark as done</button>
+                      
                         </dl>
                     </div>
                 </div>
@@ -296,11 +275,10 @@ include 'sidebar.php';
                     <div class="text-end">
                     <button type="button" class="btn btn-primary btn-rounded" id="edit" data-id=""> <i class='bx bxs-pencil me-2'></i>Edit</button>
 
-                        <button type="button" class="btn btn-danger btn-rounded" id="delete" data-id=""> <i class='bx bxs-trash me-2'></i>Remove</button>
+                        <button type="button" class="btn btn-info btn-rounded" id="delete" data-id=""><i class="far fa-calendar-check me-2"></i>Mark as done</button>
                         <button type="button" class="btn btn-secondary btn-rounded" data-mdb-ripple-init data-mdb-dismiss="modal"><i class='bx bxs-x-circle me-2' ></i>Close</button>
                     </div>
                 </div>
->>>>>>> 87a8b28691362776624612d2a63af356ae9707f7
             </div>
         </div>
     </div>

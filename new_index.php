@@ -298,126 +298,13 @@
 
 
 
-
-
-
-
   <!-- ================ Order Details List ================= -->
   <!-- <canvas id="myChart" style="width:100%;max-width:600px"></canvas> -->
 
   <!-- MDB -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"></script>
 
-  <!-- <script>
-    //setup block
-    const sales = <?php echo json_encode($sales); ?>;
-    const company = <?php echo json_encode($company); ?>;
-    const data = {
-      labels: sales,
-      datasets: [{
-        label: '# of Sales',
-        data: company,
-        borderWidth: 1
-      }]
-    };
-    //config block
-    const config = {
-      type: 'bar',
-      data,
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
-
-    };
-
-    //render block
-    const myChart = new Chart(
-      document.getElementById('myChart'),
-      config
-    );
-
-
-    const ctx = document.getElementById('myChart');
-
-    new Chart(ctx, {
-
-    });
-  </script>
-
-  </script> -->
-
-  <!-- ================= New Customers ================ -->
-
-  <!-- <script>
-    // apex chart
-    var options = {
-      chart: {
-        height: 380,
-        type: "area"
-      },
-      dataLabels: {
-        enabled: false
-      },
-      // stroke: {
-      //   curve: 'straight'
-      // },
-      series: [{
-        name: "Series 1",
-        data: [1,2,3]
-      }],
-      
-      fill: {
-        type: "gradient",
-        gradient: {
-          shadeIntensity: 1,
-          opacityFrom: 0.7,
-          opacityTo: 0.9,
-          stops: [0, 90, 100]
-        }
-      },
-      xaxis: {
-        categories: [4,5,6]
-      }
-    };
-
-    var chart = new ApexCharts(document.querySelector("#chart"), options);
-
-    chart.render();
-  </script>
-  <canvas id="myChart2" style="width:100%;max-width:600px; margin-left: 600px; margin-top:800px;"></canvas>
-
-  <script>
-    var xValues2 = ["Italy", "France", "Spain", "USA", "Argentina"];
-    var yValues2 = [55, 49, 44, 24, 15];
-    var barColors = [
-      "#b91d47",
-      "#00aba9",
-      "#2b5797",
-      "#e8c3b9",
-      "#1e7145"
-    ];
-
-    new Chart("myChart2", {
-      type: "pie",
-      data: {
-        labels: xValues2,
-        datasets: [{
-          backgroundColor: barColors,
-          data: yValues2
-        }]
-      },
-      options: {
-        title: {
-          display: true,
-          text: "World Wide Wine Production 2018"
-        }
-      }
-    });
-  </script> -->
+ 
 
   <!-- =========== Scripts =========  -->
   <script src="js/main.js"></script>

@@ -62,9 +62,7 @@ require_once("includes/connect.php");
         </a>
       </li>
 
-      <button onClick>
 
-      </button>
      
     </ul>
   </div>

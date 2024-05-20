@@ -72,7 +72,7 @@ include "sidebar.php";
                             <?php echo $row['pdf']; ?>
                         </td>
                         <td>
-                            <?php echo $row['last_contacted']; ?>
+                        <?php echo date('F j, Y', strtotime($row['last_contacted'])). ' @ '. date('g:i A', strtotime($row['last_contacted']));?>
                         </td>
                         <td>
                             <?php echo $row['remark']; ?>
