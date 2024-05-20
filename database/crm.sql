@@ -315,6 +315,7 @@ DROP TABLE IF EXISTS `vw_remarks`;
  `date` datetime ,
  `account_id` int(11) ,
  `fname` varchar(255) ,
+ `lname` varchar(255) ,
  `user_type` varchar(255) 
 )*/;
 
@@ -330,7 +331,7 @@ DROP TABLE IF EXISTS `vw_remarks`;
 /*!50001 DROP TABLE IF EXISTS `vw_remarks` */;
 /*!50001 DROP VIEW IF EXISTS `vw_remarks` */;
 
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_remarks` AS select `e`.`remarks_id` AS `remarks_id`,`e`.`remarks_desc` AS `remarks_desc`,`e`.`prospect_id` AS `prospect_id`,`e`.`date` AS `date`,`e`.`account_id` AS `account_id`,`a`.`fname` AS `fname`,`a`.`user_type` AS `user_type` from (`remarks_history` `e` join `account` `a` on(`e`.`account_id` = `a`.`account_id`)) */;
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_remarks` AS select `e`.`remarks_id` AS `remarks_id`,`e`.`remarks_desc` AS `remarks_desc`,`e`.`prospect_id` AS `prospect_id`,`e`.`date` AS `date`,`e`.`account_id` AS `account_id`,`a`.`fname` AS `fname`,`a`.`lname` AS `lname`,`a`.`user_type` AS `user_type` from (`remarks_history` `e` join `account` `a` on(`e`.`account_id` = `a`.`account_id`)) */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
