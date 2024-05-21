@@ -54,7 +54,7 @@ include "sidebar.php";
             </thead>
             <tbody>
                 <?php
-                $sql1 = "SELECT * FROM new_prospect WHERE `status` = 'Close Deals'";
+                $sql1 = "SELECT * FROM new_prospect WHERE `status` = 'COMMISSIONING'";
 
                 $sql = "SELECT `prospect_id`, `company_name`, `pdf`, `last_contacted`, `remark`, CONCAT('₱',FORMAT(`total_sales`,2,'en_US')) AS `total_sales` FROM `new_prospect` WHERE `status`= 'Close Deals'";
                 $stmt = $con->prepare($sql);
