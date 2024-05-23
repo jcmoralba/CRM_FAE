@@ -3,6 +3,7 @@
 <?php
 set_time_limit(50000);
 
+
 if (isset($_POST['submit'])) {
 
     $row_start = $_POST['start_row'];
@@ -17,22 +18,18 @@ if (isset($_POST['submit'])) {
     $pics = "0";
     $dlallpics = array();
 
-    for ($i = 2; $i <= 5; $i++) {
+    for ($i = $row_start; $i <= $row_end; $i++) {
 
-        $sql = "SELECT * FROM norbar WHERE id='$i'";
+        $sql = "SELECT * FROM data WHERE id='$i'";
         $stmt = $con1->prepare($sql);
         $stmt->execute();
         while ($row = $stmt->fetch()) {
             $id = $row['id'];
-            $model_id = $row['COL 1'];
-            $item_name = $row['COL 2'];
-            $desc = $row['COL 4'];
-            $specs = $row['COL 3'];
-            $pics = $row['COL 5'];
-
-
-
-
+            $model_id = $row['model_id'];
+            $item_name = $row['item_name'];
+            $desc = $row['desc'];
+            $specs = $row['specs'];
+            $pics = $row['pics'];
 
 
             $pics = str_replace("?usp=sharing", "", $pics);
@@ -65,9 +62,25 @@ if (isset($_POST['submit'])) {
             //  $file_path = "saved_data.txt";
             $txt_name = trim($txt_name);
             // C:\Users\User\Downloads
-            $file_path = "C:/Users/User/Downloads/" . $txt_name . ".txt";
+            $paths = $_SESSION["dl_path"];
+            $file_path = $paths . $txt_name . ".txt";
             //C:\Users\jc\Documents\
             // Open the file in append mode
+            if (file_exists($file_path) == true) {
+                $file_path = $paths . $txt_name . " (1).txt";
+                if (file_exists($file_path) == true) {
+                    $file_path = $paths . $txt_name . " (2).txt";
+                    if (file_exists($file_path) == true) {
+                        $file_path = $paths . $txt_name . " (3).txt";
+                        if (file_exists($file_path) == true) {
+                            $file_path = $paths . $txt_name . " (4).txt";
+                            if (file_exists($file_path) == true) {
+                                $file_path = $paths . $txt_name . " (5).txt";
+                            }
+                        }
+                    }
+                }
+            }
             file_put_contents($file_path, "");
             $file = fopen($file_path, "a");
 
@@ -111,7 +124,7 @@ if (isset($_POST['submit'])) {
 
 
 
-           
+
         }
     }
 
@@ -122,6 +135,15 @@ if (isset($_POST['submit'])) {
     foreach ($dlallpics as $url) {
         echo "<a href='$url' target='_blank'>$url</a><br>";
     }
+} elseif (isset($_POST['dl_path1'])) {
+    $_SESSION["dl_path"] = $_POST['dl_path'];
+    //  echo $_POST['dl_path'];
+
+    echo file_exists("C:/Users/rueda/Downloads/test.txt");
+
+
+     header("location:zzz_jc.php");
+
 }
 
 ?>

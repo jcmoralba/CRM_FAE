@@ -40,7 +40,7 @@ if (isset($_POST["submit1"])) {
 
 
     //COUNTER
-    $counterMap = []
+    $counterMap = [];
 
     //COUNTER
     if (array_key_exists($model_id, $counterMap)) {

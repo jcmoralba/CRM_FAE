@@ -1,4 +1,5 @@
 <?php
+session_start();
 $host = "localhost";
 $dbase = "crm";
 $dsn = "mysql:host={$host};dbname={$dbase}";

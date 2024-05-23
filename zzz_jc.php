@@ -8,10 +8,18 @@
 </head>
 <body>
     <form action="zzz_jc_process.php" method="post">
+        <label for=""> C:/Users/User/Downloads/</label>
+    <input type="text" name="dl_path" placeholder="download path">
+    <button type="submit" name="dl_path1">set</button>
 <input type="text" name="start_row" placeholder="row start">
 <input type="text" name="end_row" placeholder="row end">
-    <button type="submit" name="submit">convert</button>
+<button type="submit" name="submit">convert</button>
+
+
     </form>
+    <p>your dl path: <?php echo  $_SESSION["dl_path"]; ?></p>
+
+   
 
 
 
@@ -33,7 +41,7 @@
         <tbody>
 
             <?php
-            $sql = "SELECT * FROM norbar WHERE stat='0' LIMIT 5";
+            $sql = "SELECT * FROM data WHERE stat='0' LIMIT 5";
             $stmt = $con1->prepare($sql);
             $stmt->execute();
             while ($row = $stmt->fetch()) {
@@ -42,25 +50,25 @@
                     <tr>
                    
                         <td>
-                            <input type="text" name="model_id" value="<?php echo $row['COL 1']; ?>">
+                            <input type="text" name="model_id" value="<?php echo $row['model_id']; ?>">
                         </td>
                         <td>
                             <!-- <input type="text" name="item_name" value="<?php echo $row['COL 2']; ?>"> -->
-                            <textarea name="item_name" id="" cols="30" rows="10"><?php echo $row['COL 2']; ?></textarea>
+                            <textarea name="item_name" id="" cols="30" rows="10"><?php echo $row['item_name']; ?></textarea>
                         </td>
                         <td>
-                            <textarea name="desc" id="" cols="30" rows="10"><?php echo nl2br($row['COL 4']); ?></textarea>
+                            <textarea name="desc" id="" cols="30" rows="10"><?php echo nl2br($row['desc']); ?></textarea>
                         </td>
                         <!-- <td>
                             <textarea name="specs" id="" cols="30" rows="10"><?php echo nl2br($row['COL 4']); ?></textarea>
                             <input type="text" name="specs1" value="<?php echo nl2br($row['COL 4']); ?>">    
                         </td> -->
                         <td>
-                            <textarea name="specs" id="" cols="30" rows="10"><?php echo nl2br($row['COL 3']); ?></textarea>
+                            <textarea name="specs" id="" cols="30" rows="10"><?php echo nl2br($row['specs']); ?></textarea>
 
                         </td>
                         <td>
-                            <input type="text" name="pics" value="<?php echo $row['COL 5']; ?>">
+                            <input type="text" name="pics" value="<?php echo $row['pics']; ?>">
                         </td>
                         <!-- <td>
                             <input type="text" name="status" value="<?php echo $row['COL 6']; ?>">
