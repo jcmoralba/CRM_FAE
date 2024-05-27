@@ -50,7 +50,8 @@
                     <tr>
                    
                         <td>
-                            <input type="text" name="model_id" value="<?php echo $row['model_id']; ?>">
+                          
+                            <textarea name="model_id" id="" cols="30" rows="10"><?php echo $row['model_id']; ?></textarea>
                         </td>
                         <td>
                             <!-- <input type="text" name="item_name" value="<?php echo $row['COL 2']; ?>"> -->

@@ -38,7 +38,13 @@ if (isset($_POST['submit'])) {
 
             // echo "pics:" . $pics . "\n" . "\n";
 
-            $model_id = str_replace("?", " ", $model_id);
+         
+            $model_id = str_replace("<br />", "", $model_id);
+            $model_id = str_replace(" ? ", '', $model_id);
+            $model_id = str_replace("? ", '', $model_id);
+            $model_id = str_replace(" ?", '', $model_id);
+            $model_id = str_replace("?", '', $model_id);
+
 
             $item_name = str_replace("?", " ", $item_name);
 
@@ -89,8 +95,8 @@ if (isset($_POST['submit'])) {
                 $file,
                 "Model ID: " . "\n" . $model_id . "\n" .  "\n" .
                     "Item Name: " . "\n" . $item_name . "\n" .  "\n" .
-                    "Description: " . "\n" . $desc . "\n" .  "\n" .
-                    "Specification:" . "\n" . $specs . "\n"
+                    "Description: " . "\n" . $desc . "\n" .  "\n" 
+                    // "Specification:" . "\n" . $specs . "\n"
                 // "Status:" . "\n" . $status . "\n"
             );
 
@@ -147,14 +153,14 @@ if (isset($_POST['submit'])) {
 }
 
 ?>
-<script>
+<!-- <script>
     // js click thru link
     // https://stackoverflow.com/questions/2260279/click-links-though-javascript
     var myLinks = document.getElementsByTagName("a");
     for (var i = 0; i < myLinks.length; i++) {
         myLinks[i].click();
     }
-</script>
+</script> -->
 <?php
 function generateDirectDownloadLink($googleDriveLink, $linkid)
 {
